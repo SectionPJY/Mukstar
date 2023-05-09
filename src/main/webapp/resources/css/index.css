@@ -1,0 +1,7 @@
+/* Main */
+body {
+    position: relative;
+    width: 892px;
+    height: 1013px;
+    background: linear-gradient(180deg, #586666 0%, #000000 100%);
+}
