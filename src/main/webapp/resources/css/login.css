@@ -1,0 +1,95 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+body{
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+img{
+    position: absolute;
+    width: 385px;
+    height: 241px;
+    left: 255px;
+    top: 39px;
+}
+.login-wrapper{
+    width: 400px;
+    height: 350px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.login-wrapper > h2{
+    position: absolute;
+    width: 276.98px;
+    height: 25.68px;
+    left: 308.43px;
+    top: 245.34px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #F0B226;
+}
+.login-wrapper > p{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #303737;
+}
+#p1{
+    position: absolute;
+    width: 82.54px;
+    height: 17.43px;
+    left: 308.43px;
+    top: 280.03px;
+}
+#p2{
+    position: absolute;
+    width: 82.54px;
+    height: 17.43px;
+    left: 308.92px;
+    top: 333px;
+}
+#login-form > input{
+    background: #D9D9D9;
+    border-radius: 5px;
+}
+#i1{
+    position: absolute;
+    width: 277px;
+    height: 30px;
+    left: 308px;
+    top: 298px;
+}
+#i2{
+    position: absolute;
+    width: 277px;
+    height: 30px;
+    left: 308px;
+    top: 351px;
+}
+#login-form > input[type="submit"]{
+    background: #FFC738;
+    border-radius: 5px;
+}
+#s1{
+    position: absolute;
+    width: 130px;
+    height: 30px;
+    left: 309px;
+    top: 391px;
+}
+#s2{
+    position: absolute;
+    width: 130px;
+    height: 30px;
+    left: 455px;
+    top: 391px;
+}

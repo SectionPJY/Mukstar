@@ -13,4 +13,5 @@
     </bean>
 
     <context:component-scan base-package="com.glowsoft.spring_test"/>
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
 </beans>
