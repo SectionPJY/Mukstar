@@ -1,4 +1,4 @@
-package com.glowsoft.spring_test;
+package com.spring.mukstar;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
