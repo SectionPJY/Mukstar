@@ -15,11 +15,11 @@
 <div class="menu">
     <div class="first"><a href="#"><p>추천</p></a></div>
     <div class="second"><a href="#"><p>고객센터</p></a></div>
-    <div class="third"><a href="#"><p>Login</p></a></div>
+    <div class="third"><a href="/login"><p>Login</p></a></div>
 </div>
 <div class="menu2">
-    <button class="mapbtn" type="button">지도보기</button>
-    <button class="findbtn" type="button">유저찾기</button>
+    <button class="mapbtn" onclick="location.href='/map'" type="button">지도보기</button>
+    <button class="findbtn" onclick="location.href='/userSearch'" type="button">유저찾기</button>
 </div>
 
 <div class="slideshow">
@@ -37,20 +37,5 @@
     </p>
 </div>
 <script src="resources/JS/slideShow.js"></script>
-<%--
-  Created by IntelliJ IDEA.
-  User: sectionsmacbookair
-  Date: 2023/05/09
-  Time: 9:04 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Mukstar</title>
-    <%@include file="header.jsp"%>
-</head>
-<body>
-
 </body>
 </html>
