@@ -22,14 +22,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <c:forEach items="${userList }" var="User">
+    <c:forEach items="${userList }" var="User">
+        <tr>
             <td>${User.u_id }</td>
             <td>${User.u_pw }</td>
             <td>${User.u_nickname }</td>
             <td>${User.u_phone }</td>
-        </c:forEach>
-    </tr>
+        </tr>
+    </c:forEach>
     </tbody>
 </table>
 </body>
