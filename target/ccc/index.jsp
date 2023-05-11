@@ -4,6 +4,7 @@
 <body>
 <h2>Hello World!</h2>
 <br><br>
-<a href="test">DB연결 테스트</a>
+<a href="test">DB연결 테스트</a> <br>
+<a href="testLogin">Login 테스트</a>
 </body>
 </html>

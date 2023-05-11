@@ -3,7 +3,13 @@
 <mapper namespace="UserMapper">
     <!-- User List Query -->
     <select id="userList" resultType="UserDTO">
-        SELECT u_id, u_pw, u_nickname, u_phone, u_img
+        SELECT *
         FROM m_user;
+    </select>
+
+    <select id="userLogin" resultType="int">
+        SELECT COUNT(*)
+        FROM m_user
+        WHERE u_id = #{u_id } AND u_pw = #{u_pw };
     </select>
 </mapper>
