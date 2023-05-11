@@ -22,6 +22,7 @@ public class TestCommand {
         if (uList.isEmpty()) {
             System.out.println("===== List is Empty =====");
         }
+        System.out.println("===== List is Not Empty =====");
         model.addAttribute("userList", uList);
 
         return uList;

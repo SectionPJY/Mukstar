@@ -20,13 +20,14 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping("/test")
+    @RequestMapping("test")
     public ModelAndView test(Model model) {
         System.out.println("===== Test Page =====");
 
         ModelAndView mv = new ModelAndView("test");
         mv.addObject("data", testCommand.execute(model));
 
+        System.out.println("===== Page Loading =====");
         return mv;
     }
 

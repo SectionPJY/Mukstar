@@ -15,7 +15,7 @@ public class UserDAO {
 
     // User List
     public List<UserDTO> userList() {
-        System.out.println("========== User List ==========");
+        System.out.println("========== User List DAO ==========");
         System.out.println(sqlSession.getConfiguration());
         System.out.println(sqlSession.getConnection());
 
