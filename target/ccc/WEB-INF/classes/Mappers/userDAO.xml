@@ -3,7 +3,20 @@
 <mapper namespace="UserMapper">
     <!-- User List Query -->
     <select id="userList" resultType="UserDTO">
-        SELECT u_id, u_pw, u_nickname, u_phone, u_img
+        SELECT *
         FROM m_user;
     </select>
+
+    <!-- User Login Query -->
+    <select id="userLogin" resultType="int">
+        SELECT COUNT(*)
+        FROM m_user
+        WHERE u_id = #{u_id } AND u_pw = #{u_pw };
+    </select>
+
+    <!-- User Sign Up -->
+    <insert id="userSignup">
+        INSERT INTO m_user(u_id, u_pw, u_nickname, u_phone)
+        VALUES(#{u_id }, #{u_pw }, #{u_nickname }, #{u_phone });
+    </insert>
 </mapper>
