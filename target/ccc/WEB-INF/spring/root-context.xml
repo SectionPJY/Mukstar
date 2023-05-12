@@ -9,28 +9,28 @@
 
     <mybatis-spring:scan base-package="com.spring.mukstar"/>
 
-<!--    &lt;!&ndash; DB &ndash;&gt;-->
-<!--    <bean id="dataSource"-->
-<!--          class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-<!--        <property name="driverClassName" value="org.h2.Driver"></property>-->
-<!--        <property name="url"-->
-<!--                  value="jdbc:h2:tcp://localhost/~/midterm"></property>-->
-<!--        <property name="username" value="root"></property>-->
-<!--        <property name="password" value="1234"></property>-->
-<!--    </bean>-->
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName"
+                  value="org.mariadb.jdbc.Driver"></property>
+        <property name="url"
+                  value="jdbc:mariadb://localhost:3306/mukstar"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="1111"></property>
+    </bean>
 
-<!--    <bean id="sqlSessionFactory"-->
-<!--          class="org.mybatis.spring.SqlSessionFactoryBean">-->
-<!--        <property name="dataSource" ref="dataSource"></property>-->
-<!--        <property name="configLocation"-->
-<!--                  value="classpath:/mybatis/mybatis-config.xml"></property>-->
-<!--        <property name="mapperLocations"-->
-<!--                  value="classpath*:/Mappers/*.xml"></property>-->
-<!--    </bean>-->
+    <bean id="sqlSessionFactory"
+          class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation"
+                  value="classpath:/mybatis/mybatis-config.xml"></property>
+        <property name="mapperLocations"
+                  value="classpath*:/Mappers/*.xml"></property>
+    </bean>
 
-<!--    <bean id="sqlSession"-->
-<!--          class="org.mybatis.spring.SqlSessionTemplate">-->
-<!--        <constructor-arg name="sqlSessionFactory"-->
-<!--                         ref="sqlSessionFactory"></constructor-arg>-->
-<!--    </bean>-->
+    <bean id="sqlSession"
+          class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory"
+                         ref="sqlSessionFactory"></constructor-arg>
+    </bean>
 </beans>
