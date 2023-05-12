@@ -19,7 +19,7 @@ public class TestSignUpCommand {
         String u_id = request.getParameter("u_id");
         String u_pw = request.getParameter("u_pw");
         String u_nickname = request.getParameter("u_nickname");
-        String u_phone = request.getParameter("u_phone");
+        String u_phone = phoneFormat(request.getParameter("u_phone"));
 
         System.out.println("==========");
         System.out.println("ID : " + u_id + ", PW : " + u_pw + ", NickName : " + u_nickname + ", P.H : " + u_phone);
@@ -33,5 +33,10 @@ public class TestSignUpCommand {
         }
 
         return result;
+    }
+
+    public String phoneFormat(String number) {
+        String regEx = "(\\d{3})(\\d{3,4})(\\d{4})";
+        return number.replaceAll(regEx, "$1-$2-$3");
     }
 }
