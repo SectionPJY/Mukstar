@@ -2,6 +2,7 @@ package com.spring.mukstar;
 
 import com.spring.mukstar.command.TestCommand;
 import com.spring.mukstar.command.TestLoginCommand;
+import com.spring.mukstar.command.TestSignUpCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,8 @@ public class HomeController {
     private TestCommand testCommand;
     @Autowired
     private TestLoginCommand testLoginCommand;
+    @Autowired
+    private TestSignUpCommand testSignUpCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -64,6 +67,43 @@ public class HomeController {
             System.out.println("===== Page Loading =====");
             return "testLoginFail";
         }
+    }
+
+    @RequestMapping("testSignup")
+    public String testSignup() {
+        System.out.println("===== SignUp Test Page =====");
+
+        System.out.println("===== Page Loading =====");
+        return "testSignup";
+    }
+
+    @RequestMapping("signupCheck")
+    public String signupCheck(HttpServletRequest request, Model model) {
+        System.out.println("===== SignUp Check =====");
+
+        if (null == request) {
+            System.out.println("===== Error =====");
+
+            request.setAttribute("msg", "오류가 발생했습니다.");
+            request.setAttribute("url", "index");
+
+            return "alert";
+        }
+
+        int result = testSignUpCommand.execute(request);
+        if (1 == result) {
+            System.out.println("===== SignUp Success =====");
+
+            request.setAttribute("msg", "회원가입이 완료되었습니다.");
+            request.setAttribute("url", "testLogin");
+        } else {
+            System.out.println("===== SignUp Fail =====");
+
+            request.setAttribute("msg", "회원가입에 실패하였습니다,");
+            request.setAttribute("url", "index");
+        }
+
+        return "alert";
     }
 
     @RequestMapping("/index")

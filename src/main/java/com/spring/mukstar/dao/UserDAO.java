@@ -38,4 +38,17 @@ public class UserDAO {
 
         return sqlSession.selectOne("UserMapper.userLogin", map);
     }
+
+    // User SignUp
+    public int userSignup(String u_id, String u_pw, String u_nickname, String u_phone) {
+        System.out.println("===== User SignUp DAO =====");
+
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("u_id", u_id);
+        map.put("u_pw", u_id);
+        map.put("u_nickname", u_id);
+        map.put("u_phone", u_phone);
+
+        return sqlSession.insert("UserMapper.userSignup", map);
+    }
 }
