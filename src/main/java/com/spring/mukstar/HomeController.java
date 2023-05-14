@@ -25,4 +25,10 @@ public class HomeController {
 
         return "test";
     }
+
+    @RequestMapping("/userPage")
+    public String userPage() {
+
+        return "userPage";
+    }
 }
