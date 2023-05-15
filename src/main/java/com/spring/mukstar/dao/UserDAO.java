@@ -51,4 +51,23 @@ public class UserDAO {
 
         return sqlSession.insert("UserMapper.userSignup", map);
     }
+
+    // User Update
+    public int userUpdate(String u_id, String u_pw, String u_nickname, String u_phone) {
+        System.out.println("===== User Update DAO =====");
+
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("u_id", u_id);
+        map.put("u_pw", u_pw);
+        map.put("u_nickname", u_nickname);
+        map.put("u_phone", u_phone);
+
+        return sqlSession.update("UserMapper.userUpdate", map);
+    }
+
+    // User Information
+    public List<UserDTO> userInfo(String u_id) {
+
+        return null;
+    }
 }
