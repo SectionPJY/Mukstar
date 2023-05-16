@@ -43,7 +43,7 @@ public class HomeController {
     public String testLogin() {
         System.out.println("===== Login Test Page =====");
 
-        return "Login";
+        return "login";
     }
 
     @RequestMapping("loginCheck")
