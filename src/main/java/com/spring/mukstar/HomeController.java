@@ -53,13 +53,10 @@ public class HomeController {
     public String loginCheck(HttpServletRequest request, Model model) {
         System.out.println("===== Login Checking =====");
 
-        String u_id = request.getParameter("u_id");
-        String u_pw = request.getParameter("u_pw");
-        System.out.println("===== ID : " + u_id + ", PW : " + u_pw + " =====");
-
-        int result = testLoginCommand.execute(u_id, u_pw);
+        int result = testLoginCommand.execute(request);
         if (1 == result) {
             System.out.println("===== Login Success =====");
+            String u_id = request.getParameter("u_id");
             model.addAttribute("u_id", u_id);
 
             System.out.println("===== Page Loading =====");
