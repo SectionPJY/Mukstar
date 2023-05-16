@@ -33,7 +33,7 @@ public class HomeController {
     public String home(Model model) {
         model.addAttribute("data", "Hello, Spring from IntelliJ! : )");
 
-        return "index";
+        return "testIndex";
     }
 
     @RequestMapping("test")
@@ -145,12 +145,12 @@ public class HomeController {
 
         session.invalidate();
 
-        return "index";
+        return "testIndex";
     }
 
     @RequestMapping("/index")
     public String index() {
 
-        return "index";
+        return "testIndex";
     }
 }
