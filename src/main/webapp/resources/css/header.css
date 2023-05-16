@@ -1,0 +1,63 @@
+* {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*body {
+  background-image: url("../assets/Login.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}*/
+
+.logo {
+  position: relative;
+  left: 48px;
+  top: 50px;
+}
+
+.logo img {
+  width: 127px;
+  height: 80px;
+}
+
+#searchBox {
+  position: absolute;
+  width: 375px;
+  height: 32px;
+  border-radius: 16px;
+  border: none;
+  left: 207px;
+  top: 71px;
+}
+
+.menu {
+  position: absolute;
+  width: 230px;
+  height: 53px;
+  left: 614px;
+  top: 50px;
+  margin: 10px auto;
+}
+
+.menu div a {
+  color: black;
+}
+
+.menu2 {
+  position: absolute;
+  width: 281px;
+  left: 302px;
+  top: 119px;
+  margin: 11px;
+}
+
+.menu2 button {
+  width: 134px;
+  height: 32px;
+  border-radius: 18px;
+  border: none;
+  cursor: pointer;
+}
