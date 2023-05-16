@@ -130,10 +130,10 @@ public class HomeController {
         int result = testUpdateCommand.execute(request);
         if (1 == result) {
             request.setAttribute("msg", "수정이 완료되었습니다.");
-            request.setAttribute("url", "testLoginSuccess");
+            request.setAttribute("url", "logout");
         } else {
             request.setAttribute("msg", "수정에 실패하였습니다.");
-            request.setAttribute("url", "testLogin");
+            request.setAttribute("url", "logout");
         }
 
         return "alert";

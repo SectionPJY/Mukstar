@@ -5,9 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Service
 public class TestUpdateCommand {
+
+    @Autowired
+    private HttpSession session;
 
     @Autowired
     private UserDAO dao;
@@ -15,7 +19,7 @@ public class TestUpdateCommand {
     public int execute(HttpServletRequest request) {
         System.out.println("===== Test Update Command is Running =====");
 
-        String u_id = request.getParameter("u_id");
+        String u_id = session.getAttribute("u_id").toString();
         String u_pw = request.getParameter("u_pw");
         String u_nickname = request.getParameter("u_nickname");
         String u_phone = phoneFormat(request.getParameter("u_phone"));
