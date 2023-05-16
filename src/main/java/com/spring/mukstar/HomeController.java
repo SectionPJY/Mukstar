@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
+
+    private HttpSession session;
 
     @Autowired
     private TestCommand testCommand;
@@ -130,6 +133,15 @@ public class HomeController {
         }
 
         return "alert";
+    }
+
+    @RequestMapping("logout")
+    public String logout() {
+        System.out.println("===== User LogOut =====");
+
+        session.invalidate();
+
+        return "index";
     }
 
     @RequestMapping("/index")
