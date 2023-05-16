@@ -13,5 +13,7 @@
 <body>
 <h3>Login Success</h3>
 ID : ${u_id }
+<a href="#">정보수정 테스트</a> <br>
+<a href="#">로그아웃</a>
 </body>
 </html>
