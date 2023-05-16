@@ -52,6 +52,13 @@ public class UserDAO {
         return sqlSession.insert("UserMapper.userSignup", map);
     }
 
+    // User Information
+    public List<UserDTO> userInfo(String u_id) {
+        System.out.println("===== User Information DAO =====");
+
+        return sqlSession.selectList("UserMapper.userInfo", u_id);
+    }
+
     // User Update
     public int userUpdate(String u_id, String u_pw, String u_nickname, String u_phone) {
         System.out.println("===== User Update DAO =====");
@@ -63,11 +70,5 @@ public class UserDAO {
         map.put("u_phone", u_phone);
 
         return sqlSession.update("UserMapper.userUpdate", map);
-    }
-
-    // User Information
-    public List<UserDTO> userInfo(String u_id) {
-
-        return null;
     }
 }

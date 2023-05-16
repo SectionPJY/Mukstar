@@ -3,6 +3,7 @@ package com.spring.mukstar;
 import com.spring.mukstar.command.TestCommand;
 import com.spring.mukstar.command.TestLoginCommand;
 import com.spring.mukstar.command.TestSignUpCommand;
+import com.spring.mukstar.command.TestUpdateCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,8 @@ public class HomeController {
     private TestLoginCommand testLoginCommand;
     @Autowired
     private TestSignUpCommand testSignUpCommand;
+    @Autowired
+    private TestUpdateCommand testUpdateCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -106,12 +109,30 @@ public class HomeController {
         return "alert";
     }
 
-    @RequestMapping("/testUpdate")
+    @RequestMapping("testUpdate")
     public String testUpdate() {
         System.out.println("===== Update Test Page =====");
 
+
+
         System.out.println("===== Page Loading =====");
         return "testUpdate";
+    }
+
+    @RequestMapping("userUpdate")
+    public String userUpdate(HttpServletRequest request) {
+        System.out.println("===== Update User =====");
+
+        int result = testUpdateCommand.execute(request);
+        if (1 == result) {
+            request.setAttribute("msg", "수정이 완료되었습니다.");
+            request.setAttribute("url", "testLoginSuccess");
+        } else {
+            request.setAttribute("msg", "수정에 실패하였습니다.");
+            request.setAttribute("url", "testLogin");
+        }
+
+        return "alert";
     }
 
     @RequestMapping("/index")
