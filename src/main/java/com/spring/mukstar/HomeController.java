@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class HomeController {
 
+    @Autowired
     private HttpSession session;
 
     @Autowired
@@ -112,7 +113,6 @@ public class HomeController {
     @RequestMapping("testUpdate")
     public String testUpdate() {
         System.out.println("===== Update Test Page =====");
-
 
 
         System.out.println("===== Page Loading =====");

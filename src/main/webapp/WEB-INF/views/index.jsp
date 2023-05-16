@@ -1,17 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: sectionsmacbookair
-  Date: 2023/05/09
-  Time: 9:04 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<head>
-    <title>Mukstar</title>
-    <%@include file="header.jsp"%>
-</head>
 <body>
-
+<h2>Hello World!</h2>
+<br><br>
+<a href="test">DB연결 테스트</a> <br>
+<a href="testLogin">Login 테스트</a> <br>
+<a href="testSignup">SignUp 테스트</a> <br>
+<a href=""></a>
 </body>
 </html>
