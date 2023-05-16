@@ -7,13 +7,15 @@ public class UserDTO {
     private String u_nickname;
     private String u_phone;
     private String u_img;
+    private int u_drop;
 
-    public UserDTO(String u_id, String u_pw, String u_nickname, String u_phone, String u_img) {
+    public UserDTO(String u_id, String u_pw, String u_nickname, String u_phone, String u_img, int u_drop) {
         this.u_id = u_id;
         this.u_pw = u_pw;
         this.u_nickname = u_nickname;
         this.u_phone = u_phone;
         this.u_img = u_img;
+        this.u_drop = u_drop;
     }
 
     public String getU_id() {
@@ -54,5 +56,13 @@ public class UserDTO {
 
     public void setU_img(String u_img) {
         this.u_img = u_img;
+    }
+
+    public int getU_drop() {
+        return u_drop;
+    }
+
+    public void setU_drop(int u_drop) {
+        this.u_drop = u_drop;
     }
 }

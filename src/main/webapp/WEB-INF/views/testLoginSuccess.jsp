@@ -21,7 +21,7 @@
         out.print(
                 "<h3>Session is Exists</h3> <br>" +
                         "ID : " + session.getAttribute("u_id") + "<br> <br>" +
-                        "<a href='#'>정보수정 테스트</a> <br>" +
+                        "<a href='testUpdate'>정보수정 테스트</a> <br>" +
                         "<a href='logout'>로그아웃</a>"
         );
     }

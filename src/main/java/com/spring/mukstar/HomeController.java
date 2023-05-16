@@ -1,9 +1,7 @@
 package com.spring.mukstar;
 
-import com.spring.mukstar.command.TestCommand;
-import com.spring.mukstar.command.TestLoginCommand;
-import com.spring.mukstar.command.TestSignUpCommand;
-import com.spring.mukstar.command.TestUpdateCommand;
+import com.spring.mukstar.command.*;
+import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -27,12 +26,14 @@ public class HomeController {
     private TestSignUpCommand testSignUpCommand;
     @Autowired
     private TestUpdateCommand testUpdateCommand;
+    @Autowired
+    private TestUserInfoCommand testUserInfoCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
         model.addAttribute("data", "Hello, Spring from IntelliJ! : )");
 
-        return "home";
+        return "index";
     }
 
     @RequestMapping("test")
@@ -111,12 +112,15 @@ public class HomeController {
     }
 
     @RequestMapping("testUpdate")
-    public String testUpdate() {
+    public ModelAndView testUpdate(HttpServletRequest request, Model model) {
         System.out.println("===== Update Test Page =====");
 
+        List<UserDTO> dto = testUserInfoCommand.execute(model);
+        ModelAndView mv = new ModelAndView("testUpdate");
+        mv.addObject("data", dto);
 
         System.out.println("===== Page Loading =====");
-        return "testUpdate";
+        return mv;
     }
 
     @RequestMapping("userUpdate")
