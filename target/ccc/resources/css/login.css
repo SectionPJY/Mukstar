@@ -88,6 +88,10 @@ img{
     background: #FFC738;
     border-radius: 5px;
 }
+#login-form > input[type="button"]{
+    background: #FFC738;
+    border-radius: 5px;
+}
 #s1{
     position: absolute;
     width: 195.17px;
