@@ -106,6 +106,14 @@ public class HomeController {
         return "alert";
     }
 
+    @RequestMapping("/testUpdate")
+    public String testUpdate() {
+        System.out.println("===== Update Test Page =====");
+
+        System.out.println("===== Page Loading =====");
+        return "testUpdate";
+    }
+
     @RequestMapping("/index")
     public String index() {
 
