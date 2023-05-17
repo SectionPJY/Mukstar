@@ -2,17 +2,32 @@
 <html>
 <head>
     <title>Test</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="resources/JS/test.js"></script>
+    <link href="resources/css/test.css" rel="stylesheet">
 </head>
 <body>
-<div class="slider-wrap">
-    <div class="cont">1</div>
-    <div class="cont">2</div>
-    <div class="cont">3</div>
-    <div class="cont">4</div>
-    <div class="cont">5</div>
+<div id="wrap">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">추천</a>
+                    <ul>
+                        <li><a href="#">유저 랭킹</a></li>
+                        <li><a href="#">지역별 맛집</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">고객센터</a>
+                    <ul>
+                        <li><a href="#">자주하는 질문</a></li>
+                        <li><a href="#">질문하기</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+    </header>
 </div>
 </body>
 </html>

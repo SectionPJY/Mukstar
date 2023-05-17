@@ -79,9 +79,9 @@ li {
 
 .slides {
   /*이미지들이 담겨있는 슬라이드 컨테이너*/
-  position: relative;
+  position: absolute;
   left: 0;
-  top: 0;
+  top: 350px;
   width: 2500px; /* 슬라이드할 사진과 마진 총 넓이 */
   transition: 0.5s ease-out; /*ease-out: 처음에는 느렸다가 점점 빨라짐*/
 }

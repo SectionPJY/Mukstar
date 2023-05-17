@@ -1,0 +1,24 @@
+
+/* 헤더 영역 css 시작 */
+header nav > ul {
+    width: 600px;
+    float: right;
+    margin-top: 60px;
+}
+header nav > ul > li {
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    float: left;
+    position: relative;
+    background-color: lightblue;
+}
+header nav > ul > li > ul {
+    display: none;
+    position: absolute;
+    top:40px;
+    left: 0;
+    width:100%;
+    background-color: lightblue;
+}
