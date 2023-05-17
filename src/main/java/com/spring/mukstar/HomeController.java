@@ -33,7 +33,13 @@ public class HomeController {
     public String home(Model model) {
         model.addAttribute("data", "Hello, Spring from IntelliJ! : )");
 
-        return "testIndex";
+        return "index";
+    }
+
+    @RequestMapping("/userPage")
+    public String userPage() {
+
+        return "userPage";
     }
 
     @RequestMapping("test")
@@ -47,11 +53,11 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping("testLogin")
+    @RequestMapping("login")
     public String testLogin() {
         System.out.println("===== Login Test Page =====");
 
-        return "testLogin";
+        return "login";
     }
 
     @RequestMapping("loginCheck")
@@ -74,12 +80,12 @@ public class HomeController {
         }
     }
 
-    @RequestMapping("testSignup")
+    @RequestMapping("signup")
     public String testSignup() {
         System.out.println("===== SignUp Test Page =====");
 
         System.out.println("===== Page Loading =====");
-        return "testSignup";
+        return "signup";
     }
 
     @RequestMapping("signupCheck")

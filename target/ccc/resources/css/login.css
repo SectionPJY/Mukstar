@@ -85,12 +85,8 @@ img{
     top: 521.41px;
 }
 #login-form > input[type="submit"]{
-    background: #FFC738;
-    border-radius: 5px;
 }
 #login-form > input[type="button"]{
-    background: #FFC738;
-    border-radius: 5px;
 }
 #s1{
     position: absolute;
@@ -98,6 +94,9 @@ img{
     height: 45.04px;
     left: 548.07px;
     top: 581.46px;
+
+    background: #FFC738;
+    border-radius: 5px;
 }
 #s2{
     position: absolute;
@@ -105,6 +104,9 @@ img{
     height: 45.04px;
     left: 767.26px;
     top: 581.46px;
+
+    background: #FFC738;
+    border-radius: 5px;
 }
 #reg{
     position: absolute;

@@ -46,7 +46,7 @@
                 </ul>
             </li>
             <li><a href="#">마이페이지</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="/login">Login</a></li>
         </ul>
     </nav>
 </div>
