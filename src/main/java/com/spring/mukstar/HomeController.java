@@ -74,7 +74,7 @@ public class HomeController {
         System.out.println("===== SignUp Test Page =====");
 
         System.out.println("===== Page Loading =====");
-        return "Signup";
+        return "signup";
     }
 
     @RequestMapping("signupCheck")
