@@ -1,3 +1,4 @@
+//header slideDown  js 파일
 $(document).ready(function(){
     $('nav ul li').mouseenter(function(){
         $(this).children('ul').stop().slideDown();
