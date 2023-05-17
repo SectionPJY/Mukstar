@@ -11,9 +11,20 @@
     <title>Login Test</title>
 </head>
 <body>
-<h3>Login Success</h3>
-ID : ${u_id }
-<a href="#">정보수정 테스트</a> <br>
-<a href="#">로그아웃</a>
+<%
+    if (null == session || null == session.getAttribute("u_id")) {
+        out.print(
+                "<h3>Session is Null</h3> <br>" +
+                        "<a href='testLogin'>돌아가기</a>"
+        );
+    } else {
+        out.print(
+                "<h3>Session is Exists</h3> <br>" +
+                        "ID : " + session.getAttribute("u_id") + "<br> <br>" +
+                        "<a href='testUpdate'>정보수정 테스트</a> <br>" +
+                        "<a href='logout'>로그아웃</a>"
+        );
+    }
+%>
 </body>
 </html>

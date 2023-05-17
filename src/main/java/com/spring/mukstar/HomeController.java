@@ -1,8 +1,7 @@
 package com.spring.mukstar;
 
-import com.spring.mukstar.command.TestCommand;
-import com.spring.mukstar.command.TestLoginCommand;
-import com.spring.mukstar.command.TestSignUpCommand;
+import com.spring.mukstar.command.*;
+import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private HttpSession session;
 
     @Autowired
     private TestCommand testCommand;
@@ -20,12 +24,16 @@ public class HomeController {
     private TestLoginCommand testLoginCommand;
     @Autowired
     private TestSignUpCommand testSignUpCommand;
+    @Autowired
+    private TestUpdateCommand testUpdateCommand;
+    @Autowired
+    private TestUserInfoCommand testUserInfoCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
         model.addAttribute("data", "Hello, Spring from IntelliJ! : )");
 
-        return "index";
+        return "testIndex";
     }
 
     @RequestMapping("test")
@@ -39,42 +47,39 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping("login")
+    @RequestMapping("testLogin")
     public String testLogin() {
         System.out.println("===== Login Test Page =====");
 
-        return "login";
+        return "testLogin";
     }
 
     @RequestMapping("loginCheck")
     public String loginCheck(HttpServletRequest request, Model model) {
         System.out.println("===== Login Checking =====");
 
-        String u_id = request.getParameter("u_id");
-        String u_pw = request.getParameter("u_pw");
-        System.out.println("===== ID : " + u_id + ", PW : " + u_pw + " =====");
-
-        int result = testLoginCommand.execute(u_id, u_pw);
+        int result = testLoginCommand.execute(request);
         if (1 == result) {
             System.out.println("===== Login Success =====");
+            String u_id = request.getParameter("u_id");
             model.addAttribute("u_id", u_id);
 
             System.out.println("===== Page Loading =====");
-            return "LoginSuccess";
+            return "testLoginSuccess";
         } else {
             System.out.println("===== Login Fail =====");
 
             System.out.println("===== Page Loading =====");
-            return "LoginFail";
+            return "testLoginFail";
         }
     }
 
-    @RequestMapping("signup")
+    @RequestMapping("testSignup")
     public String testSignup() {
         System.out.println("===== SignUp Test Page =====");
 
         System.out.println("===== Page Loading =====");
-        return "signup";
+        return "testSignup";
     }
 
     @RequestMapping("signupCheck")
@@ -106,23 +111,46 @@ public class HomeController {
         return "alert";
     }
 
-    @RequestMapping("/testUpdate")
-    public String testUpdate() {
+    @RequestMapping("testUpdate")
+    public ModelAndView testUpdate(HttpServletRequest request, Model model) {
         System.out.println("===== Update Test Page =====");
 
+        List<UserDTO> dto = testUserInfoCommand.execute(model);
+        ModelAndView mv = new ModelAndView("testUpdate");
+        mv.addObject("data", dto);
+
         System.out.println("===== Page Loading =====");
-        return "Update";
+        return mv;
+    }
+
+    @RequestMapping("userUpdate")
+    public String userUpdate(HttpServletRequest request) {
+        System.out.println("===== Update User =====");
+
+        int result = testUpdateCommand.execute(request);
+        if (1 == result) {
+            request.setAttribute("msg", "수정이 완료되었습니다.");
+            request.setAttribute("url", "logout");
+        } else {
+            request.setAttribute("msg", "수정에 실패하였습니다.");
+            request.setAttribute("url", "logout");
+        }
+
+        return "alert";
+    }
+
+    @RequestMapping("logout")
+    public String logout() {
+        System.out.println("===== User LogOut =====");
+
+        session.invalidate();
+
+        return "testIndex";
     }
 
     @RequestMapping("/index")
     public String index() {
 
-        return "index";
-    }
-
-    @RequestMapping("/userPage")
-    public String userPage() {
-
-        return "userPage";
+        return "testIndex";
     }
 }
