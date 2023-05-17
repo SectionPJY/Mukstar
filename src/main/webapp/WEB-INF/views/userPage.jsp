@@ -10,6 +10,7 @@
 <head>
     <title>UserPage</title>
     <link href="resources/css/userPage.css" rel="stylesheet">
+    <%@ include file="header.jsp" %>
 </head>
 <body>
 <div class="wrapper">

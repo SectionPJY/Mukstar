@@ -1,16 +1,16 @@
 footer {
-  background-color: #606060;
-  color: white;
+    background-color: #606060;
+    color: white;
 }
 
 .fot {
-  position: absolute;
-  width: 1147px;
-  height: 96px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 25px;
-  letter-spacing: 0.01em;
-  left: 640px;
-  padding: 10px;
+    position: absolute;
+    width: 1147px;
+    height: 96px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0.01em;
+    left: 640px;
+    padding: 10px;
 }
