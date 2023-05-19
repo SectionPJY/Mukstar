@@ -79,7 +79,6 @@ ul > div {
 .menu1 nav > ul {
     width: 600px;
     float: right;
-    /*margin-top: 60px;*/
 }
 
 .menu1 nav > ul > li {
@@ -89,6 +88,14 @@ ul > div {
     line-height: 40px;
     float: left;
     position: relative;
+}
+
+.menu1 nav > ul > li > a{
+    color: white;
+}
+
+.menu1 nav > ul > li > ul > li > a {
+    color: white;
 }
 
 .menu1 nav > ul > li > ul {

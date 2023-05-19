@@ -16,8 +16,9 @@ img{
     height: 372px;
     left: 460px;
     top: 47px;
+    z-index: 1;
 }
-.signup-wrapper{
+#signup-wrap{
     position: absolute;
     width: 478.09px;
     height: 528.98px;

@@ -18,6 +18,8 @@ body {
     background-image: url("../assets/UserPage.png");
     background-repeat: no-repeat;
     background-size: cover;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 footer {
@@ -33,7 +35,7 @@ footer {
 .wrapper .img-area,
 .social-icons a,
 .buttons button {
-    background: #ecf0f3;
+    /*background: #ecf0f3;*/
     /*box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1;*/
 }
 
@@ -46,6 +48,8 @@ footer {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    top: 100px;
+    left: 100px;
 }
 
 .wrapper .icon {
@@ -99,7 +103,7 @@ footer {
 }
 
 .wrapper .social-icons {
-    margin: 15px 0 25px 0;
+    margin: 15px 0 25px 15px;
 }
 
 .social-icons a {
@@ -126,10 +130,9 @@ footer {
     border: none;
     outline: none;
     padding: 12px 0;
-    color: #31344b;
     font-size: 17px;
     font-weight: 400;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     z-index: 4;
 }
@@ -146,9 +149,11 @@ footer {
 .post {
     position: relative;
     width: 460px;
-    height: 290px;
+    height: 307px;
     border-radius: 10px;
     background-color: white;
+    left: 1300px;
+    bottom: 320px;
 }
 
 .post-imgarea {

@@ -16,8 +16,9 @@ img{
     height: 361px;
     left: 467px;
     top: 53px;
+    z-index: 1;
 }
-.login-wrapper{
+#login-wrap{
     position: absolute;
     width: 465.4px;
     height: 312.56px;
@@ -85,10 +86,6 @@ img{
     top: 521.41px;
 }
 #login-form > input[type="submit"]{
-}
-#login-form > input[type="button"]{
-}
-#s1{
     position: absolute;
     width: 195.17px;
     height: 45.04px;
@@ -98,7 +95,8 @@ img{
     background: #FFC738;
     border-radius: 5px;
 }
-#s2{
+
+#login-form > input[type="button"]{
     position: absolute;
     width: 195.17px;
     height: 45.04px;

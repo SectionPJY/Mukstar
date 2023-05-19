@@ -27,8 +27,8 @@
     </div>
     <div class="buttons">
         <button style="background-color: #03B3FF; color: white">팔로우</button>
-        <button style="background-color: #FFA800; color: white">구독하기</button>
-        <button style="background-color: #FF5757; color: white">차단하기</button>
+        <button style="background-color: #FFA800; color: white; margin-top: 15px;">구독하기</button>
+        <button style="background-color: #FF5757; color: white; margin-top: 15px    ">차단하기</button>
     </div>
 </div>
 <div class="post">
