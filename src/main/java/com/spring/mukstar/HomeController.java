@@ -139,6 +139,23 @@ public class HomeController {
         return "alert";
     }
 
+    @RequestMapping("testSearch")
+    public String testSearch() {
+        System.out.println("===== Search Test Page =====");
+
+        System.out.println("===== Page Loading =====");
+        return "testSearch";
+    }
+
+    @RequestMapping("userSearch")
+    public ModelAndView userSearch(HttpServletRequest request, Model model) {
+        System.out.println("===== User Searching =====");
+
+        List<UserDTO> dto;
+
+        return null;
+    }
+
     @RequestMapping("logout")
     public String logout() {
         System.out.println("===== User LogOut =====");
