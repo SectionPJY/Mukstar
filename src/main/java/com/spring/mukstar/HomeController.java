@@ -28,6 +28,8 @@ public class HomeController {
     private TestUpdateCommand testUpdateCommand;
     @Autowired
     private TestUserInfoCommand testUserInfoCommand;
+    @Autowired
+    private TestUserSearchCommand testUserSearchCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -151,9 +153,20 @@ public class HomeController {
     public ModelAndView userSearch(HttpServletRequest request, Model model) {
         System.out.println("===== User Searching =====");
 
-        List<UserDTO> dto;
+        ModelAndView mv = null;
+        List<UserDTO> dtos = testUserSearchCommand.execute(request, model);
+        if (null == dtos) {
+            model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
+            model.addAttribute("url", "testSearch");
 
-        return null;
+            mv = new ModelAndView("alert");
+        } else {
+            mv = new ModelAndView("testSearchResult");
+            mv.addObject("data", dtos);
+        }
+
+        System.out.println("===== Page Loading =====");
+        return mv;
     }
 
     @RequestMapping("logout")

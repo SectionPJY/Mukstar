@@ -71,4 +71,13 @@ public class UserDAO {
 
         return sqlSession.update("UserMapper.userUpdate", map);
     }
+
+    // User Search
+    public List<UserDTO> userSearch(String searchWord) {
+        System.out.println("===== User Search DAO =====");
+
+        System.out.println("Search Word : " + searchWord);
+
+        return sqlSession.selectList("UserMapper.userSearch", searchWord);
+    }
 }

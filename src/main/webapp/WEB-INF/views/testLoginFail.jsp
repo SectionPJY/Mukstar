@@ -12,5 +12,6 @@
 </head>
 <body>
 <h3>Login Fail</h3>
+<a href="/">돌아가기</a>
 </body>
 </html>
