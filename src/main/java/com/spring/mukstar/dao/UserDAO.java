@@ -81,4 +81,12 @@ public class UserDAO {
 
         return sqlSession.selectList("UserMapper.userSearch", searchWord);
     }
+
+    // Find User ID
+    public String findID(String u_nickname, String u_phone) {
+        System.out.println("===== Find User ID DAO =====");
+        System.out.println("닉네임 : " + u_nickname + ", 핸드폰 : " + u_phone);
+
+        return "";
+    }
 }

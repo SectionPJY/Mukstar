@@ -30,6 +30,8 @@ public class HomeController {
     private UserInfoCommand userInfoCommand;
     @Autowired
     private UserSearchCommand userSearchCommand;
+    @Autowired
+    private FindUserIDCommand findUserIDCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -74,6 +76,30 @@ public class HomeController {
             System.out.println("===== Page Loading =====");
             return "testLoginFail";
         }
+    }
+
+    @RequestMapping("testFindID")
+    public String testFindID() {
+        System.out.println("===== ID Find Page =====");
+
+        System.out.println("===== Page Loading =====");
+        return "testFindID";
+    }
+
+    @RequestMapping("findID")
+    public String findID(HttpServletRequest request, Model model) {
+        System.out.println("===== Find User ID =====");
+
+        String u_id = findUserIDCommand(request);
+        if (null == u_id || "" == u_id) {
+            model.addAttribute("msg", "정보와 일치하는 아이디를 찾지 못했습니다.");
+            model.addAttribute("url", "testFindID");
+        } else {
+            model.addAttribute("msg", "아이디는 " + u_id + "입니다.");
+            model.addAttribute("url", "testLogin");
+        }
+
+        return "alert";
     }
 
     @RequestMapping("testSignup")
