@@ -38,6 +38,6 @@
     <select id="userSearch" resultType="UserDTO">
         SELECT *
         FROM m_user
-        WHERE u_name LIKE %#{searchWord }%;
+        WHERE u_nickname LIKE #{searchWord };
     </select>
 </mapper>
