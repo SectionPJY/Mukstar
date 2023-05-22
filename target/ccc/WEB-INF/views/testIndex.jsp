@@ -7,6 +7,7 @@
 <a href="test">DB연결 테스트</a> <br>
 <a href="testLogin">Login 테스트</a> <br>
 <a href="testSignup">SignUp 테스트</a> <br>
+<a href="#">ID/PW 찾기</a> <br>
 <a href="testSearch">검색 테스트</a>
 </body>
 </html>

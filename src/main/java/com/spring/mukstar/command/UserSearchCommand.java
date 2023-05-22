@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Service
-public class TestUserSearchCommand {
+public class UserSearchCommand {
 
     @Autowired
     private UserDAO dao;

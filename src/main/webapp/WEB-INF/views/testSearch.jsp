@@ -11,9 +11,9 @@
     <title>Search Test</title>
 </head>
 <body>
-    <h3>유저 검색</h3>
-    <form action="userSearch" method="post">
-        <input type="text" id="searchWord" name="searchWord"> <input type="submit" value="검색">
-    </form>
+<h3>유저 검색</h3>
+<form action="userSearch" method="post">
+    <input type="text" id="searchWord" name="searchWord"> <input type="submit" value="검색"> <a href="/">돌아가기</a>
+</form>
 </body>
 </html>

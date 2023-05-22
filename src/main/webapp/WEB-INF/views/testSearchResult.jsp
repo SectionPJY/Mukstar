@@ -33,5 +33,6 @@
     </c:forEach>
     </tbody>
 </table>
+<a href="testSearch">돌아가기</a>
 </body>
 </html>

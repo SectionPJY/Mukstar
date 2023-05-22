@@ -21,15 +21,15 @@ public class HomeController {
     @Autowired
     private TestCommand testCommand;
     @Autowired
-    private TestLoginCommand testLoginCommand;
+    private LoginCommand loginCommand;
     @Autowired
-    private TestSignUpCommand testSignUpCommand;
+    private SignUpCommand signUpCommand;
     @Autowired
-    private TestUpdateCommand testUpdateCommand;
+    private UpdateCommand updateCommand;
     @Autowired
-    private TestUserInfoCommand testUserInfoCommand;
+    private UserInfoCommand userInfoCommand;
     @Autowired
-    private TestUserSearchCommand testUserSearchCommand;
+    private UserSearchCommand userSearchCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -60,7 +60,7 @@ public class HomeController {
     public String loginCheck(HttpServletRequest request, Model model) {
         System.out.println("===== Login Checking =====");
 
-        int result = testLoginCommand.execute(request);
+        int result = loginCommand.execute(request);
         if (1 == result) {
             System.out.println("===== Login Success =====");
             String u_id = request.getParameter("u_id");
@@ -97,7 +97,7 @@ public class HomeController {
             return "alert";
         }
 
-        int result = testSignUpCommand.execute(request);
+        int result = signUpCommand.execute(request);
         if (1 == result) {
             System.out.println("===== SignUp Success =====");
 
@@ -117,7 +117,7 @@ public class HomeController {
     public ModelAndView testUpdate(HttpServletRequest request, Model model) {
         System.out.println("===== Update Test Page =====");
 
-        List<UserDTO> dto = testUserInfoCommand.execute(model);
+        List<UserDTO> dto = userInfoCommand.execute(model);
         ModelAndView mv = new ModelAndView("testUpdate");
         mv.addObject("data", dto);
 
@@ -129,7 +129,7 @@ public class HomeController {
     public String userUpdate(HttpServletRequest request) {
         System.out.println("===== Update User =====");
 
-        int result = testUpdateCommand.execute(request);
+        int result = updateCommand.execute(request);
         if (1 == result) {
             request.setAttribute("msg", "수정이 완료되었습니다.");
             request.setAttribute("url", "logout");
@@ -154,7 +154,7 @@ public class HomeController {
         System.out.println("===== User Searching =====");
 
         ModelAndView mv = null;
-        List<UserDTO> dtos = testUserSearchCommand.execute(request, model);
+        List<UserDTO> dtos = userSearchCommand.execute(request, model);
         if (null == dtos) {
             model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
             model.addAttribute("url", "testSearch");
