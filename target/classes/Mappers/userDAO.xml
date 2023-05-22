@@ -33,4 +33,11 @@
         FROM m_user
         WHERE u_id = #{u_id };
     </select>
+
+    <!-- User Searching -->
+    <select id="userSearch" resultType="UserDTO">
+        SELECT *
+        FROM m_user
+        WHERE u_name LIKE %#{searchWord }%;
+    </select>
 </mapper>
