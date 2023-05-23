@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: jms
-  Date: 2023-05-14
-  Time: 오전 2:04
+  Date: 2023-05-23
+  Time: 오후 11:26
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>UserPage</title>
-    <link href="resources/css/userPage.css" rel="stylesheet">
+    <title>myPage</title>
+    <link href="resources/css/myPage.css" rel="stylesheet">
     <%@ include file="header2.jsp" %>
 </head>
 <body>
@@ -26,9 +26,9 @@
         <a href="#" class="blog"><img src="naver.png"/></a>
     </div>
     <div class="buttons">
-        <button style="background-color: #03B3FF; color: white">팔로우</button>
-        <button style="background-color: #FFA800; color: white; margin-top: 15px;">구독하기</button>
-        <button style="background-color: #FF5757; color: white; margin-top: 15px    ">차단하기</button>
+        <button style="background-color: #03B3FF; color: white">글관리</button>
+        <button style="background-color: #FFA800; color: white; margin-top: 15px;">회원정보</button>
+        <button style="background-color: #FF5757; color: white; margin-top: 15px    ">구독정보</button>
     </div>
 </div>
 <div class="post">
