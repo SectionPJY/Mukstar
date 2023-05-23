@@ -2,37 +2,35 @@
 <%--
   Created by IntelliJ IDEA.
   User: sectionsmacbookair
-  Date: 2023/05/22
-  Time: 11:28 AM
+  Date: 2023/05/23
+  Time: 10:43 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Search Result</title>
+    <title>Board</title>
 </head>
 <body>
-<h3>유저 정보</h3>
 <table>
     <thead>
     <tr>
-        <th>ID</th>
-        <th>PW</th>
-        <th>닉네임</th>
-        <th>핸드폰</th>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>날짜</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${searchResult }" var="Result">
+    <c:forEach items="boardList" var="Board">
         <tr>
-            <td>${Result.u_id }</td>
-            <td>${Result.u_pw }</td>
-            <td>${Result.u_nickname }</td>
-            <td>${Result.u_phone }</td>
+            <td>${Board.r_id }</td>
+            <td>${Board.r_sub }</td>
+            <td>${Board.r_uid }</td>
+            <td>${Board.r_date }</td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
-<a href="testSearch">돌아가기</a>
 </body>
 </html>

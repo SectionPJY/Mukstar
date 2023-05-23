@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 
-@Mapper
 @Service
 public class UserDAO {
 
@@ -19,10 +18,6 @@ public class UserDAO {
     // User List
     public List<UserDTO> userList() {
         System.out.println("===== User List DAO =====");
-        System.out.println(sqlSession.getConfiguration());
-        System.out.println(sqlSession.getConnection());
-
-        System.out.println(sqlSession.selectList("UserMapper.userList"));
 
         return sqlSession.selectList("UserMapper.userList");
     }
@@ -83,10 +78,10 @@ public class UserDAO {
     }
 
     // Find User ID
-    public String findID(String u_nickname, String u_phone) {
-        System.out.println("===== Find User ID DAO =====");
-        System.out.println("닉네임 : " + u_nickname + ", 핸드폰 : " + u_phone);
-
-        return "";
-    }
+//    public String findID(String u_nickname, String u_phone) {
+//        System.out.println("===== Find User ID DAO =====");
+//        System.out.println("닉네임 : " + u_nickname + ", 핸드폰 : " + u_phone);
+//
+//        return "";
+//    }
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ResBoardMapper">
+    <!-- Board List -->
+    <select id="boardList" resultType="ResBoardDTO">
+        SELECT *
+        FROM m_resboard;
+    </select>
+
+    <!-- SELECT Board -->
+    <select id="boardSelect" resultType="ResBoardDTO">
+        SELECT *
+        FROM m_resboard
+        WHERE r_id = #{r_id };
+    </select>
+</mapper>

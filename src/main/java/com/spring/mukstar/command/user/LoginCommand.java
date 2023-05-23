@@ -1,4 +1,4 @@
-package com.spring.mukstar.command;
+package com.spring.mukstar.command.user;
 
 import com.spring.mukstar.dao.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;

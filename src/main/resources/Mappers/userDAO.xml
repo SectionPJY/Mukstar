@@ -42,9 +42,9 @@
     </select>
 
     <!-- User Find ID -->
-    <select id="findID" resultType="String">
-        SELECT u_id
-        FROM m_user
-        WHERE u_nickname = #{u_nickname } AND u_phone = #{u_phone };
-    </select>
+<!--    <select id="findID" resultType="String">-->
+<!--        SELECT u_id-->
+<!--        FROM m_user-->
+<!--        WHERE u_nickname = #{u_nickname } AND u_phone = #{u_phone };-->
+<!--    </select>-->
 </mapper>

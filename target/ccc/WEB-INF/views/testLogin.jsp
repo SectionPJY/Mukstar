@@ -16,7 +16,8 @@
     <input type="text" id="u_id" name="u_id"> <br> <br>
     PW <br>
     <input type="password" id="u_pw" name="u_pw"> <br>
-    <input type="submit" value="로그인">
+    <input type="submit" value="로그인"> <a href="/">돌아가기</a> <br>
+    <a href="testFindID">아이디 찾기</a> <a href="#">비밀번호 찾기</a>
 </form>
 </body>
 </html>

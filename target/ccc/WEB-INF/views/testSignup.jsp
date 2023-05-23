@@ -16,7 +16,7 @@
     PW : <input type="password" id="u_pw" name="u_pw"> <br>
     별명 : <input type="text" id="u_nickname" name="u_nickname"> <br>
     핸드폰 : <input type="text" id="u_phone" name="u_phone"> <br> <br>
-    <input type="submit" value="회원가입">
+    <input type="submit" value="회원가입"> <a href="/">돌아가기</a>
 </form>
 </body>
 </html>

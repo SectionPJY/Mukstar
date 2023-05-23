@@ -1,6 +1,8 @@
 package com.spring.mukstar;
 
-import com.spring.mukstar.command.*;
+import com.spring.mukstar.command.resboard.BoardListCommand;
+import com.spring.mukstar.command.user.*;
+import com.spring.mukstar.dto.ResBoardDTO;
 import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +34,8 @@ public class HomeController {
     private UserSearchCommand userSearchCommand;
     @Autowired
     private FindUserIDCommand findUserIDCommand;
+    @Autowired
+    private BoardListCommand boardListCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -86,21 +90,21 @@ public class HomeController {
         return "testFindID";
     }
 
-    @RequestMapping("findID")
-    public String findID(HttpServletRequest request, Model model) {
-        System.out.println("===== Find User ID =====");
-
-        String u_id = findUserIDCommand(request);
-        if (null == u_id || "" == u_id) {
-            model.addAttribute("msg", "정보와 일치하는 아이디를 찾지 못했습니다.");
-            model.addAttribute("url", "testFindID");
-        } else {
-            model.addAttribute("msg", "아이디는 " + u_id + "입니다.");
-            model.addAttribute("url", "testLogin");
-        }
-
-        return "alert";
-    }
+//    @RequestMapping("findID")
+//    public String findID(HttpServletRequest request, Model model) {
+//        System.out.println("===== Find User ID =====");
+//
+//        String u_id = findUserIDCommand(request);
+//        if (null == u_id || "" == u_id) {
+//            model.addAttribute("msg", "정보와 일치하는 아이디를 찾지 못했습니다.");
+//            model.addAttribute("url", "testFindID");
+//        } else {
+//            model.addAttribute("msg", "아이디는 " + u_id + "입니다.");
+//            model.addAttribute("url", "testLogin");
+//        }
+//
+//        return "alert";
+//    }
 
     @RequestMapping("testSignup")
     public String testSignup() {
@@ -208,5 +212,17 @@ public class HomeController {
     public String index() {
 
         return "testIndex";
+    }
+
+    @RequestMapping("testBoardList")
+    public ModelAndView testBoardList(HttpServletRequest request, Model model) {
+        System.out.println("===== Test Board List Page =====");
+
+        ModelAndView mv = new ModelAndView("testBoardList");
+        List<ResBoardDTO> dtos = boardListCommand.execute(request);
+        model.addAttribute("boardList", dtos);
+        mv.addObject("data", dtos);
+
+        return mv;
     }
 }
