@@ -22,14 +22,6 @@
 <form action="#" method="get">
     <input type="text" id="searchBox" name="searchBox" placeholder="검색어를 입력하세요" maxlength="20" size="100">
 </form>
-<%--<div class="menu">
-    <ul>
-        <div class="first"><a href="#">추천</a></div>
-        <div class="second"><a href="#">고객센터</a></div>
-        <div class="second"><a href="#">마이페이지</a></div>
-        <div class="third"><a href="#"><p>Login</p></a></div>
-    </ul>
-</div>--%>
 <div class="menu1">
     <nav>
         <ul>
@@ -46,7 +38,14 @@
                 </ul>
             </li>
             <li><a href="#">마이페이지</a></li>
-            <li><a href="/login">Login</a></li>
+            <c:choose>
+              <c:when test="${empty u_uid}">
+                <li><a href="/login">Login</a></li>s
+              </c:when>
+              <c:otherwise>
+                <li><a href="/logout">Logout</a></li>
+              </c:otherwise>
+            </c:choose>
         </ul>
     </nav>
 </div>
