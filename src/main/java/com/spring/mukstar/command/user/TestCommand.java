@@ -1,4 +1,4 @@
-package com.spring.mukstar.command;
+package com.spring.mukstar.command.user;
 
 import com.spring.mukstar.dao.UserDAO;
 import com.spring.mukstar.dto.UserDTO;

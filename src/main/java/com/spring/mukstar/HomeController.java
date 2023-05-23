@@ -1,6 +1,8 @@
 package com.spring.mukstar;
 
-import com.spring.mukstar.command.*;
+import com.spring.mukstar.command.resboard.BoardListCommand;
+import com.spring.mukstar.command.user.*;
+import com.spring.mukstar.dto.ResBoardDTO;
 import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +21,7 @@ public class HomeController {
     private HttpSession session;
 
     @Autowired
-    private Command command;
+    private TestCommand testCommand;
     @Autowired
     private LoginCommand loginCommand;
     @Autowired
@@ -32,29 +34,32 @@ public class HomeController {
     private UserSearchCommand userSearchCommand;
     @Autowired
     private FindUserIDCommand findUserIDCommand;
+    @Autowired
+    private BoardListCommand boardListCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
         model.addAttribute("data", "Hello, Spring from IntelliJ! : )");
 
-        return "index";
+        return "testIndex";
     }
+
     @RequestMapping("test")
     public ModelAndView test(Model model) {
         System.out.println("===== Test Page =====");
 
         ModelAndView mv = new ModelAndView("test");
-        mv.addObject("data", command.execute(model));
+        mv.addObject("data", testCommand.execute(model));
 
         System.out.println("===== Page Loading =====");
         return mv;
     }
 
-    @RequestMapping("login")
+    @RequestMapping("testLogin")
     public String testLogin() {
         System.out.println("===== Login Test Page =====");
 
-        return "login";
+        return "testLogin";
     }
 
     @RequestMapping("loginCheck")
@@ -68,21 +73,45 @@ public class HomeController {
             model.addAttribute("u_id", u_id);
 
             System.out.println("===== Page Loading =====");
-            return "index";
+            return "testLoginSuccess";
         } else {
             System.out.println("===== Login Fail =====");
 
             System.out.println("===== Page Loading =====");
-            return "LoginFail";
+            return "testLoginFail";
         }
     }
 
-    @RequestMapping("signup")
+    @RequestMapping("testFindID")
+    public String testFindID() {
+        System.out.println("===== ID Find Page =====");
+
+        System.out.println("===== Page Loading =====");
+        return "testFindID";
+    }
+
+//    @RequestMapping("findID")
+//    public String findID(HttpServletRequest request, Model model) {
+//        System.out.println("===== Find User ID =====");
+//
+//        String u_id = findUserIDCommand(request);
+//        if (null == u_id || "" == u_id) {
+//            model.addAttribute("msg", "정보와 일치하는 아이디를 찾지 못했습니다.");
+//            model.addAttribute("url", "testFindID");
+//        } else {
+//            model.addAttribute("msg", "아이디는 " + u_id + "입니다.");
+//            model.addAttribute("url", "testLogin");
+//        }
+//
+//        return "alert";
+//    }
+
+    @RequestMapping("testSignup")
     public String testSignup() {
         System.out.println("===== SignUp Test Page =====");
 
         System.out.println("===== Page Loading =====");
-        return "signup";
+        return "testSignup";
     }
 
     @RequestMapping("signupCheck")
@@ -114,7 +143,7 @@ public class HomeController {
         return "alert";
     }
 
-    @RequestMapping("update")
+    @RequestMapping("testUpdate")
     public ModelAndView testUpdate(HttpServletRequest request, Model model) {
         System.out.println("===== Update Test Page =====");
 
@@ -142,18 +171,58 @@ public class HomeController {
         return "alert";
     }
 
-    @RequestMapping("/logout")
+    @RequestMapping("testSearch")
+    public String testSearch() {
+        System.out.println("===== Search Test Page =====");
+
+        System.out.println("===== Page Loading =====");
+        return "testSearch";
+    }
+
+    @RequestMapping("userSearch")
+    public ModelAndView userSearch(HttpServletRequest request, Model model) {
+        System.out.println("===== User Searching =====");
+
+        ModelAndView mv = null;
+        List<UserDTO> dtos = userSearchCommand.execute(request, model);
+        if (null == dtos) {
+            model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
+            model.addAttribute("url", "testSearch");
+
+            mv = new ModelAndView("alert");
+        } else {
+            mv = new ModelAndView("testSearchResult");
+            mv.addObject("data", dtos);
+        }
+
+        System.out.println("===== Page Loading =====");
+        return mv;
+    }
+
+    @RequestMapping("logout")
     public String logout() {
         System.out.println("===== User LogOut =====");
 
         session.invalidate();
 
-        return "index";
+        return "testIndex";
     }
 
     @RequestMapping("/index")
     public String index() {
 
         return "testIndex";
+    }
+
+    @RequestMapping("testBoardList")
+    public ModelAndView testBoardList(HttpServletRequest request, Model model) {
+        System.out.println("===== Test Board List Page =====");
+
+        ModelAndView mv = new ModelAndView("testBoardList");
+        List<ResBoardDTO> dtos = boardListCommand.execute(request);
+        model.addAttribute("boardList", dtos);
+        mv.addObject("data", dtos);
+
+        return mv;
     }
 }
