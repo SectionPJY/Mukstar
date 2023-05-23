@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -28,5 +30,14 @@ public class BoardListCommand {
 
             return dtos;
         }
+    }
+
+    private Date dateFormat(Date r_date) {
+        System.out.println("===== Date Format Parse =====");
+        System.out.println("Before : " + r_date);
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        return null;
     }
 }

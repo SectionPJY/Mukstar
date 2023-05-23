@@ -13,11 +13,11 @@ public class ResBoardDTO {
     private int r_rating;
     private String r_contents;
     private int r_view;
-    private Date r_date;
+    private String r_date;
     private boolean r_mark;
 
     public ResBoardDTO(int r_id, String r_uid, String r_sub, String r_name, String r_address,
-                       int r_rating, String r_contents, int r_view, Timestamp r_date, boolean r_mark) {
+                       int r_rating, String r_contents, int r_view, String r_date, boolean r_mark) {
         this.r_id = r_id;
         this.r_uid = r_uid;
         this.r_sub = r_sub;
@@ -94,11 +94,11 @@ public class ResBoardDTO {
         this.r_view = r_view;
     }
 
-    public Date getR_date() {
+    public String getR_date() {
         return r_date;
     }
 
-    public void setR_date(Date r_date) {
+    public void setR_date(String r_date) {
         this.r_date = r_date;
     }
 
