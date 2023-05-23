@@ -33,4 +33,18 @@
         FROM m_user
         WHERE u_id = #{u_id };
     </select>
+
+    <!-- User Searching -->
+    <select id="userSearch" resultType="UserDTO">
+        SELECT *
+        FROM m_user
+        WHERE u_nickname LIKE #{searchWord };
+    </select>
+
+    <!-- User Find ID -->
+    <select id="findID" resultType="String">
+        SELECT u_id
+        FROM m_user
+        WHERE u_nickname = #{u_nickname } AND u_phone = #{u_phone };
+    </select>
 </mapper>

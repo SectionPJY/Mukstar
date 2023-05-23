@@ -19,15 +19,19 @@ public class HomeController {
     private HttpSession session;
 
     @Autowired
-    private TestCommand testCommand;
+    private Command command;
     @Autowired
-    private TestLoginCommand testLoginCommand;
+    private LoginCommand loginCommand;
     @Autowired
-    private TestSignUpCommand testSignUpCommand;
+    private SignUpCommand signUpCommand;
     @Autowired
-    private TestUpdateCommand testUpdateCommand;
+    private UpdateCommand updateCommand;
     @Autowired
-    private TestUserInfoCommand testUserInfoCommand;
+    private UserInfoCommand userInfoCommand;
+    @Autowired
+    private UserSearchCommand userSearchCommand;
+    @Autowired
+    private FindUserIDCommand findUserIDCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -35,25 +39,12 @@ public class HomeController {
 
         return "index";
     }
-
-    @RequestMapping("/userPage")
-    public String userPage() {
-
-        return "userPage";
-    }
-
-    @RequestMapping("/pwcheck")
-    public String pwCheck() {
-
-        return "pwcheck";
-    }
-
     @RequestMapping("test")
     public ModelAndView test(Model model) {
         System.out.println("===== Test Page =====");
 
         ModelAndView mv = new ModelAndView("test");
-        mv.addObject("data", testCommand.execute(model));
+        mv.addObject("data", command.execute(model));
 
         System.out.println("===== Page Loading =====");
         return mv;
@@ -70,19 +61,19 @@ public class HomeController {
     public String loginCheck(HttpServletRequest request, Model model) {
         System.out.println("===== Login Checking =====");
 
-        int result = testLoginCommand.execute(request);
+        int result = loginCommand.execute(request);
         if (1 == result) {
             System.out.println("===== Login Success =====");
             String u_id = request.getParameter("u_id");
             model.addAttribute("u_id", u_id);
 
             System.out.println("===== Page Loading =====");
-            return "testLoginSuccess";
+            return "index";
         } else {
             System.out.println("===== Login Fail =====");
 
             System.out.println("===== Page Loading =====");
-            return "testLoginFail";
+            return "LoginFail";
         }
     }
 
@@ -107,7 +98,7 @@ public class HomeController {
             return "alert";
         }
 
-        int result = testSignUpCommand.execute(request);
+        int result = signUpCommand.execute(request);
         if (1 == result) {
             System.out.println("===== SignUp Success =====");
 
@@ -123,11 +114,11 @@ public class HomeController {
         return "alert";
     }
 
-    @RequestMapping("testUpdate")
+    @RequestMapping("update")
     public ModelAndView testUpdate(HttpServletRequest request, Model model) {
         System.out.println("===== Update Test Page =====");
 
-        List<UserDTO> dto = testUserInfoCommand.execute(model);
+        List<UserDTO> dto = userInfoCommand.execute(model);
         ModelAndView mv = new ModelAndView("testUpdate");
         mv.addObject("data", dto);
 
@@ -139,7 +130,7 @@ public class HomeController {
     public String userUpdate(HttpServletRequest request) {
         System.out.println("===== Update User =====");
 
-        int result = testUpdateCommand.execute(request);
+        int result = updateCommand.execute(request);
         if (1 == result) {
             request.setAttribute("msg", "수정이 완료되었습니다.");
             request.setAttribute("url", "logout");
@@ -157,7 +148,7 @@ public class HomeController {
 
         session.invalidate();
 
-        return "/";
+        return "index";
     }
 
     @RequestMapping("/index")

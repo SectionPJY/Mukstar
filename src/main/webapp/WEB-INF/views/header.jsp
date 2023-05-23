@@ -39,8 +39,8 @@
             </li>
             <li><a href="#">마이페이지</a></li>
             <c:choose>
-              <c:when test="${empty u_uid}">
-                <li><a href="/login">Login</a></li>s
+              <c:when test="${empty u_id}">
+                <li><a href="/login">Login</a></li>
               </c:when>
               <c:otherwise>
                 <li><a href="/logout">Logout</a></li>

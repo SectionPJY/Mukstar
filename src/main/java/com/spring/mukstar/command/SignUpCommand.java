@@ -3,12 +3,11 @@ package com.spring.mukstar.command;
 import com.spring.mukstar.dao.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Service
-public class TestSignUpCommand {
+public class SignUpCommand {
 
     @Autowired
     private UserDAO dao;

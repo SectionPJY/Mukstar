@@ -20,7 +20,7 @@
         <p id="p1">아이디</p><input id="u_id" type="text" name="u_id">
         <p id="p2">비밀번호</p><input id="u_pw" type="password" name="u_pw">
         <input id="s1" type="submit" value="로그인">
-        <input id="s2" type="button" onclick="location.href='/pwcheck'" value="비밀번호 찾기">
+        <input id="s2" type="button" onclick="location.href='/pwSearch'" value="비밀번호 찾기">
     </form>
 </div>
 <div>

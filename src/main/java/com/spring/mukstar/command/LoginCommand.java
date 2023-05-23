@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Service
-public class TestLoginCommand {
+public class LoginCommand {
 
     @Autowired
     private UserDAO dao;

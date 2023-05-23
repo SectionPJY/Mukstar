@@ -71,4 +71,22 @@ public class UserDAO {
 
         return sqlSession.update("UserMapper.userUpdate", map);
     }
+
+    // User Search
+    public List<UserDTO> userSearch(String searchWord) {
+        System.out.println("===== User Search DAO =====");
+
+        searchWord = "%" + searchWord + "%";
+        System.out.println("Search Word : " + searchWord);
+
+        return sqlSession.selectList("UserMapper.userSearch", searchWord);
+    }
+
+    // Find User ID
+    public String findID(String u_nickname, String u_phone) {
+        System.out.println("===== Find User ID DAO =====");
+        System.out.println("닉네임 : " + u_nickname + ", 핸드폰 : " + u_phone);
+
+        return "";
+    }
 }

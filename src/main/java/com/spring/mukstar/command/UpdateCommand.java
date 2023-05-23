@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Service
-public class TestUpdateCommand {
+public class UpdateCommand {
 
     @Autowired
     private HttpSession session;
