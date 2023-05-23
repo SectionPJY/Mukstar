@@ -42,6 +42,12 @@ public class HomeController {
         return "userPage";
     }
 
+    @RequestMapping("/pwcheck")
+    public String pwCheck() {
+
+        return "pwcheck";
+    }
+
     @RequestMapping("test")
     public ModelAndView test(Model model) {
         System.out.println("===== Test Page =====");
@@ -145,13 +151,13 @@ public class HomeController {
         return "alert";
     }
 
-    @RequestMapping("logout")
+    @RequestMapping("/logout")
     public String logout() {
         System.out.println("===== User LogOut =====");
 
         session.invalidate();
 
-        return "testIndex";
+        return "/";
     }
 
     @RequestMapping("/index")
