@@ -166,6 +166,18 @@ footer {
     margin-top: 4%;
 }
 
+.click{
+    background-color: black;
+}
+.opacity{
+    position: absolute;
+    width: 442px;
+    height: 273px;
+    border-radius: 10px;
+    opacity: 0.5;
+    top: 0px;
+    right: 0px;
+}
 .post-imgarea {
     height: 200px;
     width: 250px;

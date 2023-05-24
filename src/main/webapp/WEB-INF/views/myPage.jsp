@@ -33,7 +33,6 @@
     </div>
 </div>
 <div class="post-area">
-    <label for="chk"><input type="checkbox" id="chk" name="chk">
         <div class="post">
             <div class="post-imgarea">
                 <div class="inner-area2">
@@ -47,8 +46,8 @@
                         테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
                 </div>
             </div>
+            <div class="opacity"></div>
         </div>
-    </label>
     <div class="post">
         <div class="post-imgarea">
             <div class="inner-area2">
@@ -62,10 +61,22 @@
                     테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
             </div>
         </div>
+        <div class="opacity"></div>
     </div>
 </div>
 <script type="text/javascript">
+    const post = document.querySelectorAll(".post");
 
+    function handleClick(event) {
+        if (event.target.classList.contains("click")){
+            event.target.classList.remove("click");
+        }else{
+            // 클릭한 div만 "click"클래스 추가
+            event.target.classList.add("click");
+        }
+    }
+
+    post.forEach((e) => e.addEventListener("click", handleClick));
 </script>
 </body>
 <footer>
