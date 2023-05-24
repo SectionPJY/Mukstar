@@ -31,13 +31,4 @@ public class BoardListCommand {
             return dtos;
         }
     }
-
-    private Date dateFormat(Date r_date) {
-        System.out.println("===== Date Format Parse =====");
-        System.out.println("Before : " + r_date);
-
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
-        return null;
-    }
 }

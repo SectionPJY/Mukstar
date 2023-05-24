@@ -1,7 +1,7 @@
 package com.spring.mukstar.dto;
 
 import java.sql.Timestamp;
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class ResBoardDTO {
 
@@ -17,7 +17,7 @@ public class ResBoardDTO {
     private boolean r_mark;
 
     public ResBoardDTO(int r_id, String r_uid, String r_sub, String r_name, String r_address,
-                       int r_rating, String r_contents, int r_view, String r_date, boolean r_mark) {
+                       int r_rating, String r_contents, int r_view, Timestamp r_date, boolean r_mark) {
         this.r_id = r_id;
         this.r_uid = r_uid;
         this.r_sub = r_sub;
@@ -26,7 +26,7 @@ public class ResBoardDTO {
         this.r_rating = r_rating;
         this.r_contents = r_contents;
         this.r_view = r_view;
-        this.r_date = r_date;
+        this.r_date = changeDate(r_date);
         this.r_mark = r_mark;
     }
 
@@ -108,5 +108,16 @@ public class ResBoardDTO {
 
     public void setR_mark(boolean r_mark) {
         this.r_mark = r_mark;
+    }
+
+    private String changeDate(Timestamp r_date) {
+        System.out.println("===== Date Format Change =====");
+        System.out.println("수정 전 : " + r_date);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
+        String result = dateFormat.format(r_date);
+        System.out.println("수정 후 : " + result);
+
+        return result;
     }
 }
