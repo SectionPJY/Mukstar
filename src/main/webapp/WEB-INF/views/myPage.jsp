@@ -10,6 +10,7 @@
 <head>
     <title>myPage</title>
     <link href="resources/css/myPage.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <%@ include file="header2.jsp" %>
 </head>
 <body>
@@ -31,20 +32,41 @@
         <button style="background-color: #FF5757; color: white; margin-top: 15px    ">구독정보</button>
     </div>
 </div>
-<div class="post">
-    <div class="post-imgarea">
-        <div class="inner-area2">
-            <img src="resources/assets/fox.jpg"/>
+<div class="post-area">
+    <label for="chk"><input type="checkbox" id="chk" name="chk">
+        <div class="post">
+            <div class="post-imgarea">
+                <div class="inner-area2">
+                    <img src="resources/assets/fox.jpg"/>
+                </div>
+                <div class="title-area">
+                    <p>Title - Title</p>
+                </div>
+                <div class="text-area">
+                    <p>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트
+                        테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
+                </div>
+            </div>
         </div>
-        <div class="title-area">
-            <p>Title - Title</p>
-        </div>
-        <div class="text-area">
-            <p>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트
-                테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
+    </label>
+    <div class="post">
+        <div class="post-imgarea">
+            <div class="inner-area2">
+                <img src="resources/assets/fox.jpg"/>
+            </div>
+            <div class="title-area">
+                <p>Title - Title</p>
+            </div>
+            <div class="text-area">
+                <p>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트
+                    테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
+            </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+
+</script>
 </body>
 <footer>
     <%@ include file="footer.jsp" %>

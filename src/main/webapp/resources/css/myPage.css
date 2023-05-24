@@ -19,7 +19,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;
-    overflow-y: scroll;
 }
 
 footer {
@@ -146,14 +145,25 @@ footer {
     margin-left: 10px;
 }*/
 
+.post-area {
+    position: relative;
+    width: 67%;
+    height: auto;
+    bottom: 43%;
+    left: 30%;
+}
+
 .post {
     position: relative;
     width: 442px;
     height: 273px;
     border-radius: 10px;
     background-color: white;
-    left: 1300px;
-    bottom: 320px;
+    left: 3%;
+    float: left;
+    margin-left: 7%;
+    margin-right: 5%;
+    margin-top: 4%;
 }
 
 .post-imgarea {
@@ -194,3 +204,13 @@ footer {
     top: 15px;
     left: 280px;
 }
+
+.post > label > input {
+    /*display: none;*/
+}
+
+/*
+input[type=checkbox]:checked + div.post{
+    background-color: black;
+    opacity: 0.5;
+}*/
