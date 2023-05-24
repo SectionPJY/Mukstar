@@ -13,7 +13,8 @@
 
     <script>
         function selectBoard(r_id) {
-            const url = "http://localhost:8080/selectBoard?r_id=" + r_id;
+            console.log(r_id);
+            const url = "http://localhost:8080/boardSelect?r_id=" + r_id;
 
             window.location.href = url;
         };
@@ -31,15 +32,21 @@
     </thead>
     <tbody>
     <c:forEach items="${boardList }" var="Board">
-        <a onclick="selectBoard('${Board.r_id }')">
-            <tr>
-                <td>${Board.r_id }</td>
-                <td>${Board.r_sub }</td>
-                <td>${Board.r_uid }</td>
-                <td>${Board.r_date }</td>
-            </tr>
-        </a>
+        <tr onclick="selectBoard('${Board.r_id }')">
+            <td>${Board.r_id }</td>
+            <td>${Board.r_sub }</td>
+            <td>${Board.r_uid }</td>
+            <td>${Board.r_date }</td>
+        </tr>
     </c:forEach>
+    <script>
+        function selectBoard(r_id) {
+            console.log(r_id);
+            const url = "http://localhost:8080/boardSelect?r_id=" + r_id;
+
+            window.location.href = url;
+        };
+    </script>
     </tbody>
 </table>
 </body>

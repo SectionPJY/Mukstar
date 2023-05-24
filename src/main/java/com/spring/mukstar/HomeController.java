@@ -1,6 +1,7 @@
 package com.spring.mukstar;
 
 import com.spring.mukstar.command.resboard.BoardListCommand;
+import com.spring.mukstar.command.resboard.BoardSelectCommand;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.ResBoardDTO;
 import com.spring.mukstar.dto.UserDTO;
@@ -36,6 +37,8 @@ public class HomeController {
     private FindUserIDCommand findUserIDCommand;
     @Autowired
     private BoardListCommand boardListCommand;
+    @Autowired
+    private BoardSelectCommand boardSelectCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -149,7 +152,6 @@ public class HomeController {
 
         List<UserDTO> dto = userInfoCommand.execute(model);
         ModelAndView mv = new ModelAndView("testUpdate");
-        mv.addObject("data", dto);
 
         System.out.println("===== Page Loading =====");
         return mv;
@@ -192,7 +194,6 @@ public class HomeController {
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("testSearchResult");
-            mv.addObject("data", dtos);
         }
 
         System.out.println("===== Page Loading =====");
@@ -221,7 +222,27 @@ public class HomeController {
         ModelAndView mv = new ModelAndView("testBoardList");
         List<ResBoardDTO> dtos = boardListCommand.execute(request);
         model.addAttribute("boardList", dtos);
-        mv.addObject("data", dtos);
+
+        return mv;
+    }
+
+    @RequestMapping("boardSelect")
+    public ModelAndView boardSelect(HttpServletRequest request, Model model) {
+        System.out.println("===== Select Board Page =====");
+
+        ModelAndView mv = null;
+        List<ResBoardDTO> dto = boardSelectCommand.execute(request);
+        if (null == dto) {
+            model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
+            model.addAttribute("url", "testBoardList");
+            mv = new ModelAndView("alert");
+        } else {
+            mv = new ModelAndView("boardDetail");
+            model.addAttribute("boardData", dto);
+
+            System.out.println(dto.get(0).getR_sub());
+            System.out.println(dto.getClass().getName());
+        }
 
         return mv;
     }
