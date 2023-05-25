@@ -12,9 +12,12 @@
     <title>Board Detail</title>
 </head>
 <body>
-<c:forEach items="boardData" var="Board">
+<c:forEach items="${boardData }" var="Board">
     제목 : ${Board.r_sub } <br>
-    작성자 : ${Board.r_uid }   작성시간 : ${Board.r_date } <br> <br>
+    작성자 : ${Board.r_uid } <br>
+    작성시간 : ${Board.r_date } <br>
+    가게명 : ${Board.r_name } <br>
+    가게주소 : ${Board.r_address } <br><br>
     내용 <br>
     ${Board.r_contents }
 </c:forEach>
