@@ -239,9 +239,6 @@ public class HomeController {
         } else {
             mv = new ModelAndView("boardDetail");
             model.addAttribute("boardData", dto);
-
-            System.out.println(dto.get(0).getR_sub());
-            System.out.println(dto.getClass().getName());
         }
 
         return mv;
