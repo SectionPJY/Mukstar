@@ -22,7 +22,7 @@
         ID : ${u_id } <br><br>
         <a href="testUpdate">정보수정 테스트</a> <br>
         <a href="testBoardList">게시판</a>
-        <a href="logout">로그아웃</a>"
+        <a href="logout">로그아웃</a>
     </c:otherwise>
 </c:choose>
 </body>
