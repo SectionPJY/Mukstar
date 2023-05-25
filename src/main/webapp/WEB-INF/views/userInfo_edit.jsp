@@ -28,7 +28,7 @@
     <div class="buttons">
         <button style="background-color: #03B3FF; color: white">글관리</button>
         <button style="background-color: #FFA800; color: white; margin-top: 15px;">회원정보</button>
-        <button style="background-color: #FF5757; color: white; margin-top: 15px    ">구독정보</button>
+        <button style="background-color: #FF5757; color: white; margin-top: 15px    ">탈퇴하기</button>
     </div>
 </div>
 <div class="wrapper2">
