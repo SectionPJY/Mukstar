@@ -12,7 +12,7 @@
     <title>Board Detail</title>
 </head>
 <body>
-<c:forEach items="boardData" var="Board">
+<c:forEach items="${boardData }" var="Board">
     제목 : ${Board.r_sub } <br>
     작성자 : ${Board.r_uid }   작성시간 : ${Board.r_date } <br> <br>
     내용 <br>

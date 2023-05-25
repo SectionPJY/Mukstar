@@ -118,6 +118,8 @@ public class ResBoardDTO {
         String result = dateFormat.format(r_date);
         System.out.println("수정 후 : " + result);
 
+        setR_date(result);
+
         return result;
     }
 }
