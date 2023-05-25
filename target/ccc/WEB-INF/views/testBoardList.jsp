@@ -49,5 +49,8 @@
     </script>
     </tbody>
 </table>
+<c:if test="${!empty u_id }">
+<a href="#">글쓰기</a>
+</c:if>
 </body>
 </html>
