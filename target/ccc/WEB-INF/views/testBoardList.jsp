@@ -50,7 +50,7 @@
     </tbody>
 </table>
 <c:if test="${!empty u_id }">
-<a href="#">글쓰기</a>
+<a href="boardWriting">글쓰기</a>
 </c:if>
 </body>
 </html>

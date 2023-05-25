@@ -225,4 +225,10 @@ public class HomeController {
 
         return mv;
     }
+
+    @RequestMapping("boardWriting")
+    public String boardWriting() {
+
+        return "boardWriting";
+    }
 }
