@@ -1,6 +1,7 @@
 package com.spring.mukstar.dto;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 
 public class ResBoardDTO {
@@ -116,7 +117,11 @@ public class ResBoardDTO {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
         String result = formatter.format(r_date.toLocalDateTime());
-        System.out.println("수정 후 : " + r_date);
+
+//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일");
+//        String result = formatter.format(r_date);
+
+        System.out.println("수정 후 : " + result);
         setR_date(result);
 
         return result;
