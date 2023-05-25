@@ -10,7 +10,7 @@
 <head>
     <title>UserPage</title>
     <link href="resources/css/userPage.css" rel="stylesheet">
-    <%@ include file="header.jsp" %>
+    <%@ include file="header2.jsp" %>
 </head>
 <body>
 <div class="wrapper">
@@ -31,17 +31,19 @@
         <button style="background-color: #FF5757; color: white; margin-top: 15px;">차단하기</button>
     </div>
 </div>
-<div class="post">
-    <div class="post-imgarea">
-        <div class="inner-area2">
-            <img src="resources/assets/fox.jpg"/>
-        </div>
-        <div class="title-area">
-            <p>Title - Title</p>
-        </div>
-        <div class="text-area">
-            <p>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트
-                테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
+<div class="post-area">
+    <div class="post">
+        <div class="post-imgarea">
+            <div class="inner-area2">
+                <img src="resources/assets/fox.jpg"/>
+            </div>
+            <div class="title-area">
+                <p>Title - Title</p>
+            </div>
+            <div class="text-area">
+                <p>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트
+                    테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
+            </div>
         </div>
     </div>
 </div>

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: jms
-  Date: 5/16/23
-  Time: 10:41 AM
+  Date: 2023-05-24
+  Time: 오전 1:59
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -19,9 +19,6 @@
 <div class="logo">
     <img src="resources/assets/Logo.png">
 </div>
-<form action="#" method="get">
-    <input type="text" id="searchBox" name="searchBox" placeholder="검색어를 입력하세요" maxlength="20" size="100">
-</form>
 <div class="menu1">
     <nav>
         <ul>
@@ -48,10 +45,6 @@
             </c:choose>
         </ul>
     </nav>
-</div>
-<div class="menu2">
-    <button class="mapbtn" type="button">지도보기</button>
-    <button class="findbtn" type="button">유저찾기</button>
 </div>
 </body>
 </html>
