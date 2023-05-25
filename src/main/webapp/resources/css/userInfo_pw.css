@@ -214,6 +214,9 @@ footer {
 }
 
 .profile {
+    position: relative;
+    top: 40px;
+    left: 35px;
     color: #F0B226;
     font-family: 'Roboto';
     font-style: normal;
@@ -223,7 +226,13 @@ footer {
 }
 
 .pw_input {
+    position: relative;
+    top: 70px;
+    left: 35px;
+}
 
+.pw_input > p {
+    line-height: 40px;
 }
 
 .pw_input > input {
@@ -232,10 +241,14 @@ footer {
     background-color: #D9D9D9;
     border: none;
     border-radius: 10px;
+    margin-top: 1px;
+    font-size: 30px;
 }
 
 .btn {
-
+    position: relative;
+    top: 105px;
+    left: 35px;
 }
 
 .btn > input {

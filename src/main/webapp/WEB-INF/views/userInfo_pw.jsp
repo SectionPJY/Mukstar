@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>myPage</title>
-    <link href="resources/css/userInfo.css" rel="stylesheet">
+    <link href="resources/css/userInfo_pw.css" rel="stylesheet">
     <%@ include file="header2.jsp" %>
 </head>
 <body>
@@ -38,7 +38,7 @@
         </div>
         <div class="pw_input">
             <p>비밀번호</p>
-            <input type="text" name="pw">
+            <input type="password" name="pw">
         </div>
         <div class="btn">
             <input type="button" value="확인">
