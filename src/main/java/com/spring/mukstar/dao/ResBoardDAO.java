@@ -5,7 +5,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ResBoardDAO {
@@ -26,5 +28,19 @@ public class ResBoardDAO {
         System.out.println("게시글번호 : " + r_id);
 
         return sqlSession.selectList("ResBoardMapper.boardSelect", r_id);
+    }
+
+    // Board Insert
+    public int boardInsert(String r_uid, String r_sub, String r_name, String r_address, String r_contents) {
+        System.out.println("===== Board Insert DAO =====");
+
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("r_uid", r_uid);
+        map.put("r_sub", r_sub);
+        map.put("r_name", r_name);
+        map.put("r_address", r_address);
+        map.put("r_contents", r_contents);
+
+        return sqlSession.insert("ResBoardMapper.boardInsert", map);
     }
 }

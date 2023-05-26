@@ -231,4 +231,13 @@ public class HomeController {
 
         return "boardWriting";
     }
+
+    @RequestMapping("insertBoard")
+    public String insertBoard(HttpServletRequest request, Model model) {
+        System.out.println("===== Insert Board =====");
+
+        int result;
+
+        return "alert";
+    }
 }
