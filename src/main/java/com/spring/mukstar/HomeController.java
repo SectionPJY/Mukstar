@@ -249,4 +249,11 @@ public class HomeController {
 
         return "alert";
     }
+
+    @RequestMapping("boardDelete")
+    public String boardDelete(HttpServletRequest request, Model model) {
+        System.out.println("===== Board Delete =====");
+
+        return "";
+    }
 }

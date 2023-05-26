@@ -43,4 +43,12 @@ public class ResBoardDAO {
 
         return sqlSession.insert("ResBoardMapper.boardInsert", map);
     }
+
+    // Board Delete
+    public int boardDelete(int r_id) {
+        System.out.println("===== Boar Delete DAO =====");
+        System.out.println("r_id : " + r_id);
+
+        return sqlSession.delete("ResBoardMapper.boardDelete", r_id);
+    }
 }
