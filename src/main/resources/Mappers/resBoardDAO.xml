@@ -4,7 +4,8 @@
     <!-- Board List -->
     <select id="boardList" resultType="ResBoardDTO">
         SELECT *
-        FROM m_resboard;
+        FROM m_resboard
+        ORDER BY r_id DESC;
     </select>
 
     <!-- SELECT Board -->

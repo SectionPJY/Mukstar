@@ -1,5 +1,6 @@
 package com.spring.mukstar;
 
+import com.spring.mukstar.command.resboard.BoardInsertCommand;
 import com.spring.mukstar.command.resboard.BoardListCommand;
 import com.spring.mukstar.command.resboard.BoardSelectCommand;
 import com.spring.mukstar.command.user.*;
@@ -37,6 +38,8 @@ public class HomeController {
     private BoardListCommand boardListCommand;
     @Autowired
     private BoardSelectCommand boardSelectCommand;
+    @Autowired
+    private BoardInsertCommand boardInsertCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -236,7 +239,13 @@ public class HomeController {
     public String insertBoard(HttpServletRequest request, Model model) {
         System.out.println("===== Insert Board =====");
 
-        int result;
+        int result = boardInsertCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "게시글이 작성되었습니다.");
+        } else {
+            model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
+        }
+        model.addAttribute("url", "testBoardList");
 
         return "alert";
     }

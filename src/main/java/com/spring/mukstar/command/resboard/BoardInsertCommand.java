@@ -21,6 +21,13 @@ public class BoardInsertCommand {
         String r_address = request.getParameter("r_address");
         String r_contents = request.getParameter("r_contents");
 
-        return 0;
+        int result = dao.boardInsert(r_uid, r_sub, r_name, r_address, r_contents);
+        if (1 == result) {
+            System.out.println("===== Insert Success =====");
+        } else {
+            System.out.println("===== Insert Fail =====");
+        }
+
+        return result;
     }
 }
