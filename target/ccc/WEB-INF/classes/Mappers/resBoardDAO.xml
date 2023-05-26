@@ -4,7 +4,8 @@
     <!-- Board List -->
     <select id="boardList" resultType="ResBoardDTO">
         SELECT *
-        FROM m_resboard;
+        FROM m_resboard
+        ORDER BY r_id DESC;
     </select>
 
     <!-- SELECT Board -->
@@ -13,4 +14,10 @@
         FROM m_resboard
         WHERE r_id = #{r_id };
     </select>
+
+    <!-- INSERT Board -->
+    <insert id="boardInsert">
+        INSERT INTO m_resboard(r_uid, r_sub, r_name, r_address, r_contents)
+        VALUES (#{r_uid }, #{r_sub }, #{r_name }, #{r_address }, #{r_contents });
+    </insert>
 </mapper>
