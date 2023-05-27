@@ -7,8 +7,8 @@
 <a href="test">DB연결 테스트</a> <br>
 <a href="testLogin">Login 테스트</a> <br>
 <a href="testSignup">SignUp 테스트</a> <br>
-<a href="testFindID.jsp">ID 찾기</a> <br>
-<a href="#">PW 찾기</a> <br>
-<a href="testSearch">검색 테스트</a>
+<a href="testFindID.jsp">ID 찾기</a> <a href="#">PW 찾기</a> <br>
+<a href="testSearch">검색 테스트</a> <br>
+<a href="testBoardList">게시판</a>
 </body>
 </html>

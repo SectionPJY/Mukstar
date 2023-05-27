@@ -1,7 +1,8 @@
 package com.spring.mukstar.dto;
 
 import java.sql.Timestamp;
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 
 public class ResBoardDTO {
 
@@ -13,7 +14,7 @@ public class ResBoardDTO {
     private int r_rating;
     private String r_contents;
     private int r_view;
-    private Date r_date;
+    private String r_date;
     private boolean r_mark;
 
     public ResBoardDTO(int r_id, String r_uid, String r_sub, String r_name, String r_address,
@@ -26,7 +27,7 @@ public class ResBoardDTO {
         this.r_rating = r_rating;
         this.r_contents = r_contents;
         this.r_view = r_view;
-        this.r_date = r_date;
+        this.r_date = changeDate(r_date);
         this.r_mark = r_mark;
     }
 
@@ -94,11 +95,11 @@ public class ResBoardDTO {
         this.r_view = r_view;
     }
 
-    public Date getR_date() {
+    public String getR_date() {
         return r_date;
     }
 
-    public void setR_date(Date r_date) {
+    public void setR_date(String r_date) {
         this.r_date = r_date;
     }
 
@@ -108,5 +109,13 @@ public class ResBoardDTO {
 
     public void setR_mark(boolean r_mark) {
         this.r_mark = r_mark;
+    }
+
+    private String changeDate(Timestamp r_date) {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
+        String result = formatter.format(r_date.toLocalDateTime());
+
+        return result;
     }
 }

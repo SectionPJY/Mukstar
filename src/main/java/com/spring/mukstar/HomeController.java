@@ -1,6 +1,8 @@
 package com.spring.mukstar;
 
+import com.spring.mukstar.command.resboard.BoardInsertCommand;
 import com.spring.mukstar.command.resboard.BoardListCommand;
+import com.spring.mukstar.command.resboard.BoardSelectCommand;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.ResBoardDTO;
 import com.spring.mukstar.dto.UserDTO;
@@ -33,9 +35,11 @@ public class HomeController {
     @Autowired
     private UserSearchCommand userSearchCommand;
     @Autowired
-    private FindUserIDCommand findUserIDCommand;
-    @Autowired
     private BoardListCommand boardListCommand;
+    @Autowired
+    private BoardSelectCommand boardSelectCommand;
+    @Autowired
+    private BoardInsertCommand boardInsertCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -90,22 +94,6 @@ public class HomeController {
         return "testFindID";
     }
 
-//    @RequestMapping("findID")
-//    public String findID(HttpServletRequest request, Model model) {
-//        System.out.println("===== Find User ID =====");
-//
-//        String u_id = findUserIDCommand(request);
-//        if (null == u_id || "" == u_id) {
-//            model.addAttribute("msg", "정보와 일치하는 아이디를 찾지 못했습니다.");
-//            model.addAttribute("url", "testFindID");
-//        } else {
-//            model.addAttribute("msg", "아이디는 " + u_id + "입니다.");
-//            model.addAttribute("url", "testLogin");
-//        }
-//
-//        return "alert";
-//    }
-
     @RequestMapping("testSignup")
     public String testSignup() {
         System.out.println("===== SignUp Test Page =====");
@@ -149,7 +137,6 @@ public class HomeController {
 
         List<UserDTO> dto = userInfoCommand.execute(model);
         ModelAndView mv = new ModelAndView("testUpdate");
-        mv.addObject("data", dto);
 
         System.out.println("===== Page Loading =====");
         return mv;
@@ -192,7 +179,6 @@ public class HomeController {
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("testSearchResult");
-            mv.addObject("data", dtos);
         }
 
         System.out.println("===== Page Loading =====");
@@ -221,8 +207,53 @@ public class HomeController {
         ModelAndView mv = new ModelAndView("testBoardList");
         List<ResBoardDTO> dtos = boardListCommand.execute(request);
         model.addAttribute("boardList", dtos);
-        mv.addObject("data", dtos);
 
         return mv;
+    }
+
+    @RequestMapping("boardSelect")
+    public ModelAndView boardSelect(HttpServletRequest request, Model model) {
+        System.out.println("===== Select Board Page =====");
+
+        ModelAndView mv = null;
+        List<ResBoardDTO> dto = boardSelectCommand.execute(request);
+        if (null == dto) {
+            model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
+            model.addAttribute("url", "testBoardList");
+            mv = new ModelAndView("alert");
+        } else {
+            mv = new ModelAndView("boardDetail");
+            model.addAttribute("boardData", dto);
+        }
+
+        return mv;
+    }
+
+    @RequestMapping("boardWriting")
+    public String boardWriting() {
+
+        return "boardWriting";
+    }
+
+    @RequestMapping("insertBoard")
+    public String insertBoard(HttpServletRequest request, Model model) {
+        System.out.println("===== Insert Board =====");
+
+        int result = boardInsertCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "게시글이 작성되었습니다.");
+        } else {
+            model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
+        }
+        model.addAttribute("url", "testBoardList");
+
+        return "alert";
+    }
+
+    @RequestMapping("boardDelete")
+    public String boardDelete(HttpServletRequest request, Model model) {
+        System.out.println("===== Board Delete =====");
+
+        return "";
     }
 }
