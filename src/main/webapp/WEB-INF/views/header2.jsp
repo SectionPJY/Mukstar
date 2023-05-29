@@ -11,7 +11,7 @@
 <head>
     <title>header</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link href="resources/css/header.css" rel="stylesheet">
     <script src="resources/JS/slideDown.js"></script>
 </head>

@@ -20,10 +20,10 @@
         </div>
     </div>
     <div class="social-icons">
-        <a href="#" class="facebook"><img src="facebook.png"/></a>
-        <a href="#" class="instagram"><img src="insta.jpg"/></a>
-        <a href="#" class="github"><img src="github.png"/></a>
-        <a href="#" class="blog"><img src="naver.png"/></a>
+        <a href="#" class="badge1"><img src="resources/assets/인증마크.png"/></a>
+        <a href="#" class="badge2"><img src="resources/assets/뱃지.png"/></a>
+        <a href="#" class="badge3"><img src="resources/assets/왕관.png"/></a>
+        <a href="#" class="badge4"><img src="resources/assets/먹깨비.png"/></a>
     </div>
     <div class="buttons">
         <button style="background-color: #03B3FF; color: white">팔로우</button>
@@ -32,6 +32,34 @@
     </div>
 </div>
 <div class="post-area">
+    <div class="post">
+        <div class="post-imgarea">
+            <div class="inner-area2">
+                <img src="resources/assets/fox.jpg"/>
+            </div>
+            <div class="title-area">
+                <p>Title - Title</p>
+            </div>
+            <div class="text-area">
+                <p>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트
+                    테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
+            </div>
+        </div>
+    </div>
+    <div class="post">
+        <div class="post-imgarea">
+            <div class="inner-area2">
+                <img src="resources/assets/fox.jpg"/>
+            </div>
+            <div class="title-area">
+                <p>Title - Title</p>
+            </div>
+            <div class="text-area">
+                <p>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트
+                    테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
+            </div>
+        </div>
+    </div>
     <div class="post">
         <div class="post-imgarea">
             <div class="inner-area2">

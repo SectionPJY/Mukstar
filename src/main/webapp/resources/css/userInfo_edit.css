@@ -102,18 +102,19 @@ footer {
 }
 
 .wrapper .social-icons {
-    margin: 15px 0 25px 15px;
+    margin: 15px 15px 25px 0px;
 }
 
 .social-icons a {
     position: relative;
-    height: 40px;
-    width: 40px;
-    margin: 0 5px;
+    height: 30px;
+    width: 30px;
+    margin: 0 2px;
     display: inline-flex;
     text-decoration: none;
     border-radius: 50%;
 }
+
 
 .wrapper .buttons {
     display: flex;
