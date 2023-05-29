@@ -42,10 +42,9 @@ public class HomeController {
     private BoardInsertCommand boardInsertCommand;
 
     @RequestMapping("/")
-    public String home(Model model) {
-        model.addAttribute("data", "Hello, Spring from IntelliJ! : )");
+    public String home() {
 
-        return "testIndex";
+        return "index";
     }
 
     @RequestMapping("test")
@@ -59,11 +58,11 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping("testLogin")
+    @RequestMapping("/login")
     public String testLogin() {
         System.out.println("===== Login Test Page =====");
 
-        return "testLogin";
+        return "login";
     }
 
     @RequestMapping("loginCheck")
@@ -77,7 +76,7 @@ public class HomeController {
             model.addAttribute("u_id", u_id);
 
             System.out.println("===== Page Loading =====");
-            return "testLoginSuccess";
+            return "index";
         } else {
             System.out.println("===== Login Fail =====");
 
@@ -94,12 +93,12 @@ public class HomeController {
         return "testFindID";
     }
 
-    @RequestMapping("testSignup")
+    @RequestMapping("/signup")
     public String testSignup() {
         System.out.println("===== SignUp Test Page =====");
 
         System.out.println("===== Page Loading =====");
-        return "testSignup";
+        return "signup";
     }
 
     @RequestMapping("signupCheck")
@@ -191,7 +190,7 @@ public class HomeController {
 
         session.invalidate();
 
-        return "testIndex";
+        return "index";
     }
 
     @RequestMapping("/index")

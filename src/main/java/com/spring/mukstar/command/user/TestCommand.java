@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import java.util.List;
 
 @Service
-public class Command {
+public class TestCommand {
 
     @Autowired
     private UserDAO dao;

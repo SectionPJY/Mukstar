@@ -34,13 +34,13 @@
                     <li><a href="#">질문하기</a></li>
                 </ul>
             </li>
-            <li><a href="#">마이페이지</a></li>
+            <li><a href="/myPage">마이페이지</a></li>
             <c:choose>
                 <c:when test="${empty u_id}">
-                    <li><a href="#">Login</a></li>
+                    <li><a href="/login">Login</a></li>
                 </c:when>
                 <c:otherwise>
-                    <li><a href="#">Logout</a></li>
+                    <li><a href="/logout">Logout</a></li>
                 </c:otherwise>
             </c:choose>
         </ul>

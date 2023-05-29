@@ -6,13 +6,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SubController {
     @RequestMapping("/userPage")
-    public String userPage() {
+    private String userPage() {
 
         return "userPage";
     }
 
+    @RequestMapping(value = "/myPage")
+    private String myPage(){
+        return "myPage";
+    }
     @RequestMapping("/pwSearch")
-    public String pwSearch() {
+    private String pwSearch() {
 
         return "pwSearch";
     }
