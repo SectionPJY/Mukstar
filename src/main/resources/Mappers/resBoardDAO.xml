@@ -25,8 +25,5 @@
     <delete id="boardDelete">
         DELETE FROM m_resboard
         WHERE r_id = #{r_id };
-
-        SET @count = 0;
-        UPDATE m_resboard SET r_id = @count:= @count + 1;
     </delete>
 </mapper>

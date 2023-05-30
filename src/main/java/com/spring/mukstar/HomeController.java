@@ -1,5 +1,6 @@
 package com.spring.mukstar;
 
+import com.spring.mukstar.command.resboard.BoardDeleteCommand;
 import com.spring.mukstar.command.resboard.BoardInsertCommand;
 import com.spring.mukstar.command.resboard.BoardListCommand;
 import com.spring.mukstar.command.resboard.BoardSelectCommand;
@@ -41,6 +42,8 @@ public class HomeController {
     private BoardSelectCommand boardSelectCommand;
     @Autowired
     private BoardInsertCommand boardInsertCommand;
+    @Autowired
+    private BoardDeleteCommand boardDeleteCommand;
 
     @RequestMapping("/")
     public String home() {
@@ -241,6 +244,15 @@ public class HomeController {
     public String boardDelete(HttpServletRequest request, Model model) {
         System.out.println("===== Board Delete =====");
 
-        return "";
+        int result = boardDeleteCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "게시글이 삭제되었습니다.");
+            model.addAttribute("url", "testBoardList");
+        } else {
+            model.addAttribute("msg", "게시글 삭제에 실패하였습니다.");
+            model.addAttribute("url", "testBoardList");
+        }
+
+        return "alert";
     }
 }
