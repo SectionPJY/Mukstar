@@ -15,6 +15,12 @@
         WHERE r_id = #{r_id };
     </select>
 
+    <select id="boardSelectToUid" resultType="ResBoardDTO">
+        select *
+        from m_resboard
+        where r_uid = #{u_id};
+    </select>
+
     <!-- INSERT Board -->
     <insert id="boardInsert">
         INSERT INTO m_resboard(r_uid, r_sub, r_name, r_address, r_contents)

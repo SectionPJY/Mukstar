@@ -33,4 +33,22 @@ public class BoardSelectCommand extends DateCast {
             return dto;
         }
     }
+
+    public List<ResBoardDTO> uidToContents(HttpServletRequest request) {
+        System.out.println("===== Board Select To Uid Command is Running =====");
+        HttpSession session = request.getSession();
+        String u_id = session.getAttribute("u_id").toString();
+        List<ResBoardDTO> dto = dao.boardSelectToUid(u_id);
+        if (null == dto) {
+            System.out.println("===== DTO is Empty =====");
+
+            return null;
+        } else {
+            System.out.println("===== DTO is Exists =====");
+            Timestamp temp = Timestamp.valueOf(dto.get(0).getR_date());
+            dto.get(0).setR_date(changeDate(temp));
+
+            return dto;
+        }
+    }
 }

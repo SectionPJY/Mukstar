@@ -116,7 +116,7 @@ public class HomeController {
             System.out.println("===== SignUp Success =====");
 
             request.setAttribute("msg", "회원가입이 완료되었습니다.");
-            request.setAttribute("url", "testLogin");
+            request.setAttribute("url", "login");
         } else {
             System.out.println("===== SignUp Fail =====");
 
@@ -157,12 +157,11 @@ public class HomeController {
     @RequestMapping(value = "/myPage")
     private ModelAndView myPage(HttpServletRequest request, Model model){
         System.out.println("===== Select Board Page =====");
-
         ModelAndView mv = null;
-        List<ResBoardDTO> dto = boardSelectCommand.execute(request);
+        List<ResBoardDTO> dto = boardSelectCommand.uidToContents(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
-            model.addAttribute("url", "testBoardList");
+            model.addAttribute("url", "index");
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("myPage");

@@ -40,10 +40,10 @@
                     <img src="resources/assets/fox.jpg" alt="이미지 없음"/>
                 </div>
                 <div class="title-area">
-                    <p><c:out value="${boardData.r_sub}"/></p>
+                    <p><c:out value="${Board.r_sub}"/></p>
                 </div>
                 <div class="text-area">
-                    <p><c:out value="${boardData.r_contents}"/></p>
+                    <p><c:out value="${Board.r_contents}"/></p>
                 </div>
             </div>
             <div class="opacity"></div>
