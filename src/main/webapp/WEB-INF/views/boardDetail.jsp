@@ -30,23 +30,7 @@
     function updateBoard(r_id) {
         console.log(r_id);
 
-        $.ajax({
-            type: "post",
-            url: "http://localhost:8080/boardUpdate",
-            data: {
-                r_id: r_id
-            },
-            success: function (data, status) {
-                alert("수정되었습니다.");
-
-                window.location.href = "http://localhost:8080/boardSelect?" + r_id;
-            },
-            error: function (status) {
-                alert("수정에 실패하였습니다.");
-
-                return false;
-            }
-        });
+        window.location.href = "http://localhost:8080/boardUpdatePage?r_id=" + r_id;
     };
 
     function deleteBoard(r_id) {
