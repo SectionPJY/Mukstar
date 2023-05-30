@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>myPage</title>
@@ -26,52 +27,29 @@
         <a href="#" class="badge4"><img src="resources/assets/먹깨비.png"/></a>
     </div>
     <div class="buttons">
-        <button style="background-color: #03B3FF; color: white">글관리</button>
+        <button style="background-color: #03B3FF; color: white" onclick="location.href='/pManage'">글관리</button>
         <button style="background-color: #FFA800; color: white; margin-top: 15px;" onclick="location.href='/infoPW'">회원정보</button>
-        <button style="background-color: #FF5757; color: white; margin-top: 15px    ">구독정보</button>
+        <button style="background-color: #FF5757; color: white; margin-top: 15px;" onclick="location.href='/sInfo'" >구독정보</button>
     </div>
 </div>
 <div class="post-area">
-        <div class="post">
+    <c:forEach items="${boardData}" var="Board">
+        <div class="post" onclick="location.href='/'">
             <div class="post-imgarea">
                 <div class="inner-area2">
-                    <img src="resources/assets/fox.jpg"/>
+                    <img src="resources/assets/fox.jpg" alt="이미지 없음"/>
                 </div>
                 <div class="title-area">
-                    <p>Title - Title</p>
+                    <p><c:out value="${Board.r_sub}"/></p>
                 </div>
                 <div class="text-area">
-                    <p>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트
-                        테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
+                    <p><c:out value="${Board.r_contents}"/></p>
                 </div>
             </div>
             <div class="opacity"></div>
         </div>
-    <div class="post">
-        <div class="post-imgarea">
-            <div class="inner-area2">
-                <img src="resources/assets/fox.jpg"/>
-            </div>
-            <div class="title-area">
-                <p>Title - Title</p>
-            </div>
-            <div class="text-area">
-                <p>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트
-                    테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
-            </div>
-        </div>
-        <div class="opacity"></div>
-    </div>
+    </c:forEach>
 </div>
-<script type="text/javascript">
-    const post = document.querySelectorAll(".post");
-
-    function handleClick(event) {
-        event.target.onclick = "location.href=''";
-
-        post.forEach((e) => e.addEventListener("click", handleClick));
-    }
-</script>
 </body>
 <footer>
     <%@ include file="footer.jsp" %>

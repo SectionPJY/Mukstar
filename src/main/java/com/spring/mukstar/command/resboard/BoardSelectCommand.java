@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -21,6 +22,24 @@ public class BoardSelectCommand extends DateCast {
 
         int r_id = Integer.parseInt(request.getParameter("r_id"));
         List<ResBoardDTO> dto = dao.boardSelect(r_id);
+        if (null == dto) {
+            System.out.println("===== DTO is Empty =====");
+
+            return null;
+        } else {
+            System.out.println("===== DTO is Exists =====");
+            Timestamp temp = Timestamp.valueOf(dto.get(0).getR_date());
+            dto.get(0).setR_date(changeDate(temp));
+
+            return dto;
+        }
+    }
+
+    public List<ResBoardDTO> uidToContents(HttpServletRequest request) {
+        System.out.println("===== Board Select To Uid Command is Running =====");
+        HttpSession session = request.getSession();
+        String u_id = session.getAttribute("u_id").toString();
+        List<ResBoardDTO> dto = dao.boardSelectToUid(u_id);
         if (null == dto) {
             System.out.println("===== DTO is Empty =====");
 
