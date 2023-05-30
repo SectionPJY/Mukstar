@@ -28,7 +28,7 @@
     </div>
     <div class="buttons">
         <button style="background-color: #03B3FF; color: white">글관리</button>
-        <button style="background-color: #FFA800; color: white; margin-top: 15px;">회원정보</button>
+        <button style="background-color: #FFA800; color: white; margin-top: 15px;" onclick="location.href='/infoPW'">회원정보</button>
         <button style="background-color: #FF5757; color: white; margin-top: 15px    ">구독정보</button>
     </div>
 </div>
@@ -68,13 +68,7 @@
     const post = document.querySelectorAll(".post");
 
     function handleClick(event) {
-        if (event.target.classList.contains("click")){
-            event.target.classList.remove("click");
-        }else{
-            // 클릭한 div만 "click"클래스 추가
-            event.target.classList.add("click");
-        }
-    }
+            event.target.onclick = "location.href=''";
 
     post.forEach((e) => e.addEventListener("click", handleClick));
 </script>

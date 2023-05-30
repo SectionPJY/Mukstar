@@ -15,9 +15,20 @@ public class SubController {
     private String myPage(){
         return "myPage";
     }
+
     @RequestMapping("/pwSearch")
     private String pwSearch() {
 
         return "pwSearch";
+    }
+
+    @RequestMapping(value = "/infoPW")
+    private String pwCheck(){
+        return "userInfo_pw";
+    }
+
+    @RequestMapping(value = "/userFind")
+    private String userFind(){
+        return "userFind";
     }
 }

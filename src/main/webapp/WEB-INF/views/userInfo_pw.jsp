@@ -32,18 +32,18 @@
     </div>
 </div>
 <div class="wrapper2">
-    <div class="pw_box">
+    <form class="pw_box" action="/pwCheck">
         <div class="profile">
             <p>프로필</p>
         </div>
         <div class="pw_input">
             <p>비밀번호</p>
-            <input type="password" name="pw">
+            <input type="password" name="u_pw">
         </div>
         <div class="btn">
-            <input type="button" value="확인">
+            <input type="submit" value="확인">
         </div>
-    </div>
+    </form>
 </div>
 </body>
 <footer>

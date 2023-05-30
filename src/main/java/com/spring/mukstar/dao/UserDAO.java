@@ -48,10 +48,10 @@ public class UserDAO {
     }
 
     // User Information
-    public List<UserDTO> userInfo(String u_id) {
+    public UserDTO userInfo(String u_id) {
         System.out.println("===== User Information DAO =====");
 
-        return sqlSession.selectList("UserMapper.userInfo", u_id);
+        return sqlSession.selectOne("UserMapper.userInfo", u_id);
     }
 
     // User Update

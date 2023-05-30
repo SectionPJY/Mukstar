@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class HomeController {
@@ -47,17 +48,6 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping("test")
-    public ModelAndView test(Model model) {
-        System.out.println("===== Test Page =====");
-
-        ModelAndView mv = new ModelAndView("test");
-        mv.addObject("data", testCommand.execute(model));
-
-        System.out.println("===== Page Loading =====");
-        return mv;
-    }
-
     @RequestMapping("/login")
     public String testLogin() {
         System.out.println("===== Login Test Page =====");
@@ -81,16 +71,20 @@ public class HomeController {
             System.out.println("===== Login Fail =====");
 
             System.out.println("===== Page Loading =====");
-            return "testLoginFail";
+            return "loginFail";
         }
     }
 
-    @RequestMapping("testFindID")
-    public String testFindID() {
-        System.out.println("===== ID Find Page =====");
+    @RequestMapping(value = "/pwCheck")
+    private String pwCheck(HttpServletRequest request){
+        String spw = session.getAttribute("u_pw").toString();
+        String rpw = request.getParameter("u_pw");
 
-        System.out.println("===== Page Loading =====");
-        return "testFindID";
+        if(Objects.equals(spw, rpw)){
+            return "userInfo_edit";
+        } else{
+            return "index";
+        }
     }
 
     @RequestMapping("/signup")
@@ -130,12 +124,12 @@ public class HomeController {
         return "alert";
     }
 
-    @RequestMapping("testUpdate")
+    @RequestMapping("update")
     public ModelAndView testUpdate(HttpServletRequest request, Model model) {
         System.out.println("===== Update Test Page =====");
 
-        List<UserDTO> dto = userInfoCommand.execute(model);
-        ModelAndView mv = new ModelAndView("testUpdate");
+        UserDTO dto = userInfoCommand.execute(model);
+        ModelAndView mv = new ModelAndView("Update");
 
         System.out.println("===== Page Loading =====");
         return mv;
@@ -191,12 +185,6 @@ public class HomeController {
         session.invalidate();
 
         return "index";
-    }
-
-    @RequestMapping("/index")
-    public String index() {
-
-        return "testIndex";
     }
 
     @RequestMapping("testBoardList")

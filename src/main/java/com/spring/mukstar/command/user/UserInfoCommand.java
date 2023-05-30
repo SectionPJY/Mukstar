@@ -18,14 +18,14 @@ public class UserInfoCommand {
     @Autowired
     private UserDAO dao;
 
-    public List<UserDTO> execute(Model model) {
+    public UserDTO execute(Model model) {
         System.out.println("===== Test User Information Command is Running =====");
 
         String u_id = session.getAttribute("u_id").toString();
         System.out.println("ID : " + u_id);
 
-        List<UserDTO> dto = dao.userInfo(u_id);
-        if (dto.isEmpty()) {
+        UserDTO dto = dao.userInfo(u_id);
+        if (dto.getU_id() == null) {
             System.out.println("===== User Information Loading Fail =====");
             System.out.println(dto);
         } else {

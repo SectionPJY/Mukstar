@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="logo">
-    <img src="resources/assets/Logo.png">
+    <img src="resources/assets/Logo.png" onclick="location.href='/'">
 </div>
 <form action="#" method="get">
     <input type="text" id="searchBox" name="searchBox" placeholder="검색어를 입력하세요" maxlength="20" size="100">
@@ -37,12 +37,12 @@
                     <li><a href="#">질문하기</a></li>
                 </ul>
             </li>
-            <li><a href="/myPage">마이페이지</a></li>
             <c:choose>
                 <c:when test="${empty u_id}">
                     <li><a href="/login">Login</a></li>
                 </c:when>
                 <c:otherwise>
+                    <li><a href="/myPage">마이페이지</a></li>
                     <li><a href="/logout">Logout</a></li>
                 </c:otherwise>
             </c:choose>
