@@ -47,7 +47,7 @@ public class ResBoardDAO {
     // Board Delete
     public int boardDelete(int r_id) {
         System.out.println("===== Boar Delete DAO =====");
-        System.out.println("r_id : " + r_id);
+        System.out.println("게시글 번호 : " + r_id);
 
         return sqlSession.delete("ResBoardMapper.boardDelete", r_id);
     }
