@@ -1,11 +1,13 @@
 package com.spring.mukstar.command.user;
 
 import com.spring.mukstar.dao.UserDAO;
+import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Service
 public class LoginCommand {
@@ -26,8 +28,15 @@ public class LoginCommand {
 
             System.out.println("===== Session Create =====");
             HttpSession session = request.getSession();
-            session.setAttribute("u_id", u_id);
-            session.setAttribute("u_pw", u_pw);
+            List<UserDTO> dto = dao.userInfo(u_id);
+            for(UserDTO user : dto) {
+                session.setAttribute("u_id", user.getU_id());
+                session.setAttribute("u_pw", user.getU_pw());
+                session.setAttribute("u_nickname", user.getU_nickname());
+                session.setAttribute("u_phone", user.getU_phone());
+                session.setAttribute("u_img", user.getU_img());
+                session.setAttribute("u_drop", user.getU_drop());
+            }
         } else {
             System.out.println("===== ID is Not Exists =====");
         }
