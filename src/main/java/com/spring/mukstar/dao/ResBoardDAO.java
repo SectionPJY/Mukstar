@@ -58,4 +58,18 @@ public class ResBoardDAO {
 
         return sqlSession.delete("ResBoardMapper.boardDelete", r_id);
     }
+
+    // Board Update
+    public int boardUpdate(int r_id, String r_sub, String r_name, String r_address, String r_contents) {
+        System.out.println("===== Board Update DAO =====");
+
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("r_id", r_id);
+        map.put("r_sub", r_sub);
+        map.put("r_name", r_name);
+        map.put("r_address", r_address);
+        map.put("r_contents", r_contents);
+
+        return sqlSession.update("ResBoardMapper.boardUpdate", map);
+    }
 }

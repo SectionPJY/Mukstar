@@ -32,4 +32,11 @@
         DELETE FROM m_resboard
         WHERE r_id = #{r_id };
     </delete>
+
+    <!-- Update Board -->
+    <update id="boardUpdate">
+        UPDATE m_resboard
+        SET r_sub = #{r_sub }, r_name = #{r_name }, r_address = #{r_address }, r_contents = #{r_contents }
+        WHERE r_id = #{r_id };
+    </update>
 </mapper>
