@@ -67,9 +67,10 @@
     const post = document.querySelectorAll(".post");
 
     function handleClick(event) {
-            event.target.onclick = "location.href=''";
+        event.target.onclick = "location.href=''";
 
-    post.forEach((e) => e.addEventListener("click", handleClick));
+        post.forEach((e) => e.addEventListener("click", handleClick));
+    }
 </script>
 </body>
 <footer>
