@@ -33,7 +33,7 @@
   <div class="post">
     <div class="post-imgarea">
       <div class="inner-area2">
-        <img src="resources/assets/fox.jpg"/>
+        <img src="resources/assets/fo.jpg" alt="이미지 없음"/>
       </div>
       <div class="title-area">
         <p>Title - Title</p>

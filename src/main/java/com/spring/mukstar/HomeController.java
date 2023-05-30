@@ -154,6 +154,24 @@ public class HomeController {
         return "alert";
     }
 
+    @RequestMapping(value = "/myPage")
+    private ModelAndView myPage(HttpServletRequest request, Model model){
+        System.out.println("===== Select Board Page =====");
+
+        ModelAndView mv = null;
+        List<ResBoardDTO> dto = boardSelectCommand.execute(request);
+        if (null == dto) {
+            model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
+            model.addAttribute("url", "testBoardList");
+            mv = new ModelAndView("alert");
+        } else {
+            mv = new ModelAndView("myPage");
+            model.addAttribute("boardData", dto);
+        }
+
+        return mv;
+    }
+
     @RequestMapping("testSearch")
     public String testSearch() {
         System.out.println("===== Search Test Page =====");
