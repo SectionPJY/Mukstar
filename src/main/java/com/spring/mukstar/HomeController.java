@@ -1,9 +1,6 @@
 package com.spring.mukstar;
 
-import com.spring.mukstar.command.resboard.BoardDeleteCommand;
-import com.spring.mukstar.command.resboard.BoardInsertCommand;
-import com.spring.mukstar.command.resboard.BoardListCommand;
-import com.spring.mukstar.command.resboard.BoardSelectCommand;
+import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.ResBoardDTO;
 import com.spring.mukstar.dto.UserDTO;
@@ -44,6 +41,8 @@ public class HomeController {
     private BoardInsertCommand boardInsertCommand;
     @Autowired
     private BoardDeleteCommand boardDeleteCommand;
+    @Autowired
+    private BoardUpdateCommand boardUpdateCommand;
 
     @RequestMapping("/")
     public String home() {
@@ -269,6 +268,41 @@ public class HomeController {
             model.addAttribute("msg", "게시글 삭제에 실패하였습니다.");
             model.addAttribute("url", "testBoardList");
         }
+
+        return "alert";
+    }
+
+    @RequestMapping("boardUpdatePage")
+    public ModelAndView boardUpdatePage(HttpServletRequest request, Model model) {
+        System.out.println("===== Board Update Page =====");
+
+        ModelAndView mv = null;
+        List<ResBoardDTO> dto = boardSelectCommand.execute(request);
+        if (null == dto) {
+            model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
+            model.addAttribute("url", "testBoardList");
+            mv = new ModelAndView("alert");
+        } else {
+            mv = new ModelAndView("boardUpdate");
+            model.addAttribute("boardData", dto);
+        }
+
+        return mv;
+    }
+
+    @RequestMapping("boardUpdate")
+    public String boarUpdate(HttpServletRequest request, Model model) {
+        System.out.println("===== Board Update =====");
+
+        ModelAndView mv = null;
+        int result = boardUpdateCommand.execute(request);
+        if (result == 1) {
+            model.addAttribute("msg", "수정이 완료되었습니다.");
+        } else {
+            model.addAttribute("msg", "수정에 실패하였습니다.");
+        }
+        int r_id = Integer.parseInt(request.getParameter("r_id"));
+        model.addAttribute("url", "boardSelect?r_id=" + r_id);
 
         return "alert";
     }
