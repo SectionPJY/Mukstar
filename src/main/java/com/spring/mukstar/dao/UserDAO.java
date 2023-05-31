@@ -1,7 +1,7 @@
 package com.spring.mukstar.dao;
 
+import com.spring.mukstar.dto.SearchDTO;
 import com.spring.mukstar.dto.UserDTO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,11 +68,11 @@ public class UserDAO {
     }
 
     // User Search
-    public List<UserDTO> userSearch(String searchWord) {
+    public List<SearchDTO> userSearch(String searchWord) {
         System.out.println("===== User Search DAO =====");
 
-        searchWord = "%" + searchWord + "%";
-        System.out.println("Search Word : " + searchWord);
+            searchWord = "%" + searchWord + "%";
+            System.out.println("Search Word : " + searchWord);
 
         return sqlSession.selectList("UserMapper.userSearch", searchWord);
     }

@@ -28,15 +28,13 @@ public class LoginCommand {
 
             System.out.println("===== Session Create =====");
             HttpSession session = request.getSession();
-            List<UserDTO> dto = dao.userInfo(u_id);
-            for(UserDTO user : dto) {
-                session.setAttribute("u_id", user.getU_id());
-                session.setAttribute("u_pw", user.getU_pw());
-                session.setAttribute("u_nickname", user.getU_nickname());
-                session.setAttribute("u_phone", user.getU_phone());
-                session.setAttribute("u_img", user.getU_img());
-                session.setAttribute("u_drop", user.getU_drop());
-            }
+            UserDTO dto = dao.userInfo(u_id);
+                session.setAttribute("u_id", dto.getU_id());
+                session.setAttribute("u_pw", dto.getU_pw());
+                session.setAttribute("u_nickname", dto.getU_nickname());
+                session.setAttribute("u_phone", dto.getU_phone());
+                session.setAttribute("u_img", dto.getU_img());
+                session.setAttribute("u_drop", dto.getU_drop());
         } else {
             System.out.println("===== ID is Not Exists =====");
         }

@@ -3,6 +3,7 @@ package com.spring.mukstar;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.ResBoardDTO;
+import com.spring.mukstar.dto.SearchDTO;
 import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -57,6 +58,23 @@ public class HomeController {
         return "login";
     }
 
+    @RequestMapping("/signup")
+    public String testSignup() {
+        System.out.println("===== SignUp Test Page =====");
+
+        System.out.println("===== Page Loading =====");
+        return "signup";
+    }
+
+    @RequestMapping("logout")
+    public String logout() {
+        System.out.println("===== User LogOut =====");
+
+        session.invalidate();
+
+        return "index";
+    }
+
     @RequestMapping("loginCheck")
     public String loginCheck(HttpServletRequest request, Model model) {
         System.out.println("===== Login Checking =====");
@@ -71,9 +89,10 @@ public class HomeController {
             return "index";
         } else {
             System.out.println("===== Login Fail =====");
+            request.setAttribute("msg", "오류가 발생했습니다.");
+            request.setAttribute("url", "login");
 
-            System.out.println("===== Page Loading =====");
-            return "loginFail";
+            return "alert";
         }
     }
 
@@ -87,14 +106,6 @@ public class HomeController {
         } else{
             return "index";
         }
-    }
-
-    @RequestMapping("/signup")
-    public String testSignup() {
-        System.out.println("===== SignUp Test Page =====");
-
-        System.out.println("===== Page Loading =====");
-        return "signup";
     }
 
     @RequestMapping("signupCheck")
@@ -170,50 +181,23 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping("testSearch")
-    public String testSearch() {
-        System.out.println("===== Search Test Page =====");
-
-        System.out.println("===== Page Loading =====");
-        return "testSearch";
-    }
-
-    @RequestMapping("userSearch")
+    @RequestMapping("/userSearch")
     public ModelAndView userSearch(HttpServletRequest request, Model model) {
         System.out.println("===== User Searching =====");
 
         ModelAndView mv = null;
-        List<UserDTO> dtos = userSearchCommand.execute(request, model);
+        List<SearchDTO> dtos = userSearchCommand.execute(request, model);
         if (null == dtos) {
             model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
-            model.addAttribute("url", "testSearch");
+            model.addAttribute("url", "userFind");
 
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("testSearchResult");
+            model.addAttribute("userData", dtos);
+            mv = new ModelAndView("userFind");
         }
 
         System.out.println("===== Page Loading =====");
-        return mv;
-    }
-
-    @RequestMapping("logout")
-    public String logout() {
-        System.out.println("===== User LogOut =====");
-
-        session.invalidate();
-
-        return "index";
-    }
-
-    @RequestMapping("testBoardList")
-    public ModelAndView testBoardList(HttpServletRequest request, Model model) {
-        System.out.println("===== Test Board List Page =====");
-
-        ModelAndView mv = new ModelAndView("testBoardList");
-        List<ResBoardDTO> dtos = boardListCommand.execute(request);
-        model.addAttribute("boardList", dtos);
-
         return mv;
     }
 
@@ -305,5 +289,16 @@ public class HomeController {
         model.addAttribute("url", "boardSelect?r_id=" + r_id);
 
         return "alert";
+    }
+
+    @RequestMapping("testBoardList")
+    public ModelAndView testBoardList(HttpServletRequest request, Model model) {
+        System.out.println("===== Test Board List Page =====");
+
+        ModelAndView mv = new ModelAndView("testBoardList");
+        List<ResBoardDTO> dtos = boardListCommand.execute(request);
+        model.addAttribute("boardList", dtos);
+
+        return mv;
     }
 }

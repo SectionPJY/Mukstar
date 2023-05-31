@@ -35,10 +35,10 @@
     </select>
 
     <!-- User Searching -->
-    <select id="userSearch" resultType="UserDTO">
-        SELECT *
-        FROM m_user
-        WHERE u_nickname LIKE #{searchWord };
+    <select id="userSearch" resultType="SearchDTO">
+        SELECT m_user.u_nickname AS u_nickname, COUNT(m_resboard.r_uid) AS r_count
+        FROM m_user join m_resboard on m_user.u_id = m_resboard.r_uid
+        WHERE u_nickname LIKE #{searchWord};
     </select>
 
     <!-- User Find ID -->
