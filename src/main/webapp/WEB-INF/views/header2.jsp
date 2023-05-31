@@ -22,13 +22,13 @@
 <div class="menu1">
     <nav>
         <ul>
-            <li><a href="#">추천</a>
+            <li>추천</a>
                 <ul>
                     <li><a href="#">유저 랭킹</a></li>
                     <li><a href="#">지역별 맛집</a></li>
                 </ul>
             </li>
-            <li><a href="#">고객센터</a>
+            <li>고객센터</a>
                 <ul>
                     <li><a href="#">자주하는 질문</a></li>
                     <li><a href="#">질문하기</a></li>

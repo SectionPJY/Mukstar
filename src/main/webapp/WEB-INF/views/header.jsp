@@ -19,19 +19,19 @@
 <div class="logo">
     <img src="resources/assets/Logo.png" onclick="location.href='/'">
 </div>
-<form action="#" method="get">
+<form action="/search" method="get">
     <input type="text" id="searchBox" name="searchBox" placeholder="검색어를 입력하세요" maxlength="20" size="100">
 </form>
 <div class="menu1">
     <nav>
         <ul>
-            <li><a href="#">추천</a>
+            <li>추천</a>
                 <ul>
                     <li><a href="#">유저 랭킹</a></li>
                     <li><a href="#">지역별 맛집</a></li>
                 </ul>
             </li>
-            <li><a href="#">고객센터</a>
+            <li>고객센터</a>
                 <ul>
                     <li><a href="#">자주하는 질문</a></li>
                     <li><a href="#">질문하기</a></li>

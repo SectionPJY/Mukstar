@@ -15,7 +15,7 @@
 <body>
 <div class="wrap">
     <div class="container">
-        <form>
+        <form method="post" action="#">
             <div class="writepost">
                 <div class="top">
                     <div class="name">
