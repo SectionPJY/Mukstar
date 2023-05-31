@@ -15,7 +15,7 @@
 <img src="resources/assets/Logo.png" onclick="location.href='/login'">
 <div id="pwS-wrap"></div>
 <div class="pwS-wrapper">
-  <h2>Regist</h2>
+  <h2>PW FIND</h2>
   <form action="/" method="post" id="pwS-form">
     <p id="p1">아이디</p><input type="text" id="u_id" name="u_id"> <br>
     <p id="p3">닉네임</p><input type="text" id="u_nickname" name="u_nickname"> <br>

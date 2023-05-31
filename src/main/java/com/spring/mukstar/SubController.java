@@ -11,11 +11,6 @@ import java.util.List;
 
 @Controller
 public class SubController {
-    @RequestMapping("/userPage")
-    private String userPage() {
-
-        return "userPage";
-    }
 
     @RequestMapping(value = "/pManage")
     private String pManage() { return "postManage"; }
