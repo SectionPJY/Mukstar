@@ -33,7 +33,7 @@
     </div>
 </div>
 <div class="wrapper2">
-    <form class="profile_box" action="/userUpdate">
+    <form class="profile_box" action="/userUpdate" method="post">
         <div class="profile">
             <p>프로필</p>
         </div>

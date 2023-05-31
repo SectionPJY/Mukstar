@@ -32,7 +32,7 @@
     </div>
 </div>
 <div class="wrapper2">
-    <form class="pw_box" action="/pwCheck">
+    <form class="pw_box" action="/pwCheck" method="post">
         <div class="profile">
             <p>프로필</p>
         </div>

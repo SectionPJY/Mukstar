@@ -33,19 +33,6 @@
         <span style="margin-left: 100px">구독자수</span>
       </div>
     </div>
-    <div class="user_list">
-      <div class="user_info">
-        <span>닉네임</span>
-        <div class="social-icons">
-          <img src="resources/assets/인증마크.png"/></a>
-          <img src="resources/assets/뱃지.png"/></a>
-          <img src="resources/assets/왕관.png"/></a>
-          <img src="resources/assets/먹깨비.png"/></a>
-        </div>
-        <span>글 개수</span>
-        <span style="margin-left: 100px">구독자수</span>
-      </div>
-    </div>
   </div>
 </div>
 </body>
