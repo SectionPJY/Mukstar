@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: jms
-  Date: 2023-05-31
-  Time: 오전 12:56
+  Date: 2023-06-01
+  Time: 오후 4:02
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>UserPage</title>
-    <link href="resources/css/writePost.css" rel="stylesheet">
+    <title>고객센터</title>
+    <link href="resources/css/cs.css" rel="stylesheet">
     <%@ include file="header.jsp" %>
 </head>
 <body>
@@ -18,11 +18,11 @@
         <form action="#" method="post">
             <div class="writepost">
                 <div class="top">
-                     <div class="name">
-                        <p>작성자 이름</p>
+                    <div class="user_id">
+                        <p>작성자 아이디</p>
                     </div>
                     <div class="title">
-                        <p>제목</p>
+                        <input type="text">
                     </div>
                 </div>
                 <div class="writearea">
@@ -30,7 +30,7 @@
                               rows="10" cols="10" wrap="hard"></textarea>
                 </div>
                 <div class="post_btn">
-                    <button type="submit">작성하기</button>
+                    <button type="submit">질문하기</button>
                 </div>
             </div>
         </form>
