@@ -22,7 +22,8 @@ public class BoardListCommand extends DateCast {
     public List<ResBoardDTO> execute(HttpServletRequest request) {
         System.out.println("===== Board List Command is Running =====");
 
-        List<ResBoardDTO> dtos = dao.boardList();
+        String sort = request.getParameter("sort");
+        List<ResBoardDTO> dtos = dao.boardList(sort);
         if (null == dtos || dtos.isEmpty()) {
             System.out.println("===== List is Empty =====");
 

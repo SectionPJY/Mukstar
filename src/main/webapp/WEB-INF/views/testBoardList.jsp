@@ -21,6 +21,7 @@
     </script>
 </head>
 <body>
+<a href="testBoardList?sort='r_id'">최신순</a> <a href="testBoardList?sort='r_view'">조회순</a>
 <table>
     <thead>
     <tr>
@@ -50,7 +51,7 @@
     </tbody>
 </table>
 <c:if test="${!empty u_id }">
-<a href="boardWriting">글쓰기</a>
+    <a href="boardWriting">글쓰기</a>
 </c:if>
 </body>
 </html>

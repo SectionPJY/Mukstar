@@ -16,10 +16,11 @@ public class ResBoardDAO {
     private SqlSession sqlSession;
 
     // Board List
-    public List<ResBoardDTO> boardList() {
+    public List<ResBoardDTO> boardList(String sort) {
         System.out.println("===== Board List DAO =====");
+        System.out.println("Sort : " + sort);
 
-        return sqlSession.selectList("ResBoardMapper.boardList");
+        return sqlSession.selectList("ResBoardMapper.boardList", sort);
     }
 
     // Board Select

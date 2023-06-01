@@ -5,8 +5,22 @@
     <select id="boardList" resultType="ResBoardDTO">
         SELECT *
         FROM m_resboard
-        ORDER BY r_id DESC;
+        <include refid="sort" />
     </select>
+    <sql id="sort">
+        <!-- 최신순 정렬 -->
+        <if test="sort == null">
+            ORDER BY r_id DESC;
+        </if>
+        <if test="sort == r_id">
+            ORDER BY r_id DESC;
+        </if>
+
+        <!-- 조회수 정렬 -->
+        <if test="sort == r_view">
+            ORDER BY r_view DESC;
+        </if>
+    </sql>
 
     <!-- SELECT Board -->
     <select id="boardSelect" resultType="ResBoardDTO">
