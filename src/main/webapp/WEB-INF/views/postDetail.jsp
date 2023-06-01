@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -23,21 +24,21 @@
                     </div>
                 </div>
                 <div class="list">
+                    <c:forEach items="${boardData }" var="Board">
                     <div class="post_title">
-                        <p>제목</p>
+                        <p>${Board.r_sub }</p>
                     </div>
                     <div class="post_date">
-                        <p>게시일</p>
-                        <p>좋아요 수</p>
+                        <p>${Board.r_date }</p>
+                        <p>${Board.r_view }</p>
                     </div>
                 </div>
             </div>
             <div class="post_area">
-                <p>이게 맞나 싶네 이게 맞나 싶네 이게 맞나 싶네이게 맞나 싶네이게 맞나 싶네이게 맞나 싶네이게 맞나
-                    싶네이게 맞나 싶네이게 맞나 싶네 이게 맞나 싶네이게 맞나 싶네이게 맞나 싶네이게 맞나 싶네</p>
+                <p>${Board.r_contents }</p>
             </div>
             <div class="replies_area">
-
+                </c:forEach>
             </div>
         </div>
     </div>

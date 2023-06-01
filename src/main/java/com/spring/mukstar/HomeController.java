@@ -47,9 +47,11 @@ public class HomeController {
     private BoardUpdateCommand boardUpdateCommand;
 
     @RequestMapping("/")
-    public String home() {
-
-        return "index";
+    public ModelAndView home(HttpServletRequest request, Model model) {
+        ModelAndView mv = new ModelAndView("index");
+        List<ResBoardDTO> dtos = boardListCommand.execute(request);
+        model.addAttribute("boardList", dtos);
+        return mv;
     }
 
     @RequestMapping("/login")
@@ -192,7 +194,7 @@ public class HomeController {
             model.addAttribute("url", "index");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("myPage");
+            mv = new ModelAndView("postManage");
             model.addAttribute("boardData", dto);
         }
 
@@ -236,7 +238,7 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping("boardSelect")
+    @RequestMapping("/boardSelect")
     public ModelAndView boardSelect(HttpServletRequest request, Model model) {
         System.out.println("===== Select Board Page =====");
 
@@ -247,7 +249,7 @@ public class HomeController {
             model.addAttribute("url", "testBoardList");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("boardDetail");
+            mv = new ModelAndView("postDetail");
             model.addAttribute("boardData", dto);
         }
 
