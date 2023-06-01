@@ -22,6 +22,7 @@
     내용 <br>
     ${Board.r_contents }
     <br><br>
+    <a href="testBoardList">돌아가기</a>
     <c:if test="${u_id == Board.r_uid }">
         <a onclick="updateBoard('${Board.r_id }')">수정</a> <a onclick="deleteBoard('${Board.r_id }')">삭제</a>
     </c:if>
