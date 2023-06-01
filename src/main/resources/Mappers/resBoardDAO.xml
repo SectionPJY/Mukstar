@@ -9,15 +9,15 @@
     </select>
     <sql id="sort">
         <!-- 최신순 정렬 -->
-        <if test="sort == ''">
+        <if test="_parameter == null">
             ORDER BY r_id DESC;
         </if>
-        <if test="sort == 'r_id'">
+        <if test="_parameter == 'r_id'">
             ORDER BY r_id DESC;
         </if>
 
         <!-- 조회수 정렬 -->
-        <if test="sort == 'r_view'">
+        <if test="_parameter == 'r_view'">
             ORDER BY r_view DESC;
         </if>
     </sql>
