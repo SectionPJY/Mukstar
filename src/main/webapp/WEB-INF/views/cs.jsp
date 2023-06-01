@@ -22,7 +22,7 @@
                         <p>작성자 아이디</p>
                     </div>
                     <div class="title">
-                        <p>제목</p>
+                        <input type="text">
                     </div>
                 </div>
                 <div class="writearea">
