@@ -9,7 +9,7 @@
     </select>
     <sql id="sort">
         <!-- 최신순 정렬 -->
-        <if test="sort == null">
+        <if test="sort == ''">
             ORDER BY r_id DESC;
         </if>
         <if test="sort == 'r_id'">

@@ -21,7 +21,7 @@
     </script>
 </head>
 <body>
-<a href="testBoardList?sort='r_id'">최신순</a> <a href="testBoardList?sort='r_view'">조회순</a>
+<a href="testBoardList?sort=r_id">최신순</a> <a href="testBoardList?sort=r_view">조회순</a>
 <table>
     <thead>
     <tr>
@@ -29,6 +29,7 @@
         <th>제목</th>
         <th>작성자</th>
         <th>날짜</th>
+        <th>조회수</th>
     </tr>
     </thead>
     <tbody>
@@ -38,6 +39,7 @@
             <td>${Board.r_sub }</td>
             <td>${Board.r_uid }</td>
             <td>${Board.r_date }</td>
+            <td>${Board.r_view }</td>
         </tr>
     </c:forEach>
     <script>
