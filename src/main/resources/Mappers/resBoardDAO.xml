@@ -33,4 +33,11 @@
         SET r_sub = #{r_sub }, r_name = #{r_name }, r_address = #{r_address }, r_contents = #{r_contents }
         WHERE r_id = #{r_id };
     </update>
+
+    <!-- Update r_view -->
+    <update id="updateR_view">
+        UPDATE m_resboard
+        SET r_view = r_view + 1
+        WHERE r_id = #{r_id };
+    </update>
 </mapper>

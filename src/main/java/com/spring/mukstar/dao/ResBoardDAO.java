@@ -65,4 +65,12 @@ public class ResBoardDAO {
 
         return sqlSession.update("ResBoardMapper.boardUpdate", map);
     }
+
+    // Update r_view
+    public int UpdateR_view(int r_id) {
+        System.out.println("===== Update r_view DAO =====");
+        System.out.println("게시글 번호 : " + r_id);
+
+        return sqlSession.update("ResBoardMapper.updateR_view", r_id);
+    }
 }
