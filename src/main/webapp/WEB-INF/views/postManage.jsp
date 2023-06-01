@@ -26,40 +26,26 @@
     <a href="#" class="badge4"><img src="resources/assets/먹깨비.png"/></a>
   </div>
   <div class="buttons">
-    <button style="background-color: #FF5757; color: white; margin-top: 15px    ">삭제하기</button>
+    <button style="background-color: #FF5757; color: white; margin-top: 15px" onclick="location.href='#'">삭제하기</button>
   </div>
 </div>
 <div class="post-area">
-  <div class="post">
-    <div class="post-imgarea">
-      <div class="inner-area2">
-        <img src="resources/assets/fo.jpg" alt="이미지 없음"/>
+  <c:forEach items="${boardData}" var="Board">
+    <div class="post" onclick="location.href='/'">
+      <div class="post-imgarea">
+        <div class="inner-area2">
+          <img src="resources/assets/fox.jpg" alt="이미지 없음"/>
+        </div>
+        <div class="title-area">
+          <p><c:out value="${Board.r_sub}"/></p>
+        </div>
+        <div class="text-area">
+          <p><c:out value="${Board.r_contents}"/></p>
+        </div>
       </div>
-      <div class="title-area">
-        <p>Title - Title</p>
-      </div>
-      <div class="text-area">
-        <p>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트
-          테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
-      </div>
+      <div class="opacity"></div>
     </div>
-    <div class="opacity"></div>
-  </div>
-  <div class="post">
-    <div class="post-imgarea">
-      <div class="inner-area2">
-        <img src="resources/assets/fox.jpg"/>
-      </div>
-      <div class="title-area">
-        <p>Title - Title</p>
-      </div>
-      <div class="text-area">
-        <p>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트
-          테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</p>
-      </div>
-    </div>
-    <div class="opacity"></div>
-  </div>
+  </c:forEach>
 </div>
 <script type="text/javascript">
   const post = document.querySelectorAll(".post");

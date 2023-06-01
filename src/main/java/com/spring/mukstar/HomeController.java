@@ -171,11 +171,45 @@ public class HomeController {
         ModelAndView mv = null;
         List<ResBoardDTO> dto = boardSelectCommand.uidToContents(request);
         if (null == dto) {
-            model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
+            model.addAttribute("msg", "내 게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "index");
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("myPage");
+            model.addAttribute("boardData", dto);
+        }
+
+        return mv;
+    }
+
+    @RequestMapping(value = "/pManage")
+    private ModelAndView pManage(HttpServletRequest request, Model model) {
+        System.out.println("===== Select Board Page =====");
+        ModelAndView mv = null;
+        List<ResBoardDTO> dto = boardSelectCommand.uidToContents(request);
+        if (null == dto) {
+            model.addAttribute("msg", "내 게시글을 불러오는데 실패했습니다.");
+            model.addAttribute("url", "index");
+            mv = new ModelAndView("alert");
+        } else {
+            mv = new ModelAndView("myPage");
+            model.addAttribute("boardData", dto);
+        }
+
+        return mv;
+    }
+
+    @RequestMapping(value = "/userPage")
+    private ModelAndView userPage(HttpServletRequest request, Model model){
+        System.out.println("===== Select Board Page =====");
+        ModelAndView mv = null;
+        List<ResBoardDTO> dto = boardSelectCommand.uidToUserContents(request);
+        if (null == dto) {
+            model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
+            model.addAttribute("url", "index");
+            mv = new ModelAndView("alert");
+        } else {
+            mv = new ModelAndView("userPage");
             model.addAttribute("boardData", dto);
         }
 

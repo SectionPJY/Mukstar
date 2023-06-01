@@ -15,10 +15,10 @@
 <body>
 <div class="wrap">
     <div class="container">
-        <form action="#" method="post">
+        <form method="post" action="#">
             <div class="writepost">
                 <div class="top">
-                     <div class="name">
+                    <div class="name">
                         <p>작성자 이름</p>
                     </div>
                     <div class="title">

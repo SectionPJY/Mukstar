@@ -21,7 +21,7 @@
         <p id="p2">비밀번호</p><input type="password" id="u_pw" name="u_pw"> <br>
         <p id="p3">닉네임</p><input type="text" id="u_nickname" name="u_nickname"> <br>
         <p id="p4">전화번호</p><input type="text" id="u_phone" name="u_phone"> <br> <br>
-        <input type="button" value="전화번호"><input type="submit" value="회원가입">
+        <input type="button" value="전화번호" onclick="location.href='#'"><input type="submit" value="회원가입">
         </form>
     </div>
 </body>

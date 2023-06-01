@@ -24,7 +24,7 @@
     <div class="user_list">
       <c:if test="${not empty userData}">
         <c:forEach items="${userData}" var="User">
-          <div class="user_info">
+          <div class="user_info" onclick="location.href='/userPage?uid=${User.u_id}'">
             <span>${User.u_nickname}</span>
             <div class="social-icons">
               <img src="resources/assets/인증마크.png"/></a>
