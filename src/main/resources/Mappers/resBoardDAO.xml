@@ -12,12 +12,12 @@
         <if test="sort == null">
             ORDER BY r_id DESC;
         </if>
-        <if test="sort == r_id">
+        <if test="sort == 'r_id'">
             ORDER BY r_id DESC;
         </if>
 
         <!-- 조회수 정렬 -->
-        <if test="sort == r_view">
+        <if test="sort == 'r_view'">
             ORDER BY r_view DESC;
         </if>
     </sql>
