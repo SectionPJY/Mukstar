@@ -5,8 +5,22 @@
     <select id="boardList" resultType="ResBoardDTO">
         SELECT *
         FROM m_resboard
-        ORDER BY r_id DESC;
+        <include refid="sort" />
     </select>
+    <sql id="sort">
+        <!-- 최신순 정렬 -->
+        <if test="_parameter == null">
+            ORDER BY r_id DESC;
+        </if>
+        <if test="_parameter == 'r_id'">
+            ORDER BY r_id DESC;
+        </if>
+
+        <!-- 조회수 정렬 -->
+        <if test="_parameter == 'r_view'">
+            ORDER BY r_view DESC;
+        </if>
+    </sql>
 
     <!-- SELECT Board -->
     <select id="boardSelect" resultType="ResBoardDTO">
@@ -37,6 +51,13 @@
     <update id="boardUpdate">
         UPDATE m_resboard
         SET r_sub = #{r_sub }, r_name = #{r_name }, r_address = #{r_address }, r_contents = #{r_contents }
+        WHERE r_id = #{r_id };
+    </update>
+
+    <!-- Update r_view -->
+    <update id="updateR_view">
+        UPDATE m_resboard
+        SET r_view = r_view + 1
         WHERE r_id = #{r_id };
     </update>
 </mapper>

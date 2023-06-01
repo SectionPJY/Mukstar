@@ -16,6 +16,7 @@ public class ResBoardDTO {
     private int r_view;
     private String r_date;
     private boolean r_mark;
+    private String sort;
 
     public ResBoardDTO(int r_id, String r_uid, String r_sub, String r_name, String r_address,
                        int r_rating, String r_contents, int r_view, Timestamp r_date, boolean r_mark) {
@@ -109,6 +110,14 @@ public class ResBoardDTO {
 
     public void setR_mark(boolean r_mark) {
         this.r_mark = r_mark;
+    }
+
+    public String getSort() {
+        return sort;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
     }
 
     private String changeDate(Timestamp r_date) {

@@ -16,10 +16,17 @@ public class ResBoardDAO {
     private SqlSession sqlSession;
 
     // Board List
-    public List<ResBoardDTO> boardList() {
+    public List<ResBoardDTO> boardList(String sort) {
         System.out.println("===== Board List DAO =====");
+        System.out.println("Sort : " + sort);
 
-        return sqlSession.selectList("ResBoardMapper.boardList");
+        if (sort == null) {
+
+        } else {
+            System.out.println("Sort : " + sort.getClass().getName());
+        }
+
+        return sqlSession.selectList("ResBoardMapper.boardList", sort);
     }
 
     // Board Select
@@ -71,5 +78,13 @@ public class ResBoardDAO {
         map.put("r_contents", r_contents);
 
         return sqlSession.update("ResBoardMapper.boardUpdate", map);
+    }
+
+    // Update r_view
+    public int UpdateR_view(int r_id) {
+        System.out.println("===== Update r_view DAO =====");
+        System.out.println("게시글 번호 : " + r_id);
+
+        return sqlSession.update("ResBoardMapper.updateR_view", r_id);
     }
 }

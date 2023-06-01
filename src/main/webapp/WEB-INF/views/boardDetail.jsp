@@ -16,12 +16,13 @@
 <c:forEach items="${boardData }" var="Board">
     제목 : ${Board.r_sub } <br>
     작성자 : ${Board.r_uid } <br>
-    작성시간 : ${Board.r_date } <br>
+    작성시간 : ${Board.r_date } 조회수 : ${Board.r_view } <br>
     가게명 : ${Board.r_name } <br>
     가게주소 : ${Board.r_address } <br><br>
     내용 <br>
     ${Board.r_contents }
     <br><br>
+    <a href="testBoardList">돌아가기</a>
     <c:if test="${u_id == Board.r_uid }">
         <a onclick="updateBoard('${Board.r_id }')">수정</a> <a onclick="deleteBoard('${Board.r_id }')">삭제</a>
     </c:if>
