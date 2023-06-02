@@ -26,12 +26,13 @@
     <a href="#" class="badge4"><img src="resources/assets/먹깨비.png"/></a>
   </div>
   <div class="buttons">
+    <button style="background-color: #03B3FF; color: white; margin-top: 15px" onclick="location.href='/wPost'">생성하기</button>
     <button style="background-color: #FF5757; color: white; margin-top: 15px" onclick="location.href='#'">삭제하기</button>
   </div>
 </div>
 <div class="post-area">
   <c:forEach items="${boardData}" var="Board">
-    <div class="post" onclick="location.href='/boardSelect?r_id=${Board.r_id}'">
+    <div class="post">
       <div class="post-imgarea">
         <div class="inner-area2">
           <img src="resources/assets/fox.jpg" alt="이미지 없음"/>

@@ -10,7 +10,7 @@
 <div class="slideshow">
   <ul class="slides">
     <c:forEach items="${boardList }" var="Board">
-    <li><img src="" alt="${Board.r_sub }" onclick="location.href='/boardSelect?r_id=${Board.r_id}'"></li>
+    <li><img src="" alt="${Board.r_sub}" onclick="location.href='/boardSelect?r_id=${Board.r_id}'"></li>
     </c:forEach>
   </ul>
   <p class="controller">

@@ -15,18 +15,18 @@
 <body>
 <div class="wrap">
     <div class="container">
-        <form method="post" action="#">
+        <form method="post" action="/pWrite">
             <div class="writepost">
                 <div class="top">
                     <div class="name">
-                        <p>작성자 이름</p>
+                        <p id="r_uid">${u_id}</p>
                     </div>
                     <div class="title">
-                        <p>제목</p>
+                        <input type="text" id="r_sub" name="r_sub">
                     </div>
                 </div>
                 <div class="writearea">
-                    <textarea id='note_contents' placeholder="내용을 입력하세요.(3000자 이내)."
+                    <textarea id='r_contents' placeholder="내용을 입력하세요.(3000자 이내)."
                               rows="10" cols="10" wrap="hard"></textarea>
                 </div>
                 <div class="post_btn">
