@@ -26,7 +26,7 @@
     <a href="#" class="badge4"><img src="resources/assets/먹깨비.png"/></a>
   </div>
   <div class="buttons">
-    <button style="background-color: #03B3FF; color: white; margin-top: 15px" onclick="location.href='/wPost'">생성하기</button>
+    <button style="background-color: #03B3FF; color: white; margin-top: 15px" onclick="location.href='/wPost'">글쓰기</button>
     <button style="background-color: #FF5757; color: white; margin-top: 15px" onclick="location.href='#'">삭제하기</button>
   </div>
 </div>
