@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Service
 public class BoardInsertCommand {
@@ -15,7 +16,7 @@ public class BoardInsertCommand {
     public int execute(HttpServletRequest request) {
         System.out.println("===== Board Insert Command is Running =====");
 
-        String r_uid = request.getParameter("r_uid");
+        String r_uid = request.getSession().getAttribute("u_nickname").toString();
         String r_sub = request.getParameter("r_sub");
         String r_name = request.getParameter("r_name");
         String r_address = request.getParameter("r_address");

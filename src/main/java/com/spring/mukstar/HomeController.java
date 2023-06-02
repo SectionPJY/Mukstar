@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -140,17 +139,6 @@ public class HomeController {
         return "alert";
     }
 
-    @RequestMapping("update")
-    public ModelAndView testUpdate(HttpServletRequest request, Model model) {
-        System.out.println("===== Update Test Page =====");
-
-        UserDTO dto = userInfoCommand.execute(model);
-        ModelAndView mv = new ModelAndView("Update");
-
-        System.out.println("===== Page Loading =====");
-        return mv;
-    }
-
     @RequestMapping("userUpdate")
     public String userUpdate(HttpServletRequest request) {
         System.out.println("===== Update User =====");
@@ -262,7 +250,7 @@ public class HomeController {
         return "boardWriting";
     }
 
-    @RequestMapping("insertBoard")
+    @RequestMapping("wPost")
     public String insertBoard(HttpServletRequest request, Model model) {
         System.out.println("===== Insert Board =====");
 
