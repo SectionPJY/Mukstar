@@ -91,6 +91,7 @@ body {
     border-radius: 15px;
     padding: 20px;
     padding-bottom: 350px;
+    resize: none;
 }
 
 .post_btn {
