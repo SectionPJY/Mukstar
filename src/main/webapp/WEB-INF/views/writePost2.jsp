@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>UserPage</title>
-    <link href="resources/css/test.css" rel="stylesheet">
+    <link href="resources/css/writePost2.css" rel="stylesheet">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script type="module" src="resources/JS/test.js"></script>
     <script type="text/javascript"
