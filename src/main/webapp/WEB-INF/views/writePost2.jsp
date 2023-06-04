@@ -19,14 +19,14 @@
 <body>
 <div class="wrap">
     <div class="container">
-        <form action="#" method="post">
+        <form method="post" action="/pWrite">
             <div class="writepost">
                 <div class="top">
                     <div class="name">
-                        <p>작성자 이름</p>
+                        <p id="r_uid">${u_nickname}</p>
                     </div>
                     <div class="title">
-                        <input type="text">
+                        <input type="text" id="r_sub" name="r_sub">
                     </div>
                 </div>
                 <div class="writearea">

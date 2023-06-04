@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +23,6 @@ public class HomeController {
     @Autowired
     private HttpSession session;
 
-    @Autowired
-    private TestCommand testCommand;
     @Autowired
     private LoginCommand loginCommand;
     @Autowired
@@ -139,6 +138,17 @@ public class HomeController {
         return "alert";
     }
 
+    @RequestMapping("update")
+    public ModelAndView testUpdate(HttpServletRequest request, Model model) {
+        System.out.println("===== Update Test Page =====");
+
+        UserDTO dto = userInfoCommand.execute(model);
+        ModelAndView mv = new ModelAndView("Update");
+
+        System.out.println("===== Page Loading =====");
+        return mv;
+    }
+
     @RequestMapping("userUpdate")
     public String userUpdate(HttpServletRequest request) {
         System.out.println("===== Update User =====");
@@ -250,7 +260,7 @@ public class HomeController {
         return "boardWriting";
     }
 
-    @RequestMapping("wPost")
+    @RequestMapping("/pWrite")
     public String insertBoard(HttpServletRequest request, Model model) {
         System.out.println("===== Insert Board =====");
 
@@ -260,7 +270,7 @@ public class HomeController {
         } else {
             model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
         }
-        model.addAttribute("url", "testBoardList");
+        model.addAttribute("url", "postManage");
 
         return "alert";
     }

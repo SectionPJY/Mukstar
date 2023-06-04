@@ -32,5 +32,5 @@ public class SubController {
     private String sInfo(){ return "subscribeInfo"; }
 
     @RequestMapping(value = "/wPost")
-    private String wPost(){ return "writePost"; }
+    private String wPost(){ return "writePost2"; }
 }
