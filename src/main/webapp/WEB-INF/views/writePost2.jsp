@@ -22,21 +22,23 @@
         <form method="post" action="/pWrite">
             <div class="writepost">
                 <div class="top">
+                    <c:forEach items="${boardData }" var="Board">
                     <div class="name">
                         <p id="r_uid">${u_nickname}</p>
                     </div>
                     <div class="title">
-                        <input type="text" id="r_sub" name="r_sub">
+                        <input type="text" id="r_sub" name="r_sub" value="${Board.r_sub }">
                     </div>
                 </div>
                 <div class="writearea">
                     <textarea id='note_contents' placeholder="내용을 입력하세요.(3000자 이내)."
-                              rows="10" cols="10" wrap="hard"></textarea>
+                              rows="10" cols="10" wrap="hard">${Board.r_contents }</textarea>
                     <div id="map" style="width:450px;height:400px;"></div>
                 </div>
                 <div class="post_btn">
                     <button type="submit">작성하기</button>
                 </div>
+                </c:forEach>
             </div>
         </form>
     </div>

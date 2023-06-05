@@ -244,7 +244,7 @@ public class HomeController {
         List<ResBoardDTO> dto = boardSelectCommand.execute(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
-            model.addAttribute("url", "testBoardList");
+            model.addAttribute("url", "index");
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("postDetail");
@@ -291,7 +291,7 @@ public class HomeController {
         return "alert";
     }
 
-    @RequestMapping("boardUpdatePage")
+    @RequestMapping("/boardUpdatePage")
     public ModelAndView boardUpdatePage(HttpServletRequest request, Model model) {
         System.out.println("===== Board Update Page =====");
 
@@ -299,15 +299,18 @@ public class HomeController {
         List<ResBoardDTO> dto = boardSelectCommand.execute(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
-            model.addAttribute("url", "testBoardList");
+            model.addAttribute("url", "myPage");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("boardUpdate");
+            mv = new ModelAndView("writePost2");
             model.addAttribute("boardData", dto);
         }
 
         return mv;
     }
+
+    @RequestMapping(value = "/wPost")
+    private String wPost(){ return "writePost2"; }
 
     @RequestMapping("boardUpdate")
     public String boarUpdate(HttpServletRequest request, Model model) {
