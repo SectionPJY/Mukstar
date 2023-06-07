@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>UserPage</title>
-    <link href="resources/css/writePost2.css" rel="stylesheet">
+    <link href="resources/css/writePost.css" rel="stylesheet">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=services"></script>
@@ -21,9 +21,8 @@
         <form method="post" action="/pWrite">
             <div class="writepost">
                 <div class="top">
-                    <c:forEach items="${boardData }" var="Board">
                     <div class="name">
-                        <p id="u_nickname">${u_nickname}</p>
+                        <p id="u_nickname"></p>
                     </div>
                     <div class="title">
                         <input type="text" id="r_sub" name="r_sub">
@@ -44,4 +43,7 @@
 <%@ include file="footer.jsp" %>
 </body>
 <script type="module" src="resources/JS/map.js"></script>
+<script>
+    var data = "";
+</script>
 </html>
