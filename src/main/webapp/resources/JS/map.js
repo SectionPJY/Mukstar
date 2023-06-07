@@ -7,80 +7,62 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 var map = new kakao.maps.Map(mapContainer, mapOption);
 
-// 도형 스타일을 변수로 설정합니다
-var strokeColor = '#39f',
-    fillColor = '#cce6ff',
-    fillOpacity = 0.5,
-    hintStrokeStyle = 'dash';
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
 
-var options = { // Drawing Manager를 생성할 때 사용할 옵션입니다
-    map: map, // Drawing Manager로 그리기 요소를 그릴 map 객체입니다
-    drawingMode: [
-        kakao.maps.Drawing.OverlayType.MARKER,
-        kakao.maps.Drawing.OverlayType.ARROW,
-        kakao.maps.Drawing.OverlayType.POLYLINE,
-        kakao.maps.Drawing.OverlayType.RECTANGLE,
-        kakao.maps.Drawing.OverlayType.CIRCLE,
-        kakao.maps.Drawing.OverlayType.ELLIPSE,
-        kakao.maps.Drawing.OverlayType.POLYGON
-    ],
-    // 사용자에게 제공할 그리기 가이드 툴팁입니다
-    // 사용자에게 도형을 그릴때, 드래그할때, 수정할때 가이드 툴팁을 표시하도록 설정합니다
-    guideTooltip: ['draw', 'drag', 'edit'],
-    markerOptions: {
-        draggable: true,
-        removable: true
-    },
-    arrowOptions: {
-        draggable: true,
-        removable: true,
-        strokeColor: strokeColor,
-        hintStrokeStyle: hintStrokeStyle
-    },
-    polylineOptions: {
-        draggable: true,
-        removable: true,
-        strokeColor: strokeColor,
-        hintStrokeStyle: hintStrokeStyle
-    },
-    rectangleOptions: {
-        draggable: true,
-        removable: true,
-        strokeColor: strokeColor,
-        fillColor: fillColor,
-        fillOpacity: fillOpacity
-    },
-    circleOptions: {
-        draggable: true,
-        removable: true,
-        strokeColor: strokeColor,
-        fillColor: fillColor,
-        fillOpacity: fillOpacity
-    },
-    ellipseOptions: {
-        draggable: true,
-        removable: true,
-        strokeColor: strokeColor,
-        fillColor: fillColor,
-        fillOpacity: fillOpacity
-    },
-    polygonOptions: {
-        draggable: true,
-        removable: true,
-        strokeColor: strokeColor,
-        fillColor: fillColor,
-        fillOpacity: fillOpacity
-    }
-};
+var marker = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
+    infowindow = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
 
-// 위에 작성한 옵션으로 Drawing Manager를 생성합니다
-var manager = new kakao.maps.Drawing.DrawingManager(options);
 
-// Toolbox를 생성합니다.
-// Toolbox 생성 시 위에서 생성한 DrawingManager 객체를 설정합니다.
-// DrawingManager 객체를 꼭 설정해야만 그리기 모드와 매니저의 상태를 툴박스에 설정할 수 있습니다.
-var toolbox = new kakao.maps.Drawing.Toolbox({drawingManager: manager});
+if (!data){
+    // 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
+    kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+        searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+                var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
+                detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
 
-// 지도 위에 Toolbox를 표시합니다
-// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOP은 위 가운데를 의미합니다.
-map.addControl(toolbox.getElement(), kakao.maps.ControlPosition.TOP);
+                var content = '<div class="bAddr">' +
+                    '<span class="title">법정동 주소정보</span>' +
+                    detailAddr +
+                    '</div>';
+
+                // 마커를 클릭한 위치에 표시합니다
+                marker.setPosition(mouseEvent.latLng);
+                marker.setMap(map);
+
+                // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
+                infowindow.setContent(content);
+                infowindow.open(map, marker);
+            }
+        });
+    });
+}else{
+    geocoder.addressSearch(data, function(result, status) {
+        // 정상적으로 검색이 완료됐으면
+        if (status === kakao.maps.services.Status.OK) {
+
+            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+            // 결과값으로 받은 위치를 마커로 표시합니다
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords
+            });
+
+            // 인포윈도우로 장소에 대한 설명을 표시합니다
+            var infowindow = new kakao.maps.InfoWindow({
+                content: '<div style="width:150px;text-align:center;padding:6px 0;">' + data + '</div>'
+            });
+            infowindow.open(map, marker);
+
+            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+            map.setCenter(coords);
+        }
+    });
+}
+
+function searchDetailAddrFromCoords(coords, callback) {
+    // 좌표로 법정동 상세 주소 정보를 요청합니다
+    geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
+}

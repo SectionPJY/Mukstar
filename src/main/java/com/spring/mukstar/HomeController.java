@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -236,7 +235,7 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping("/boardSelect")
+    @RequestMapping("/pSelect")
     public ModelAndView boardSelect(HttpServletRequest request, Model model) {
         System.out.println("===== Select Board Page =====");
 
@@ -252,12 +251,6 @@ public class HomeController {
         }
 
         return mv;
-    }
-
-    @RequestMapping("boardWriting")
-    public String boardWriting() {
-
-        return "boardWriting";
     }
 
     @RequestMapping("/pWrite")
@@ -291,7 +284,7 @@ public class HomeController {
         return "alert";
     }
 
-    @RequestMapping("/boardUpdatePage")
+    @RequestMapping("/pUpdatePage")
     public ModelAndView boardUpdatePage(HttpServletRequest request, Model model) {
         System.out.println("===== Board Update Page =====");
 
@@ -302,7 +295,7 @@ public class HomeController {
             model.addAttribute("url", "myPage");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("writePost2");
+            mv = new ModelAndView("updatePost");
             model.addAttribute("boardData", dto);
         }
 
@@ -310,9 +303,9 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/wPost")
-    private String wPost(){ return "writePost2"; }
+    private String wPost(){ return "writePost"; }
 
-    @RequestMapping("boardUpdate")
+    @RequestMapping("/pUpdate")
     public String boarUpdate(HttpServletRequest request, Model model) {
         System.out.println("===== Board Update =====");
 
@@ -327,16 +320,5 @@ public class HomeController {
         model.addAttribute("url", "boardSelect?r_id=" + r_id);
 
         return "alert";
-    }
-
-    @RequestMapping("testBoardList")
-    public ModelAndView testBoardList(HttpServletRequest request, Model model) {
-        System.out.println("===== Test Board List Page =====");
-
-        ModelAndView mv = new ModelAndView("testBoardList");
-        List<ResBoardDTO> dtos = boardListCommand.execute(request);
-        model.addAttribute("boardList", dtos);
-
-        return mv;
     }
 }

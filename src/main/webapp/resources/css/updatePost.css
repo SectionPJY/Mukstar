@@ -111,3 +111,5 @@ body {
     border: none;
     cursor: pointer;
 }
+
+.bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
