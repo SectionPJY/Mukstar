@@ -14,6 +14,7 @@ var marker = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입
     infowindow = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
 
 if (data){
+    addr = data;
     geocoder.addressSearch(data, function (result, status) {
         // 정상적으로 검색이 완료됐으면
         if (status === kakao.maps.services.Status.OK) {
@@ -42,6 +43,8 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
         if (status === kakao.maps.services.Status.OK) {
             var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
             detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
+            addr = !!result[0].road_address ? result[0].road_address.address_name : result[0].address.address_name;
+            $('input[name=r_address]').val(addr);
 
             var content = '<div class="bAddr">' +
                 '<span class="title">법정동 주소정보</span>' +

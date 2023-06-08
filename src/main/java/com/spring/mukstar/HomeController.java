@@ -1,5 +1,6 @@
 package com.spring.mukstar;
 
+import com.spring.mukstar.Class.ModifiableHttpServletRequest;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.ResBoardDTO;
@@ -42,6 +43,8 @@ public class HomeController {
     private BoardDeleteCommand boardDeleteCommand;
     @Autowired
     private BoardUpdateCommand boardUpdateCommand;
+
+    private ModifiableHttpServletRequest modifyRequest;
 
     @RequestMapping("/")
     public ModelAndView home(HttpServletRequest request, Model model) {
@@ -302,22 +305,23 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping(value = "/wPost")
-    private String wPost(){ return "writePost"; }
-
     @RequestMapping("/pUpdate")
     public String boarUpdate(HttpServletRequest request, Model model) {
         System.out.println("===== Board Update =====");
 
-        ModelAndView mv = null;
+        modifyRequest = new ModifiableHttpServletRequest(request);
+        modifyRequest.setParameter("searchWord", session.getAttribute("u_nickname").toString());
+        request = modifyRequest;
+        List<SearchDTO> dtos = userSearchCommand.execute(request, model);
+        modifyRequest.setParameter("r_uid", dtos.get(0).getU_id());
+        request = modifyRequest;
         int result = boardUpdateCommand.execute(request);
         if (result == 1) {
             model.addAttribute("msg", "수정이 완료되었습니다.");
         } else {
             model.addAttribute("msg", "수정에 실패하였습니다.");
         }
-        int r_id = Integer.parseInt(request.getParameter("r_id"));
-        model.addAttribute("url", "boardSelect?r_id=" + r_id);
+        model.addAttribute("url", "/myPage");
 
         return "alert";
     }

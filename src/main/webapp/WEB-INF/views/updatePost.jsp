@@ -18,10 +18,13 @@
 <body>
 <div class="wrap">
     <div class="container">
+        <c:forEach items="${boardData }" var="Board">
         <form method="post" action="/pUpdate">
+            <input type="hidden" name="r_id" value="${Board.r_id}">
+            <input type="hidden" name="r_name" value="${Board.r_name}">
+            <input type="hidden" name="r_address" value="">
             <div class="writepost">
                 <div class="top">
-                    <c:forEach items="${boardData }" var="Board">
                     <div class="name">
                         <p id="u_nickname">${u_nickname}</p>
                     </div>
@@ -35,11 +38,11 @@
                     <div id="map" style="width:450px;height:400px;"></div>
                 </div>
                 <div class="post_btn">
-                    <button type="submit">작성하기</button>
+                    <button type="submit">수정하기</button>
                 </div>
-                </c:forEach>
             </div>
         </form>
+        </c:forEach>
     </div>
 </div>
 <%@ include file="footer.jsp" %>
@@ -49,5 +52,6 @@
     <c:forEach items="${boardData }" var="Board">
         var data = "${Board.r_address}";
     </c:forEach>
+    var addr = "";
 </script>
 </html>
