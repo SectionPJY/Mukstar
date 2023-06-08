@@ -1,33 +1,36 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: jms
+  Date: 2023-05-31
+  Time: 오전 12:56
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Test</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="resources/JS/test.js"></script>
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <link href="resources/css/test.css" rel="stylesheet">
+    <%@ include file="header.jsp" %>
 </head>
 <body>
-<div id="wrap">
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">추천</a>
-                    <ul>
-                        <li><a href="#">유저 랭킹</a></li>
-                        <li><a href="#">지역별 맛집</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">고객센터</a>
-                    <ul>
-                        <li><a href="#">자주하는 질문</a></li>
-                        <li><a href="#">질문하기</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">마이페이지</a></li>
-                <li><a href="#">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+<div class="slide_wrapper">
+    <ul class="slides">
+        <li>slide 01</li>
+        <li>slide 02</li>
+        <li>slide 03</li>
+        <li>slide 04</li>
+        <li>slide 05</li>
+    </ul>
 </div>
+<p class="controls">
+    <span class="prev">prev</span>
+    <span class="next">next</span>
+</p>
+<script src="resources/JS/test.js"></script>
 </body>
+<footer>
+    <%@ include file="footer.jsp" %>
+</footer>
 </html>
+
