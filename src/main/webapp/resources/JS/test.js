@@ -61,8 +61,7 @@ function moveSlide(num) {
         }, 500);
         setTimeout(function () {
             slides.classList.add('animated');
-        },600)
+        }, 600)
     }
 
 }
-

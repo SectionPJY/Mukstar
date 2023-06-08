@@ -33,6 +33,30 @@
                 <li><div class="img">box1</div></li>
             </ul>
         </div>
+
+        <div class="banner_wraper">
+            <img src="resources/assets/flower.jpg">
+            <img src="resources/assets/fox.jpg">
+            <img src="resources/assets/moon.jpg">
+            <img src="resources/assets/nature.jpg">
+            <img src="resources/assets/space.jpg">
+            <img src="resources/assets/fox.jpg">
+            <img src="resources/assets/flower.jpg">
+            <img src="resources/assets/moon.jpg">
+            <img src="resources/assets/moon.jpg">
+            <img src="resources/assets/moon.jpg">
+        </div>
+
+        <div class="flow_banner">
+            <ul class="list">
+                <li>TEXT1</li>
+                <li>TEXT2</li>
+                <li>TEXT3</li>
+                <li>TEXT4</li>
+                <li>TEXT5</li>
+            </ul>
+        </div>
+
     </div>
 </div>
 <script src="resources/JS/test2.js"></script>
