@@ -50,7 +50,7 @@
 </div>
 <script type="text/javascript">
   const post = document.querySelectorAll(".post");
-  let rid;
+  let rid = "";
 
   function handleClick(event) {
     if (event.target.classList.contains("click")){
@@ -59,10 +59,11 @@
       // 클릭한 div만 "click"클래스 추가
       event.target.classList.add("click");
     }
-    let id;
+    let id = "";
     let clicked = document.querySelectorAll(".click");
     clicked.forEach((e) => id += e.children[0].value + ",");
-    console.log(id);
+    rid = id.slice(0, id.length-1);
+    console.log(rid);
   }
 
   post.forEach((e) => e.addEventListener("click", handleClick));
