@@ -43,6 +43,8 @@ public class HomeController {
     private BoardDeleteCommand boardDeleteCommand;
     @Autowired
     private BoardUpdateCommand boardUpdateCommand;
+    @Autowired
+    private BoardInfoCommand boardInfoCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
 
@@ -292,7 +294,7 @@ public class HomeController {
         System.out.println("===== Board Update Page =====");
 
         ModelAndView mv = null;
-        List<ResBoardDTO> dto = boardSelectCommand.execute(request);
+        List<ResBoardDTO> dto = boardInfoCommand.execute(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "myPage");
