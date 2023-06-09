@@ -45,6 +45,8 @@ public class HomeController {
     private BoardUpdateCommand boardUpdateCommand;
     @Autowired
     private BoardInfoCommand boardInfoCommand;
+    @Autowired
+    private TestDeleteCommand testDeleteCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -62,6 +64,22 @@ public class HomeController {
 
         System.out.println("===== Page Loading =====");
         return mv;
+    }
+
+    @RequestMapping("testDelete")
+    public String testDelete(Model model) {
+        System.out.println("===== Test Delete =====");
+
+        int result = testDeleteCommand.execute();
+        if (1 == result) {
+            model.addAttribute("msg", "삭제가 완료되었습니다.");
+            model.addAttribute("url", "testBoardList");
+        } else {
+            model.addAttribute("msg", "삭제에 실패하였습니다.");
+            model.addAttribute("url", "testIndex");
+        }
+
+        return "alert";
     }
 
     @RequestMapping("testLogin")
@@ -206,7 +224,7 @@ public class HomeController {
     }
 
     @RequestMapping("testBoardList")
-    public ModelAndView testBoardList(HttpServletRequest request , Model model) {
+    public ModelAndView testBoardList(HttpServletRequest request, Model model) {
         System.out.println("===== Test Board List Page =====");
 
         ModelAndView mv = new ModelAndView("testBoardList");
