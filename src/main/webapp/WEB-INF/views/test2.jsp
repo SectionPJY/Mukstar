@@ -17,7 +17,7 @@
 <body>
 <div class="wrap">
     <div class="container">
-        <div class="gallery">
+       <%-- <div class="gallery">
             <ul class="clearfix">
                 <li><div class="img">box4</div></li>
                 <li><div class="img">box5</div></li>
@@ -32,20 +32,7 @@
                 <li><div class="img">box1</div></li>
                 <li><div class="img">box1</div></li>
             </ul>
-        </div>
-
-        <div class="banner_wraper">
-            <img src="resources/assets/flower.jpg">
-            <img src="resources/assets/fox.jpg">
-            <img src="resources/assets/moon.jpg">
-            <img src="resources/assets/nature.jpg">
-            <img src="resources/assets/space.jpg">
-            <img src="resources/assets/fox.jpg">
-            <img src="resources/assets/flower.jpg">
-            <img src="resources/assets/moon.jpg">
-            <img src="resources/assets/moon.jpg">
-            <img src="resources/assets/moon.jpg">
-        </div>
+        </div>--%>
 
         <div class="flow_banner">
             <ul class="list">
