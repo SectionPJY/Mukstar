@@ -66,22 +66,6 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping("testDelete")
-    public String testDelete(Model model) {
-        System.out.println("===== Test Delete =====");
-
-        int result = testDeleteCommand.execute();
-        if (1 == result) {
-            model.addAttribute("msg", "삭제가 완료되었습니다.");
-            model.addAttribute("url", "testBoardList");
-        } else {
-            model.addAttribute("msg", "삭제에 실패하였습니다.");
-            model.addAttribute("url", "testIndex");
-        }
-
-        return "alert";
-    }
-
     @RequestMapping("testLogin")
     public String testLogin() {
         System.out.println("===== Login Test Page =====");
@@ -320,6 +304,29 @@ public class HomeController {
         }
         int r_id = Integer.parseInt(request.getParameter("r_id"));
         model.addAttribute("url", "boardSelect?r_id=" + r_id);
+
+        return "alert";
+    }
+
+    @RequestMapping("testDelete")
+    public String testDelete() {
+        System.out.println("===== Test Delete Page =====");
+
+        return "testDelete";
+    }
+
+    @RequestMapping("testDeleteArray")
+    public String testDeleteArray(HttpServletRequest request, Model model) {
+        System.out.println("===== Test Delete Array =====");
+
+        int result = testDeleteCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "삭제가 완료되었습니다.");
+            model.addAttribute("url", "testBoardList");
+        } else {
+            model.addAttribute("msg", "삭제에 실패하였습니다.");
+            model.addAttribute("url", "testIndex");
+        }
 
         return "alert";
     }
