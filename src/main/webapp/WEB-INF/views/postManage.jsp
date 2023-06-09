@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>myPage</title>
+  <title>postManage</title>
   <link href="resources/css/postManage.css" rel="stylesheet">
   <%@ include file="header2.jsp" %>
 </head>

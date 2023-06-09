@@ -217,6 +217,15 @@ footer {
     left: 280px;
 }
 
+.text-area > p {
+    width: 150px;
+    height: 250px;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
 .post > label > input {
     /*display: none;*/
 }

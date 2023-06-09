@@ -1,0 +1,172 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+}
+
+body {
+    background-image: url("../assets/Login.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+}
+
+.wrap {
+    /*height: 80%;*/
+    margin-bottom: 60px;
+}
+
+.container {
+    position: relative;
+    top: 200px;
+    width: 1280px;
+    margin: 0 auto;
+}
+
+
+/*
+
+!*gallery css*!
+
+li {
+    list-style: none;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.clear {
+    clear: both;
+}
+
+.gallery {
+    width: 1200px;
+    margin: 20px auto;
+    !*border: 1px solid #ccc;*!
+    overflow: hidden;
+    padding-left: 0;
+}
+
+.gallery ul {
+    width: 300%;
+    position: relative;
+    left: -300px;
+}
+
+.gallery ul li {
+    float: left;
+    width: 300px;
+    height: 180px;
+    box-sizing: border-box;
+    padding: 15px;
+    text-align: center;
+    line-height: 150px;
+}
+
+.gallery ul li .img {
+    border: 3px solid #ccc;
+}
+
+.g_item {
+    width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.g_item ul li {
+    display: inline-block;
+    margin-right: 10px;
+    background: #ccc;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.g_item ul li.on {
+    background: #f00;
+}
+
+!*gallery css end*!
+*/
+
+/*flow_banner css*/
+
+ul, li {
+    list-style: none;
+}
+
+.flow_banner {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    max-width: 1180px;
+    margin: 30px auto;
+    background: #000;
+}
+
+.flow_banner .list {
+    display: flex;
+}
+
+.flow_banner .list > li {
+    font-size: 18px;
+    color: #fff;
+    padding: 20px;
+    width: 300px;
+    height: 300px;
+    padding: 15px;
+    border: 1px solid white;
+    margin-right: 30px;
+    border-radius: 15px;
+}
+
+@keyframes flowRolling {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* 반응형 스타일 */
+@media (max-width: 1280px) {
+    .flow_banner .list > li {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .flow_banner .list > li {
+        font-size: 14px;
+        padding: 5px;
+    }
+}
+
+/*flow_banner css end*/
