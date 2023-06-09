@@ -57,15 +57,15 @@ public class HomeController {
     }
 
     @RequestMapping("/login")
-    public String testLogin() {
-        System.out.println("===== Login Test Page =====");
+    public String login() {
+        System.out.println("===== Login Page =====");
 
         return "login";
     }
 
     @RequestMapping("/signup")
-    public String testSignup() {
-        System.out.println("===== SignUp Test Page =====");
+    public String signup() {
+        System.out.println("===== SignUp Page =====");
 
         System.out.println("===== Page Loading =====");
         return "signup";
@@ -143,8 +143,8 @@ public class HomeController {
     }
 
     @RequestMapping("update")
-    public ModelAndView testUpdate(HttpServletRequest request, Model model) {
-        System.out.println("===== Update Test Page =====");
+    public ModelAndView update(HttpServletRequest request, Model model) {
+        System.out.println("===== Update Page =====");
 
         UserDTO dto = userInfoCommand.execute(model);
         ModelAndView mv = new ModelAndView("Update");
@@ -280,10 +280,10 @@ public class HomeController {
         int result = boardDeleteCommand.execute(request);
         if (1 == result) {
             model.addAttribute("msg", "게시글이 삭제되었습니다.");
-            model.addAttribute("url", "testBoardList");
+            model.addAttribute("url", "pManage");
         } else {
             model.addAttribute("msg", "게시글 삭제에 실패하였습니다.");
-            model.addAttribute("url", "testBoardList");
+            model.addAttribute("url", "pManage");
         }
 
         return "alert";
