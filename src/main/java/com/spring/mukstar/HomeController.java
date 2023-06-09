@@ -3,7 +3,6 @@ package com.spring.mukstar;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.ResBoardDTO;
-import com.spring.mukstar.dto.SearchDTO;
 import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.Objects;
 
 @Controller
 public class HomeController {
@@ -45,6 +43,10 @@ public class HomeController {
     private BoardDeleteCommand boardDeleteCommand;
     @Autowired
     private BoardUpdateCommand boardUpdateCommand;
+    @Autowired
+    private BoardInfoCommand boardInfoCommand;
+    @Autowired
+    private TestDeleteCommand testDeleteCommand;
 
     @RequestMapping("/")
     public String home() {
@@ -296,7 +298,7 @@ public class HomeController {
         System.out.println("===== Board Update Page =====");
 
         ModelAndView mv = null;
-        List<ResBoardDTO> dto = boardSelectCommand.execute(request);
+        List<ResBoardDTO> dto = boardInfoCommand.execute(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "testBoardList");
@@ -335,5 +337,21 @@ public class HomeController {
         model.addAttribute("boardList", dtos);
 
         return mv;
+    }
+
+    @RequestMapping("testDelete")
+    public String testDelete(Model model) {
+        System.out.println("===== Test Delete =====");
+
+        int result = testDeleteCommand.execute();
+        if (1 == result) {
+            model.addAttribute("msg", "삭제가 완료되었습니다.");
+            model.addAttribute("url", "testBoardList");
+        } else {
+            model.addAttribute("msg", "삭제에 실패하였습니다.");
+            model.addAttribute("url", "testIndex");
+        }
+
+        return "alert";
     }
 }

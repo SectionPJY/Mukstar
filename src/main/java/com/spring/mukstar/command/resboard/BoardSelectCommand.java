@@ -23,6 +23,7 @@ public class BoardSelectCommand extends DateCast {
         System.out.println("===== Board Select Command is Running =====");
 
         int r_id = Integer.parseInt(request.getParameter("r_id"));
+
         // 데이터 들고 오기 전에 조회수 올리기
         update.execute(r_id);
 
