@@ -1,5 +1,6 @@
 package com.spring.mukstar;
 
+import com.spring.mukstar.Class.ModifiableHttpServletRequest;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.ResBoardDTO;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,8 +23,6 @@ public class HomeController {
     @Autowired
     private HttpSession session;
 
-    @Autowired
-    private TestCommand testCommand;
     @Autowired
     private LoginCommand loginCommand;
     @Autowired
@@ -45,11 +43,17 @@ public class HomeController {
     private BoardDeleteCommand boardDeleteCommand;
     @Autowired
     private BoardUpdateCommand boardUpdateCommand;
+    @Autowired
+    private BoardInfoCommand boardInfoCommand;
+
+    private ModifiableHttpServletRequest modifyRequest;
 
     @RequestMapping("/")
-    public String home() {
-
-        return "index";
+    public ModelAndView home(HttpServletRequest request, Model model) {
+        ModelAndView mv = new ModelAndView("index");
+        List<ResBoardDTO> dtos = boardListCommand.execute(request);
+        model.addAttribute("boardList", dtos);
+        return mv;
     }
 
     @RequestMapping("/login")
@@ -192,7 +196,7 @@ public class HomeController {
             model.addAttribute("url", "index");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("myPage");
+            mv = new ModelAndView("postManage");
             model.addAttribute("boardData", dto);
         }
 
@@ -236,7 +240,7 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping("boardSelect")
+    @RequestMapping("/pSelect")
     public ModelAndView boardSelect(HttpServletRequest request, Model model) {
         System.out.println("===== Select Board Page =====");
 
@@ -244,23 +248,17 @@ public class HomeController {
         List<ResBoardDTO> dto = boardSelectCommand.execute(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
-            model.addAttribute("url", "testBoardList");
+            model.addAttribute("url", "index");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("boardDetail");
+            mv = new ModelAndView("postDetail");
             model.addAttribute("boardData", dto);
         }
 
         return mv;
     }
 
-    @RequestMapping("boardWriting")
-    public String boardWriting() {
-
-        return "boardWriting";
-    }
-
-    @RequestMapping("insertBoard")
+    @RequestMapping("/pWrite")
     public String insertBoard(HttpServletRequest request, Model model) {
         System.out.println("===== Insert Board =====");
 
@@ -270,7 +268,7 @@ public class HomeController {
         } else {
             model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
         }
-        model.addAttribute("url", "testBoardList");
+        model.addAttribute("url", "postManage");
 
         return "alert";
     }
@@ -291,49 +289,42 @@ public class HomeController {
         return "alert";
     }
 
-    @RequestMapping("boardUpdatePage")
+    @RequestMapping("/pUpdatePage")
     public ModelAndView boardUpdatePage(HttpServletRequest request, Model model) {
         System.out.println("===== Board Update Page =====");
 
         ModelAndView mv = null;
-        List<ResBoardDTO> dto = boardSelectCommand.execute(request);
+        List<ResBoardDTO> dto = boardInfoCommand.execute(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
-            model.addAttribute("url", "testBoardList");
+            model.addAttribute("url", "myPage");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("boardUpdate");
+            mv = new ModelAndView("updatePost");
             model.addAttribute("boardData", dto);
         }
 
         return mv;
     }
 
-    @RequestMapping("boardUpdate")
+    @RequestMapping("/pUpdate")
     public String boarUpdate(HttpServletRequest request, Model model) {
         System.out.println("===== Board Update =====");
 
-        ModelAndView mv = null;
+        modifyRequest = new ModifiableHttpServletRequest(request);
+        modifyRequest.setParameter("searchWord", session.getAttribute("u_nickname").toString());
+        request = modifyRequest;
+        List<SearchDTO> dtos = userSearchCommand.execute(request, model);
+        modifyRequest.setParameter("r_uid", dtos.get(0).getU_id());
+        request = modifyRequest;
         int result = boardUpdateCommand.execute(request);
         if (result == 1) {
             model.addAttribute("msg", "수정이 완료되었습니다.");
         } else {
             model.addAttribute("msg", "수정에 실패하였습니다.");
         }
-        int r_id = Integer.parseInt(request.getParameter("r_id"));
-        model.addAttribute("url", "boardSelect?r_id=" + r_id);
+        model.addAttribute("url", "/myPage");
 
         return "alert";
-    }
-
-    @RequestMapping("testBoardList")
-    public ModelAndView testBoardList(HttpServletRequest request, Model model) {
-        System.out.println("===== Test Board List Page =====");
-
-        ModelAndView mv = new ModelAndView("testBoardList");
-        List<ResBoardDTO> dtos = boardListCommand.execute(request);
-        model.addAttribute("boardList", dtos);
-
-        return mv;
     }
 }

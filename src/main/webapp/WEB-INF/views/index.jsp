@@ -9,11 +9,9 @@
 <body>
 <div class="slideshow">
   <ul class="slides">
-    <li><img src="resources/assets/flower.jpg" alt=""></li>
-    <li><img src="resources/assets/fox.jpg" alt=""></li>
-    <li><img src="resources/assets/nature.jpg" alt=""></li>
-    <li><img src="resources/assets/space.jpg" alt=""></li>
-    <li><img src="resources/assets/moon.jpg" alt=""></li>
+    <c:forEach items="${boardList }" var="Board">
+    <li><img src="" alt="${Board.r_sub}" onclick="location.href='/pSelect?r_id=${Board.r_id}'"></li>
+    </c:forEach>
   </ul>
   <p class="controller">
     <!-- &lang: 왼쪽 방향 화살표 &rang: 오른쪽 방향 화살표 -->
