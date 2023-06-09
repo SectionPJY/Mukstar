@@ -19,10 +19,11 @@
 <div class="wrap">
     <div class="container">
         <form method="post" action="/pWrite">
+            <input type="hidden" name="r_address" value="">
             <div class="writepost">
                 <div class="top">
                     <div class="name">
-                        <p id="u_nickname"></p>
+                        <p id="u_nickname">${u_nickname}</p>
                     </div>
                     <div class="title">
                         <input type="text" id="r_sub" name="r_sub">
@@ -45,5 +46,6 @@
 <script type="module" src="resources/JS/map.js"></script>
 <script>
     var data = "";
+    var addr = "";
 </script>
 </html>

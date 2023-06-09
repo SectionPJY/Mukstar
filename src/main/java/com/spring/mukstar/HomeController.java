@@ -268,12 +268,12 @@ public class HomeController {
         } else {
             model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
         }
-        model.addAttribute("url", "postManage");
+        model.addAttribute("url", "pManage");
 
         return "alert";
     }
 
-    @RequestMapping("boardDelete")
+    @RequestMapping("pDelete")
     public String boardDelete(HttpServletRequest request, Model model) {
         System.out.println("===== Board Delete =====");
 

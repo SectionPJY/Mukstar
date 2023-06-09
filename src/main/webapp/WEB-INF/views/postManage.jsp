@@ -27,7 +27,7 @@
   </div>
   <div class="buttons">
     <button style="background-color: #03B3FF; color: white; margin-top: 15px" onclick="location.href='/wPost'">글쓰기</button>
-    <button style="background-color: #FF5757; color: white; margin-top: 15px" onclick="location.href='#'">삭제하기</button>
+    <button style="background-color: #FF5757; color: white; margin-top: 15px" onclick="location.href='/pDelete?r_id=' + rid">삭제하기</button>
   </div>
 </div>
 <div class="post-area">
@@ -44,12 +44,13 @@
           <p><c:out value="${Board.r_contents}"/></p>
         </div>
       </div>
-      <div class="opacity"></div>
+      <div class="opacity"><input type="hidden" value="${Board.r_id}"></div>
     </div>
   </c:forEach>
 </div>
 <script type="text/javascript">
   const post = document.querySelectorAll(".post");
+  let rid;
 
   function handleClick(event) {
     if (event.target.classList.contains("click")){
@@ -58,6 +59,10 @@
       // 클릭한 div만 "click"클래스 추가
       event.target.classList.add("click");
     }
+    let id;
+    let clicked = document.querySelectorAll(".click");
+    clicked.forEach((e) => id += e.children[0].value + ",");
+    console.log(id);
   }
 
   post.forEach((e) => e.addEventListener("click", handleClick));
