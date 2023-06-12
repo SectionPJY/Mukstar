@@ -21,7 +21,6 @@
         <c:forEach items="${boardData }" var="Board">
         <form method="post" action="/pUpdate">
             <input type="hidden" name="r_id" value="${Board.r_id}">
-            <input type="hidden" name="r_name" value="${Board.r_name}">
             <input type="hidden" name="r_address" value="">
             <div class="writepost">
                 <div class="top">
@@ -35,6 +34,7 @@
                 <div class="writearea">
                     <textarea id='r_contents' name="r_contents" placeholder="내용을 입력하세요.(3000자 이내)."
                               rows="10" cols="10" wrap="hard">${Board.r_contents}</textarea>
+                    <input type="text" name="r_name" value="${Board.r_name}">
                     <div id="map" style="width:450px;height:400px;"></div>
                 </div>
                 <div class="post_btn">

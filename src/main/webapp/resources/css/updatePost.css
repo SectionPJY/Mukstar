@@ -76,6 +76,15 @@ body {
     border: none;
 }
 
+#r_name {
+    width: 150px;
+    height: 45px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+}
+
 .writearea {
     position: relative;
     top: 60px;

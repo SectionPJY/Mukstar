@@ -27,12 +27,12 @@
                     </div>
                     <div class="title">
                         <input type="text" id="r_sub" name="r_sub">
-                        <input type="text" id="shop">
                     </div>
                 </div>
                 <div class="writearea">
                     <textarea id='r_contents' name="r_contents" placeholder="내용을 입력하세요.(3000자 이내)."
                               rows="10" cols="10" wrap="hard"></textarea>
+                    <input type="text" id="r_name">
                     <div id="map" style="width:450px;height:400px;"></div>
                 </div>
                 <div class="post_btn">
