@@ -6,14 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
     <link href="resources/css/postDetail.css" rel="stylesheet">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script type="module" src="resources/JS/map.js"></script>
+    <script type="module" src="resources/JS/viewMap.js"></script>
     <script type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=drawing"></script>
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=services"></script>
     <%@ include file="header.jsp" %>
 </head>
 <body>
@@ -27,22 +28,32 @@
                     </div>
                 </div>
                 <div class="list">
+                    <c:forEach items="${boardData }" var="Board">
                     <div class="post_title">
-                        <p>제목</p>
+                        <p>${Board.r_sub }</p>
                     </div>
                     <div class="post_date">
-                        <p>게시일</p>
-                        <p>좋아요 수</p>
+                        <p>${Board.r_date }</p>
+                        <p>${Board.r_view }</p>
                     </div>
                 </div>
             </div>
             <div class="post_area">
-                <div class="post"><p></p></div>
-                <div id="map" style="width:450px;height:400px;"></div>
+                <p>${Board.r_contents}</p>
+                <div class="post"><div id="map" style="width:450px;height:400px;"></div></div>
+            </div>
+            <div class="replies_area">
+                </c:forEach>
             </div>
         </div>
     </div>
 </div>
 <%@ include file="footer.jsp" %>
 </body>
+<script>
+    <c:forEach items="${boardData }" var="Board">
+    var data = "${Board.r_address}";
+    var rName = "${Board.r_name}";
+    </c:forEach>
+</script>
 </html>

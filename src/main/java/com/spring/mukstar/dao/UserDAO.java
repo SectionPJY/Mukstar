@@ -71,8 +71,12 @@ public class UserDAO {
     public List<SearchDTO> userSearch(String searchWord) {
         System.out.println("===== User Search DAO =====");
 
+        if (searchWord.isEmpty()){
+            return null;
+        }else {
             searchWord = "%" + searchWord + "%";
             System.out.println("Search Word : " + searchWord);
+        }
 
         return sqlSession.selectList("UserMapper.userSearch", searchWord);
     }

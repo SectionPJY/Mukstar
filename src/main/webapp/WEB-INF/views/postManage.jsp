@@ -26,13 +26,13 @@
     <a href="#" class="badge4"><img src="resources/assets/먹깨비.png"/></a>
   </div>
   <div class="buttons">
-    <button style="background-color: #03B3FF; color: white; margin-top: 15px;">글쓰기</button>
-    <button style="background-color: #FF5757; color: white; margin-top: 15px;">삭제하기</button>
+    <button style="background-color: #03B3FF; color: white; margin-top: 15px" onclick="location.href='/wPost'">글쓰기</button>
+    <button style="background-color: #FF5757; color: white; margin-top: 15px" onclick="location.href='/pDelete?r_id=' + rid">삭제하기</button>
   </div>
 </div>
 <div class="post-area">
   <c:forEach items="${boardData}" var="Board">
-    <div class="post" onclick="location.href='/'">
+    <div class="post">
       <div class="post-imgarea">
         <div class="inner-area2">
           <img src="resources/assets/fox.jpg" alt="이미지 없음"/>
@@ -44,12 +44,13 @@
           <p><c:out value="${Board.r_contents}"/></p>
         </div>
       </div>
-      <div class="opacity"></div>
+      <div class="opacity"><input type="hidden" value="${Board.r_id}"></div>
     </div>
   </c:forEach>
 </div>
 <script type="text/javascript">
   const post = document.querySelectorAll(".post");
+  let rid = "";
 
   function handleClick(event) {
     if (event.target.classList.contains("click")){
@@ -58,6 +59,11 @@
       // 클릭한 div만 "click"클래스 추가
       event.target.classList.add("click");
     }
+    let id = "";
+    let clicked = document.querySelectorAll(".click");
+    clicked.forEach((e) => id += e.children[0].value + ",");
+    rid = id.slice(0, id.length-1);
+    console.log(rid);
   }
 
   post.forEach((e) => e.addEventListener("click", handleClick));

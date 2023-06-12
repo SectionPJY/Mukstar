@@ -1,29 +1,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Title</title>
-  <link href="resources/css/index.css" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%@ include file="header.jsp" %>
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link href="resources/css/index.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%@ include file="header.jsp" %>
 </head>
 <body>
-<div class="slideshow">
-  <ul class="slides">
-    <li><img src="resources/assets/flower.jpg" alt=""></li>
-    <li><img src="resources/assets/fox.jpg" alt=""></li>
-    <li><img src="resources/assets/nature.jpg" alt=""></li>
-    <li><img src="resources/assets/space.jpg" alt=""></li>
-    <li><img src="resources/assets/moon.jpg" alt=""></li>
-  </ul>
-  <p class="controller">
-    <!-- &lang: 왼쪽 방향 화살표 &rang: 오른쪽 방향 화살표 -->
-    <span class="prev">&lang;</span>
-    <span class="next">&rang;</span>
-  </p>
-  <script src="resources/JS/slideShow.js"></script>
+<div class="wrap">
+    <div class="container">
+        <div class="flow_banner">
+            <ul class="list">
+                <c:forEach items="${boardList }" var="Board">
+                    <li onclick="location.href='/pSelect?r_id=${Board.r_id}'">${Board.r_sub}</li>
+                </c:forEach>
+            </ul>
+            <script src="resources/JS/index.js"></script>
+        </div>
+    </div>
 </div>
 </body>
 <footer>
-  <%@ include file="footer.jsp" %>
+    <%@ include file="footer.jsp" %>
 </footer>
 </html>

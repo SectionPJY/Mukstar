@@ -13,10 +13,7 @@ import java.util.List;
 public class SubController {
 
     @RequestMapping("/pwSearch")
-    private String pwSearch() {
-
-        return "pwSearch";
-    }
+    private String pwSearch() { return "pwSearch"; }
 
     @RequestMapping(value = "/infoPW")
     private String pwCheck(){
@@ -30,4 +27,7 @@ public class SubController {
 
     @RequestMapping(value = "/sInfo")
     private String sInfo(){ return "subscribeInfo"; }
+
+    @RequestMapping(value = "/wPost")
+    private String wPost(){ return "writePost"; }
 }
