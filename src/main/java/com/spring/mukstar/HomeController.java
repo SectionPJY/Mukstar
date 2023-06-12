@@ -81,8 +81,9 @@ public class HomeController {
     }
 
     @RequestMapping("loginCheck")
-    public String loginCheck(HttpServletRequest request, Model model) {
+    public ModelAndView loginCheck(HttpServletRequest request, Model model) {
         System.out.println("===== Login Checking =====");
+        ModelAndView mv;
 
         int result = loginCommand.execute(request);
         if (1 == result) {
@@ -91,14 +92,17 @@ public class HomeController {
             model.addAttribute("u_id", u_id);
 
             System.out.println("===== Page Loading =====");
-            return "index";
+            mv = new ModelAndView("index");
+            List<ResBoardDTO> dtos = boardListCommand.execute(request);
+            model.addAttribute("boardList", dtos);
+
         } else {
             System.out.println("===== Login Fail =====");
+            mv = new ModelAndView("alert");
             request.setAttribute("msg", "오류가 발생했습니다.");
             request.setAttribute("url", "login");
-
-            return "alert";
         }
+        return mv;
     }
 
     @RequestMapping(value = "/pwCheck")
