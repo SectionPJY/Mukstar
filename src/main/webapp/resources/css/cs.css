@@ -72,6 +72,7 @@ body {
     border-radius: 15px;
     padding: 10px;
     border: none;
+    outline: none;
 }
 
 .writearea {
@@ -90,6 +91,8 @@ body {
     padding: 20px;
     padding-bottom: 350px;
     resize: none;
+    outline: none;
+    font-size: 20px;
 }
 
 .post_btn {

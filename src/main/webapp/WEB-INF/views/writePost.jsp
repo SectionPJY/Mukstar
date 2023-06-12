@@ -33,7 +33,7 @@
                 <div class="writearea">
                     <textarea id='r_contents' name="r_contents" placeholder="내용을 입력하세요.(3000자 이내)."
                               rows="10" cols="10" wrap="hard"></textarea>
-                    <div id="map" style="width:450px;height:400px;"></div>
+                    <div id="map" style="width:450px;height:400px;border-radius: 0px 15px 15px 0px;"></div>
                 </div>
                 <div class="post_btn">
                     <button type="submit">작성하기</button>
