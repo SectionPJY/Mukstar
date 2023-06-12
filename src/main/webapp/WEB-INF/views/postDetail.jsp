@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>postDetail</title>
     <link href="resources/css/postDetail.css" rel="stylesheet">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script type="module" src="resources/JS/viewMap.js"></script>
