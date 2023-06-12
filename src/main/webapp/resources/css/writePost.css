@@ -78,10 +78,10 @@ body {
 }
 
 #r_name {
-    width: 150px;
-    height: 45px;
+    width: 450px;
+    height: 40px;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 10px;
     border: none;
     outline: none;

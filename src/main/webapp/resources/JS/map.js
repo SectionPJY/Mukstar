@@ -15,6 +15,7 @@ var marker = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입
 
 if (data){
     addr = data;
+    $('input[name=r_address]').val(addr);
     geocoder.addressSearch(data, function (result, status) {
         // 정상적으로 검색이 완료됐으면
         if (status === kakao.maps.services.Status.OK) {
