@@ -10,6 +10,10 @@
 <head>
     <title>Title</title>
     <link href="resources/css/postDetail.css" rel="stylesheet">
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script type="module" src="resources/JS/map.js"></script>
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=drawing"></script>
     <%@ include file="header.jsp" %>
 </head>
 <body>
@@ -33,14 +37,12 @@
                 </div>
             </div>
             <div class="post_area">
-                <p>이게 맞나 싶네 이게 맞나 싶네 이게 맞나 싶네이게 맞나 싶네이게 맞나 싶네이게 맞나 싶네이게 맞나
-                    싶네이게 맞나 싶네이게 맞나 싶네 이게 맞나 싶네이게 맞나 싶네이게 맞나 싶네이게 맞나 싶네</p>
-            </div>
-            <div class="replies_area">
-
+                <div class="post"><p></p></div>
+                <div id="map" style="width:450px;height:400px;"></div>
             </div>
         </div>
     </div>
 </div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>
