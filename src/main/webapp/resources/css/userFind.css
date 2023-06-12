@@ -31,7 +31,9 @@ footer {
 
 #wrap {
   min-width: 1340px;
-  height: 82%;
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 60px;
 }
 
 .container {
@@ -58,12 +60,13 @@ footer {
 
 .user_search > input {
   width: 700px;
-  height: 36px;
+  height: 42px;
   border: none;
   border-radius: 3px;
   font-size: 20px;
   padding: 10px;
   margin: 0 50px;
+  outline: none;
 }
 
 .user_search > button {

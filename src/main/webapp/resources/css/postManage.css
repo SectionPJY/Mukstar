@@ -215,6 +215,10 @@ footer {
   height: 250px;
   top: 15px;
   left: 280px;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
 }
 
 .text-area > p {

@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>postDetail</title>
     <link href="resources/css/postDetail.css" rel="stylesheet">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script type="module" src="resources/JS/map.js"></script>
@@ -38,7 +38,7 @@
             </div>
             <div class="post_area">
                 <div class="post"><p></p></div>
-                <div id="map" style="width:450px;height:400px;"></div>
+                <div id="map" style="width:450px;height:400px;border-radius: 0px 15px 15px 0px"></div>
             </div>
         </div>
     </div>

@@ -74,6 +74,7 @@ body {
     border-radius: 15px;
     padding: 10px;
     border: none;
+    outline: none;
 }
 
 #shop {
@@ -83,6 +84,7 @@ body {
     border-radius: 15px;
     padding: 10px;
     border: none;
+    outline: none;
 }
 
 .writearea {
@@ -98,10 +100,11 @@ body {
     width: 450px;
     height: 400px;
     border: none;
-    border-radius: 15px;
+    border-radius: 15px 0px 0px 15px;
     padding: 20px;
     padding-bottom: 350px;
     resize: none;
+    outline: none;
 }
 
 .post_btn {
