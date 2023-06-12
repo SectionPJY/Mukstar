@@ -30,8 +30,8 @@
   let position = [
   <c:forEach items="${boardData }" var="Board" varStatus="i">
     <c:choose>
-      <c:when test="${i.last}">{ data : "${Board.r_address}", rame : "${Board.r_name}" }</c:when>
-      <c:otherwise>{ data : "${Board.r_address}", rame : "${Board.r_name}" },</c:otherwise>
+      <c:when test="${i.last}">{ data : "${Board.r_address}", rName : "${Board.r_name}", r_id : "${Board.r_id}" }</c:when>
+      <c:otherwise>{ data : "${Board.r_address}", rName : "${Board.r_name}", r_id : "${Board.r_id}" },</c:otherwise>
     </c:choose>
   </c:forEach>
   ];
@@ -65,7 +65,8 @@
 
           // 인포윈도우로 장소에 대한 설명을 표시합니다
           infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;">' + position[i].rame + '</div>'
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">'
+                    + position[i].rName + '</div>'
           });
           infowindow.open(map, marker);
 
@@ -74,11 +75,6 @@
         }
       });
     }
-
-  // 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
-  kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
-
-  });
 </script>
 </body>
 </html>

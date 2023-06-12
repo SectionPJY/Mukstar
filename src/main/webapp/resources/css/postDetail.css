@@ -109,11 +109,9 @@ body {
     display: flex;
 }
 
-/*
-.post_area > p {
-    padding: 10px;
+.content {
+    width: 350px;
 }
-*/
 
 .post {
     width: 450px;
