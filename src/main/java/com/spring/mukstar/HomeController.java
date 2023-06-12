@@ -262,6 +262,28 @@ public class HomeController {
         return mv;
     }
 
+    @RequestMapping(value = "/mapFind")
+    private ModelAndView mapFind(HttpServletRequest request, Model model) {
+
+        System.out.println("===== Select Board Page =====");
+
+
+
+
+        ModelAndView mv = null;
+        List<ResBoardDTO> dtos = boardListCommand.execute(request);
+        if (null == dtos) {
+            model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
+            model.addAttribute("url", "index");
+            mv = new ModelAndView("alert");
+        } else {
+            mv = new ModelAndView("findMap");
+            model.addAttribute("boardData", dtos);
+        }
+
+        return mv;
+    }
+
     @RequestMapping("/pWrite")
     public String insertBoard(HttpServletRequest request, Model model) {
         System.out.println("===== Insert Board =====");

@@ -50,7 +50,7 @@
     </nav>
 </div>
 <div class="menu2">
-    <button class="mapbtn" type="button">지도보기</button>
+    <button class="mapbtn" type="button" onclick="location.href='/mapFind'">지도보기</button>
     <button class="findbtn" type="button" onclick="location.href='/userFind'">유저찾기</button>
 </div>
 </body>
