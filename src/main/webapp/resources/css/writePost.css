@@ -68,7 +68,16 @@ body {
 */
 
 .title > input {
-    width: 610px;
+    width: 495px;
+    height: 45px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+}
+
+#shop {
+    width: 150px;
     height: 45px;
     background-color: white;
     border-radius: 15px;

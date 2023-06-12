@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>UserPage</title>
+    <title>writePost</title>
     <link href="resources/css/writePost.css" rel="stylesheet">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script type="module" src="resources/JS/map.js"></script>
@@ -26,7 +26,8 @@
                         <p>작성자 이름</p>
                     </div>
                     <div class="title">
-                        <input type="text">
+                        <input type="text" placeholder="제목을 입력하세요">
+                        <input type="text" id="shop">
                     </div>
                 </div>
                 <div class="writearea">
