@@ -1,7 +1,9 @@
 package com.spring.mukstar;
 
+import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.user.*;
+import com.spring.mukstar.dto.QnADTO;
 import com.spring.mukstar.dto.ResBoardDTO;
 import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +49,8 @@ public class HomeController {
     private BoardInfoCommand boardInfoCommand;
     @Autowired
     private TestDeleteCommand testDeleteCommand;
+    @Autowired
+    private QnAListCommand qnAListCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -329,5 +333,16 @@ public class HomeController {
         }
 
         return "alert";
+    }
+
+    @RequestMapping("qnaList")
+    public ModelAndView qnaList(HttpServletRequest request, Model model) {
+        System.out.println("===== QnA List Page =====");
+
+        ModelAndView mv = new ModelAndView("qnaList");
+        List<QnADTO> dtos = qnAListCommand.execute();
+        model.addAttribute("qnaList", dtos);
+
+        return mv;
     }
 }

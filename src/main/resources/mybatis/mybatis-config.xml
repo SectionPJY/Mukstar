@@ -7,5 +7,6 @@
         <typeAlias type="com.spring.mukstar.dto.UserDTO" alias="UserDTO"/>
         <typeAlias type="com.spring.mukstar.dto.ResBoardDTO" alias="ResBoardDTO"/>
         <typeAlias type="com.spring.mukstar.dto.SubscribeDTO" alias="SubscribeDTO"/>
+        <typeAlias type="com.spring.mukstar.dto.QnADTO" alias="QnADTO"/>
     </typeAliases>
 </configuration>
