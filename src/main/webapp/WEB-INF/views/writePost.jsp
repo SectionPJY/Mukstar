@@ -31,8 +31,9 @@
                     </div>
                 </div>
                 <div class="writearea">
-                    <textarea id='note_contents' placeholder="내용을 입력하세요.(3000자 이내)."
+                    <textarea id='r_contents' name="r_contents" placeholder="내용을 입력하세요.(3000자 이내)."
                               rows="10" cols="10" wrap="hard"></textarea>
+                    <input type="text" id="r_name">
                     <div id="map" style="width:450px;height:400px;border-radius: 0px 15px 15px 0px;"></div>
                 </div>
                 <div class="post_btn">
