@@ -19,6 +19,11 @@
 <div class="wrap">
   <div class="container">
     <form action="#" method="post">
+      <tr>
+        <td>주소</td>
+        <td><input type="text" name="detailAddress" id="address"></td>
+        <td><button type="button" id="searchBtn">검색</button></td>
+      </tr>
       <div class="map_area">
           <div id="map" style="width:1000px;height:600px;border-radius: 50px;"></div>
       </div>
@@ -26,6 +31,7 @@
   </div>
 </div>
 <%@ include file="footer.jsp" %>
+
 <script>
   let position = [
   <c:forEach items="${boardData }" var="Board" varStatus="i">
@@ -38,7 +44,7 @@
 
   var mapContainer = document.getElementById('map'), // 지도를 표시할 div
           mapOption = {
-            center: new kakao.maps.LatLng(37.6318009, 127.0756323), // 지도의 중심좌표
+            center: new kakao.maps.LatLng(37.745704, 127.025001), // 지도의 중심좌표
             level: 3 // 지도의 확대 레벨
           };
 
@@ -70,11 +76,48 @@
           });
           infowindow.open(map, marker);
 
+          kakao.maps.event.addListener(marker, 'click', function() {
+            console.log(position[i].rName)
+          });
+
           // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
           map.setCenter(coords);
         }
       });
     }
+
+  $('#searchBtn').click(function(){
+    // 버튼을 click했을때
+
+    // 주소로 좌표를 검색합니다
+    geocoder.addressSearch($('#address').val(), function(result, status) {
+
+      // 정상적으로 검색이 완료됐으면
+      if (status === kakao.maps.services.Status.OK) {
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+        // 추출한 좌표를 통해 도로명 주소 추출
+        let lat = result[0].y;
+        let lng = result[0].x;
+        getAddr(lat,lng);
+        function getAddr(lat,lng){
+          let geocoder = new kakao.maps.services.Geocoder();
+
+          let coord = new kakao.maps.LatLng(lat, lng);
+          let callback = function(result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+              // 추출한 도로명 주소를 해당 input의 value값으로 적용
+              $('#address').val(result[0].road_address.address_name);
+            }
+          }
+          geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+        }
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+      }
+    });
+  });
 </script>
 </body>
 </html>
