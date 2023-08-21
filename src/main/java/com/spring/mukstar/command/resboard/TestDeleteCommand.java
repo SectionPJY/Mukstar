@@ -4,17 +4,25 @@ import com.spring.mukstar.dao.ResBoardDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Service
 public class TestDeleteCommand {
 
     @Autowired
     private ResBoardDAO dao;
 
-    public int execute() {
+    public int execute(HttpServletRequest request) {
         System.out.println("===== Test Delete Command is Running =====");
 
-        int[] values = {10, 11, 12};
-        for (int r_id : values) {
+        String[] values = request.getParameterValues("chBox");
+        int[] intValues = new int[values.length];
+
+        // 선택된 r_id값 int로 변환
+        for (int i = 0; i < values.length; i++) {
+            intValues[i] = Integer.parseInt(values[i]);
+        }
+        for (int r_id : intValues) {
             // 삭제 결과 담는 result
             int result = dao.boardDelete(r_id);
 

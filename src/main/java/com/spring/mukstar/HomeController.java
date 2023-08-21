@@ -1,10 +1,8 @@
 package com.spring.mukstar;
 
-import com.spring.mukstar.Class.ModifiableHttpServletRequest;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.ResBoardDTO;
-import com.spring.mukstar.dto.SearchDTO;
 import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +21,8 @@ public class HomeController {
     @Autowired
     private HttpSession session;
 
+    @Autowired
+    private TestCommand testCommand;
     @Autowired
     private LoginCommand loginCommand;
     @Autowired
@@ -56,24 +56,25 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping("/login")
-    public String login() {
-        System.out.println("===== Login Page =====");
+    @RequestMapping("testDelete")
+    public String testDelete(Model model) {
+        System.out.println("===== Test Delete =====");
 
-        return "login";
+        int result = testDeleteCommand.execute();
+        if (1 == result) {
+            model.addAttribute("msg", "삭제가 완료되었습니다.");
+            model.addAttribute("url", "testBoardList");
+        } else {
+            model.addAttribute("msg", "삭제에 실패하였습니다.");
+            model.addAttribute("url", "testIndex");
+        }
+
+        return "alert";
     }
 
-    @RequestMapping("/signup")
-    public String signup() {
-        System.out.println("===== SignUp Page =====");
-
-        System.out.println("===== Page Loading =====");
-        return "signup";
-    }
-
-    @RequestMapping("logout")
-    public String logout() {
-        System.out.println("===== User LogOut =====");
+    @RequestMapping("testLogin")
+    public String testLogin() {
+        System.out.println("===== Login Test Page =====");
 
         session.invalidate();
 
@@ -352,5 +353,39 @@ public class HomeController {
         model.addAttribute("url", "/myPage");
 
         return "alert";
+    }
+
+    @RequestMapping("testDelete")
+    public String testDelete() {
+        System.out.println("===== Test Delete Page =====");
+
+        return "testDelete";
+    }
+
+    @RequestMapping("testDeleteArray")
+    public String testDeleteArray(HttpServletRequest request, Model model) {
+        System.out.println("===== Test Delete Array =====");
+
+        int result = testDeleteCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "삭제가 완료되었습니다.");
+            model.addAttribute("url", "testBoardList");
+        } else {
+            model.addAttribute("msg", "삭제에 실패하였습니다.");
+            model.addAttribute("url", "testIndex");
+        }
+
+        return "alert";
+    }
+
+    @RequestMapping("qnaList")
+    public ModelAndView qnaList(HttpServletRequest request, Model model) {
+        System.out.println("===== QnA List Page =====");
+
+        ModelAndView mv = new ModelAndView("qnaList");
+        List<QnADTO> dtos = qnAListCommand.execute();
+        model.addAttribute("qnaList", dtos);
+
+        return mv;
     }
 }
