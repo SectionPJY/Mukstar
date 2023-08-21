@@ -19,6 +19,11 @@
 <div class="wrap">
   <div class="container">
     <form action="#" method="post">
+      <tr>
+        <td>주소</td>
+        <td><input type="text" name="detailAddress" id="address"></td>
+        <td><button type="button" id="searchBtn">검색</button></td>
+      </tr>
       <div class="map_area">
           <div id="map" style="width:1000px;height:600px;border-radius: 50px;"></div>
       </div>
@@ -26,19 +31,20 @@
   </div>
 </div>
 <%@ include file="footer.jsp" %>
+
 <script>
   let position = [
   <c:forEach items="${boardData }" var="Board" varStatus="i">
     <c:choose>
-      <c:when test="${i.last}">{ data : "${Board.r_address}", rame : "${Board.r_name}" }</c:when>
-      <c:otherwise>{ data : "${Board.r_address}", rame : "${Board.r_name}" },</c:otherwise>
+      <c:when test="${i.last}">{ data : "${Board.r_address}", rName : "${Board.r_name}", r_id : "${Board.r_id}" }</c:when>
+      <c:otherwise>{ data : "${Board.r_address}", rName : "${Board.r_name}", r_id : "${Board.r_id}" },</c:otherwise>
     </c:choose>
   </c:forEach>
   ];
 
   var mapContainer = document.getElementById('map'), // 지도를 표시할 div
           mapOption = {
-            center: new kakao.maps.LatLng(37.6318009, 127.0756323), // 지도의 중심좌표
+            center: new kakao.maps.LatLng(37.745704, 127.025001), // 지도의 중심좌표
             level: 3 // 지도의 확대 레벨
           };
 
@@ -65,9 +71,14 @@
 
           // 인포윈도우로 장소에 대한 설명을 표시합니다
           infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;">' + position[i].rame + '</div>'
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">'
+                    + position[i].rName + '</div>'
           });
           infowindow.open(map, marker);
+
+          kakao.maps.event.addListener(marker, 'click', function() {
+            console.log(position[i].rName)
+          });
 
           // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
           map.setCenter(coords);
@@ -75,9 +86,37 @@
       });
     }
 
-  // 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
-  kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+  $('#searchBtn').click(function(){
+    // 버튼을 click했을때
 
+    // 주소로 좌표를 검색합니다
+    geocoder.addressSearch($('#address').val(), function(result, status) {
+
+      // 정상적으로 검색이 완료됐으면
+      if (status === kakao.maps.services.Status.OK) {
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+        // 추출한 좌표를 통해 도로명 주소 추출
+        let lat = result[0].y;
+        let lng = result[0].x;
+        getAddr(lat,lng);
+        function getAddr(lat,lng){
+          let geocoder = new kakao.maps.services.Geocoder();
+
+          let coord = new kakao.maps.LatLng(lat, lng);
+          let callback = function(result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+              // 추출한 도로명 주소를 해당 input의 value값으로 적용
+              $('#address').val(result[0].road_address.address_name);
+            }
+          }
+          geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+        }
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+      }
+    });
   });
 </script>
 </body>

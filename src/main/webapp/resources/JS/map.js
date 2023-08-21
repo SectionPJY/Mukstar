@@ -1,6 +1,6 @@
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = {
-        center: new kakao.maps.LatLng(37.6318009, 127.0756323), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(37.745704, 127.025001), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };
 
@@ -15,6 +15,7 @@ var marker = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입
 
 if (data){
     addr = data;
+    $('input[name=r_address]').val(addr);
     geocoder.addressSearch(data, function (result, status) {
         // 정상적으로 검색이 완료됐으면
         if (status === kakao.maps.services.Status.OK) {

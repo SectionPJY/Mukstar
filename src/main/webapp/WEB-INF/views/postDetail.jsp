@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="post_area">
-                <p>${Board.r_contents}</p>
+                <p class="content">${Board.r_contents}</p>
                 <div class="post"><div id="map" style="width:450px;height:400px;"></div></div>
             </div>
             <div class="replies_area">

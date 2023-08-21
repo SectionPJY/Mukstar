@@ -124,7 +124,7 @@ ul, li {
     position: relative;
     overflow: hidden;
     display: flex;
-    max-width: 1180px;
+    max-width: 1920px;
     margin: 30px auto;
     background: #000;
 }

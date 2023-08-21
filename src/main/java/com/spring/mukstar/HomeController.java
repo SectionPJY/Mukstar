@@ -78,7 +78,7 @@ public class HomeController {
 
         session.invalidate();
 
-        return "index";
+        return "redirect:/";
     }
 
     @RequestMapping("loginCheck")
@@ -114,11 +114,11 @@ public class HomeController {
         if(Objects.equals(spw, rpw)){
             return "userInfo_edit";
         } else{
-            return "index";
+            return "redirect:/";
         }
     }
 
-    @RequestMapping("signupCheck")
+    @RequestMapping("/signupCheck")
     public String signupCheck(HttpServletRequest request, Model model) {
         System.out.println("===== SignUp Check =====");
 
@@ -126,7 +126,7 @@ public class HomeController {
             System.out.println("===== Error =====");
 
             request.setAttribute("msg", "오류가 발생했습니다.");
-            request.setAttribute("url", "index");
+            request.setAttribute("url", "redirect:/");
 
             return "alert";
         }
@@ -141,7 +141,7 @@ public class HomeController {
             System.out.println("===== SignUp Fail =====");
 
             request.setAttribute("msg", "회원가입에 실패하였습니다,");
-            request.setAttribute("url", "index");
+            request.setAttribute("url", "redirect:/");
         }
 
         return "alert";
@@ -181,7 +181,7 @@ public class HomeController {
         List<ResBoardDTO> dto = boardSelectCommand.uidToContents(request);
         if (null == dto) {
             model.addAttribute("msg", "내 게시글을 불러오는데 실패했습니다.");
-            model.addAttribute("url", "index");
+            model.addAttribute("url", "redirect:/");
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("myPage");
@@ -198,7 +198,7 @@ public class HomeController {
         List<ResBoardDTO> dto = boardSelectCommand.uidToContents(request);
         if (null == dto) {
             model.addAttribute("msg", "내 게시글을 불러오는데 실패했습니다.");
-            model.addAttribute("url", "index");
+            model.addAttribute("url", "redirect:/");
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("postManage");
@@ -215,7 +215,7 @@ public class HomeController {
         List<ResBoardDTO> dto = boardSelectCommand.uidToUserContents(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
-            model.addAttribute("url", "index");
+            model.addAttribute("url", "redirect:/");
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("userPage");
@@ -253,7 +253,7 @@ public class HomeController {
         List<ResBoardDTO> dto = boardSelectCommand.execute(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
-            model.addAttribute("url", "index");
+            model.addAttribute("url", "redirect:/");
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("postDetail");
@@ -275,7 +275,7 @@ public class HomeController {
         List<ResBoardDTO> dtos = boardListCommand.execute(request);
         if (null == dtos) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
-            model.addAttribute("url", "index");
+            model.addAttribute("url", "redirect:/");
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("findMap");
