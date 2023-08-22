@@ -1,8 +1,12 @@
 package com.spring.mukstar;
 
+import com.spring.mukstar.Class.ModifiableHttpServletRequest;
+import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.user.*;
+import com.spring.mukstar.dto.QnADTO;
 import com.spring.mukstar.dto.ResBoardDTO;
+import com.spring.mukstar.dto.SearchDTO;
 import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,8 +25,6 @@ public class HomeController {
     @Autowired
     private HttpSession session;
 
-    @Autowired
-    private TestCommand testCommand;
     @Autowired
     private LoginCommand loginCommand;
     @Autowired
@@ -45,6 +47,8 @@ public class HomeController {
     private BoardUpdateCommand boardUpdateCommand;
     @Autowired
     private BoardInfoCommand boardInfoCommand;
+    @Autowired
+    private QnAListCommand qnAListCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
 
@@ -54,22 +58,6 @@ public class HomeController {
         List<ResBoardDTO> dtos = boardListCommand.execute(request);
         model.addAttribute("boardList", dtos);
         return mv;
-    }
-
-    @RequestMapping("testDelete")
-    public String testDelete(Model model) {
-        System.out.println("===== Test Delete =====");
-
-        int result = testDeleteCommand.execute();
-        if (1 == result) {
-            model.addAttribute("msg", "삭제가 완료되었습니다.");
-            model.addAttribute("url", "testBoardList");
-        } else {
-            model.addAttribute("msg", "삭제에 실패하였습니다.");
-            model.addAttribute("url", "testIndex");
-        }
-
-        return "alert";
     }
 
     @RequestMapping("testLogin")
@@ -360,22 +348,6 @@ public class HomeController {
         System.out.println("===== Test Delete Page =====");
 
         return "testDelete";
-    }
-
-    @RequestMapping("testDeleteArray")
-    public String testDeleteArray(HttpServletRequest request, Model model) {
-        System.out.println("===== Test Delete Array =====");
-
-        int result = testDeleteCommand.execute(request);
-        if (1 == result) {
-            model.addAttribute("msg", "삭제가 완료되었습니다.");
-            model.addAttribute("url", "testBoardList");
-        } else {
-            model.addAttribute("msg", "삭제에 실패하였습니다.");
-            model.addAttribute("url", "testIndex");
-        }
-
-        return "alert";
     }
 
     @RequestMapping("qnaList")
