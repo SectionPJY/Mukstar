@@ -44,6 +44,13 @@ public class ResBoardDAO {
         return sqlSession.selectList("ResBoardMapper.boardSelectToUid", u_id);
     }
 
+    public List<ResBoardDTO> boardSelectToRname(String r_name) {
+        System.out.println("===== Board Select To Uid DAO =====");
+        System.out.println("name : " + r_name);
+
+        return sqlSession.selectList("ResBoardMapper.boardSelectToRname", r_name);
+    }
+
     // Board Insert
     public int boardInsert(String r_uid, String r_sub, String r_name, String r_address, String r_contents) {
         System.out.println("===== Board Insert DAO =====");
