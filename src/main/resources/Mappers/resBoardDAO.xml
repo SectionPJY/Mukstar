@@ -5,6 +5,17 @@
     <select id="boardList" resultType="ResBoardDTO">
         SELECT *
         FROM m_resboard
+        WHERE r_uid NOT IN (
+            SELECT b_uid_1
+            FROM m_block
+            WHERE b_uid_2 = #{u_id }
+
+            UNION DISTINCT
+
+            SELECT b_uid_2
+            FROM m_block
+            WHERE b_uid_1 = #{u_id }
+        )
         <include refid="sort" />
     </select>
     <sql id="sort">
