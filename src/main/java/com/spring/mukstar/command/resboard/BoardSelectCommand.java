@@ -75,4 +75,16 @@ public class BoardSelectCommand extends DateCast {
             return dto;
         }
     }
+
+    public List<ResBoardDTO> rnameToContents(HttpServletRequest request) {
+        String r_name = request.getParameter("r_name");
+        List<ResBoardDTO> dto = dao.boardSelectToRname(r_name);
+        if (null == dto) {
+            System.out.println("===== DTO is Empty =====");
+            return null;
+        } else {
+            System.out.println("===== DTO is Exists =====");
+            return dto;
+        }
+    }
 }

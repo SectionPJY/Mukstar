@@ -20,7 +20,8 @@
 <body>
 <div class="wrap">
   <div class="container">
-    <form action="#" method="post">
+    <form action="/boardSearch" method="post" id="mapSearch">
+      <input type="hidden" name="r_name" value="">
       <tr>
         <td>주소</td>
         <td><input type="text" name="detailAddress" id="address"></td>
@@ -53,6 +54,7 @@
 <%@ include file="footer.jsp" %>
 
 <script>
+  let rame = "";
   let position = [
   <c:forEach items="${boardData }" var="Board" varStatus="i">
     <c:choose>
@@ -89,15 +91,17 @@
             position: coords
           });
 
+          rame = position[i].rName;
           // 인포윈도우로 장소에 대한 설명을 표시합니다
           infowindow = new kakao.maps.InfoWindow({
             content: '<div style="width:150px;text-align:center;padding:6px 0;">'
-                    + position[i].rName + '</div>'
+                    + rame + '</div>'
           });
           infowindow.open(map, marker);
 
           kakao.maps.event.addListener(marker, 'click', function() {
-            console.log(position[i].rName)
+            $('input[name=r_name]').val(rame);
+            document.getElementById('mapSearch').submit();
           });
 
           // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다

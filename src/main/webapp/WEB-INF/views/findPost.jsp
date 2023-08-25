@@ -20,24 +20,28 @@
             <input type="text">
             <button type="submit">검색</button>
         </div>
-        <div class="user_list">
-            <div class="user_info">
-                <span class="loc">지역</span>
-                <span class="tit">제목</span>
-                <span class="grade">평점</span>
-                <span class="fav">좋아요수</span>
-                <span class="view">조회수</span>
-            </div>
-        </div>
-        <div class="user_list">
-            <div class="user_info">
-                <span class="loc">지역</span>
-                <span class="tit">제목</span>
-                <span class="grade">평점</span>
-                <span class="fav">좋아요수</span>
-                <span class="view">조회수</span>
-            </div>
-        </div>
+        <c:if test="${not empty postData}">
+            <c:forEach items="${postData}" var="Post">
+                <div class="user_info" onclick="location.href='/pSelect?r_id=${Post.r_id}'">
+                    <span>${User.u_nickname}</span>
+                    <span>${User.r_count}</span>
+                    <span class="loc">${Post.r_address.substring(0,2)}</span>
+                    <span class="tit">${Post.r_sub}</span>
+                    <span class="grade">${Post.r_rating}</span>
+                    <span class="fav">${Post.r_mark}</span>
+                    <span class="view">${Post.r_view}</span>
+                </div>
+            </c:forEach>
+        </c:if>
+<%--        <div class="user_list">--%>
+<%--            <div class="user_info">--%>
+<%--                <span class="loc">지역</span>--%>
+<%--                <span class="tit">제목</span>--%>
+<%--                <span class="grade">평점</span>--%>
+<%--                <span class="fav">좋아요수</span>--%>
+<%--                <span class="view">조회수</span>--%>
+<%--            </div>--%>
+<%--        </div>--%>
     </div>
 </div>
 </body>

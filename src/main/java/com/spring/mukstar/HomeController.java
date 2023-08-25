@@ -233,6 +233,25 @@ public class HomeController {
         return mv;
     }
 
+    @RequestMapping("/boardSearch")
+    public ModelAndView boardSearch(HttpServletRequest request, Model model) {
+
+        ModelAndView mv = null;
+        List<ResBoardDTO> dtos = boardSelectCommand.rnameToContents(request);
+        if (null == dtos) {
+            model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
+            model.addAttribute("url", "redirect:/mapFind");
+
+            mv = new ModelAndView("alert");
+        } else {
+            model.addAttribute("postData", dtos);
+            mv = new ModelAndView("findPost");
+        }
+
+        System.out.println("===== Page Loading =====");
+        return mv;
+    }
+
     @RequestMapping("/pSelect")
     public ModelAndView boardSelect(HttpServletRequest request, Model model) {
         System.out.println("===== Select Board Page =====");
@@ -255,9 +274,6 @@ public class HomeController {
     private ModelAndView mapFind(HttpServletRequest request, Model model) {
 
         System.out.println("===== Select Board Page =====");
-
-
-
 
         ModelAndView mv = null;
         List<ResBoardDTO> dtos = boardListCommand.execute(request);
