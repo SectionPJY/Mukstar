@@ -1,10 +1,8 @@
 package com.spring.mukstar;
 
 import com.spring.mukstar.Class.ModifiableHttpServletRequest;
-import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.user.*;
-import com.spring.mukstar.dto.QnADTO;
 import com.spring.mukstar.dto.ResBoardDTO;
 import com.spring.mukstar.dto.SearchDTO;
 import com.spring.mukstar.dto.UserDTO;
@@ -47,8 +45,6 @@ public class HomeController {
     private BoardUpdateCommand boardUpdateCommand;
     @Autowired
     private BoardInfoCommand boardInfoCommand;
-    @Autowired
-    private QnAListCommand qnAListCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
 
@@ -60,9 +56,24 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping("testLogin")
-    public String testLogin() {
-        System.out.println("===== Login Test Page =====");
+    @RequestMapping("/login")
+    public String login() {
+        System.out.println("===== Login Page =====");
+
+        return "login";
+    }
+
+    @RequestMapping("/signup")
+    public String signup() {
+        System.out.println("===== SignUp Page =====");
+
+        System.out.println("===== Page Loading =====");
+        return "signup";
+    }
+
+    @RequestMapping("logout")
+    public String logout() {
+        System.out.println("===== User LogOut =====");
 
         session.invalidate();
 
@@ -357,23 +368,5 @@ public class HomeController {
         model.addAttribute("url", "/myPage");
 
         return "alert";
-    }
-
-    @RequestMapping("testDelete")
-    public String testDelete() {
-        System.out.println("===== Test Delete Page =====");
-
-        return "testDelete";
-    }
-
-    @RequestMapping("qnaList")
-    public ModelAndView qnaList(HttpServletRequest request, Model model) {
-        System.out.println("===== QnA List Page =====");
-
-        ModelAndView mv = new ModelAndView("qnaList");
-        List<QnADTO> dtos = qnAListCommand.execute();
-        model.addAttribute("qnaList", dtos);
-
-        return mv;
     }
 }
