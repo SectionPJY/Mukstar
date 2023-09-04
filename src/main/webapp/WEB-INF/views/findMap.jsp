@@ -22,26 +22,14 @@
   <div class="container">
     <form action="/boardSearch" method="post" id="mapSearch">
       <input type="hidden" name="r_name" value="">
-      <tr>
-        <td>주소</td>
-        <td><input type="text" name="detailAddress" id="address"></td>
-        <td><button type="button" id="searchBtn">검색</button></td>
-      </tr>
       <div class="map_area">
         <div class="search_area">
           <section class="search">
-            <input type="search" name="search_area" class="search_box" placeholder="검색">
+            <input type="search" name="detailAddress" id="address" onkeyup="enterKey()" class="search_box" placeholder="검색">
           </section>
           <section class="search_result">
             <div class="search_result_box">
-              <ul class="result_list">
-                <li>검색 결과 1</li>
-                <li>검색 결과 2</li>
-                <li>검색 결과 3</li>
-                <li>검색 결과 4</li>
-                <li>검색 결과 5</li>
-                <li>검색 결과 6</li>
-                <li>검색 결과 7</li>
+              <ul id="result_list">
               </ul>
             </div>
           </section>
@@ -54,7 +42,6 @@
 <%@ include file="footer.jsp" %>
 
 <script>
-  let rame = "";
   let position = [
   <c:forEach items="${boardData }" var="Board" varStatus="i">
     <c:choose>
@@ -80,6 +67,7 @@
           infowindow = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
 
     for (let i = 0; i < position.length; i ++) {
+      let rame = "";
       geocoder.addressSearch(position[i].data, function (result, status) {
         // 정상적으로 검색이 완료됐으면
         if (status === kakao.maps.services.Status.OK) {
@@ -99,49 +87,54 @@
           });
           infowindow.open(map, marker);
 
+          $("#result_list").append('<li onclick="document.getElementById(\'mapSearch\').submit();" >' + rame + '</li>')
+
           kakao.maps.event.addListener(marker, 'click', function() {
             $('input[name=r_name]').val(rame);
             document.getElementById('mapSearch').submit();
           });
+        }
+      });
+    }
+
+  document.addEventListener('keydown', function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+    };
+  }, true);
+
+  function enterKey() {
+    if (event.keyCode === 13) {
+      // 주소로 좌표를 검색합니다
+      geocoder.addressSearch($('#address').val(), function(result, status) {
+
+        // 정상적으로 검색이 완료됐으면
+        if (status === kakao.maps.services.Status.OK) {
+          var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+          // 추출한 좌표를 통해 도로명 주소 추출
+          let lat = result[0].y;
+          let lng = result[0].x;
+          getAddr(lat,lng);
+          function getAddr(lat,lng){
+            let geocoder = new kakao.maps.services.Geocoder();
+
+            let coord = new kakao.maps.LatLng(lat, lng);
+            let callback = function(result, status) {
+              if (status === kakao.maps.services.Status.OK) {
+                // 추출한 도로명 주소를 해당 input의 value값으로 적용
+                $('#address').val(result[0].road_address.address_name);
+              }
+            }
+            geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+          }
 
           // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
           map.setCenter(coords);
         }
       });
-    }
-
-  $('#searchBtn').click(function(){
-    // 버튼을 click했을때
-
-    // 주소로 좌표를 검색합니다
-    geocoder.addressSearch($('#address').val(), function(result, status) {
-
-      // 정상적으로 검색이 완료됐으면
-      if (status === kakao.maps.services.Status.OK) {
-        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-        // 추출한 좌표를 통해 도로명 주소 추출
-        let lat = result[0].y;
-        let lng = result[0].x;
-        getAddr(lat,lng);
-        function getAddr(lat,lng){
-          let geocoder = new kakao.maps.services.Geocoder();
-
-          let coord = new kakao.maps.LatLng(lat, lng);
-          let callback = function(result, status) {
-            if (status === kakao.maps.services.Status.OK) {
-              // 추출한 도로명 주소를 해당 input의 value값으로 적용
-              $('#address').val(result[0].road_address.address_name);
-            }
-          }
-          geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
-        }
-
-        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-        map.setCenter(coords);
-      }
-    });
-  });
+    };
+  }
 </script>
 </body>
 </html>
