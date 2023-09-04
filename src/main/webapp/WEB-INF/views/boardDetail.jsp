@@ -16,7 +16,7 @@
 <c:forEach items="${boardData }" var="Board">
     제목 : ${Board.r_sub } <br>
     작성자 : ${Board.r_uid } <br>
-    작성시간 : ${Board.r_date } 조회수 : ${Board.r_view } <br>
+    작성시간 : ${Board.r_date } 조회수 : ${Board.r_view } 별점 : ${Board.r_rating } <br>
     가게명 : ${Board.r_name } <br>
     가게주소 : ${Board.r_address } <br><br>
     내용 <br>

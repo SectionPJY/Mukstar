@@ -42,8 +42,8 @@
 
     <!-- INSERT Board -->
     <insert id="boardInsert">
-        INSERT INTO m_resboard(r_uid, r_sub, r_name, r_address, r_contents)
-        VALUES (#{r_uid }, #{r_sub }, #{r_name }, #{r_address }, #{r_contents });
+        INSERT INTO m_resboard(r_uid, r_sub, r_name, r_address, r_contents, r_rating)
+        VALUES (#{r_uid }, #{r_sub }, #{r_name }, #{r_address }, #{r_contents }, #{r_rating });
     </insert>
 
     <!-- Delete Board -->

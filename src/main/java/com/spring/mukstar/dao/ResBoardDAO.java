@@ -38,7 +38,7 @@ public class ResBoardDAO {
     }
 
     // Board Insert
-    public int boardInsert(String r_uid, String r_sub, String r_name, String r_address, String r_contents) {
+    public int boardInsert(String r_uid, String r_sub, String r_name, String r_address, String r_contents, int r_rating) {
         System.out.println("===== Board Insert DAO =====");
 
         HashMap<String, Object> map = new HashMap<String, Object>();
@@ -47,6 +47,7 @@ public class ResBoardDAO {
         map.put("r_name", r_name);
         map.put("r_address", r_address);
         map.put("r_contents", r_contents);
+        map.put("r_rating", r_rating);
 
         return sqlSession.insert("ResBoardMapper.boardInsert", map);
     }
