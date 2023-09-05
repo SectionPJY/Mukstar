@@ -87,7 +87,7 @@
           });
           infowindow.open(map, marker);
 
-          $("#result_list").append('<li onclick="document.getElementById(\'mapSearch\').submit();" >' + rame + '</li>')
+          $("#result_list").append('<li onclick="$(\'input[name=r_name]\').val(this.innerHTML); getElementById(\'mapSearch\').submit();" >' + rame + '</li>')
 
           kakao.maps.event.addListener(marker, 'click', function() {
             $('input[name=r_name]').val(rame);
