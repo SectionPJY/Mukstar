@@ -43,12 +43,12 @@
 
 <script>
   let position = [
-  <c:forEach items="${boardData }" var="Board" varStatus="i">
+    <c:forEach items="${boardData }" var="Board" varStatus="i">
     <c:choose>
       <c:when test="${i.last}">{ data : "${Board.r_address}", rName : "${Board.r_name}", r_id : "${Board.r_id}" }</c:when>
       <c:otherwise>{ data : "${Board.r_address}", rName : "${Board.r_name}", r_id : "${Board.r_id}" },</c:otherwise>
     </c:choose>
-  </c:forEach>
+    </c:forEach>
   ];
 
   var mapContainer = document.getElementById('map'), // 지도를 표시할 div
@@ -66,12 +66,44 @@
   var marker = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
           infowindow = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
 
+  var bounds = map.getBounds();
+
+  let count = 0;
+  let maxCount = 0;
+  kakao.maps.event.addListener(map, 'bounds_changed', function() {
+    if(maxCount > count){
+      return;
+    }
+    count = 0;
+    maxCount = position.length;
+    $("#result_list *").remove();
+
+    // 지도 영역정보를 얻어옵니다
+    bounds = map.getBounds();
     for (let i = 0; i < position.length; i ++) {
-      let rame = "";
       geocoder.addressSearch(position[i].data, function (result, status) {
         // 정상적으로 검색이 완료됐으면
         if (status === kakao.maps.services.Status.OK) {
           var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+          if (bounds.contain(coords)) {
+            ++count;
+            $("#result_list").append('<li onclick="$(\'input[name=r_name]\').val(this.innerHTML); getElementById(\'mapSearch\').submit();" >' + position[i].rName + '</li>')
+          }else{
+            --maxCount;
+          }
+        }
+      });
+    }
+  });
+
+
+  for (let i = 0; i < position.length; i ++) {
+    geocoder.addressSearch(position[i].data, function (result, status) {
+      // 정상적으로 검색이 완료됐으면
+      if (status === kakao.maps.services.Status.OK) {
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+        if (bounds.contain(coords)){
 
           // 결과값으로 받은 위치를 마커로 표시합니다
           marker = new kakao.maps.Marker({
@@ -79,7 +111,7 @@
             position: coords
           });
 
-          rame = position[i].rName;
+          let rame = position[i].rName;
           // 인포윈도우로 장소에 대한 설명을 표시합니다
           infowindow = new kakao.maps.InfoWindow({
             content: '<div style="width:150px;text-align:center;padding:6px 0;">'
@@ -87,15 +119,14 @@
           });
           infowindow.open(map, marker);
 
-          $("#result_list").append('<li onclick="$(\'input[name=r_name]\').val(this.innerHTML); getElementById(\'mapSearch\').submit();" >' + rame + '</li>')
-
           kakao.maps.event.addListener(marker, 'click', function() {
             $('input[name=r_name]').val(rame);
             document.getElementById('mapSearch').submit();
           });
         }
-      });
-    }
+      }
+    });
+  }
 
   document.addEventListener('keydown', function(event) {
     if (event.keyCode === 13) {
