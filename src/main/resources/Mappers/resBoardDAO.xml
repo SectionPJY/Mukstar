@@ -5,6 +5,17 @@
     <select id="boardList" resultType="ResBoardDTO">
         SELECT *
         FROM m_resboard
+        WHERE r_uid NOT IN (
+            SELECT b_uid_1
+            FROM m_block
+            WHERE b_uid_2 = #{u_id }
+
+            UNION DISTINCT
+
+            SELECT b_uid_2
+            FROM m_block
+            WHERE b_uid_1 = #{u_id }
+        )
         <include refid="sort" />
     </select>
     <sql id="sort">
@@ -43,8 +54,8 @@
 
     <!-- INSERT Board -->
     <insert id="boardInsert">
-        INSERT INTO m_resboard(r_uid, r_sub, r_name, r_address, r_contents)
-        VALUES (#{r_uid }, #{r_sub }, #{r_name }, #{r_address }, #{r_contents });
+        INSERT INTO m_resboard(r_uid, r_sub, r_name, r_address, r_contents, r_rating)
+        VALUES (#{r_uid }, #{r_sub }, #{r_name }, #{r_address }, #{r_contents }, #{r_rating });
     </insert>
 
     <!-- Delete Board -->
