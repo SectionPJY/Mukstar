@@ -31,19 +31,12 @@
           <c:forEach items="${boardData }" var="Board">
           <div class="post_title">
             <p>${Board.r_sub }</p>
-            <div class="star">
-              <fieldset>
-                <input type="radio" name="reviewStar" value="5" id="rate1"><label
-                for="rate1">★</label>
-                <input type="radio" name="reviewStar" value="4" id="rate2"><label
-                for="rate2">★</label>
-                <input type="radio" name="reviewStar" value="3" id="rate3"><label
-                for="rate3">★</label>
-                <input type="radio" name="reviewStar" value="2" id="rate4"><label
-                for="rate4">★</label>
-                <input type="radio" name="reviewStar" value="1" id="rate5"><label
-                for="rate5">★</label>
-              </fieldset>
+            <div class="star_background">
+                <span class="star">
+              ★★★★★
+              <span>★★★★★</span>
+              <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+            </span>
             </div>
           </div>
           <div class="post_date">

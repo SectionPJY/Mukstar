@@ -28,8 +28,8 @@
           <div class="title">
             <input type="text" id="r_sub" name="r_sub">
           </div>
-          <div class="star">
-            <fieldset>
+          <div class="star_background">
+            <%--<fieldset>
               <input type="radio" name="reviewStar" value="5" id="rate1"><label
               for="rate1">★</label>
               <input type="radio" name="reviewStar" value="4" id="rate2"><label
@@ -40,7 +40,12 @@
               for="rate4">★</label>
               <input type="radio" name="reviewStar" value="1" id="rate5"><label
               for="rate5">★</label>
-            </fieldset>
+            </fieldset>--%>
+            <span class="star">
+              ★★★★★
+              <span>★★★★★</span>
+              <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+            </span>
           </div>
         </div>
         <div class="writearea">
@@ -64,5 +69,9 @@
 <script>
   var data = "";
   var addr = "";
+
+  const drawStar = (target) => {
+    document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
+  }
 </script>
 </html>
