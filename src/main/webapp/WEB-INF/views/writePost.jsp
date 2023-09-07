@@ -41,11 +41,11 @@
               <input type="radio" name="reviewStar" value="1" id="rate5"><label
               for="rate5">★</label>
             </fieldset>--%>
-            <span class="star">
+            <div class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
-            </span>
+              <input type="range" name="r_rating" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+            </div>
           </div>
         </div>
         <div class="writearea">
@@ -71,7 +71,7 @@
   var addr = "";
 
   const drawStar = (target) => {
-    document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
+    document.querySelector(`.star span`).style.width = (+target.value * 10) + `%`;
   }
 </script>
 </html>

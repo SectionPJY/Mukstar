@@ -30,6 +30,25 @@
                         <div class="title">
                             <input type="text" id="r_sub" name="r_sub" value="${Board.r_sub}">
                         </div>
+                        <div class="star_background">
+                                <%--<fieldset>
+                                  <input type="radio" name="reviewStar" value="5" id="rate1"><label
+                                  for="rate1">★</label>
+                                  <input type="radio" name="reviewStar" value="4" id="rate2"><label
+                                  for="rate2">★</label>
+                                  <input type="radio" name="reviewStar" value="3" id="rate3"><label
+                                  for="rate3">★</label>
+                                  <input type="radio" name="reviewStar" value="2" id="rate4"><label
+                                  for="rate4">★</label>
+                                  <input type="radio" name="reviewStar" value="1" id="rate5"><label
+                                  for="rate5">★</label>
+                                </fieldset>--%>
+                            <div class="star">
+                                ★★★★★
+                                <span>★★★★★</span>
+                                <input type="range" name="r_rating" oninput="drawStar(this)" value="${Board.r_rating}" step="1" min="0" max="10">
+                            </div>
+                        </div>
                     </div>
                     <div class="writearea">
                     <textarea id='r_contents' name="r_contents" placeholder="내용을 입력하세요.(3000자 이내)."
@@ -51,9 +70,20 @@
 </body>
 <script type="module" src="resources/JS/map.js"></script>
 <script>
+    window.onload = function (){
+        const val = document.getElementsByName('r_rating')[0].value
+        console.log(val);
+        document.querySelector('.star span').style.width = (val * 10) + '%';
+    }
+
     <c:forEach items="${boardData }" var="Board">
     var data = "${Board.r_address}";
     </c:forEach>
     var addr = "";
+
+
+    const drawStar = (target) => {
+        document.querySelector(`.star span`).style.width = (+target.value * 10) + `%`;
+    }
 </script>
 </html>

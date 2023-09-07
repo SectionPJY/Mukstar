@@ -79,18 +79,6 @@ body {
   outline: none;
 }
 
-/*
-#r_name {
-  width: 450px;
-  height: 40px;
-  background-color: white;
-  border-radius: 10px;
-  padding: 10px;
-  border: none;
-  outline: none;
-}
-*/
-
 .writearea {
   position: relative;
   top: 60px;
@@ -150,6 +138,7 @@ body {
   height: 45px;
   background-color: white;
   border-radius: 10px;
+  display: flex;
 }
 
 /* 별점 기능 CSS */
@@ -192,7 +181,8 @@ body {
   position: relative;
   font-size: 3rem;
   color: #ddd;
-  padding-left: 25px;
+  padding-left: 10px;
+  margin-top: -15px;
 }
 
 .star input {
@@ -202,7 +192,7 @@ body {
   left: 0;
   opacity: 0;
   cursor: pointer;
-  padding-left: 25px;
+  padding-left: 10px;
 }
 
 .star span {
@@ -212,5 +202,5 @@ body {
   color: #ffc107;
   overflow: hidden;
   pointer-events: none;
-  padding-left: 25px;
+  padding-left: 10px;
 }

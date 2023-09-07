@@ -103,8 +103,6 @@
       if (status === kakao.maps.services.Status.OK) {
         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-        if (bounds.contain(coords)){
-
           // 결과값으로 받은 위치를 마커로 표시합니다
           marker = new kakao.maps.Marker({
             map: map,
@@ -123,7 +121,6 @@
             $('input[name=r_name]').val(rame);
             document.getElementById('mapSearch').submit();
           });
-        }
       }
     });
   }
