@@ -61,7 +61,7 @@ public class ResBoardDAO {
     }
 
     // Board Update
-    public int boardUpdate(int r_id, String r_sub, String r_name, String r_address, String r_contents) {
+    public int boardUpdate(int r_id, String r_sub, String r_name, String r_address, String r_contents, int r_rating) {
         System.out.println("===== Board Update DAO =====");
 
         HashMap<String, Object> map = new HashMap<String, Object>();
@@ -70,6 +70,7 @@ public class ResBoardDAO {
         map.put("r_name", r_name);
         map.put("r_address", r_address);
         map.put("r_contents", r_contents);
+        map.put("r_rating", r_rating);
 
         return sqlSession.update("ResBoardMapper.boardUpdate", map);
     }

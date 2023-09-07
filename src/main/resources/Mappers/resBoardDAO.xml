@@ -55,7 +55,7 @@
     <!-- Update Board -->
     <update id="boardUpdate">
         UPDATE m_resboard
-        SET r_sub = #{r_sub }, r_name = #{r_name }, r_address = #{r_address }, r_contents = #{r_contents }
+        SET r_sub = #{r_sub }, r_name = #{r_name }, r_address = #{r_address }, r_contents = #{r_contents }, r_rating = #{r_rating }
         WHERE r_id = #{r_id };
     </update>
 
