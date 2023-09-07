@@ -21,9 +21,9 @@ public class BoardUpdateCommand {
         String r_name = request.getParameter("r_name");
         String r_address = request.getParameter("r_address");
         String r_contents = request.getParameter("r_contents");
-        System.out.println(r_id + r_uid + r_sub + r_name + r_address + r_contents);
+        int r_rating = Integer.parseInt(request.getParameter("r_rating"));
 
-        int result = dao.boardUpdate(r_id, r_sub, r_name, r_address, r_contents);
+        int result = dao.boardUpdate(r_id, r_sub, r_name, r_address, r_contents, r_rating);
         if (1 == result) {
             System.out.println("===== Update Success =====");
         } else {

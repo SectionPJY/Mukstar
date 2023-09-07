@@ -17,18 +17,18 @@
     제목 : <input type="text" id="r_sub" name="r_sub" maxlength="50"> <br>
     가게명 : <input type="text" id="r_name" name="r_name"> 주소 : <input type="text" id="r_address" name="r_address">
     별점 : <select id="r_rating" name="r_rating">
-                <option>----- 선택하세요 -----</option>
-                <option value="1">별점 반개</option>
-                <option value="2">별점 한개</option>
-                <option value="3">별점 하나반개</option>
-                <option value="4">별점 두개</option>
-                <option value="5">별점 둘반개</option>
-                <option value="6">별점 세개</option>
-                <option value="7">별점 셋반개</option>
-                <option value="8">별점 네개</option>
-                <option value="9">별점 냇반개</option>
-                <option value="10">별점 다섯개</option>
-            </select>
+    <option>----- 선택하세요 -----</option>
+    <option value="1">별점 반개</option>
+    <option value="2">별점 한개</option>
+    <option value="3">별점 하나반개</option>
+    <option value="4">별점 두개</option>
+    <option value="5">별점 둘반개</option>
+    <option value="6">별점 세개</option>
+    <option value="7">별점 셋반개</option>
+    <option value="8">별점 네개</option>
+    <option value="9">별점 냇반개</option>
+    <option value="10">별점 다섯개</option>
+</select>
     <br>
     내용 <br>
     <textarea id="r_contents" name="r_contents" placeholder="후기를 작성해주세요."
