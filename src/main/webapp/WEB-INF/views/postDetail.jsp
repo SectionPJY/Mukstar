@@ -35,7 +35,7 @@
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+              <input type="range" name="r_rating" oninput="drawStar(this)" value="${Board.r_rating}" step="1" min="0" max="10">
             </span>
             </div>
           </div>
@@ -60,9 +60,19 @@
 <%@ include file="footer.jsp" %>
 </body>
 <script>
+  window.onload = function (){
+    const val = document.getElementsByName('r_rating')[0].value
+    console.log(val);
+    document.querySelector('.star span').style.width = (val * 10) + '%';
+  }
+
   <c:forEach items="${boardData }" var="Board">
   var data = "${Board.r_address}";
   var rName = "${Board.r_name}";
   </c:forEach>
+
+  const drawStar = (target) => {
+    document.querySelector(`.star span`).style.width = (+target.value * 10) + `%`;
+  }
 </script>
 </html>
