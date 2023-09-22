@@ -8,9 +8,6 @@ import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -32,8 +29,8 @@ public class BoardListCommand extends DateCast {
             System.out.println("===== List is Exists =====");
             for (ResBoardDTO res : dtos) {
                 System.out.println("===== 게시글 번호 : " + res.getR_id() + " r_date 수정 =====");
-                Timestamp temp = Timestamp.valueOf(res.getR_date());
-                res.setR_date(changeDate(temp));
+                Timestamp tmp = Timestamp.valueOf(res.getR_date());
+                res.setR_date(changeDate(tmp));
             }
 
             return dtos;

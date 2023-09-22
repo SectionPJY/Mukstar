@@ -9,7 +9,7 @@
 
     <!-- Channel List -->
     <select id="channelList" resultType="SubscribeDTO">
-        SELECT s.s_channel, s.s_subscriber, u.u_nickname
+        SELECT s.s_channel, s.s_subscriber, s.s_date, u.u_nickname
         FROM m_sub s, m_user u
         WHERE s.s_channel = u.u_id AND s_subscriber = #{s_subscriber };
     </select>

@@ -18,6 +18,7 @@
     <tr>
         <th>ID</th>
         <th>닉네임</th>
+        <th>구독시작일</th>
     </tr>
     </thead>
     <tbody>
@@ -25,6 +26,7 @@
         <tr>
             <td>${Channel.s_channel }</td>
             <td>${Channel.u_nickname }</td>
+            <td>${Channel.s_date }</td>
             <td><a href="#">구독취소</a></td>
         </tr>
     </c:forEach>
