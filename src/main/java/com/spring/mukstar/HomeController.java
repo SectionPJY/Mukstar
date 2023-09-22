@@ -2,10 +2,12 @@ package com.spring.mukstar;
 
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.resboard.*;
+import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubInsertCommand;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.QnADTO;
 import com.spring.mukstar.dto.ResBoardDTO;
+import com.spring.mukstar.dto.SubscribeDTO;
 import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,6 +55,8 @@ public class HomeController {
     private QnAListCommand qnAListCommand;
     @Autowired
     private SubInsertCommand subInsertCommand;
+    @Autowired
+    private ChannelListCommand channelListCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -362,5 +366,19 @@ public class HomeController {
         }
 
         return "alert";
+    }
+
+    @RequestMapping("channelList")
+    public ModelAndView channelList(Model model) {
+        System.out.println("===== Channel List =====");
+
+        String s_subscriber = session.getAttribute("u_id").toString();
+        System.out.println("User : " + s_subscriber);
+
+        ModelAndView mv = new ModelAndView("channelList");
+        List<SubscribeDTO> dtos = channelListCommand.execute(s_subscriber);
+        model.addAttribute("channelList", dtos);
+
+        return mv;
     }
 }
