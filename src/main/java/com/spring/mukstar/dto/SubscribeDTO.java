@@ -5,11 +5,18 @@ public class SubscribeDTO {
     private int s_id;
     private String s_channel;
     private String s_subscriber;
+    private String u_nickname;
 
     public SubscribeDTO(int s_id, String s_channel, String s_subscriber) {
         this.s_id = s_id;
         this.s_channel = s_channel;
         this.s_subscriber = s_subscriber;
+    }
+
+    public SubscribeDTO(String s_channel, String s_subscriber, String u_nickname) {
+        this.s_channel = s_channel;
+        this.s_subscriber = s_subscriber;
+        this.u_nickname = u_nickname;
     }
 
     public int getS_id() {
@@ -34,5 +41,13 @@ public class SubscribeDTO {
 
     public void setS_subscriber(String s_subscriber) {
         this.s_subscriber = s_subscriber;
+    }
+
+    public String getU_nickname() {
+        return u_nickname;
+    }
+
+    public void setU_nickname(String u_nickname) {
+        this.u_nickname = u_nickname;
     }
 }

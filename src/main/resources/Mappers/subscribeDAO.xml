@@ -11,6 +11,6 @@
     <select id="channelList" resultType="SubscribeDTO">
         SELECT s.s_channel, s.s_subscriber, u.u_nickname
         FROM m_sub s, m_user u
-        WHERE s.s_subscriber = u.u_id AND s_subscriber = #{s_subscriber };
+        WHERE s.s_channel = u.u_id AND s_subscriber = #{s_subscriber };
     </select>
 </mapper>

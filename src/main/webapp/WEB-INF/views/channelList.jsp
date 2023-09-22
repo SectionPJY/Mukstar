@@ -22,9 +22,11 @@
     </thead>
     <tbody>
     <c:forEach items="${channelList }" var="Channel">
-        <td>${Channel.s_id }</td>
-        <td>${Channel.u_nickname }</td>
-        <td><a href="#">구독취소</a></td>
+        <tr>
+            <td>${Channel.s_channel }</td>
+            <td>${Channel.u_nickname }</td>
+            <td><a href="#">구독취소</a></td>
+        </tr>
     </c:forEach>
     </tbody>
 </table>
