@@ -2,6 +2,7 @@ package com.spring.mukstar;
 
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.resboard.*;
+import com.spring.mukstar.command.subscribe.SubInsertCommand;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.QnADTO;
 import com.spring.mukstar.dto.ResBoardDTO;
@@ -50,6 +51,8 @@ public class HomeController {
     private TestDeleteCommand testDeleteCommand;
     @Autowired
     private QnAListCommand qnAListCommand;
+    @Autowired
+    private SubInsertCommand subInsertCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -343,5 +346,21 @@ public class HomeController {
         model.addAttribute("qnaList", dtos);
 
         return mv;
+    }
+
+    @RequestMapping("addSub")
+    public String addSub(HttpServletRequest request, Model model) {
+        System.out.println("===== Add Subscribe =====");
+
+        int result = subInsertCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "구독되었습니다.");
+            model.addAttribute("url", "userList");
+        } else {
+            model.addAttribute("msg", "오류가 발생했습니다.");
+            model.addAttribute("url", "userList");
+        }
+
+        return "alert";
     }
 }
