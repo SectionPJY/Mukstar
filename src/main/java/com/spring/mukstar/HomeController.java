@@ -1,21 +1,21 @@
 package com.spring.mukstar;
 
-import com.spring.mukstar.Class.ModifiableHttpServletRequest;
+import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.user.*;
+import com.spring.mukstar.dto.QnADTO;
 import com.spring.mukstar.dto.ResBoardDTO;
-import com.spring.mukstar.dto.SearchDTO;
 import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.Objects;
 
 @Controller
 public class HomeController {
@@ -23,6 +23,8 @@ public class HomeController {
     @Autowired
     private HttpSession session;
 
+    @Autowired
+    private UserListCommand userListCommand;
     @Autowired
     private LoginCommand loginCommand;
     @Autowired
@@ -45,6 +47,14 @@ public class HomeController {
     private BoardUpdateCommand boardUpdateCommand;
     @Autowired
     private BoardInfoCommand boardInfoCommand;
+    @Autowired
+    private TestDeleteCommand testDeleteCommand;
+    @Autowired
+    private QnAListCommand qnAListCommand;
+    @Autowired
+    private SubInsertCommand subInsertCommand;
+    @Autowired
+    private ChannelListCommand channelListCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
 
@@ -69,6 +79,17 @@ public class HomeController {
 
         System.out.println("===== Page Loading =====");
         return "signup";
+    }
+
+    @RequestMapping("userList")
+    public ModelAndView userList(Model model) {
+        System.out.println("===== Test Page =====");
+
+        ModelAndView mv = new ModelAndView("userList");
+        mv.addObject("data", userListCommand.execute(model));
+
+        System.out.println("===== Page Loading =====");
+        return mv;
     }
 
     @RequestMapping("logout")
@@ -368,5 +389,46 @@ public class HomeController {
         model.addAttribute("url", "/myPage");
 
         return "alert";
+    }
+
+    @RequestMapping("qnaList")
+    public ModelAndView qnaList(HttpServletRequest request, Model model) {
+        System.out.println("===== QnA List Page =====");
+
+        ModelAndView mv = new ModelAndView("qnaList");
+        List<QnADTO> dtos = qnAListCommand.execute();
+        model.addAttribute("qnaList", dtos);
+
+        return mv;
+    }
+
+    @RequestMapping("addSub")
+    public String addSub(HttpServletRequest request, Model model) {
+        System.out.println("===== Add Subscribe =====");
+
+        int result = subInsertCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "구독되었습니다.");
+            model.addAttribute("url", "userList");
+        } else {
+            model.addAttribute("msg", "오류가 발생했습니다.");
+            model.addAttribute("url", "userList");
+        }
+
+        return "alert";
+    }
+
+    @RequestMapping("channelList")
+    public ModelAndView channelList(Model model) {
+        System.out.println("===== Channel List =====");
+
+        String s_subscriber = session.getAttribute("u_id").toString();
+        System.out.println("User : " + s_subscriber);
+
+        ModelAndView mv = new ModelAndView("channelList");
+        List<SubscribeDTO> dtos = channelListCommand.execute(s_subscriber);
+        model.addAttribute("channelList", dtos);
+
+        return mv;
     }
 }

@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SubMapper">
+    <!-- Subscribe Insert -->
+    <insert id="subInsert">
+        INSERT INTO m_sub(s_channel, s_subscriber)
+        VALUES(#{s_channel }, #{s_subscriber });
+    </insert>
 
+    <!-- Channel List -->
+    <select id="channelList" resultType="SubscribeDTO">
+        SELECT s.s_channel, s.s_subscriber, s.s_date, u.u_nickname
+        FROM m_sub s, m_user u
+        WHERE s.s_channel = u.u_id AND s_subscriber = #{s_subscriber };
+    </select>
 </mapper>
