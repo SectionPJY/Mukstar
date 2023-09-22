@@ -18,12 +18,12 @@
         <a href="testLogin">돌아가기</a>
     </c:when>
     <c:otherwise>
-        <h3>Session is Exists 2</h3> <br>
+        <h3>Session is Exists 2</h3> <a href="logout">로그아웃</a><br>
         ID : ${u_id } <br>
         닉네임 : ${u_nickname } <br><br>
         <a href="testUpdate">정보수정 테스트</a> <br>
         <a href="testBoardList">게시판</a>
-        <a href="logout">로그아웃</a>
+        <a href="userList">유저목록</a>
     </c:otherwise>
 </c:choose>
 </body>

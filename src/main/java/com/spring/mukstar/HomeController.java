@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +23,7 @@ public class HomeController {
     private HttpSession session;
 
     @Autowired
-    private TestCommand testCommand;
+    private UserListCommand userListCommand;
     @Autowired
     private LoginCommand loginCommand;
     @Autowired
@@ -59,12 +58,12 @@ public class HomeController {
         return "testIndex";
     }
 
-    @RequestMapping("test")
-    public ModelAndView test(Model model) {
+    @RequestMapping("userList")
+    public ModelAndView userList(Model model) {
         System.out.println("===== Test Page =====");
 
-        ModelAndView mv = new ModelAndView("test");
-        mv.addObject("data", testCommand.execute(model));
+        ModelAndView mv = new ModelAndView("userList");
+        mv.addObject("data", userListCommand.execute(model));
 
         System.out.println("===== Page Loading =====");
         return mv;

@@ -9,13 +9,13 @@ import org.springframework.ui.Model;
 import java.util.List;
 
 @Service
-public class TestCommand {
+public class UserListCommand {
 
     @Autowired
     private UserDAO dao;
 
     public List<UserDTO> execute(Model model) {
-        System.out.println("===== TestCommand is Running =====");
+        System.out.println("===== User List Command is Running =====");
 
         List<UserDTO> uList = dao.userList();
 
