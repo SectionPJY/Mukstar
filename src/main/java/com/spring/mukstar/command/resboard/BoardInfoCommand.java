@@ -18,17 +18,17 @@ public class BoardInfoCommand extends DateCast {
     public List<ResBoardDTO> execute(HttpServletRequest request) {
         System.out.println("===== Board Select Command is Running =====");
 
-        int r_id = Integer.parseInt(request.getParameter("r_id"));
+        int rb_id = Integer.parseInt(request.getParameter("rb_id"));
 
-        List<ResBoardDTO> dto = dao.boardSelect(r_id);
+        List<ResBoardDTO> dto = dao.boardSelect(rb_id);
         if (null == dto) {
             System.out.println("===== DTO is Empty =====");
 
             return null;
         } else {
             System.out.println("===== DTO is Exists =====");
-            Timestamp temp = Timestamp.valueOf(dto.get(0).getR_date());
-            dto.get(0).setR_date(changeDate(temp));
+            Timestamp temp = Timestamp.valueOf(dto.get(0).getRb_date());
+            dto.get(0).setRb_date(changeDate(temp));
 
             return dto;
         }

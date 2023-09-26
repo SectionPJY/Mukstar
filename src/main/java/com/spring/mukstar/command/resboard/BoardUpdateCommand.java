@@ -15,15 +15,15 @@ public class BoardUpdateCommand {
     public int execute(HttpServletRequest request) {
         System.out.println("===== Board Update Command is Running =====");
 
-        int r_id = Integer.parseInt(request.getParameter("r_id"));
-        String r_uid = request.getParameter("r_uid");
-        String r_sub = request.getParameter("r_sub");
-        String r_name = request.getParameter("r_name");
-        String r_address = request.getParameter("r_address");
-        String r_contents = request.getParameter("r_contents");
-        int r_rating = Integer.parseInt(request.getParameter("r_rating"));
+        int rb_id = Integer.parseInt(request.getParameter("rb_id"));
+        String rb_uid = request.getParameter("rb_uid");
+        String rb_sub = request.getParameter("rb_sub");
+        String rb_name = request.getParameter("rb_name");
+        String rb_address = request.getParameter("rb_address");
+        String rb_contents = request.getParameter("rb_contents");
+        int rb_rating = Integer.parseInt(request.getParameter("rb_rating"));
 
-        int result = dao.boardUpdate(r_id, r_sub, r_name, r_address, r_contents, r_rating);
+        int result = dao.boardUpdate(rb_id, rb_sub, rb_name, rb_address, rb_contents, rb_rating);
         if (1 == result) {
             System.out.println("===== Update Success =====");
         } else {

@@ -35,16 +35,16 @@
 <div class="post-area">
     <c:if test="${not empty boardData}">
         <c:forEach items="${boardData}" var="Board">
-            <div class="post" onclick="location.href='/pUpdatePage?r_id=${Board.r_id}'">
+            <div class="post" onclick="location.href='/pUpdatePage?rb_id=${Board.rb_id}'">
                 <div class="post-imgarea">
                     <div class="inner-area2">
                         <img src="resources/assets/fox.jpg" alt="이미지 없음"/>
                     </div>
                     <div class="title-area">
-                        <p><c:out value="${Board.r_sub}"/></p>
+                        <p><c:out value="${Board.rb_sub}"/></p>
                     </div>
                     <div class="text-area">
-                        <p><c:out value="${Board.r_contents}"/></p>
+                        <p><c:out value="${Board.rb_contents}"/></p>
                     </div>
                 </div>
                 <div class="opacity"></div>

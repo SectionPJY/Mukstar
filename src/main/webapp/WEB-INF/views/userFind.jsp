@@ -32,7 +32,7 @@
               <img src="resources/assets/왕관.png"/></a>
               <img src="resources/assets/먹깨비.png"/></a>
             </div>
-            <span>${User.r_count}</span>
+            <span>${User.rb_count}</span>
             <span style="margin-left: 100px">구독자수</span>
           </div>
         </c:forEach>

@@ -6,110 +6,110 @@ import java.time.format.DateTimeFormatter;
 
 public class ResBoardDTO {
 
-    private int r_id;
-    private String r_uid;
-    private String r_sub;
-    private String r_name;
-    private String r_address;
-    private int r_rating;
-    private String r_contents;
-    private int r_view;
-    private String r_date;
-    private boolean r_mark;
+    private int rb_id;
+    private String rb_uid;
+    private String rb_sub;
+    private String rb_name;
+    private String rb_address;
+    private int rb_rating;
+    private String rb_contents;
+    private int rb_view;
+    private String rb_date;
+    private boolean rb_mark;
     private String sort;
 
-    public ResBoardDTO(int r_id, String r_uid, String r_sub, String r_name, String r_address,
-                       int r_rating, String r_contents, int r_view, Timestamp r_date, boolean r_mark) {
-        this.r_id = r_id;
-        this.r_uid = r_uid;
-        this.r_sub = r_sub;
-        this.r_name = r_name;
-        this.r_address = r_address;
-        this.r_rating = r_rating;
-        this.r_contents = r_contents;
-        this.r_view = r_view;
-        this.r_date = changeDate(r_date);
-        this.r_mark = r_mark;
+    public ResBoardDTO(int rb_id, String rb_uid, String rb_sub, String rb_name, String rb_address,
+                       int rb_rating, String rb_contents, int rb_view, Timestamp rb_date, boolean rb_mark) {
+        this.rb_id = rb_id;
+        this.rb_uid = rb_uid;
+        this.rb_sub = rb_sub;
+        this.rb_name = rb_name;
+        this.rb_address = rb_address;
+        this.rb_rating = rb_rating;
+        this.rb_contents = rb_contents;
+        this.rb_view = rb_view;
+        this.rb_date = changeDate(rb_date);
+        this.rb_mark = rb_mark;
     }
 
-    public int getR_id() {
-        return r_id;
+    public int getRb_id() {
+        return rb_id;
     }
 
-    public void setR_id(int r_id) {
-        this.r_id = r_id;
+    public void setRb_id(int rb_id) {
+        this.rb_id = rb_id;
     }
 
-    public String getR_uid() {
-        return r_uid;
+    public String getRb_uid() {
+        return rb_uid;
     }
 
-    public void setR_uid(String r_uid) {
-        this.r_uid = r_uid;
+    public void setRb_uid(String rb_uid) {
+        this.rb_uid = rb_uid;
     }
 
-    public String getR_sub() {
-        return r_sub;
+    public String getRb_sub() {
+        return rb_sub;
     }
 
-    public void setR_sub(String r_sub) {
-        this.r_sub = r_sub;
+    public void setRb_sub(String rb_sub) {
+        this.rb_sub = rb_sub;
     }
 
-    public String getR_name() {
-        return r_name;
+    public String getRb_name() {
+        return rb_name;
     }
 
-    public void setR_name(String r_name) {
-        this.r_name = r_name;
+    public void setRb_name(String rb_name) {
+        this.rb_name = rb_name;
     }
 
-    public String getR_address() {
-        return r_address;
+    public String getRb_address() {
+        return rb_address;
     }
 
-    public void setR_address(String r_address) {
-        this.r_address = r_address;
+    public void setRb_address(String rb_address) {
+        this.rb_address = rb_address;
     }
 
-    public int getR_rating() {
-        return r_rating;
+    public int getRb_rating() {
+        return rb_rating;
     }
 
-    public void setR_rating(int r_rating) {
-        this.r_rating = r_rating;
+    public void setRb_rating(int rb_rating) {
+        this.rb_rating = rb_rating;
     }
 
-    public String getR_contents() {
-        return r_contents;
+    public String getRb_contents() {
+        return rb_contents;
     }
 
-    public void setR_contents(String r_contents) {
-        this.r_contents = r_contents;
+    public void setRb_contents(String rb_contents) {
+        this.rb_contents = rb_contents;
     }
 
-    public int getR_view() {
-        return r_view;
+    public int getRb_view() {
+        return rb_view;
     }
 
-    public void setR_view(int r_view) {
-        this.r_view = r_view;
+    public void setRb_view(int rb_view) {
+        this.rb_view = rb_view;
     }
 
-    public String getR_date() {
-        return r_date;
+    public String getRb_date() {
+        return rb_date;
     }
 
-    public void setR_date(String r_date) {
-        this.r_date = r_date;
+    public void setRb_date(String rb_date) {
+        this.rb_date = rb_date;
     }
 
-    public boolean isR_mark() {
-        return r_mark;
+    public boolean isrb_mark() {
+        return rb_mark;
     }
 
-    public void setR_mark(boolean r_mark) {
-        this.r_mark = r_mark;
+    public void setRb_mark(boolean rb_mark) {
+        this.rb_mark = rb_mark;
     }
 
     public String getSort() {
@@ -120,10 +120,10 @@ public class ResBoardDTO {
         this.sort = sort;
     }
 
-    private String changeDate(Timestamp r_date) {
+    private String changeDate(Timestamp rb_date) {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
-        String result = formatter.format(r_date.toLocalDateTime());
+        String result = formatter.format(rb_date.toLocalDateTime());
 
         return result;
     }

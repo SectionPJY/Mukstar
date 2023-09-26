@@ -387,7 +387,7 @@ public class HomeController {
         modifyRequest.setParameter("searchWord", session.getAttribute("u_nickname").toString());
         request = modifyRequest;
         List<SearchDTO> dtos = userSearchCommand.execute(request, model);
-        modifyRequest.setParameter("r_uid", dtos.get(0).getU_id());
+        modifyRequest.setParameter("rb_uid", dtos.get(0).getU_id());
         request = modifyRequest;
         int result = boardUpdateCommand.execute(request);
         if (result == 1) {

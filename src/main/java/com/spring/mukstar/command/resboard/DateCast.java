@@ -5,12 +5,12 @@ import java.time.format.DateTimeFormatter;
 
 public class DateCast {
 
-    protected String changeDate(Timestamp r_date) {
+    protected String changeDate(Timestamp rb_date) {
         System.out.println("===== Date Format Change =====");
-        System.out.println("수정 전 : " + r_date);
+        System.out.println("수정 전 : " + rb_date);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
-        String result = formatter.format(r_date.toLocalDateTime());
+        String result = formatter.format(rb_date.toLocalDateTime());
 
         System.out.println("수정 후 : " + result);
 

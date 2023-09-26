@@ -22,14 +22,14 @@
         </div>
         <c:if test="${not empty postData}">
             <c:forEach items="${postData}" var="Post">
-                <div class="user_info" onclick="location.href='/pSelect?r_id=${Post.r_id}'">
+                <div class="user_info" onclick="location.href='/pSelect?rb_id=${Post.rb_id}'">
                     <span>${User.u_nickname}</span>
-                    <span>${User.r_count}</span>
-                    <span class="loc">${Post.r_address.substring(0,2)}</span>
-                    <span class="tit">${Post.r_sub}</span>
-                    <span class="grade">${Post.r_rating}</span>
-                    <span class="fav">${Post.r_mark}</span>
-                    <span class="view">${Post.r_view}</span>
+                    <span>${User.rb_count}</span>
+                    <span class="loc">${Post.rb_address.substring(0,2)}</span>
+                    <span class="tit">${Post.rb_sub}</span>
+                    <span class="grade">${Post.rb_rating}</span>
+                    <span class="fav">${Post.rb_mark}</span>
+                    <span class="view">${Post.rb_view}</span>
                 </div>
             </c:forEach>
         </c:if>

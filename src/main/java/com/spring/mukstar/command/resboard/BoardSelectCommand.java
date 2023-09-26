@@ -17,25 +17,25 @@ public class BoardSelectCommand extends DateCast {
     @Autowired
     private ResBoardDAO dao;
     @Autowired
-    private UpdateR_view update;
+    private Updaterb_view update;
 
     public List<ResBoardDTO> execute(HttpServletRequest request) {
         System.out.println("===== Board Select Command is Running =====");
 
-        int r_id = Integer.parseInt(request.getParameter("r_id"));
+        int rb_id = Integer.parseInt(request.getParameter("rb_id"));
 
         // 데이터 들고 오기 전에 조회수 올리기
-        update.execute(r_id);
+        update.execute(rb_id);
 
-        List<ResBoardDTO> dto = dao.boardSelect(r_id);
+        List<ResBoardDTO> dto = dao.boardSelect(rb_id);
         if (null == dto) {
             System.out.println("===== DTO is Empty =====");
 
             return null;
         } else {
             System.out.println("===== DTO is Exists =====");
-            Timestamp temp = Timestamp.valueOf(dto.get(0).getR_date());
-            dto.get(0).setR_date(changeDate(temp));
+            Timestamp temp = Timestamp.valueOf(dto.get(0).getRb_date());
+            dto.get(0).setRb_date(changeDate(temp));
 
             return dto;
         }
@@ -56,8 +56,8 @@ public class BoardSelectCommand extends DateCast {
         }
         else{
             System.out.println("===== DTO is Exists =====");
-            Timestamp temp = Timestamp.valueOf(dto.get(0).getR_date());
-            dto.get(0).setR_date(changeDate(temp));
+            Timestamp temp = Timestamp.valueOf(dto.get(0).getRb_date());
+            dto.get(0).setRb_date(changeDate(temp));
 
             return dto;
         }
@@ -73,16 +73,16 @@ public class BoardSelectCommand extends DateCast {
             return null;
         } else {
             System.out.println("===== DTO is Exists =====");
-            Timestamp temp = Timestamp.valueOf(dto.get(0).getR_date());
-            dto.get(0).setR_date(changeDate(temp));
+            Timestamp temp = Timestamp.valueOf(dto.get(0).getRb_date());
+            dto.get(0).setRb_date(changeDate(temp));
 
             return dto;
         }
     }
 
     public List<ResBoardDTO> rnameToContents(HttpServletRequest request) {
-        String r_name = request.getParameter("r_name");
-        List<ResBoardDTO> dto = dao.boardSelectToRname(r_name);
+        String rb_name = request.getParameter("rb_name");
+        List<ResBoardDTO> dto = dao.boardSelectToRname(rb_name);
         if (null == dto) {
             System.out.println("===== DTO is Empty =====");
             return null;

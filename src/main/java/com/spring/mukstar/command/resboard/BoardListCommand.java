@@ -20,7 +20,7 @@ public class BoardListCommand extends DateCast {
         System.out.println("===== Board List Command is Running =====");
         String sort;
         System.out.println(request.getParameter("sort"));
-        if (request.getParameter("sort") == null){ sort = "r_view"; }
+        if (request.getParameter("sort") == null){ sort = "rb_view"; }
         else { sort = request.getParameter("sort"); }
 
         List<ResBoardDTO> dtos = dao.boardList(sort);
@@ -31,9 +31,9 @@ public class BoardListCommand extends DateCast {
         } else {
             System.out.println("===== List is Exists =====");
             for (ResBoardDTO res : dtos) {
-                System.out.println("===== 게시글 번호 : " + res.getR_id() + " r_date 수정 =====");
-                Timestamp tmp = Timestamp.valueOf(res.getR_date());
-                res.setR_date(changeDate(tmp));
+                System.out.println("===== 게시글 번호 : " + res.getRb_id() + " rb_date 수정 =====");
+                Timestamp tmp = Timestamp.valueOf(res.getRb_date());
+                res.setRb_date(changeDate(tmp));
             }
 
             return dtos;

@@ -27,7 +27,7 @@
   </div>
   <div class="buttons">
     <button style="background-color: #03B3FF; color: white; margin-top: 15px" onclick="location.href='/wPost'">글쓰기</button>
-    <button style="background-color: #FF5757; color: white; margin-top: 15px" onclick="location.href='/pDelete?r_id=' + rid">삭제하기</button>
+    <button style="background-color: #FF5757; color: white; margin-top: 15px" onclick="location.href='/pDelete?rb_id=' + rid">삭제하기</button>
   </div>
 </div>
 <div class="post-area">
@@ -38,13 +38,13 @@
           <img src="resources/assets/fox.jpg" alt="이미지 없음"/>
         </div>
         <div class="title-area">
-          <p><c:out value="${Board.r_sub}"/></p>
+          <p><c:out value="${Board.rb_sub}"/></p>
         </div>
         <div class="text-area">
-          <p><c:out value="${Board.r_contents}"/></p>
+          <p><c:out value="${Board.rb_contents}"/></p>
         </div>
       </div>
-      <div class="opacity"><input type="hidden" value="${Board.r_id}"></div>
+      <div class="opacity"><input type="hidden" value="${Board.rb_id}"></div>
     </div>
   </c:forEach>
 </div>

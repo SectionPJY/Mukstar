@@ -13,7 +13,7 @@
         <div class="flow_banner">
             <ul class="list">
                 <c:forEach items="${boardList }" var="Board">
-                    <li onclick="location.href='/pSelect?r_id=${Board.r_id}'">${Board.r_sub}</li>
+                    <li onclick="location.href='/pSelect?rb_id=${Board.rb_id}'">${Board.rb_sub}</li>
                 </c:forEach>
             </ul>
             <script src="resources/JS/index.js"></script>

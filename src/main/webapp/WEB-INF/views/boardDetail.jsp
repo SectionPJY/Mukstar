@@ -14,34 +14,34 @@
 </head>
 <body>
 <c:forEach items="${boardData }" var="Board">
-    제목 : ${Board.r_sub } <br>
-    작성자 : ${Board.r_uid } <br>
-    작성시간 : ${Board.r_date } 조회수 : ${Board.r_view } 별점 : ${Board.r_rating } <br>
-    가게명 : ${Board.r_name } <br>
-    가게주소 : ${Board.r_address } <br><br>
+    제목 : ${Board.rb_sub } <br>
+    작성자 : ${Board.rb_uid } <br>
+    작성시간 : ${Board.rb_date } 조회수 : ${Board.rb_view } 별점 : ${Board.rb_rating } <br>
+    가게명 : ${Board.rb_name } <br>
+    가게주소 : ${Board.rb_address } <br><br>
     내용 <br>
-    ${Board.r_contents }
+    ${Board.rb_contents }
     <br><br>
     <a href="testBoardList">돌아가기</a>
-    <c:if test="${u_id == Board.r_uid }">
-        <a onclick="updateBoard('${Board.r_id }')">수정</a> <a onclick="deleteBoard('${Board.r_id }')">삭제</a>
+    <c:if test="${u_id == Board.rb_uid }">
+        <a onclick="updateBoard('${Board.rb_id }')">수정</a> <a onclick="deleteBoard('${Board.rb_id }')">삭제</a>
     </c:if>
 </c:forEach>
 <script>
-    function updateBoard(r_id) {
-        console.log(r_id);
+    function updateBoard(rb_id) {
+        console.log(rb_id);
 
-        window.location.href = "http://localhost:8080/boardUpdatePage?r_id=" + r_id;
+        window.location.href = "http://localhost:8080/boardUpdatePage?rb_id=" + rb_id;
     };
 
-    function deleteBoard(r_id) {
-        console.log(r_id);
+    function deleteBoard(rb_id) {
+        console.log(rb_id);
 
         $.ajax({
             type: "post",
             url: "http://localhost:8080/boardDelete",
             data: {
-                r_id: r_id
+                rb_id: rb_id
             },
             success: function (data, status) {
                 alert("삭제되었습니다.");

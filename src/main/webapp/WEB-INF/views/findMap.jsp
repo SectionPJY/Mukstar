@@ -21,7 +21,7 @@
 <div class="wrap">
   <div class="container">
     <form action="/boardSearch" method="post" id="mapSearch">
-      <input type="hidden" name="r_name" value="">
+      <input type="hidden" name="rb_name" value="">
       <div class="map_area">
         <div class="search_area">
           <section class="search">
@@ -45,8 +45,8 @@
   let position = [
     <c:forEach items="${boardData }" var="Board" varStatus="i">
     <c:choose>
-      <c:when test="${i.last}">{ data : "${Board.r_address}", rName : "${Board.r_name}", r_id : "${Board.r_id}" }</c:when>
-      <c:otherwise>{ data : "${Board.r_address}", rName : "${Board.r_name}", r_id : "${Board.r_id}" },</c:otherwise>
+      <c:when test="${i.last}">{ data : "${Board.rb_address}", rName : "${Board.rb_name}", rb_id : "${Board.rb_id}" }</c:when>
+      <c:otherwise>{ data : "${Board.rb_address}", rName : "${Board.rb_name}", rb_id : "${Board.rb_id}" },</c:otherwise>
     </c:choose>
     </c:forEach>
   ];
@@ -87,7 +87,7 @@
           var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
           if (bounds.contain(coords)) {
             ++count;
-            $("#result_list").append('<li onclick="$(\'input[name=r_name]\').val(this.innerHTML); getElementById(\'mapSearch\').submit();" >' + position[i].rName + '</li>')
+            $("#result_list").append('<li onclick="$(\'input[name=rb_name]\').val(this.innerHTML); getElementById(\'mapSearch\').submit();" >' + position[i].rName + '</li>')
           }else{
             --maxCount;
           }
@@ -118,7 +118,7 @@
           infowindow.open(map, marker);
 
           kakao.maps.event.addListener(marker, 'click', function() {
-            $('input[name=r_name]').val(rame);
+            $('input[name=rb_name]').val(rame);
             document.getElementById('mapSearch').submit();
           });
       }

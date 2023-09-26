@@ -10,15 +10,15 @@
     <sql id="sort">
         <!-- 최신순 정렬 -->
         <if test="_parameter == null">
-            ORDER BY r_id DESC;
+            ORDER BY rb_id DESC;
         </if>
-        <if test="_parameter == 'r_id'">
-            ORDER BY r_id DESC;
+        <if test="_parameter == 'rb_id'">
+            ORDER BY rb_id DESC;
         </if>
 
         <!-- 조회수 정렬 -->
-        <if test="_parameter == 'r_view'">
-            ORDER BY r_view ASC;
+        <if test="_parameter == 'rb_view'">
+            ORDER BY rb_view ASC;
         </if>
     </sql>
 
@@ -26,44 +26,44 @@
     <select id="boardSelect" resultType="ResBoardDTO">
         SELECT *
         FROM m_resboard
-        WHERE r_id = #{r_id };
+        WHERE rb_id = #{rb_id };
     </select>
 
     <select id="boardSelectToUid" resultType="ResBoardDTO">
         select *
         from m_resboard
-        where r_uid = #{u_id};
+        where rb_uid = #{u_id};
     </select>
 
     <select id="boardSelectToRname" resultType="ResBoardDTO">
         select *
         from m_resboard
-        where r_name = #{r_name};
+        where rb_name = #{rb_name};
     </select>
 
     <!-- INSERT Board -->
     <insert id="boardInsert">
-        INSERT INTO m_resboard(r_uid, r_sub, r_name, r_address, r_contents, r_rating)
-        VALUES (#{r_uid }, #{r_sub }, #{r_name }, #{r_address }, #{r_contents }, #{r_rating });
+        INSERT INTO m_resboard(rb_uid, rb_sub, rb_name, rb_address, rb_contents, rb_rating)
+        VALUES (#{rb_uid }, #{rb_sub }, #{rb_name }, #{rb_address }, #{rb_contents }, #{rb_rating });
     </insert>
 
     <!-- Delete Board -->
     <delete id="boardDelete">
         DELETE FROM m_resboard
-        WHERE r_id = #{r_id };
+        WHERE rb_id = #{rb_id };
     </delete>
 
     <!-- Update Board -->
     <update id="boardUpdate">
         UPDATE m_resboard
-        SET r_sub = #{r_sub }, r_name = #{r_name }, r_address = #{r_address }, r_contents = #{r_contents }, r_rating = #{r_rating }
-        WHERE r_id = #{r_id };
+        SET rb_sub = #{rb_sub }, rb_name = #{rb_name }, rb_address = #{rb_address }, rb_contents = #{rb_contents }, rb_rating = #{rb_rating }
+        WHERE rb_id = #{rb_id };
     </update>
 
-    <!-- Update r_view -->
-    <update id="updateR_view">
+    <!-- Update rb_view -->
+    <update id="updaterb_view">
         UPDATE m_resboard
-        SET r_view = r_view + 1
-        WHERE r_id = #{r_id };
+        SET rb_view = rb_view + 1
+        WHERE rb_id = #{rb_id };
     </update>
 </mapper>

@@ -30,23 +30,23 @@
         <div class="list">
           <c:forEach items="${boardData }" var="Board">
           <div class="post_title">
-            <p>${Board.r_sub }</p>
+            <p>${Board.rb_sub }</p>
             <div class="star_background">
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" name="r_rating" oninput="drawStar(this)" value="${Board.r_rating}" step="1" min="0" max="10">
+              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.rb_rating}" step="1" min="0" max="10">
             </span>
             </div>
           </div>
           <div class="post_date">
-            <p>${Board.r_date }</p>
-            <p>${Board.r_view }</p>
+            <p>${Board.rb_date }</p>
+            <p>${Board.rb_view }</p>
           </div>
         </div>
       </div>
       <div class="post_area">
-        <p class="content">${Board.r_contents}</p>
+        <p class="content">${Board.rb_contents}</p>
         <div class="post">
           <div id="map" style="width:450px;height:400px;"></div>
         </div>
@@ -61,14 +61,14 @@
 </body>
 <script>
   window.onload = function (){
-    const val = document.getElementsByName('r_rating')[0].value
+    const val = document.getElementsByName('rb_rating')[0].value
     console.log(val);
     document.querySelector('.star span').style.width = (val * 10) + '%';
   }
 
   <c:forEach items="${boardData }" var="Board">
-  var data = "${Board.r_address}";
-  var rName = "${Board.r_name}";
+  var data = "${Board.rb_address}";
+  var rName = "${Board.rb_name}";
   </c:forEach>
 
   const drawStar = (target) => {
