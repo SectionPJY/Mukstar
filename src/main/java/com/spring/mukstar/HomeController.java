@@ -5,6 +5,7 @@ import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubDeleteCommand;
 import com.spring.mukstar.command.subscribe.SubInsertCommand;
+import com.spring.mukstar.command.subscribe.SubscriberListCommand;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.QnADTO;
 import com.spring.mukstar.dto.ResBoardDTO;
@@ -60,6 +61,8 @@ public class HomeController {
     private SubDeleteCommand subDeleteCommand;
     @Autowired
     private ChannelListCommand channelListCommand;
+    @Autowired
+    private SubscriberListCommand subscriberListCommand;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -397,6 +400,20 @@ public class HomeController {
         ModelAndView mv = new ModelAndView("channelList");
         List<SubscribeDTO> dtos = channelListCommand.execute(s_subscriber);
         model.addAttribute("channelList", dtos);
+
+        return mv;
+    }
+
+    @RequestMapping("subList")
+    public ModelAndView subList(Model model) {
+        System.out.println("===== Subscriber List =====");
+
+        String s_channel = session.getAttribute("u_id").toString();
+        System.out.println("Channel : " + s_channel);
+
+        ModelAndView mv = new ModelAndView("subList");
+        List<SubscribeDTO> dtos = subscriberListCommand.execute(s_channel);
+        model.addAttribute("subList", dtos);
 
         return mv;
     }

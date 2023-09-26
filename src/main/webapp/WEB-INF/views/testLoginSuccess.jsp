@@ -23,7 +23,7 @@
         닉네임 : ${u_nickname } <br><br>
         <a href="testUpdate">정보수정 테스트</a> <br>
         <a href="testBoardList">게시판</a> <br>
-        <a href="userList">유저목록</a> <a href="channelList">구독 목록</a> <a href="#">구독자 목록</a>
+        <a href="userList">유저목록</a> <a href="channelList">구독 목록</a> <a href="subList">구독자 목록</a>
     </c:otherwise>
 </c:choose>
 </body>

@@ -45,4 +45,15 @@ public class SubscribeDAO {
 
         return sqlSession.selectList("SubMapper.channelList", map);
     }
+
+    // Subscriber List
+    public List<SubscribeDTO> subList(String s_channel) {
+        System.out.println("===== Subscriber List DAO =====");
+        System.out.println(s_channel + " 구독자");
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("s_channel", s_channel);
+
+        return sqlSession.selectList("SubMapper.subList", map);
+    }
 }
