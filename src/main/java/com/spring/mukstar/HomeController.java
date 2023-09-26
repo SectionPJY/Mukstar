@@ -3,6 +3,7 @@ package com.spring.mukstar;
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
+import com.spring.mukstar.command.subscribe.SubDeleteCommand;
 import com.spring.mukstar.command.subscribe.SubInsertCommand;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.QnADTO;
@@ -55,6 +56,8 @@ public class HomeController {
     private QnAListCommand qnAListCommand;
     @Autowired
     private SubInsertCommand subInsertCommand;
+    @Autowired
+    private SubDeleteCommand subDeleteCommand;
     @Autowired
     private ChannelListCommand channelListCommand;
 
@@ -359,6 +362,22 @@ public class HomeController {
         int result = subInsertCommand.execute(request);
         if (1 == result) {
             model.addAttribute("msg", "구독되었습니다.");
+            model.addAttribute("url", "userList");
+        } else {
+            model.addAttribute("msg", "오류가 발생했습니다.");
+            model.addAttribute("url", "userList");
+        }
+
+        return "alert";
+    }
+
+    @RequestMapping("delSub")
+    public String delSub(HttpServletRequest request, Model model) {
+        System.out.println("===== Delete Subscribe =====");
+
+        int result = subDeleteCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "구독취소되었습니다.");
             model.addAttribute("url", "userList");
         } else {
             model.addAttribute("msg", "오류가 발생했습니다.");

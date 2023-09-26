@@ -7,6 +7,13 @@
         VALUES(#{s_channel }, #{s_subscriber });
     </insert>
 
+    <!-- Subscribe Delete -->
+    <delete id="subDelete">
+        DELETE
+        FROM m_sub
+        WHERE s_channel = #{s_channel } AND s_subscriber = #{s_subscriber };
+    </delete>
+
     <!-- Channel List -->
     <select id="channelList" resultType="SubscribeDTO">
         SELECT s.s_channel, s.s_subscriber, s.s_date, u.u_nickname
