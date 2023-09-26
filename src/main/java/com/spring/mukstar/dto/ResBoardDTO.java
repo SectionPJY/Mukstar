@@ -7,29 +7,25 @@ import java.time.format.DateTimeFormatter;
 public class ResBoardDTO {
 
     private int rb_id;
+    private int rb_rid;
     private String rb_uid;
     private String rb_sub;
-    private String rb_name;
-    private String rb_address;
     private int rb_rating;
     private String rb_contents;
     private int rb_view;
     private String rb_date;
-    private boolean rb_mark;
+    private int rb_like;
     private String sort;
 
-    public ResBoardDTO(int rb_id, String rb_uid, String rb_sub, String rb_name, String rb_address,
-                       int rb_rating, String rb_contents, int rb_view, Timestamp rb_date, boolean rb_mark) {
+    public ResBoardDTO(int rb_id, int rb_rid, String rb_uid, String rb_sub, int rb_rating, String rb_contents, int rb_view, Timestamp rb_date) {
         this.rb_id = rb_id;
+        this.rb_rid = rb_rid;
         this.rb_uid = rb_uid;
         this.rb_sub = rb_sub;
-        this.rb_name = rb_name;
-        this.rb_address = rb_address;
         this.rb_rating = rb_rating;
         this.rb_contents = rb_contents;
         this.rb_view = rb_view;
         this.rb_date = changeDate(rb_date);
-        this.rb_mark = rb_mark;
     }
 
     public int getRb_id() {
@@ -38,6 +34,14 @@ public class ResBoardDTO {
 
     public void setRb_id(int rb_id) {
         this.rb_id = rb_id;
+    }
+
+    public int getRb_rid() {
+        return rb_rid;
+    }
+
+    public void setRb_rid(int rb_rid) {
+        this.rb_rid = rb_rid;
     }
 
     public String getRb_uid() {
@@ -54,22 +58,6 @@ public class ResBoardDTO {
 
     public void setRb_sub(String rb_sub) {
         this.rb_sub = rb_sub;
-    }
-
-    public String getRb_name() {
-        return rb_name;
-    }
-
-    public void setRb_name(String rb_name) {
-        this.rb_name = rb_name;
-    }
-
-    public String getRb_address() {
-        return rb_address;
-    }
-
-    public void setRb_address(String rb_address) {
-        this.rb_address = rb_address;
     }
 
     public int getRb_rating() {
@@ -104,12 +92,12 @@ public class ResBoardDTO {
         this.rb_date = rb_date;
     }
 
-    public boolean isrb_mark() {
-        return rb_mark;
+    public int getRb_like() {
+        return rb_like;
     }
 
-    public void setRb_mark(boolean rb_mark) {
-        this.rb_mark = rb_mark;
+    public void setRb_like(int rb_like) {
+        this.rb_like = rb_like;
     }
 
     public String getSort() {
