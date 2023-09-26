@@ -2,9 +2,14 @@ package com.spring.mukstar;
 
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.resboard.*;
+import com.spring.mukstar.command.subscribe.ChannelListCommand;
+import com.spring.mukstar.command.subscribe.SubDeleteCommand;
+import com.spring.mukstar.command.subscribe.SubInsertCommand;
+import com.spring.mukstar.command.subscribe.SubscriberListCommand;
 import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.QnADTO;
 import com.spring.mukstar.dto.ResBoardDTO;
+import com.spring.mukstar.dto.SubscribeDTO;
 import com.spring.mukstar.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,7 +59,11 @@ public class HomeController {
     @Autowired
     private SubInsertCommand subInsertCommand;
     @Autowired
+    private SubDeleteCommand subDeleteCommand;
+    @Autowired
     private ChannelListCommand channelListCommand;
+    @Autowired
+    private SubscriberListCommand subscriberListCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
 
@@ -418,6 +427,22 @@ public class HomeController {
         return "alert";
     }
 
+    @RequestMapping("delSub")
+    public String delSub(HttpServletRequest request, Model model) {
+        System.out.println("===== Delete Subscribe =====");
+
+        int result = subDeleteCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "구독취소되었습니다.");
+            model.addAttribute("url", "userList");
+        } else {
+            model.addAttribute("msg", "오류가 발생했습니다.");
+            model.addAttribute("url", "userList");
+        }
+
+        return "alert";
+    }
+
     @RequestMapping("channelList")
     public ModelAndView channelList(Model model) {
         System.out.println("===== Channel List =====");
@@ -428,6 +453,20 @@ public class HomeController {
         ModelAndView mv = new ModelAndView("channelList");
         List<SubscribeDTO> dtos = channelListCommand.execute(s_subscriber);
         model.addAttribute("channelList", dtos);
+
+        return mv;
+    }
+
+    @RequestMapping("subList")
+    public ModelAndView subList(Model model) {
+        System.out.println("===== Subscriber List =====");
+
+        String s_channel = session.getAttribute("u_id").toString();
+        System.out.println("Channel : " + s_channel);
+
+        ModelAndView mv = new ModelAndView("subList");
+        List<SubscribeDTO> dtos = subscriberListCommand.execute(s_channel);
+        model.addAttribute("subList", dtos);
 
         return mv;
     }

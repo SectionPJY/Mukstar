@@ -25,6 +25,17 @@ public class SubscribeDAO {
         return sqlSession.insert("SubMapper.subInsert", map);
     }
 
+    // Subscribe Delete
+    public int subDelete(String s_channel, String s_subscriber) {
+        System.out.println("===== Sub Delete DAO =====");
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("s_channel", s_channel);
+        map.put("s_subscriber", s_subscriber);
+
+        return sqlSession.delete("SubMapper.subDelete", map);
+    }
+
     // Channel List
     public List<SubscribeDTO> channelList(String s_subscriber) {
         System.out.println("===== Channel List DAO =====");
@@ -33,5 +44,16 @@ public class SubscribeDAO {
         map.put("s_subscriber", s_subscriber);
 
         return sqlSession.selectList("SubMapper.channelList", map);
+    }
+
+    // Subscriber List
+    public List<SubscribeDTO> subList(String s_channel) {
+        System.out.println("===== Subscriber List DAO =====");
+        System.out.println(s_channel + " 구독자");
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("s_channel", s_channel);
+
+        return sqlSession.selectList("SubMapper.subList", map);
     }
 }

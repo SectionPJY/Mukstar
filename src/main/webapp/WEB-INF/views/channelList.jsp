@@ -27,10 +27,32 @@
             <td>${Channel.s_channel }</td>
             <td>${Channel.u_nickname }</td>
             <td>${Channel.s_date }</td>
-            <td><a href="#">구독취소</a></td>
+            <td><a onclick="delSub('${Channel.s_channel }', '${Channel.s_subscriber }')">구독취소</a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+<script>
+    function delSub(s_channel, s_subscriber) {
+        $.ajax({
+            type: "post",
+            url: "http://localhost:8080/delSub",
+            data: {
+                s_channel: s_channel,
+                s_subscriber: s_subscriber
+            },
+            success: function (data, status) {
+                alert("구독이 취소되었습니다.");
+
+                window.location.href = "";
+            },
+            error: function (status) {
+                alert("오류가 발생하였습니다.");
+
+                return false;
+            }
+        });
+    };
+</script>
 </body>
 </html>
