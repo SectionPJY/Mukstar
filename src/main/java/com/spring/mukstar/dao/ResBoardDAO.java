@@ -52,14 +52,14 @@ public class ResBoardDAO {
     }
 
     // Board Insert
-    public int boardInsert(String rb_uid, String rb_sub, String rb_name, String rb_address, String rb_contents, int rb_rating) {
+    public int boardInsert(String rb_uid, String rb_sub, String r_name, String r_address, String rb_contents, int rb_rating) {
         System.out.println("===== Board Insert DAO =====");
 
         HashMap<String, Object> map = new HashMap<String, Object>();
         map.put("rb_uid", rb_uid);
         map.put("rb_sub", rb_sub);
-        map.put("rb_name", rb_name);
-        map.put("rb_address", rb_address);
+        map.put("r_name", r_name);
+        map.put("r_address", r_address);
         map.put("rb_contents", rb_contents);
         map.put("rb_rating", rb_rating);
 

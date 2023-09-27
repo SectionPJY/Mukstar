@@ -43,9 +43,14 @@
 
     <!-- INSERT Board -->
     <insert id="boardInsert">
-        INSERT
-        INTO m_resboard(rb_uid, rb_sub, rb_name, rb_address, rb_contents, rb_rating)
-        VALUES (#{rb_uid }, #{rb_sub }, #{rb_name }, #{rb_address }, #{rb_contents }, #{rb_rating });
+        <!-- 가게 중복 검사 -->
+        INSERT IGNORE
+        INTO m_restaurant(r_name, r_address)
+        VALUES(#{r_name }, #{r_address });
+
+        <!-- 게시글 INSERT -->
+        INSERT INTO m_resboard(rb_rid, rb_uid, rb_sub, rb_rating, rb_contents)
+        VALUES((SELECT r_id FROM m_restaurant WHERE r_name = #{r_name }), #{rb_uid }, #{rb_sub }, #{rb_ratring }, #{rb_contents });
     </insert>
 
     <!-- Delete Board -->
