@@ -43,7 +43,8 @@
 
     <!-- INSERT Board -->
     <insert id="boardInsert">
-        INSERT INTO m_resboard(rb_uid, rb_sub, rb_name, rb_address, rb_contents, rb_rating)
+        INSERT
+        INTO m_resboard(rb_uid, rb_sub, rb_name, rb_address, rb_contents, rb_rating)
         VALUES (#{rb_uid }, #{rb_sub }, #{rb_name }, #{rb_address }, #{rb_contents }, #{rb_rating });
     </insert>
 

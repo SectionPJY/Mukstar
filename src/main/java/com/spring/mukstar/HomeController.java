@@ -1,5 +1,6 @@
 package com.spring.mukstar;
 
+import com.spring.mukstar.Class.ModifiableHttpServletRequest;
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
@@ -7,10 +8,7 @@ import com.spring.mukstar.command.subscribe.SubDeleteCommand;
 import com.spring.mukstar.command.subscribe.SubInsertCommand;
 import com.spring.mukstar.command.subscribe.SubscriberListCommand;
 import com.spring.mukstar.command.user.*;
-import com.spring.mukstar.dto.QnADTO;
-import com.spring.mukstar.dto.ResBoardDTO;
-import com.spring.mukstar.dto.SubscribeDTO;
-import com.spring.mukstar.dto.UserDTO;
+import com.spring.mukstar.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class HomeController {
@@ -386,8 +385,7 @@ public class HomeController {
         modifyRequest = new ModifiableHttpServletRequest(request);
         modifyRequest.setParameter("searchWord", session.getAttribute("u_nickname").toString());
         request = modifyRequest;
-        List<SearchDTO> dtos = userSearchCommand.execute(request, model);
-        modifyRequest.setParameter("rb_uid", dtos.get(0).getU_id());
+        modifyRequest.setParameter("rb_uid", session.getAttribute("u_id").toString());
         request = modifyRequest;
         int result = boardUpdateCommand.execute(request);
         if (result == 1) {
