@@ -42,12 +42,13 @@
     </select>
 
     <!-- INSERT Board -->
-    <insert id="boardInsert">
+    <insert id="dupCheck">
         <!-- 가게 중복 검사 -->
         INSERT IGNORE
         INTO m_restaurant(r_name, r_address)
         VALUES(#{r_name }, #{r_address });
-
+    </insert>
+    <insert id="boardInsert">
         <!-- 게시글 INSERT -->
         INSERT INTO m_resboard(rb_rid, rb_uid, rb_sub, rb_rating, rb_contents)
         VALUES((SELECT r_id FROM m_restaurant WHERE r_name = #{r_name }), #{rb_uid }, #{rb_sub }, #{rb_ratring }, #{rb_contents });

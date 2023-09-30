@@ -479,6 +479,11 @@ public class HomeController {
 
         return "test/writingPage";
     }
+    @RequestMapping("writingSuccess")
+    public String writingSuccess() {
+
+        return "test/writingSuccess";
+    }
     @RequestMapping("writeTest")
     public String wirteTest(HttpServletRequest request, Model model) {
         System.out.println("===== Writing Test =====");
@@ -486,10 +491,10 @@ public class HomeController {
         int result = boardInsertCommand.execute(request);
         if (1 == result) {
             model.addAttribute("msg", "게시글이 작성되었습니다.");
-            model.addAttribute("url", "test/writingSuccess");
+            model.addAttribute("url", "writingSuccess");
         } else {
             model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
-            model.addAttribute("url", "test/writingPage");
+            model.addAttribute("url", "writingPage");
         }
 
         return "alert";

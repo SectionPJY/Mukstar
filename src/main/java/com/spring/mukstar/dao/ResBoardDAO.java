@@ -63,7 +63,14 @@ public class ResBoardDAO {
         map.put("rb_contents", rb_contents);
         map.put("rb_rating", rb_rating);
 
-        return sqlSession.insert("ResBoardMapper.boardInsert", map);
+        int result = sqlSession.insert("ResBoardMapper.dupCheck", map);
+        if (1 == result) {
+            System.out.println("===== Duplication Check Success =====");
+            return sqlSession.insert("ResBoardMapper.boardInsert", map);
+        } else {
+            System.out.println("===== Duplication Check Fail =====");
+            return -1;
+        }
     }
 
     // Board Delete
