@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>고객센터</title>
-    <link href="resources/css/cs.css" rel="stylesheet">
+    <link href="resources/css/user/cs.css" rel="stylesheet">
     <%@ include file="header.jsp" %>
 </head>
 <body>

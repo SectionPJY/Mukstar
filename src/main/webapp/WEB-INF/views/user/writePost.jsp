@@ -9,7 +9,7 @@
 <html>
 <head>
   <title>writePost</title>
-  <link href="resources/css/writePost.css" rel="stylesheet">
+  <link href="resources/css/user/writePost.css" rel="stylesheet">
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
   <script type="text/javascript"
           src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=services"></script>
@@ -65,7 +65,7 @@
 </div>
 <%@ include file="footer.jsp" %>
 </body>
-<script type="module" src="resources/JS/map.js"></script>
+<script type="module" src="resources/JS/user/map.js"></script>
 <script>
   var data = "";
   var addr = "";

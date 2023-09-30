@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>게시물 찾기</title>
-    <link href="resources/css/findPost.css" rel="stylesheet">
+    <link href="resources/css/user/findPost.css" rel="stylesheet">
 </head>
 <body>
 <%@ include file="header2.jsp" %>

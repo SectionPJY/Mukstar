@@ -12,12 +12,12 @@
     <title>header</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link href="resources/css/header.css" rel="stylesheet">
-    <script src="resources/JS/slideDown.js"></script>
+    <link href="resources/css/user/header.css" rel="stylesheet">
+    <script src="resources/JS/user/slideDown.js"></script>
 </head>
 <body>
 <div class="logo">
-    <img src="resources/assets/Logo.png">
+    <img src="resources/assets/user/Logo.png">
 </div>
 <div class="menu1">
     <nav>

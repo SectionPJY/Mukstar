@@ -11,9 +11,9 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <title>findMap</title>
-  <link href="resources/css/findMap.css" rel="stylesheet">
+  <link href="resources/css/user/findMap.css" rel="stylesheet">
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script type="module" src="resources/JS/map.js"></script>
+  <script type="module" src="resources/JS/user/map.js"></script>
   <script type="text/javascript"
           src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=drawing"></script>
   <%@ include file="header.jsp" %>

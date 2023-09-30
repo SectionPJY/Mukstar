@@ -9,21 +9,21 @@
 <html>
 <head>
     <title>myPage</title>
-    <link href="resources/css/userInfo_edit.css" rel="stylesheet">
+    <link href="resources/css/user/userInfo_edit.css" rel="stylesheet">
     <%@ include file="header2.jsp" %>
 </head>
 <body>
 <div class="wrapper">
     <div class="img-area">
         <div class="inner-area">
-            <img src="resources/assets/fox.jpg"/>
+            <img src="resources/assets/user/fox.jpg"/>
         </div>
     </div>
     <div class="social-icons">
-        <a href="#" class="badge1"><img src="resources/assets/인증마크.png"/></a>
-        <a href="#" class="badge2"><img src="resources/assets/뱃지.png"/></a>
-        <a href="#" class="badge3"><img src="resources/assets/왕관.png"/></a>
-        <a href="#" class="badge4"><img src="resources/assets/먹깨비.png"/></a>
+        <a href="#" class="badge1"><img src="resources/assets/user/인증마크.png"/></a>
+        <a href="#" class="badge2"><img src="resources/assets/user/뱃지.png"/></a>
+        <a href="#" class="badge3"><img src="resources/assets/user/왕관.png"/></a>
+        <a href="#" class="badge4"><img src="resources/assets/user/먹깨비.png"/></a>
     </div>
     <div class="buttons">
         <button style="background-color: #03B3FF; color: white">글관리</button>

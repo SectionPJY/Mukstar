@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>footer</title>
-    <link href="resources/css/footer.css" rel="stylesheet">
+    <link href="resources/css/user/footer.css" rel="stylesheet">
 </head>
 <footer>
 <p class="fot">
