@@ -15,7 +15,7 @@ header {
 }
 
 body {
-    background-image: url("../assets/Login.png");
+    background-image: url("../../assets/user/Login.png");
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;

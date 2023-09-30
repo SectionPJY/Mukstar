@@ -15,7 +15,7 @@ header {
 }
 
 body {
-    background-image: url("../assets/UserPage.png");
+    background-image: url("../../assets/user/UserPage.png");
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;

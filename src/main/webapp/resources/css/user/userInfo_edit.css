@@ -15,14 +15,14 @@ header {
 }
 
 body {
-    background-image: url("../assets/UserPage.png");
+    background-image: url("../../assets/user/UserPage.png");
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 footer {
-    position: fixed;
     bottom: 0;
     left: 0;
     height: 100px;
@@ -47,7 +47,7 @@ footer {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    top: 100px;
+    top: 120px;
     left: 100px;
 }
 
@@ -115,6 +115,7 @@ footer {
     border-radius: 50%;
 }
 
+
 .wrapper .buttons {
     display: flex;
     width: 100%;
@@ -145,39 +146,16 @@ footer {
     margin-left: 10px;
 }*/
 
-.post-area {
-    position: relative;
-    width: 67%;
-    height: auto;
-    bottom: 43%;
-    left: 30%;
-}
-
 .post {
     position: relative;
-    width: 442px;
-    height: 273px;
+    width: 460px;
+    height: 307px;
     border-radius: 10px;
     background-color: white;
-    left: 3%;
-    float: left;
-    margin-left: 7%;
-    margin-right: 5%;
-    margin-top: 4%;
+    left: 1300px;
+    bottom: 320px;
 }
 
-.click{
-    background-color: black;
-}
-.opacity{
-    position: absolute;
-    width: 442px;
-    height: 273px;
-    border-radius: 10px;
-    opacity: 0.5;
-    top: 0px;
-    right: 0px;
-}
 .post-imgarea {
     height: 200px;
     width: 250px;
@@ -217,21 +195,134 @@ footer {
     left: 280px;
 }
 
-.text-area > p {
-    width: 150px;
-    height: 250px;
-    word-break: break-all;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
+.wrapper2 {
+    position: relative;
+    width: 60%;
+    height: 50%;
+    left: 35%;
+    bottom: 32%;
 }
 
-.post > label > input {
-    /*display: none;*/
+.profile_box {
+    position: absolute;
+    width: 650px;
+    height: 700px;
+    left: 154px;
+    background-color: white;
+    border-radius: 15px;
 }
 
-/*
-input[type=checkbox]:checked + div.post{
-    background-color: black;
-    opacity: 0.5;
-}*/
+.profile {
+    position: relative;
+    top: 40px;
+    left: 35px;
+    color: #F0B226;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+}
+
+.pw_input {
+    position: relative;
+    top: 70px;
+    left: 35px;
+}
+
+.pw_input > p {
+    line-height: 40px;
+}
+
+.pw_input > input {
+    width: 582px;
+    height: 65px;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 10px;
+    margin-top: 1px;
+    font-size: 30px;
+    outline: none;
+    padding: 10px;
+}
+
+.name_input {
+    position: relative;
+    top: 70px;
+    left: 35px;
+}
+
+.name_input > p {
+    line-height: 40px;
+}
+
+.name_input > input {
+    width: 582px;
+    height: 65px;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 10px;
+    margin-top: 1px;
+    font-size: 30px;
+    outline: none;
+    padding: 10px;
+}
+
+.tel_input {
+    position: relative;
+    top: 70px;
+    left: 35px;
+}
+
+.tel_input > p {
+    line-height: 40px;
+}
+
+.tel_input > input {
+    width: 582px;
+    height: 65px;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 10px;
+    margin-top: 1px;
+    font-size: 30px;
+    outline: none;
+    padding: 10px;
+}
+
+.pay_input {
+    position: relative;
+    top: 70px;
+    left: 35px;
+}
+
+.pay_input > p {
+    line-height: 40px;
+}
+
+.pay_input > input {
+    width: 582px;
+    height: 65px;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 10px;
+    margin-top: 1px;
+    font-size: 30px;
+    outline: none;
+    padding: 10px;
+}
+
+.btn {
+    position: relative;
+    top: 105px;
+    left: 35px;
+}
+
+.btn > input {
+    width: 289px;
+    height: 62px;
+    background-color: #FFC738;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

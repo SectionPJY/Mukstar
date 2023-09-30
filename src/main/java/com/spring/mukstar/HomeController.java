@@ -17,7 +17,7 @@ public class HomeController {
     @RequestMapping("/index")
     public String index() {
 
-        return "index";
+        return "user/index";
     }
 
     @RequestMapping("/test")
@@ -29,6 +29,42 @@ public class HomeController {
     @RequestMapping("/userPage")
     public String userPage() {
 
-        return "userPage";
+        return "user/userPage";
     }
+
+  @RequestMapping("/header")
+  public String header() {
+
+    return "user/header";
+  }
+
+  @RequestMapping("/userFind")
+  public String userFind() {
+
+    return "user/userFind";
+  }
+
+  @RequestMapping("/postManage")
+  public String postManage() {
+
+    return "user/postManage";
+  }
+
+  @RequestMapping("/findMap")
+  public String findMap() {
+
+    return "user/findMap";
+  }
+
+  @RequestMapping("/postDetail")
+  public String postDetail() {
+
+    return "user/postDetail";
+  }
+
+  @RequestMapping("/writePost")
+  public String writePost() {
+
+    return "user/writePost";
+  }
 }
