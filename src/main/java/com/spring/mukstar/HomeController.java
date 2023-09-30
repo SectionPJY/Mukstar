@@ -468,4 +468,30 @@ public class HomeController {
 
         return mv;
     }
+
+
+
+    /*
+    * 테스트용 모음(카카오맵 api때문에 테스트를 못해서 쓰고 지울 예정)
+    * */
+    @RequestMapping("writingPage")
+    public String writingPage() {
+
+        return "test/writingPage";
+    }
+    @RequestMapping("writeTest")
+    public String wirteTest(HttpServletRequest request, Model model) {
+        System.out.println("===== Writing Test =====");
+
+        int result = boardInsertCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "게시글이 작성되었습니다.");
+            model.addAttribute("url", "test/writingSuccess");
+        } else {
+            model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
+            model.addAttribute("url", "test/writingPage");
+        }
+
+        return "alert";
+    }
 }
