@@ -3,6 +3,7 @@ package com.spring.mukstar;
 import com.spring.mukstar.Class.ModifiableHttpServletRequest;
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.resboard.*;
+import com.spring.mukstar.command.restaurant.RestaurantInsertCommand;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubDeleteCommand;
 import com.spring.mukstar.command.subscribe.SubInsertCommand;
@@ -467,36 +468,5 @@ public class HomeController {
         model.addAttribute("subList", dtos);
 
         return mv;
-    }
-
-
-
-    /*
-    * 테스트용 모음(카카오맵 api때문에 테스트를 못해서 쓰고 지울 예정)
-    * */
-    @RequestMapping("writingPage")
-    public String writingPage() {
-
-        return "test/writingPage";
-    }
-    @RequestMapping("writingSuccess")
-    public String writingSuccess() {
-
-        return "test/writingSuccess";
-    }
-    @RequestMapping("writeTest")
-    public String wirteTest(HttpServletRequest request, Model model) {
-        System.out.println("===== Writing Test =====");
-
-        int result = boardInsertCommand.execute(request);
-        if (1 == result) {
-            model.addAttribute("msg", "게시글이 작성되었습니다.");
-            model.addAttribute("url", "writingSuccess");
-        } else {
-            model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
-            model.addAttribute("url", "writingPage");
-        }
-
-        return "alert";
     }
 }

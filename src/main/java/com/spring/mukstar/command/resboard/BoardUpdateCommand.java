@@ -18,8 +18,8 @@ public class BoardUpdateCommand {
         int rb_id = Integer.parseInt(request.getParameter("rb_id"));
         String rb_uid = request.getParameter("rb_uid");
         String rb_sub = request.getParameter("rb_sub");
-        String rb_name = request.getParameter("rb_name");
-        String rb_address = request.getParameter("rb_address");
+        String rb_name = request.getParameter("r_name");
+        String rb_address = request.getParameter("r_address");
         String rb_contents = request.getParameter("rb_contents");
         int rb_rating = Integer.parseInt(request.getParameter("rb_rating"));
 
