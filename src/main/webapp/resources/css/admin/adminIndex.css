@@ -1,0 +1,31 @@
+* {
+  list-style: none;
+}
+
+#post-list {
+  width: auto;
+  height: 20rem;
+  background-color: #858796;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#post-list-header {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid black;
+}
+
+#post-list-body {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#list-info {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+}

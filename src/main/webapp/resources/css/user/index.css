@@ -29,144 +29,117 @@ footer {
     width: 100%;
 }
 
-.wrap {
-    /*height: 80%;*/
-    margin-bottom: 60px;
+
+/*.logo img {
+    width: 127px;
+    height: 80px;
 }
 
-.container {
-    position: relative;
-    top: 200px;
-    width: 1280px;
-    margin: 0 auto;
+#searchBox {
+    width: 375px;
+    height: 32px;
+    border-radius: 16px;
+    border: none;
 }
 
+.menu {
+    margin: 10px auto;
+}
 
-/*
+.menu div a {
+    color: black;
+}
 
-!*gallery css*!
+.menu2 {
+    margin: 11px;
+}
+
+.menu2 button {
+    width: 134px;
+    height: 32px;
+    border-radius: 18px;
+    border: none;
+    cursor: pointer;
+}*/
+
+/*slideshow css*/
+
+/* 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 li {
-    list-style: none;
+    list-style-type: none;
 }
 
-.clearfix {
-    overflow: auto;
-}
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-.clear {
-    clear: both;
-}
-
-.gallery {
-    width: 1200px;
-    margin: 20px auto;
-    !*border: 1px solid #ccc;*!
-    overflow: hidden;
-    padding-left: 0;
-}
-
-.gallery ul {
-    width: 300%;
-    position: relative;
-    left: -300px;
-}
-
-.gallery ul li {
-    float: left;
-    width: 300px;
-    height: 180px;
-    box-sizing: border-box;
-    padding: 15px;
-    text-align: center;
-    line-height: 150px;
-}
-
-.gallery ul li .img {
-    border: 3px solid #ccc;
-}
-
-.g_item {
-    width: 900px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.g_item ul li {
-    display: inline-block;
-    margin-right: 10px;
-    background: #ccc;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
-
-.g_item ul li.on {
-    background: #f00;
-}
-
-!*gallery css end*!
-*/
-
-/*flow_banner css*/
-
-ul, li {
-    list-style: none;
-}
-
-.flow_banner {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    max-width: 1920px;
-    margin: 30px auto;
-    background: #000;
-}
-
-.flow_banner .list {
-    display: flex;
-}
-
-.flow_banner .list > li {
-    font-size: 18px;
-    color: #fff;
-    padding: 20px;
-    width: 300px;
+/* 보여줄 구간의 높이와 넓이 설정 */
+#slideShow {
+    /*전체 컨테이너*/
+    width: 500px;
     height: 300px;
-    padding: 15px;
-    border: 1px solid white;
-    margin-right: 30px;
-    border-radius: 15px;
+    position: relative;
+    top: 378px;
+    left: -167px;
+    margin: 50px auto;
+    overflow: hidden; /*리스트 형식으로 이미지를 일렬로 정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은 hidden으로 숨겨줘야됨*/
 }
 
-@keyframes flowRolling {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+.slides {
+    /*이미지들이 담겨있는 슬라이드 컨테이너*/
+    position: absolute;
+    left: 0;
+    top: 350px;
+    width: 2500px; /* 슬라이드할 사진과 마진 총 넓이 */
+    transition: 0.5s ease-out; /*ease-out: 처음에는 느렸다가 점점 빨라짐*/
 }
 
-/* 반응형 스타일 */
-@media (max-width: 1280px) {
-    .flow_banner .list > li {
-        font-size: 16px;
-        padding: 10px;
-    }
+/* 첫 번째 슬라이드 가운데에 정렬하기위해 첫번째 슬라이드만 margin-left조정 */
+.slides li:first-child {
+    margin-left: 100px;
 }
 
-@media (max-width: 767px) {
-    .flow_banner .list > li {
-        font-size: 14px;
-        padding: 5px;
-    }
+/* 슬라이드들 옆으로 정렬 */
+.slides li:not(:last-child) {
+    float: left;
+    margin-right: 100px;
 }
 
-/*flow_banner css end*/
+.controller span {
+    position: absolute;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    border-radius: 50%;
+    padding: 10px 20px;
+    top: 50%;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+/* 이전, 다음 화살표에 마우스 커서가 올라가 있을때 */
+.controller span:hover {
+    background-color: rgba(128, 128, 128, 0.11);
+}
+
+.prev {
+    left: 10px;
+}
+
+/* 이전 화살표에 마우스 커서가 올라가 있을때 이전 화살표가 살짝 왼쪽으로 이동하는 효과*/
+.prev:hover {
+    transform: translateX(-10px);
+}
+
+.next {
+    right: 10px;
+}
+
+/* 다음 화살표에 마우스 커서가 올라가 있을때 이전 화살표가 살짝 오른쪽으로 이동하는 효과*/
+.next:hover {
+    transform: translateX(10px);
+}
+
+/*slideshow css end*/
