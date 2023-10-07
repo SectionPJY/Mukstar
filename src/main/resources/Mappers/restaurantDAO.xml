@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RestaurantMapper">
+    <insert id="resInsert">
+        INSERT IGNORE
+        INTO m_restaurant(r_name, r_address)
+        VALUES(#{r_name }, #{r_address });
+    </insert>
+</mapper>

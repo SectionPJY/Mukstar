@@ -16,8 +16,10 @@ public class ResBoardDTO {
     private String rb_date;
     private int rb_like;
     private String sort;
+    private String r_name;
+    private String r_address;
 
-    public ResBoardDTO(int rb_id, int rb_rid, String rb_uid, String rb_sub, int rb_rating, String rb_contents, int rb_view, Timestamp rb_date) {
+    public ResBoardDTO(int rb_id, int rb_rid, String rb_uid, String rb_sub, int rb_rating, String rb_contents, int rb_view, Timestamp rb_date, int rb_like) {
         this.rb_id = rb_id;
         this.rb_rid = rb_rid;
         this.rb_uid = rb_uid;
@@ -26,6 +28,19 @@ public class ResBoardDTO {
         this.rb_contents = rb_contents;
         this.rb_view = rb_view;
         this.rb_date = changeDate(rb_date);
+        this.rb_like = rb_like;
+    }
+
+    public ResBoardDTO(int rb_id, String rb_uid, String rb_sub, int rb_rating, String rb_contents, int rb_view, Timestamp rb_date, String r_name, String r_address) {
+        this.rb_id = rb_id;
+        this.rb_uid = rb_uid;
+        this.rb_sub = rb_sub;
+        this. rb_rating = rb_rating;
+        this. rb_contents = rb_contents;
+        this. rb_view = rb_view;
+        this.rb_date = changeDate(rb_date);
+        this.r_name = r_name;
+        this.r_address = r_address;
     }
 
     public int getRb_id() {
@@ -106,6 +121,22 @@ public class ResBoardDTO {
 
     public void setSort(String sort) {
         this.sort = sort;
+    }
+
+    public String getR_name() {
+        return r_name;
+    }
+
+    public void setR_name(String r_name) {
+        this.r_name = r_name;
+    }
+
+    public String getR_address() {
+        return r_address;
+    }
+
+    public void setR_address(String r_address) {
+        this.r_address = r_address;
     }
 
     private String changeDate(Timestamp rb_date) {

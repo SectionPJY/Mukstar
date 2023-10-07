@@ -52,7 +52,7 @@
                     <textarea id='rb_contents' name="rb_contents" placeholder="내용을 입력하세요.(3000자 이내)."
                               rows="10" cols="10" wrap="hard"></textarea>
           <div class="map_area">
-            <input type="text" id="rb_name" name="rb_name">
+            <input type="text" id="r_name" name="r_name">
             <div id="map" style="width:450px;height:360px;border-radius: 0px 0px 15px 0px;"></div>
           </div>
         </div>

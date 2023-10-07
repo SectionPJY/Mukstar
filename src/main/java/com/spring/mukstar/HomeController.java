@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -93,8 +92,11 @@ public class HomeController {
     public ModelAndView userList(Model model) {
         System.out.println("===== Test Page =====");
 
-        ModelAndView mv = new ModelAndView("userList");
-        mv.addObject("data", userListCommand.execute(model));
+        ModelAndView mv = new ModelAndView("test/userList");
+        mv.addObject("userList", userListCommand.execute(model));
+
+        String s_subscriber = session.getAttribute("u_id").toString();
+        mv.addObject("channelList", channelListCommand.execute(s_subscriber));
 
         System.out.println("===== Page Loading =====");
         return mv;
@@ -448,7 +450,7 @@ public class HomeController {
         String s_subscriber = session.getAttribute("u_id").toString();
         System.out.println("User : " + s_subscriber);
 
-        ModelAndView mv = new ModelAndView("channelList");
+        ModelAndView mv = new ModelAndView("test/channelList");
         List<SubscribeDTO> dtos = channelListCommand.execute(s_subscriber);
         model.addAttribute("channelList", dtos);
 
@@ -462,41 +464,10 @@ public class HomeController {
         String s_channel = session.getAttribute("u_id").toString();
         System.out.println("Channel : " + s_channel);
 
-        ModelAndView mv = new ModelAndView("subList");
+        ModelAndView mv = new ModelAndView("test/subList");
         List<SubscribeDTO> dtos = subscriberListCommand.execute(s_channel);
         model.addAttribute("subList", dtos);
 
         return mv;
-    }
-
-
-
-    /*
-    * 테스트용 모음(카카오맵 api때문에 테스트를 못해서 쓰고 지울 예정)
-    * */
-    @RequestMapping("writingPage")
-    public String writingPage() {
-
-        return "test/writingPage";
-    }
-    @RequestMapping("writingSuccess")
-    public String writingSuccess() {
-
-        return "test/writingSuccess";
-    }
-    @RequestMapping("writeTest")
-    public String wirteTest(HttpServletRequest request, Model model) {
-        System.out.println("===== Writing Test =====");
-
-        int result = boardInsertCommand.execute(request);
-        if (1 == result) {
-            model.addAttribute("msg", "게시글이 작성되었습니다.");
-            model.addAttribute("url", "writingSuccess");
-        } else {
-            model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
-            model.addAttribute("url", "writingPage");
-        }
-
-        return "alert";
     }
 }

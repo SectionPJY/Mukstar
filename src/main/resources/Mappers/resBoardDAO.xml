@@ -24,9 +24,9 @@
 
     <!-- SELECT Board -->
     <select id="boardSelect" resultType="ResBoardDTO">
-        SELECT *
-        FROM m_resboard
-        WHERE rb_id = #{rb_id };
+        SELECT rb_id, rb_sub, rb_uid, rb_date, rb_view, rb_raiting, r_name, r_address, rb_contents
+        FROM m_resboard, m_restaurant
+        WHERE m_resboard.rb_rid = m_restaurant.r_id;
     </select>
 
     <select id="boardSelectToUid" resultType="ResBoardDTO">
@@ -42,16 +42,9 @@
     </select>
 
     <!-- INSERT Board -->
-    <insert id="dupCheck">
-        <!-- 가게 중복 검사 -->
-        INSERT IGNORE
-        INTO m_restaurant(r_name, r_address)
-        VALUES(#{r_name }, #{r_address });
-    </insert>
     <insert id="boardInsert">
-        <!-- 게시글 INSERT -->
         INSERT INTO m_resboard(rb_rid, rb_uid, rb_sub, rb_rating, rb_contents)
-        VALUES((SELECT r_id FROM m_restaurant WHERE r_name = #{r_name }), #{rb_uid }, #{rb_sub }, #{rb_ratring }, #{rb_contents });
+        VALUES((SELECT r_id FROM m_restaurant WHERE r_name = #{r_name }), #{rb_uid }, #{rb_sub }, #{rb_rating }, #{rb_contents });
     </insert>
 
     <!-- Delete Board -->
@@ -63,7 +56,7 @@
     <!-- Update Board -->
     <update id="boardUpdate">
         UPDATE m_resboard
-        SET rb_sub = #{rb_sub }, rb_name = #{rb_name }, rb_address = #{rb_address }, rb_contents = #{rb_contents }, rb_rating = #{rb_rating }
+        SET rb_sub = #{rb_sub }, rb_contents = #{rb_contents }, rb_rating = #{rb_rating }, rb_date = NOW()
         WHERE rb_id = #{rb_id };
     </update>
 
