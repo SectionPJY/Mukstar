@@ -3,7 +3,6 @@ package com.spring.mukstar;
 import com.spring.mukstar.Class.ModifiableHttpServletRequest;
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.resboard.*;
-import com.spring.mukstar.command.restaurant.RestaurantInsertCommand;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubDeleteCommand;
 import com.spring.mukstar.command.subscribe.SubInsertCommand;
@@ -14,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -94,8 +92,11 @@ public class HomeController {
     public ModelAndView userList(Model model) {
         System.out.println("===== Test Page =====");
 
-        ModelAndView mv = new ModelAndView("userList");
-        mv.addObject("data", userListCommand.execute(model));
+        ModelAndView mv = new ModelAndView("test/userList");
+        mv.addObject("userList", userListCommand.execute(model));
+
+        String s_subscriber = session.getAttribute("u_id").toString();
+        mv.addObject("channelList", channelListCommand.execute(s_subscriber));
 
         System.out.println("===== Page Loading =====");
         return mv;
@@ -449,7 +450,7 @@ public class HomeController {
         String s_subscriber = session.getAttribute("u_id").toString();
         System.out.println("User : " + s_subscriber);
 
-        ModelAndView mv = new ModelAndView("channelList");
+        ModelAndView mv = new ModelAndView("test/channelList");
         List<SubscribeDTO> dtos = channelListCommand.execute(s_subscriber);
         model.addAttribute("channelList", dtos);
 
@@ -463,7 +464,7 @@ public class HomeController {
         String s_channel = session.getAttribute("u_id").toString();
         System.out.println("Channel : " + s_channel);
 
-        ModelAndView mv = new ModelAndView("subList");
+        ModelAndView mv = new ModelAndView("test/subList");
         List<SubscribeDTO> dtos = subscriberListCommand.execute(s_channel);
         model.addAttribute("subList", dtos);
 

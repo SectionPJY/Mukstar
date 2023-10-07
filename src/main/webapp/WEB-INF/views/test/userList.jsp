@@ -22,19 +22,27 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${userList }" var="User">
-        <c:choose>
-            <c:when test="${User.u_id == u_id }">
-                <a href="#">구독중</a>
-            </c:when>
-            <c:otherwise>
-                <tr>
-                    <td>${User.u_id }</td>
-                    <td>${User.u_nickname }</td>
-                    <td><a onclick="addSub('${User.u_id }', '${u_id }')">구독하기</a></td>
-                </tr>
-            </c:otherwise>
-        </c:choose>
+    <c:forEach items="${userList }" var="User" varStatus="status">
+        <c:forEach items="${channelList }" var="Channel">
+            <c:choose>
+                <c:when test="${User.u_id == u_id }">
+                </c:when>
+                <c:otherwise>
+                    <tr>
+                        <td>${User.u_id }</td>
+                        <td>${User.u_nickname }</td>
+                        <c:choose>
+                            <c:when test="${User.u_id == Channel.s_channel }">
+                                <td><a href="#">구독중</a></td>
+                            </c:when>
+                            <c:otherwise>
+                                <td><a onclick="addSub('${User.u_id }', '${u_id }')">구독하기</a></td>
+                            </c:otherwise>
+                        </c:choose>
+                    </tr>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
     </c:forEach>
     </tbody>
 </table>

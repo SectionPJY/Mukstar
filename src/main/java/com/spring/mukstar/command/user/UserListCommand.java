@@ -23,7 +23,6 @@ public class UserListCommand {
             System.out.println("===== List is Empty =====");
         }
         System.out.println("===== List is Not Empty =====");
-        model.addAttribute("userList", uList);
 
         return uList;
     }
