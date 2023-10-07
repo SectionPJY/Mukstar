@@ -25,6 +25,7 @@
     <c:forEach items="${userList }" var="User">
         <c:choose>
             <c:when test="${User.u_id == u_id }">
+                <a href="#">구독중</a>
             </c:when>
             <c:otherwise>
                 <tr>

@@ -30,8 +30,6 @@
         <button style="background-color: #03B3FF; color: white" onclick="location.href='/pManage'">글관리</button>
         <button style="background-color: #FFA800; color: white; margin-top: 15px;" onclick="location.href='/infoPW'">회원정보</button>
         <button style="background-color: #FF5757; color: white; margin-top: 15px;" onclick="location.href='/sInfo'" >구독정보</button>
-        <%-- 테스트 후에 지울 예정 --%>
-        <button style="background-color: #FF5757; color: white; margin-top: 15px;" onclick="location.href='/writingPage'" >글쓰기 테스트</button>
     </div>
 </div>
 <div class="post-area">
