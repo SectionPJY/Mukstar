@@ -23,6 +23,7 @@
   <!-- Custom styles for this template-->
   <link href="resources/css/admin/sb-admin-2.min.css" rel="stylesheet">
   <link href="resources/css/admin/adminIndex.css" rel="stylesheet">
+  <link href="resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 <body id="page-top">
 <!-- Page Wrapper -->
@@ -362,22 +363,34 @@
               <!-- PostList Body -->
               <div class="card-body">
                 <form>
-                  <div id="post-list">
-                    <div id="post-list-header">
-                      <span>작성자</span>
-                      <span>제목</span>
-                      <span>작성일</span>
-                    </div>
-                    <div id="post-list-body">
-                      <div id="list-info">
-                        <ul class="list">
-                          <li>아무개 테스트 2023.10.04</li>
-                          <li>아무개 테스트 2023.10.04</li>
-                          <li>아무개 테스트 2023.10.04</li>
-                          <li>아무개 테스트 2023.10.04</li>
-                          <li>아무개 테스트 2023.10.04</li>
-                        </ul>
-                      </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                          <th>작성자</th>
+                          <th>제목</th>
+                          <th>작성일</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>Tiger Nixon</td>
+                          <td>Edinburgh</td>
+                          <td>$320,800</td>
+                        </tr>
+                        <tr>
+                          <td>Garrett Winters</td>
+                          <td>Tokyo</td>
+                          <td>2011/07/25</td>
+                        </tr>
+                        <tr>
+                          <td>Ashton Cox</td>
+                          <td>66</td>
+                          <td>2009/01/12</td>
+                        </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </form>
@@ -518,9 +531,12 @@
 
 <!-- Page level plugins -->
 <script src="resources/vendor/chart.js/Chart.min.js"></script>
+<script src="resources/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 <!-- Page level custom scripts -->
 <script src="resources/JS/admin/demo/chart-bar-demo.js"></script>
+<script src="resources/JS/admin/demo/datatables-demo.js"></script>
 
 </body>
 
