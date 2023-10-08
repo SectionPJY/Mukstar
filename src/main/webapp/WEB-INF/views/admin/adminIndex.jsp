@@ -365,7 +365,7 @@
                 <form method="post" action="">
                   <div class="card-body">
                     <div class="container">
-                      <table class="table table-bordered table-hover" id="dataTable">
+                      <table class="table table-bordered table-hover" id="dataTable1">
                         <thead>
                         <tr>
                           <th>작성자</th>
@@ -463,7 +463,7 @@
                 <form method="post" action="">
                   <div class="card-body">
                     <div class="container">
-                      <table class="table table-bordered table-hover" id="dataTable">
+                      <table class="table table-bordered table-hover" id="dataTable2">
                         <thead>
                         <tr>
                           <th>작성자</th>
