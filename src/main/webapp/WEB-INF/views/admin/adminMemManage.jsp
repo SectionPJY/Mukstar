@@ -328,6 +328,7 @@
         <!-- Content Row -->
 
         <div class="row">
+          <%--검색 창--%>
           <div id="search_area">
             <form>
               <select name="type">
@@ -338,6 +339,51 @@
               </select>
               <input type="text" id="search_bar" value=""/>
               <input type="button" value="검색"/>
+            </form>
+          </div>
+          <%--테이블--%>
+          <div class="card-body">
+            <form method="post" action="">
+              <div class="card-body">
+                <div class="container">
+                  <table class="table table-bordered table-hover" id="dataTable4">
+                    <thead>
+                    <tr>
+                      <th>아이디</th>
+                      <th>닉네임</th>
+                      <th>핸드폰</th>
+                      <th>상태</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>김이름</td>
+                      <td>시구레 우이</td>
+                      <td>010-1111-1111</td>
+                      <td>생존</td>
+                    </tr>
+                    <tr>
+                      <td>박이름</td>
+                      <td>쭐어</td>
+                      <td>010-2222-2222</td>
+                      <td>생존</td>
+                    </tr>
+                    <tr>
+                      <td>이이름</td>
+                      <td>길달</td>
+                      <td>010-3333-3333</td>
+                      <td>실종</td>
+                    </tr>
+                    <tr>
+                      <td>유이름</td>
+                      <td>고모리</td>
+                      <td>010-4444-4444</td>
+                      <td>사망</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </form>
           </div>
         </div>
