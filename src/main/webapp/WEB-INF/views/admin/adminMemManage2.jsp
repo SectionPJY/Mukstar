@@ -15,7 +15,7 @@
     rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="resources/css/admin/sb-admin-2.min.css" rel="stylesheet">
-  <link href="resources/css/admin/adminMemManage.css" rel="stylesheet">
+  <link href="resources/css/admin/adminMemManage2.css" rel="stylesheet">
 </head>
 <body id="page-top">
 <!-- Page Wrapper -->
@@ -27,7 +27,7 @@
       <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+      <div class="sidebar-brand-text mx-3">Mukstar</div>
     </a>
 
     <!-- Divider -->
@@ -164,8 +164,6 @@
             </div>
           </li>
 
-          <div class="topbar-divider d-none d-sm-block"></div>
-
           <!-- Nav Item - User Information -->
           <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -207,66 +205,31 @@
 
         <!-- Content Row -->
 
-        <div class="row">
-          <%--검색 창--%>
-          <div id="search_area">
-            <form>
-              <select name="type">
-                <option selected value="">검색 내용 선택</option>
-                <option value="id">아이디</option>
-                <option value="name">닉네임</option>
-                <option value="phone">핸드폰</option>
-              </select>
-              <input type="text" id="search_bar" value=""/>
-              <input type="button" value="검색"/>
-            </form>
-          </div>
-          <%--테이블--%>
-          <div class="card-body">
-            <form method="post" action="">
-              <div class="card-body">
-                <div class="container">
-                  <table class="table table-bordered table-hover" id="dataTable4">
-                    <thead>
-                    <tr>
-                      <th>아이디</th>
-                      <th>닉네임</th>
-                      <th>핸드폰</th>
-                      <th>상태</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td>김이름</td>
-                      <td>시구레 우이</td>
-                      <td>010-1111-1111</td>
-                      <td>생존</td>
-                    </tr>
-                    <tr>
-                      <td>박이름</td>
-                      <td>쭐어</td>
-                      <td>010-2222-2222</td>
-                      <td>생존</td>
-                    </tr>
-                    <tr>
-                      <td>이이름</td>
-                      <td>길달</td>
-                      <td>010-3333-3333</td>
-                      <td>실종</td>
-                    </tr>
-                    <tr>
-                      <td>유이름</td>
-                      <td>고모리</td>
-                      <td>010-4444-4444</td>
-                      <td>사망</td>
-                    </tr>
-                    </tbody>
-                  </table>
+        <form method="post" action="">
+          <div class="wrap">
+            <div class="user_con">
+              <div id="con_1">
+                <div class="pic_area">
+                  <img src="resources/assets/user/fox.jpg"/>
+                </div>
+                <div class="badge_area">
+                  <div class="badge_list">
+                    <img src="resources/assets/user/먹깨비.png"/>
+                    <img src="resources/assets/user/뱃지.png"/>
+                    <img src="resources/assets/user/왕관.png"/>
+                    <img src="resources/assets/user/인증마크.png"/>
+                  </div>
                 </div>
               </div>
-            </form>
+              <div id="con_2">
+
+              </div>
+            </div>
+            <div class="introduce">
+
+            </div>
           </div>
-        </div>
+        </form>
 
         <!-- Content Row -->
 
