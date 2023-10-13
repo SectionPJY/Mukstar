@@ -1,0 +1,25 @@
+#search_area {
+  width: 100%;
+  background-color: white;
+  display: inline-block;
+}
+
+select {
+  height: 30px;
+  text-align: center;
+  text-align-last: center;
+}
+
+option {
+  text-align: center;
+  text-align-last: center;
+}
+
+#search_bar {
+  width: 90%;
+}
+
+
+.table {
+  color: black;
+}

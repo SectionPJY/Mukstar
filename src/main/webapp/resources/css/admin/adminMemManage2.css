@@ -1,0 +1,64 @@
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 1000px;
+  background-color: gray;
+}
+
+.user_con {
+  background-color: black;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.introduce {
+  background-color: red;
+  width: 100%;
+  height: 50%;
+}
+
+#con_1 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: #1cc88a;
+  justify-content: center;
+}
+
+#con_2 {
+  width: 100%;
+  background-color: #1c294e;
+}
+
+.pic_area {
+  background-color: #574516;
+  width: 100%;
+  height: 50%;
+  text-align: center;
+}
+
+.pic_area > img {
+  margin-top: 15px;
+}
+
+.badge_area {
+  background-color: purple;
+  width: 50%;
+  height: 10%;
+}
+
+.badge_list {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 1px;
+}
+
+.badge_list > img {
+  width: 10%;
+  height: 10%;
+  margin-bottom: 5px;
+}

@@ -20,12 +20,28 @@
 
 #post-list-body {
   width: 100%;
+  height: 19rem;
   display: flex;
   justify-content: space-evenly;
+  background-color: white;
 }
 
+/*
 #list-info {
   display: flex;
   justify-content: space-evenly;
   background-color: white;
+}
+*/
+
+.list {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.list > li {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }

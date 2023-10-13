@@ -23,6 +23,7 @@
   <!-- Custom styles for this template-->
   <link href="resources/css/admin/sb-admin-2.min.css" rel="stylesheet">
   <link href="resources/css/admin/adminIndex.css" rel="stylesheet">
+  <link href="resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 <body id="page-top">
 <!-- Page Wrapper -->
@@ -297,7 +298,7 @@
           <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자1</span>
               <img class="img-profile rounded-circle"
                    src="resources/assets/admin/undraw_profile.svg">
             </a>
@@ -361,23 +362,40 @@
               </div>
               <!-- PostList Body -->
               <div class="card-body">
-                <form>
-                  <div id="post-list">
-                    <div id="post-list-header">
-                      <span>작성자</span>
-                      <span>제목</span>
-                      <span>작성일</span>
-                    </div>
-                    <div id="post-list-body">
-                      <div id="list-info">
-                        <ul class="list">
-                          <li>아무개 테스트 2023.10.04</li>
-                          <li>아무개 테스트 2023.10.04</li>
-                          <li>아무개 테스트 2023.10.04</li>
-                          <li>아무개 테스트 2023.10.04</li>
-                          <li>아무개 테스트 2023.10.04</li>
-                        </ul>
-                      </div>
+                <form method="post" action="">
+                  <div class="card-body">
+                    <div class="container">
+                      <table class="table table-bordered table-hover" id="dataTable1">
+                        <thead>
+                        <tr>
+                          <th>작성자</th>
+                          <th>제목</th>
+                          <th>작성일</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>김이름</td>
+                          <td>제목이 긴듯말듯 알수가 없어</td>
+                          <td>2023/10/08</td>
+                        </tr>
+                        <tr>
+                          <td>박이름</td>
+                          <td>아 진짜 더럽게 안만들어지네</td>
+                          <td>2022/07/25</td>
+                        </tr>
+                        <tr>
+                          <td>이이름</td>
+                          <td>짜증나게 하네</td>
+                          <td>2023/01/12</td>
+                        </tr>
+                        <tr>
+                          <td>유이름</td>
+                          <td>짜증나게 하지마라</td>
+                          <td>2023/08/02</td>
+                        </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </form>
@@ -442,16 +460,43 @@
                 <h6 class="m-0 font-weight-bold text-primary">최근 문의</h6>
               </div>
               <div class="card-body">
-                <div class="text-center">
-                  <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                       src="resources/assets/admin/undraw_posting_photo.svg" alt="...">
-                </div>
-                <p>Add some quality, svg illustrations to your project courtesy of <a
-                  target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                  constantly updated collection of beautiful svg images that you can use
-                  completely free and without attribution!</p>
-                <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                  unDraw &rarr;</a>
+                <form method="post" action="">
+                  <div class="card-body">
+                    <div class="container">
+                      <table class="table table-bordered table-hover" id="dataTable2">
+                        <thead>
+                        <tr>
+                          <th>작성자</th>
+                          <th>제목</th>
+                          <th>답변여부</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>김이름</td>
+                          <td>제목이 긴듯말듯 알수가 없어</td>
+                          <td>2023/10/08</td>
+                        </tr>
+                        <tr>
+                          <td>박이름</td>
+                          <td>아 진짜 더럽게 안만들어지네</td>
+                          <td>2022/07/25</td>
+                        </tr>
+                        <tr>
+                          <td>이이름</td>
+                          <td>짜증나게 하네</td>
+                          <td>2023/01/12</td>
+                        </tr>
+                        <tr>
+                          <td>유이름</td>
+                          <td>짜증나게 하지마라</td>
+                          <td>2023/08/02</td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
