@@ -222,11 +222,31 @@
                 </div>
               </div>
               <div id="con_2">
-
+                <div>
+                  <label for="u_id">아이디 : </label>
+                  <input type="text" id="u_id"/>
+                </div>
+                <div>
+                  <label for="u_pw">비밀번호 : </label>
+                  <input type="text" id="u_pw"/>
+                </div>
+                <div>
+                  <label for="u_phone">핸드폰 : </label>
+                  <input type="text" id="u_phone"/>
+                </div>
+                <div>
+                  <label for="u_name">닉네임 : </label>
+                  <input type="text" id="u_name"/>
+                  <button type="button">중복확인</button>
+                </div>
               </div>
             </div>
             <div class="introduce">
-
+              <hr>
+              <div class="intro_text">
+                <textarea cols="80" rows="15"></textarea>
+                <input type="submit" value="수정하기"/>
+              </div>
             </div>
           </div>
         </form>
