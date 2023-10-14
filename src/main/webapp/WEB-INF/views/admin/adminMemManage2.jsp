@@ -221,6 +221,7 @@
                   </div>
                 </div>
               </div>
+
               <div id="con_2">
                 <div>
                   <label for="u_id">아이디 : </label>
@@ -241,11 +242,58 @@
                 </div>
               </div>
             </div>
+
             <div class="introduce">
               <hr>
               <div class="intro_text">
                 <textarea cols="80" rows="15"></textarea>
                 <input type="submit" value="수정하기"/>
+              </div>
+            </div>
+
+          </div>
+        </form>
+
+        <form method="post" action="">
+          <div class="wrap2">
+            <div class="post_table">
+              <div class="container">
+                <table class="table table-bordered table-hover" id="dataTable4">
+                  <thead>
+                  <tr>
+                    <th>게시글번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>날짜</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>버튜버 입니다</td>
+                    <td>시구레 우이</td>
+                    <td><a href="#">2023/09/12</a></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>배고픕니다</td>
+                    <td>길달</td>
+                    <td>2023/09/22</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>큐브 대결하실레요?</td>
+                    <td>고모리</td>
+                    <td>2023/10/01</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>비둘기 999</td>
+                    <td>아지르</td>
+                    <td>2023/09/09</td>
+                  </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
