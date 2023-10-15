@@ -243,6 +243,8 @@
               </div>
             </div>
 
+            <hr style="border: 2px solid black; width: 80%;">
+
             <div class="introduce">
               <hr>
               <div class="intro_text">
@@ -254,11 +256,13 @@
           </div>
         </form>
 
+        <hr style="border: 2px solid black; width: 80%;">
+
         <form method="post" action="">
           <div class="wrap2">
             <div class="post_table">
               <div class="container">
-                <table class="table table-bordered table-hover" id="dataTable4">
+                <table class="table table-bordered table-hover" id="dataTable5">
                   <thead>
                   <tr>
                     <th>게시글번호</th>
@@ -299,6 +303,134 @@
           </div>
         </form>
 
+        <hr style="border: 2px solid black; width: 80%;">
+
+        <form method="post" action="">
+          <div class="wrap2">
+            <div class="post_table">
+              <div class="container">
+                <table class="table table-bordered table-hover" id="dataTable6">
+                  <thead>
+                  <tr>
+                    <th>(원본)게시글번호</th>
+                    <th>댓글내용</th>
+                    <th>날짜</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>버튜버 입니다</td>
+                    <td><a href="#">2023/09/12</a></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>배고픕니다</td>
+                    <td>2023/09/22</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>큐브 대결하실레요?</td>
+                    <td>2023/10/01</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>비둘기 999</td>
+                    <td>2023/09/09</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <hr style="border: 2px solid black; width: 80%;">
+
+        <form method="post" action="">
+          <div class="wrap2">
+            <div class="post_table">
+              <div class="container">
+                <table class="table table-bordered table-hover" id="dataTable7">
+                  <thead>
+                  <tr>
+                    <th>닉네임_응대 내용</th>
+                    <th>응대유형</th>
+                    <th>시간(날짜)</th>
+                    <th>In / Out</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>강아지_홍보</td>
+                    <td>전화</td>
+                    <td>2023/01/12</td>
+                    <td><%--차후에 버튼 추가 예정--%></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <hr style="border: 2px solid black; width: 80%;">
+
+        <form method="post" action="">
+          <div class="wrap2">
+            <div class="post_table">
+              <div class="container">
+                <table class="table table-bordered table-hover" id="dataTable8">
+                  <thead>
+                  <tr>
+                    <th>구독채널 명</th>
+                    <th></th>
+                    <th>구독 시작일</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>장사의 신</td>
+                    <td></td>
+                    <td>2023/09/15</td>
+                    <td><%--차후에 버튼 추가 예정--%></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <hr style="border: 2px solid black; width: 80%;">
+
+        <form method="post" action="">
+          <div class="wrap2">
+            <div class="post_table">
+              <div class="container">
+                <table class="table table-bordered table-hover" id="dataTable9">
+                  <thead>
+                  <tr>
+                    <th>구독자 명</th>
+                    <th></th>
+                    <th>구독 시작일</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>탬탬버린</td>
+                    <td></td>
+                    <td>2023/09/11</td>
+                    <td><%--차후에 버튼 추가 예정--%></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </form>
         <!-- Content Row -->
 
       </div>
