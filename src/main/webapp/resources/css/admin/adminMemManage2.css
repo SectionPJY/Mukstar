@@ -96,3 +96,52 @@
 table {
   color: black !important;
 }
+
+/* 회원 응대 모달 css */
+
+.modal-content {
+  width: 100% !important;
+  border-radius: 25px;
+}
+
+.modal-dialog {
+  max-width: 50%;
+  margin: 11.75rem auto !important;
+}
+
+.modal_header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.head {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+
+.head_con {
+  border: 1px solid black;
+  width: 50%;
+  text-align: center;
+  color: black;
+}
+
+.head_con > select {
+  border: none;
+  text-align: center;
+}
+
+/* 작성 일시 모달 */
+
+.wirte_modal {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  width: 30%;
+  height: 10%;
+  top: 44%;
+  right: 35%;
+  background-color: black;
+}

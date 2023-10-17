@@ -314,14 +314,16 @@
                   <tr>
                     <th>(원본)게시글번호</th>
                     <th>댓글내용</th>
-                    <th>날짜</th>
+                    <th>작성일시</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
                     <td>1</td>
                     <td>버튜버 입니다</td>
-                    <td><a href="#">2023/09/12</a></td>
+                    <td>
+                      <button type="button" id="replie_modal">2023/09/12</button>
+                    </td>
                   </tr>
                   <tr>
                     <td>2</td>
@@ -365,7 +367,9 @@
                     <td>강아지_홍보</td>
                     <td>전화</td>
                     <td>2023/01/12</td>
-                    <td><%--차후에 버튼 추가 예정--%></td>
+                    <td>
+                      <button type="button" id="btn_open" data-bs-toggle="modal" data-bs-target="#inoutmodal">+</button>
+                    </td>
                   </tr>
                   </tbody>
                 </table>
@@ -462,24 +466,53 @@
   <i class="fas fa-angle-up"></i>
 </a>
 
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<%-- 회원 응대 모달 --%>
+<div class="modal fade" id="inoutmodal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="login.html">Logout</a>
+  <form method="post" action="">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal_header">
+          <div class="head 1">
+            <div class="head_con">닉네임_응대내용</div>
+            <div class="head_con">알림 설정(날짜)</div>
+          </div>
+          <div class="head 2">
+            <div class="head_con">전화번호</div>
+            <div class="head_con">날짜</div>
+          </div>
+          <div class="head 3">
+            <div class="head_con">
+              <select>
+                <option value="">응대 유형</option>
+                <option value="tel">전화</option>
+                <option value="msg">메세지</option>
+              </select>
+            </div>
+            <div class="head_con">in / out</div>
+          </div>
+        </div>
+        <div class="modal-body" style="margin: 0 auto">
+          <textarea cols="80" rows="15"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+          <input type="submit" value="작성 완료"/>
+        </div>
       </div>
     </div>
-  </div>
+  </form>
+</div>
+
+<%-- 작성 일시 모달 --%>
+<div class="wirte_modal" id="replie">
+  <form>
+    <div class="modal_body">
+      <div class="modal_write_area">
+        <textarea></textarea>
+      </div>
+    </div>
+  </form>
 </div>
 
 <!-- Bootstrap core JavaScript-->
@@ -497,6 +530,19 @@
 <!-- Page level custom scripts -->
 
 </body>
+<script>
+  /*회원 응대 모달창 js*/
+  $('#btn_open').click(function (e) {
+    e.preventDefault();
+    $('#inoutmodal').modal("show");
+  });
+
+  /*replie modal js*/
+  $('#replie_modal').click(function (e) {
+    e.preventDefault();
+    $('#replie').modal("show");
+  });
+</script>
 
 </html>
 
