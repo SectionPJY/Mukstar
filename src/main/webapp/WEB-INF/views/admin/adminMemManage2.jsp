@@ -221,16 +221,220 @@
                   </div>
                 </div>
               </div>
-              <div id="con_2">
 
+              <div id="con_2">
+                <div>
+                  <label for="u_id">아이디 : </label>
+                  <input type="text" id="u_id"/>
+                </div>
+                <div>
+                  <label for="u_pw">비밀번호 : </label>
+                  <input type="text" id="u_pw"/>
+                </div>
+                <div>
+                  <label for="u_phone">핸드폰 : </label>
+                  <input type="text" id="u_phone"/>
+                </div>
+                <div>
+                  <label for="u_name">닉네임 : </label>
+                  <input type="text" id="u_name"/>
+                  <button type="button">중복확인</button>
+                </div>
               </div>
             </div>
-            <div class="introduce">
 
+            <hr style="border: 2px solid black; width: 80%;">
+
+            <div class="introduce">
+              <hr>
+              <div class="intro_text">
+                <textarea cols="80" rows="15"></textarea>
+                <input type="submit" value="수정하기"/>
+              </div>
+            </div>
+
+          </div>
+        </form>
+
+        <hr style="border: 2px solid black; width: 80%;">
+
+        <form method="post" action="">
+          <div class="wrap2">
+            <div class="post_table">
+              <div class="container">
+                <table class="table table-bordered table-hover" id="dataTable5">
+                  <thead>
+                  <tr>
+                    <th>게시글번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>날짜</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>버튜버 입니다</td>
+                    <td>시구레 우이</td>
+                    <td><a href="#">2023/09/12</a></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>배고픕니다</td>
+                    <td>길달</td>
+                    <td>2023/09/22</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>큐브 대결하실레요?</td>
+                    <td>고모리</td>
+                    <td>2023/10/01</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>비둘기 999</td>
+                    <td>아지르</td>
+                    <td>2023/09/09</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </form>
 
+        <hr style="border: 2px solid black; width: 80%;">
+
+        <form method="post" action="">
+          <div class="wrap2">
+            <div class="post_table">
+              <div class="container">
+                <table class="table table-bordered table-hover" id="dataTable6">
+                  <thead>
+                  <tr>
+                    <th>(원본)게시글번호</th>
+                    <th>댓글내용</th>
+                    <th>작성일시</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>버튜버 입니다</td>
+                    <td>
+                      <button type="button" id="replie_modal">2023/09/12</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>배고픕니다</td>
+                    <td>2023/09/22</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>큐브 대결하실레요?</td>
+                    <td>2023/10/01</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>비둘기 999</td>
+                    <td>2023/09/09</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <hr style="border: 2px solid black; width: 80%;">
+
+        <form method="post" action="">
+          <div class="wrap2">
+            <div class="post_table">
+              <div class="container">
+                <table class="table table-bordered table-hover" id="dataTable7">
+                  <thead>
+                  <tr>
+                    <th>닉네임_응대 내용</th>
+                    <th>응대유형</th>
+                    <th>시간(날짜)</th>
+                    <th>In / Out</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>강아지_홍보</td>
+                    <td>전화</td>
+                    <td>2023/01/12</td>
+                    <td>
+                      <button type="button" id="btn_open" data-bs-toggle="modal" data-bs-target="#inoutmodal">+</button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <hr style="border: 2px solid black; width: 80%;">
+
+        <form method="post" action="">
+          <div class="wrap2">
+            <div class="post_table">
+              <div class="container">
+                <table class="table table-bordered table-hover" id="dataTable8">
+                  <thead>
+                  <tr>
+                    <th>구독채널 명</th>
+                    <th></th>
+                    <th>구독 시작일</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>장사의 신</td>
+                    <td></td>
+                    <td>2023/09/15</td>
+                    <td><%--차후에 버튼 추가 예정--%></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <hr style="border: 2px solid black; width: 80%;">
+
+        <form method="post" action="">
+          <div class="wrap2">
+            <div class="post_table">
+              <div class="container">
+                <table class="table table-bordered table-hover" id="dataTable9">
+                  <thead>
+                  <tr>
+                    <th>구독자 명</th>
+                    <th></th>
+                    <th>구독 시작일</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>탬탬버린</td>
+                    <td></td>
+                    <td>2023/09/11</td>
+                    <td><%--차후에 버튼 추가 예정--%></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </form>
         <!-- Content Row -->
 
       </div>
@@ -262,24 +466,53 @@
   <i class="fas fa-angle-up"></i>
 </a>
 
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<%-- 회원 응대 모달 --%>
+<div class="modal fade" id="inoutmodal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="login.html">Logout</a>
+  <form method="post" action="">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal_header">
+          <div class="head 1">
+            <div class="head_con">닉네임_응대내용</div>
+            <div class="head_con">알림 설정(날짜)</div>
+          </div>
+          <div class="head 2">
+            <div class="head_con">전화번호</div>
+            <div class="head_con">날짜</div>
+          </div>
+          <div class="head 3">
+            <div class="head_con">
+              <select>
+                <option value="">응대 유형</option>
+                <option value="tel">전화</option>
+                <option value="msg">메세지</option>
+              </select>
+            </div>
+            <div class="head_con">in / out</div>
+          </div>
+        </div>
+        <div class="modal-body" style="margin: 0 auto">
+          <textarea cols="80" rows="15"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+          <input type="submit" value="작성 완료"/>
+        </div>
       </div>
     </div>
-  </div>
+  </form>
+</div>
+
+<%-- 작성 일시 모달 --%>
+<div class="wirte_modal" id="replie">
+  <form>
+    <div class="modal_body">
+      <div class="modal_write_area">
+        <textarea></textarea>
+      </div>
+    </div>
+  </form>
 </div>
 
 <!-- Bootstrap core JavaScript-->
@@ -297,6 +530,19 @@
 <!-- Page level custom scripts -->
 
 </body>
+<script>
+  /*회원 응대 모달창 js*/
+  $('#btn_open').click(function (e) {
+    e.preventDefault();
+    $('#inoutmodal').modal("show");
+  });
+
+  /*replie modal js*/
+  $('#replie_modal').click(function (e) {
+    e.preventDefault();
+    $('#replie').modal("show");
+  });
+</script>
 
 </html>
 
