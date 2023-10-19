@@ -138,10 +138,34 @@ table {
 .wirte_modal {
   position: absolute;
   display: none;
-  justify-content: center;
   width: 30%;
   height: 10%;
-  top: 44%;
+  top: 50%;
   right: 35%;
   background-color: black;
+  z-index: 9999;
+}
+
+.modal_top {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.close_btn {
+  font-size: 20px;
+  padding-right: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.modal_body {
+  width: 100%;
+  text-align: center;
+}
+
+.modal_bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
