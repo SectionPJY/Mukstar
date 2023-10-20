@@ -214,7 +214,7 @@
           <div class="wrap1">
             <div class="wrap1_top">
               <div class="title">
-                <p>제목 : </p>
+                <p>제목 : T1 롤드컵 우승 기원</p>
               </div>
               <div class="rating">
                 <p>별점 : </p>

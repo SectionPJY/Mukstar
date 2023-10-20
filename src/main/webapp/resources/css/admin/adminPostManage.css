@@ -41,7 +41,6 @@
 
 .title {
   width: 100%;
-  padding-right: 10px;
 }
 
 .rating {
@@ -51,7 +50,7 @@
 }
 
 textarea {
-  width: 60%;
+  width: 80%;
   height: 60%;
   resize: none;
   margin: 0 auto;
