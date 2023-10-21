@@ -1,0 +1,57 @@
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wrapper_head {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.wrapper_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  margin-bottom: 15px;
+}
+
+.wrapper_footer {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.head {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+
+.head_con {
+  border: 1px solid black;
+  width: 50%;
+  text-align: center;
+  color: black;
+}
+
+.head_con > select {
+  border: none;
+  text-align: center;
+}
+
+textarea {
+  width: 80%;
+  height: 600px;
+  resize: none;
+}
