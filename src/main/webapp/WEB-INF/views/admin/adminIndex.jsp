@@ -53,22 +53,22 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+      <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
          aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
         <span>회원 관리</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="buttons.html">회원 관리</a>
-          <a class="collapse-item" href="cards.html">회원 응대 로그</a>
+          <a class="collapse-item" href="/memManage">회원 관리</a>
+          <a class="collapse-item" href="/response">회원 응대 로그</a>
         </div>
       </div>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-target="#collapseUtilities"
+      <a class="nav-link collapsed" href="/shopManage" data-target="#collapseUtilities"
          aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-fw fa-wrench"></i>
         <span>가게 관리</span>
@@ -77,7 +77,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-target="#collapsePages"
+      <a class="nav-link collapsed" href="/postManage" data-target="#collapsePages"
          aria-expanded="true" aria-controls="collapsePages">
         <i class="fas fa-fw fa-folder"></i>
         <span>게시글 관리</span>
@@ -86,22 +86,22 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+      <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseThree"
          aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
         <span>회계 관리</span>
       </a>
       <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="buttons.html">회계 관리</a>
-          <a class="collapse-item" href="cards.html">매출목표설정</a>
+          <a class="collapse-item" href="/">회계 관리</a>
+          <a class="collapse-item" href="/">매출목표설정</a>
         </div>
       </div>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-      <a class="nav-link" href="tables.html">
+      <a class="nav-link" href="/">
         <i class="fas fa-fw fa-table"></i>
         <span>고객 관리</span></a>
     </li>
