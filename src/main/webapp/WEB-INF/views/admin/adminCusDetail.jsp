@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Admin - Dashboard</title>
+  <title>고객상세</title>
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link
@@ -15,13 +15,7 @@
     rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="resources/css/admin/sb-admin-2.min.css" rel="stylesheet">
-  <link href="resources/css/admin/adminPostManageDe.css" rel="stylesheet">
-
-  <!-- kakao map api -->
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script type="module" src="resources/JS/user/map.js"></script>
-  <script type="text/javascript"
-          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=services"></script>
+  <link href="resources/css/admin/adminCusDetail.css" rel="stylesheet">
 </head>
 <body id="page-top">
 <!-- Page Wrapper -->
@@ -33,7 +27,7 @@
       <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">Mukstar</div>
+      <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
     </a>
 
     <!-- Divider -->
@@ -170,6 +164,8 @@
             </div>
           </li>
 
+          <div class="topbar-divider d-none d-sm-block"></div>
+
           <!-- Nav Item - User Information -->
           <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -210,46 +206,61 @@
       <div class="container-fluid">
 
         <!-- Content Row -->
-        <form method="" action="">
+
+        <form>
           <div class="wrap">
-            <div class="wrap_1">
-              <div class="wrap1">
-                <div class="wrap1_top">
-                  <div class="title">
-                    <p>제목 : T1 롤드컵 우승 기원</p>
-                  </div>
-                  <div class="rating">
-                    <p>별점 : </p>
-                    <div class="star_background">
-                <span class="star">
-              ★★★★★
-              <span>★★★★★</span>
-              <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
-            </span>
-                    </div>
-                  </div>
+
+            <div class="wrap_top">
+              <div id="con_1">
+                <div class="pic_area">
+                  <img src="resources/assets/user/fox.jpg"/>
                 </div>
-                <div class="wrap1_bot">
-                  <textarea></textarea>
+                <div class="badge_area">
+                  <div class="badge_list">
+                    <img src="resources/assets/user/먹깨비.png"/>
+                    <img src="resources/assets/user/뱃지.png"/>
+                    <img src="resources/assets/user/왕관.png"/>
+                    <img src="resources/assets/user/인증마크.png"/>
+                  </div>
                 </div>
               </div>
-              <div class="wrap2">
-                <div id="map" style="width:80%;height:80%;"></div>
+
+              <div id="con_2">
+                <div>
+                  <label for="u_id">아이디 : </label>
+                  <input type="text" id="u_id"/>
+                </div>
+                <div>
+                  <label for="u_pw">비밀번호 : </label>
+                  <input type="text" id="u_pw"/>
+                </div>
+                <div>
+                  <label for="u_phone">핸드폰 : </label>
+                  <input type="text" id="u_phone"/>
+                </div>
+                <div>
+                  <label for="u_name">닉네임 : </label>
+                  <input type="text" id="u_name"/>
+                  <button type="button">중복확인</button>
+                </div>
               </div>
             </div>
-            <div class="wrap_2">
-              <div class="badge">
-                <input type="button" value="1">
-                <input type="button" value="2">
-                <input type="button" value="3">
-                <input type="button" value="4">
+
+            <div class="wrap_bot">
+              <div class="bot_btn">
+                <button type="button">광고 제의</button>
+                <button type="button">BTB / BTC 전환</button>
+                <button type="button">프로모션 관리</button>
               </div>
-              <div class="wrap_btn">
-                <input type="submit" value="게시물 삭제">
+              <div class="bot_btn">
+                <button type="button">먹스타 삭제하기</button>
+                <button type="button">가게 제휴</button>
+                <button type="button">유저 기호</button>
               </div>
             </div>
           </div>
         </form>
+
         <!-- Content Row -->
 
       </div>
@@ -281,6 +292,26 @@
   <i class="fas fa-angle-up"></i>
 </a>
 
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="login.html">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Bootstrap core JavaScript-->
 <script src="resources/vendor/jquery/jquery.min.js"></script>
 <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -296,5 +327,6 @@
 <!-- Page level custom scripts -->
 
 </body>
+
 </html>
 
