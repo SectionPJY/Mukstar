@@ -24,6 +24,7 @@ public class AdminController {
         System.out.println("시작페이지");
         ModelAndView mv = new ModelAndView("admin/adminIndex");
 
+        // 최근 게시물
         System.out.println("===== Recent Posts =====");
         List<ResBoardDTO> boardData = boardListInAdminIndexCommand.execute();
         if (boardData.isEmpty() || boardData == null) {
@@ -32,6 +33,7 @@ public class AdminController {
             mv.addObject("boardList", boardData);
         }
 
+        // 최근 문의
         System.out.println("===== Recent QnA =====");
         List<QnADTO> qnaData = qnAListInAdminIndexCommand.execute();
         if (qnaData.isEmpty() || qnaData == null) {
