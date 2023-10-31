@@ -1,6 +1,8 @@
 package com.spring.mukstar;
 
+import com.spring.mukstar.command.qna.QnAListInAdminIndexCommand;
 import com.spring.mukstar.command.resboard.BoardListInAdminIndexCommand;
+import com.spring.mukstar.dto.QnADTO;
 import com.spring.mukstar.dto.ResBoardDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,19 +16,28 @@ public class AdminController {
 
     @Autowired
     private BoardListInAdminIndexCommand boardListInAdminIndexCommand;
+    @Autowired
+    private QnAListInAdminIndexCommand qnAListInAdminIndexCommand;
 
     @RequestMapping("/index")
     public ModelAndView index() {
         System.out.println("시작페이지");
-        ModelAndView mv = new ModelAndView();
+        ModelAndView mv = new ModelAndView("admin/adminIndex");
 
         System.out.println("===== Recent Posts =====");
         List<ResBoardDTO> boardData = boardListInAdminIndexCommand.execute();
         if (boardData.isEmpty() || boardData == null) {
             mv.setViewName("admin/admin404page");
         } else {
-            mv.setViewName("admin/adminIndex");
             mv.addObject("boardList", boardData);
+        }
+
+        System.out.println("===== Recent QnA =====");
+        List<QnADTO> qnaData = qnAListInAdminIndexCommand.execute();
+        if (qnaData.isEmpty() || qnaData == null) {
+            mv.setViewName("admin/admin404page");
+        } else {
+            mv.addObject("qnaList", qnaData);
         }
 
         return mv;

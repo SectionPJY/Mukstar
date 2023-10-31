@@ -459,28 +459,24 @@
                           <th>답변여부</th>
                         </tr>
                         </thead>
+                        <c:forEach items="${qnaList }" var="QnA">
                         <tbody>
                         <tr>
-                          <td>김이름</td>
-                          <td>제목이 긴듯말듯 알수가 없어</td>
-                          <td>2023/10/08</td>
-                        </tr>
-                        <tr>
-                          <td>박이름</td>
-                          <td>아 진짜 더럽게 안만들어지네</td>
-                          <td>2022/07/25</td>
-                        </tr>
-                        <tr>
-                          <td>이이름</td>
-                          <td>짜증나게 하네</td>
-                          <td>2023/01/12</td>
-                        </tr>
-                        <tr>
-                          <td>유이름</td>
-                          <td>짜증나게 하지마라</td>
-                          <td>2023/08/02</td>
+                          <td>${QnA.q_uid }</td>
+                          <td>${QnA.q_sub }</td>
+                          <td>
+                            <c:choose>
+                              <c:when test="${QnA.q_answer == true}">
+                                답변완료
+                              </c:when>
+                              <c:otherwise>
+                                <a href="#">답변하기</a>
+                              </c:otherwise>
+                            </c:choose>
+                          </td>
                         </tr>
                         </tbody>
+                        </c:forEach>
                       </table>
                     </div>
                   </div>
