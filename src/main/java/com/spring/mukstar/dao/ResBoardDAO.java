@@ -93,4 +93,18 @@ public class ResBoardDAO {
 
         return sqlSession.update("ResBoardMapper.updaterb_view", rb_id);
     }
+
+
+
+    /*
+    * Admin Page DAO
+    * */
+
+    // Index Page
+    // Select ResBoard
+    public List<ResBoardDTO> adminSelectBoard() {
+        System.out.println("===== Admin Select Board DAO =====");
+
+        return sqlSession.selectList("ResBoardMapper.adminIndexBoard");
+    }
 }

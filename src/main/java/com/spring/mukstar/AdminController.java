@@ -1,16 +1,35 @@
 package com.spring.mukstar;
 
+import com.spring.mukstar.command.resboard.BoardListInAdminIndexCommand;
+import com.spring.mukstar.dto.ResBoardDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class AdminController {
 
-    @RequestMapping("/index")
-    public String index() {
-        System.out.println("시작페이지");
+    @Autowired
+    private BoardListInAdminIndexCommand boardListInAdminIndexCommand;
 
-        return "admin/adminIndex";
+    @RequestMapping("/index")
+    public ModelAndView index() {
+        System.out.println("시작페이지");
+        ModelAndView mv = new ModelAndView();
+
+        System.out.println("===== Recent Posts =====");
+        List<ResBoardDTO> boardData = boardListInAdminIndexCommand.execute();
+        if (boardData.isEmpty() || boardData == null) {
+            mv.setViewName("admin/admin404page");
+        } else {
+            mv.setViewName("admin/adminIndex");
+            mv.addObject("boardList", boardData);
+        }
+
+        return mv;
     }
 
     @RequestMapping("/memManage")

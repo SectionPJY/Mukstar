@@ -66,4 +66,12 @@
         SET rb_view = rb_view + 1
         WHERE rb_id = #{rb_id };
     </update>
+
+    <!-- Admin Index Page ResBoard -->
+    <select id="adminIndexBoard" resultType="ResBoardDTO">
+        SELECT *
+        FROM m_resboard
+        ORDER BY rb_date DESC
+        LIMIT 4;
+    </select>
 </mapper>
