@@ -1,4 +1,4 @@
-package com.spring.mukstar.command.qna;
+package com.spring.mukstar.command.admin;
 
 import com.spring.mukstar.command.resboard.DateCast;
 import com.spring.mukstar.dao.QnADAO;

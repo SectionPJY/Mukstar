@@ -1,5 +1,6 @@
-package com.spring.mukstar.command.resboard;
+package com.spring.mukstar.command.admin;
 
+import com.spring.mukstar.command.resboard.DateCast;
 import com.spring.mukstar.dao.ResBoardDAO;
 import com.spring.mukstar.dto.ResBoardDTO;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.spring.mukstar;
 
-import com.spring.mukstar.command.qna.QnAListInAdminIndexCommand;
-import com.spring.mukstar.command.resboard.BoardListInAdminIndexCommand;
+import com.spring.mukstar.command.admin.QnAListInAdminIndexCommand;
+import com.spring.mukstar.command.admin.BoardListInAdminIndexCommand;
 import com.spring.mukstar.dto.QnADTO;
 import com.spring.mukstar.dto.ResBoardDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -71,5 +72,14 @@ public class AdminController {
         System.out.println("게시글관리");
 
         return "admin/adminPostManage";
+    }
+
+    @RequestMapping("search")
+    public ModelAndView search(HttpServletRequest request) {
+        System.out.println("통합검색");
+
+
+
+        return null;
     }
 }
