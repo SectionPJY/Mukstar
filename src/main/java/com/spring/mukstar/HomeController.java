@@ -67,7 +67,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public ModelAndView home(HttpServletRequest request, Model model) {
-        ModelAndView mv = new ModelAndView("index");
+        ModelAndView mv = new ModelAndView("user/index");
         List<ResBoardDTO> dtos = boardListCommand.execute(request);
         model.addAttribute("boardList", dtos);
         return mv;

@@ -41,10 +41,10 @@
         WHERE u_nickname LIKE #{searchWord};
     </select>
 
-    <!-- User Find ID -->
-    <!--    <select id="findID" resultType="String">-->
-    <!--        SELECT u_id-->
-    <!--        FROM m_user-->
-    <!--        WHERE u_nickname = #{u_nickname } AND u_phone = #{u_phone };-->
-    <!--    </select>-->
+    <!-- User Search in Admin -->
+    <select id="userSearchAdmin" resultType="UserDTO">
+        SELECT *
+        FROM m_user
+        WHERE u_id LIKE #{searchWord } OR u_nickname LIKE #{searchWord };
+    </select>
 </mapper>

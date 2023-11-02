@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="resources/css/login.css">
 </head>
 <body>
-<img src="resources/assets/Logo.png" onclick="location.href='/'">
+<img src="resources/assets/user/Logo.png" onclick="location.href='/'">
 <div id="login-wrap"></div>
 <div class="login-wrapper">
     <h2>Login</h2>
