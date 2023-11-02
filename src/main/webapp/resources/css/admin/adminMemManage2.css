@@ -133,6 +133,10 @@ table {
   text-align: center;
 }
 
+.modal-body > textarea {
+  resize: none;
+}
+
 /* 작성 일시 모달 */
 
 .wirte_modal {

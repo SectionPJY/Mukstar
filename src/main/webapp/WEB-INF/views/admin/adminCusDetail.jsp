@@ -248,12 +248,12 @@
 
             <div class="wrap_bot">
               <div class="bot_btn">
-                <button type="button">광고 제의</button>
+                <button type="button" id="adopen" data-bs-toggle="modal" data-bs-target="#ad">광고 제의</button>
                 <button type="button">BTB / BTC 전환</button>
-                <button type="button">프로모션 관리</button>
+                <button type="button" id="proopen" data-bs-toggle="modal" data-bs-target="">프로모션 관리</button>
               </div>
               <div class="bot_btn">
-                <button type="button">먹스타 삭제하기</button>
+                <button type="button" id="dropopen" data-bs-toggle="modal" data-bs-target="#drop">먹스타 삭제하기</button>
                 <button type="button">가게 제휴</button>
                 <button type="button">유저 기호</button>
               </div>
@@ -292,24 +292,82 @@
   <i class="fas fa-angle-up"></i>
 </a>
 
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<%-- 회원 응대 모달 --%>
+<div class="modal fade" id="ad" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="login.html">Logout</a>
+  <form method="post" action="">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal_header">
+          <div class="head 1">
+            <div class="head_con">닉네임_응대내용</div>
+            <div class="head_con">알림 설정(날짜)</div>
+          </div>
+          <div class="head 2">
+            <div class="head_con">전화번호</div>
+            <div class="head_con">날짜</div>
+          </div>
+          <div class="head 3">
+            <div class="head_con">
+              <select>
+                <option value="">응대 유형</option>
+                <option value="tel">전화</option>
+                <option value="msg">메세지</option>
+              </select>
+            </div>
+            <div class="head_con">in / out</div>
+          </div>
+        </div>
+        <div class="modal-body" style="margin: 0 auto">
+          <textarea cols="80" rows="15"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+          <input type="submit" value="작성 완료"/>
+        </div>
       </div>
     </div>
-  </div>
+  </form>
+</div>
+
+<%-- 회원 삭제 모달 --%>
+<div class="modal fade" id="drop" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <form method="post" action="">
+    <div class="modal-dialog" role="document" style="transform: translate(40%, 50%)">
+      <div class="modal-content" style="width: 40% !important;">
+        <div class="modal-body" style="margin: 0 auto;">
+          <p>귀하는 본사의 커뮤니티 가이드라인을 위반하여 계정이 영구 정치 처리되어 이 계정은 사용이 불가능 합니다.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+          <input type="submit" value="삭제하기"/>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<%-- 프로모션 관리 모달 --%>
+<div class="modal fade" id="promotion" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <form method="post" action="">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal_header">
+          <div class="modal_title">
+            <p>제목 : </p>
+          </div>
+        </div>
+        <div class="modal-body" style="margin: 0 auto">
+          <textarea cols="80" rows="15"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>
 
 <!-- Bootstrap core JavaScript-->
@@ -327,6 +385,22 @@
 <!-- Page level custom scripts -->
 
 </body>
+<script>
+  /*회원 응대 모달창 js*/
+  $('#adopen').click(function (e) {
+    e.preventDefault();
+    $('#ad').modal("show");
+  });
 
+  $('#dropopen').click(function (e) {
+    e.preventDefault();
+    $('#drop').modal("show");
+  });
+
+  $('#proopen').click(function (e) {
+    e.preventDefault();
+    $('#promotion').modal("show");
+  });
+</script>
 </html>
 
