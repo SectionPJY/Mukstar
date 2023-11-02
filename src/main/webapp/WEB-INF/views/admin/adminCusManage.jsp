@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Admin - Dashboard</title>
+  <title>고객관리</title>
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link
@@ -15,13 +15,7 @@
     rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="resources/css/admin/sb-admin-2.min.css" rel="stylesheet">
-  <link href="resources/css/admin/adminPostDetail.css" rel="stylesheet">
-
-  <!-- kakao map api -->
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script type="module" src="resources/JS/user/map.js"></script>
-  <script type="text/javascript"
-          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=services"></script>
+  <link href="resources/css/admin/adminCusManage.css" rel="stylesheet">
 </head>
 <body id="page-top">
 <!-- Page Wrapper -->
@@ -33,7 +27,7 @@
       <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">Mukstar</div>
+      <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
     </a>
 
     <!-- Divider -->
@@ -170,6 +164,8 @@
             </div>
           </li>
 
+          <div class="topbar-divider d-none d-sm-block"></div>
+
           <!-- Nav Item - User Information -->
           <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -210,31 +206,67 @@
       <div class="container-fluid">
 
         <!-- Content Row -->
-        <div class="wrap">
-          <div class="wrap1">
-            <div class="wrap1_top">
-              <div class="title">
-                <p>제목 : T1 롤드컵 우승 기원</p>
-              </div>
-              <div class="rating">
-                <p>별점 : </p>
-                <div class="star_background">
-                <span class="star">
-              ★★★★★
-              <span>★★★★★</span>
-              <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
-            </span>
+
+        <div class="row">
+          <%--검색 창--%>
+          <div id="search_area">
+            <form>
+              <select name="type">
+                <option selected value="">검색 내용 선택</option>
+                <option value="name">가게명</option>
+              </select>
+              <input type="text" id="search_bar" value=""/>
+              <input type="button" value="검색"/>
+            </form>
+          </div>
+          <%--테이블--%>
+          <div class="card-body">
+            <form method="post" action="">
+              <div class="card-body">
+                <div class="container">
+                  <table class="table table-bordered table-hover" id="dataTable4">
+                    <thead>
+                    <tr>
+                      <th>유저 ID</th>
+                      <th>유저 유형</th>
+                      <th>유저 기호</th>
+                      <th>BTB / BTC</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%--추후 onclick 추가해서 페이지 이동--%>
+                    <tr>
+                      <td>1</td>
+                      <td>제목 1</td>
+                      <td>작성자 1</td>
+                      <td>2023/09/11</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>제목 2</td>
+                      <td>작성자 2</td>
+                      <td>2023/11/23</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>제목 3</td>
+                      <td>작성자 3</td>
+                      <td>2023/01/02</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>제목 4</td>
+                      <td>작성자 4</td>
+                      <td>2100/01/01</td>
+                    </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
-            </div>
-            <div class="wrap1_bot">
-              <textarea></textarea>
-            </div>
-          </div>
-          <div class="wrap2">
-            <div id="map" style="width:80%;height:80%;"></div>
+            </form>
           </div>
         </div>
+
         <!-- Content Row -->
 
       </div>
@@ -266,6 +298,26 @@
   <i class="fas fa-angle-up"></i>
 </a>
 
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="login.html">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Bootstrap core JavaScript-->
 <script src="resources/vendor/jquery/jquery.min.js"></script>
 <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -281,5 +333,6 @@
 <!-- Page level custom scripts -->
 
 </body>
+
 </html>
 

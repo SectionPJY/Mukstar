@@ -1,33 +1,31 @@
 .wrap {
-  display: flex;
-  flex-wrap: wrap;
   width: 100%;
   height: 1000px;
-  /*background-color: gray;*/
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.user_con {
-  /*background-color: black;*/
+.wrap_top {
   width: 100%;
-  height: 50%;
+  height: 500px;
+  background-color: darkgray;
   display: flex;
   flex-direction: row;
 }
 
-.introduce {
+.wrap_bot {
+  width: 100%;
+  height: 500px;
+  background-color: gray;
   display: flex;
   flex-wrap: wrap;
-  text-align: center;
-  /*background-color: red;*/
-  width: 100%;
-  height: 50%;
 }
 
 #con_1 {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  /*background-color: #1cc88a;*/
   justify-content: center;
 }
 
@@ -36,11 +34,9 @@
   flex-wrap: wrap;
   text-align: center;
   width: 100%;
-  /*background-color: #1c294e;*/
 }
 
 .pic_area {
-  /*background-color: #574516;*/
   width: 100%;
   height: 50%;
   text-align: center;
@@ -51,7 +47,6 @@
 }
 
 .badge_area {
-  /*background-color: purple;*/
   width: 50%;
   height: 10%;
 }
@@ -74,27 +69,19 @@
   margin-top: 10px;
 }
 
-.intro_text {
+.bot_btn {
   width: 100%;
-  padding-top: 4%;
-}
-
-.wrap2 {
-  width: 100%;
-  height: 500px;
-}
-
-.post_table {
+  height: 250px;
   display: flex;
-  flex-wrap: wrap;
-  /*background-color: blue;*/
-  width: 100%;
-  height: 100%;
-  padding-top: 7%;
+  justify-content: space-around;
+  align-items: center;
 }
 
-table {
-  color: black !important;
+.bot_btn > button {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
 }
 
 /* 회원 응대 모달 css */
@@ -137,39 +124,16 @@ table {
   resize: none;
 }
 
-/* 작성 일시 모달 */
-
-.wirte_modal {
-  position: absolute;
-  display: none;
-  width: 30%;
-  height: 10%;
-  top: 50%;
-  right: 35%;
-  background-color: black;
-  z-index: 9999;
-}
-
-.modal_top {
+.modal_title {
   display: flex;
-  justify-content: end;
   width: 100%;
-}
-
-.close_btn {
+  height: 50px;
   font-size: 20px;
-  padding-right: 10px;
-  color: white;
-  cursor: pointer;
+  color: black;
+  justify-content: center;
+  align-items: center;
 }
 
-.modal_body {
-  width: 100%;
-  text-align: center;
-}
-
-.modal_bottom {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
+.modal_title > p {
+  margin: 0 !important;
 }

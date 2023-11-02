@@ -15,7 +15,7 @@
     rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="resources/css/admin/sb-admin-2.min.css" rel="stylesheet">
-  <link href="resources/css/admin/adminPostDetail.css" rel="stylesheet">
+  <link href="resources/css/admin/adminPostManageDe.css" rel="stylesheet">
 
   <!-- kakao map api -->
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
@@ -210,31 +210,46 @@
       <div class="container-fluid">
 
         <!-- Content Row -->
-        <div class="wrap">
-          <div class="wrap1">
-            <div class="wrap1_top">
-              <div class="title">
-                <p>제목 : T1 롤드컵 우승 기원</p>
-              </div>
-              <div class="rating">
-                <p>별점 : </p>
-                <div class="star_background">
+        <form method="" action="">
+          <div class="wrap">
+            <div class="wrap_1">
+              <div class="wrap1">
+                <div class="wrap1_top">
+                  <div class="title">
+                    <p>제목 : T1 롤드컵 우승 기원</p>
+                  </div>
+                  <div class="rating">
+                    <p>별점 : </p>
+                    <div class="star_background">
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
               <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
             </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="wrap1_bot">
+                  <textarea></textarea>
                 </div>
               </div>
+              <div class="wrap2">
+                <div id="map" style="width:80%;height:80%;"></div>
+              </div>
             </div>
-            <div class="wrap1_bot">
-              <textarea></textarea>
+            <div class="wrap_2">
+              <div class="badge">
+                <input type="button" value="1">
+                <input type="button" value="2">
+                <input type="button" value="3">
+                <input type="button" value="4">
+              </div>
+              <div class="wrap_btn">
+                <input type="submit" value="게시물 삭제">
+              </div>
             </div>
           </div>
-          <div class="wrap2">
-            <div id="map" style="width:80%;height:80%;"></div>
-          </div>
-        </div>
+        </form>
         <!-- Content Row -->
 
       </div>
