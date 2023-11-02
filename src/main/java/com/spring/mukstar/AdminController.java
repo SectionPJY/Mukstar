@@ -2,13 +2,11 @@ package com.spring.mukstar;
 
 import com.spring.mukstar.command.admin.QnAListInAdminIndexCommand;
 import com.spring.mukstar.command.admin.BoardListInAdminIndexCommand;
+import com.spring.mukstar.command.reply.ReplySearchCommand;
 import com.spring.mukstar.command.resboard.BoardSearchCommand;
 import com.spring.mukstar.command.restaurant.RestaurantSearchCommand;
 import com.spring.mukstar.command.user.UserSearchCommand;
-import com.spring.mukstar.dto.QnADTO;
-import com.spring.mukstar.dto.ResBoardDTO;
-import com.spring.mukstar.dto.RestaurantDTO;
-import com.spring.mukstar.dto.UserDTO;
+import com.spring.mukstar.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +28,8 @@ public class AdminController {
     private RestaurantSearchCommand restaurantSearchCommand;
     @Autowired
     private BoardSearchCommand boardSearchCommand;
+    @Autowired
+    private ReplySearchCommand replySearchCommand;
 
     @RequestMapping("/index")
     public ModelAndView index() {
@@ -112,6 +112,14 @@ public class AdminController {
             mv.setViewName("admin/admin404Page");
         } else {
             mv.addObject("boardData", boardData);
+        }
+
+        // 댓글 검색
+        List<ReplyDTO> replyData = replySearchCommand.execute(request);
+        if (replyData.isEmpty() || replyData == null) {
+            mv.setViewName("admin/admin404Page");
+        } else {
+            mv.addObject("replyData", replyData);
         }
 
         return mv;
