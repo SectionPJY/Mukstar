@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="resources/css/signup.css">
 </head>
 <body>
-    <img src="resources/assets/Logo.png" onclick="location.href='/'">
+    <img src="resources/assets/user/Logo.png" onclick="location.href='/'">
     <div id="signup-wrap"></div>
     <div class="signup-wrapper">
         <h2>Regist</h2>

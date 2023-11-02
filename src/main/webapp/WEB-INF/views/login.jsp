@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="resources/css/login.css">
 </head>
 <body>
-<img src="resources/assets/Logo.png" onclick="location.href='/'">
+<img src="resources/assets/user/Logo.png" onclick="location.href='/'">
 <div id="login-wrap"></div>
 <div class="login-wrapper">
     <h2>Login</h2>
-    <form method="post" action="loginCheck" id="login-form">
+    <form method="post" action="/loginCheck" id="login-form">
         <p id="p1">아이디</p><input id="u_id" type="text" name="u_id">
         <p id="p2">비밀번호</p><input id="u_pw" type="password" name="u_pw">
         <input id="s1" type="submit" value="로그인">

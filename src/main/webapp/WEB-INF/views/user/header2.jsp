@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="logo">
-    <img src="resources/assets/Logo.png" onclick="location.href='/'">
+    <img src="resources/assets/user/Logo.png" onclick="location.href='/'">
 </div>
 <div class="menu1">
     <nav>

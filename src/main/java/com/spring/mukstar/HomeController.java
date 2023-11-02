@@ -67,7 +67,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public ModelAndView home(HttpServletRequest request, Model model) {
-        ModelAndView mv = new ModelAndView("index");
+        ModelAndView mv = new ModelAndView("user/index");
         List<ResBoardDTO> dtos = boardListCommand.execute(request);
         model.addAttribute("boardList", dtos);
         return mv;
@@ -123,7 +123,7 @@ public class HomeController {
             model.addAttribute("u_id", u_id);
 
             System.out.println("===== Page Loading =====");
-            mv = new ModelAndView("index");
+            mv = new ModelAndView("user/index");
             List<ResBoardDTO> dtos = boardListCommand.execute(request);
             model.addAttribute("boardList", dtos);
 
@@ -142,7 +142,7 @@ public class HomeController {
         String rpw = request.getParameter("u_pw");
 
         if(Objects.equals(spw, rpw)){
-            return "userInfo_edit";
+            return "user/userInfo_edit";
         } else{
             return "redirect:/";
         }
@@ -214,7 +214,7 @@ public class HomeController {
             model.addAttribute("url", "redirect:/");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("myPage");
+            mv = new ModelAndView("user/myPage");
             model.addAttribute("boardData", dto);
         }
 
@@ -231,7 +231,7 @@ public class HomeController {
             model.addAttribute("url", "redirect:/");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("postManage");
+            mv = new ModelAndView("user/postManage");
             model.addAttribute("boardData", dto);
         }
 
@@ -248,7 +248,7 @@ public class HomeController {
             model.addAttribute("url", "redirect:/");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("userPage");
+            mv = new ModelAndView("user/userPage");
             model.addAttribute("boardData", dto);
         }
 
@@ -268,7 +268,7 @@ public class HomeController {
             mv = new ModelAndView("alert");
         } else {
             model.addAttribute("userData", dtos);
-            mv = new ModelAndView("userFind");
+            mv = new ModelAndView("user/userFind");
         }
 
         System.out.println("===== Page Loading =====");
@@ -287,7 +287,7 @@ public class HomeController {
             mv = new ModelAndView("alert");
         } else {
             model.addAttribute("postData", dtos);
-            mv = new ModelAndView("findPost");
+            mv = new ModelAndView("user/findPost");
         }
 
         System.out.println("===== Page Loading =====");
@@ -305,7 +305,7 @@ public class HomeController {
             model.addAttribute("url", "redirect:/");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("postDetail");
+            mv = new ModelAndView("user/postDetail");
             model.addAttribute("boardData", dto);
         }
 
@@ -324,7 +324,7 @@ public class HomeController {
             model.addAttribute("url", "redirect:/");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("findMap");
+            mv = new ModelAndView("user/findMap");
             model.addAttribute("boardData", dtos);
         }
 

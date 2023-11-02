@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="resources/css/pwSearch.css">
 </head>
 <body>
-<img src="resources/assets/Logo.png" onclick="location.href='/login'">
+<img src="resources/assets/user/Logo.png" onclick="location.href='/login'">
 <div id="pwS-wrap"></div>
 <div class="pwS-wrapper">
   <h2>PW FIND</h2>

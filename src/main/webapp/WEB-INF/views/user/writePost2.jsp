@@ -9,9 +9,9 @@
 <html>
 <head>
     <title>UserPage</title>
-    <link href="resources/css/writePost2.css" rel="stylesheet">
+    <link href="resources/css/user/writePost2.css" rel="stylesheet">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script type="module" src="resources/JS/test.js"></script>
+    <script type="module" src="resources/JS/user/test.js"></script>
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=drawing"></script>
     <%@ include file="header.jsp" %>

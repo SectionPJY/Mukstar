@@ -30,10 +30,10 @@
           <div class="user_info" onclick="location.href='/userPage?uid=${User.u_id}'">
             <span>${User.u_nickname}</span>
             <div class="social-icons">
-              <img src="resources/assets/인증마크.png"/></a>
-              <img src="resources/assets/뱃지.png"/></a>
-              <img src="resources/assets/왕관.png"/></a>
-              <img src="resources/assets/먹깨비.png"/></a>
+              <img src="resources/assets/user/인증마크.png"/></a>
+              <img src="resources/assets/user/뱃지.png"/></a>
+              <img src="resources/assets/user/왕관.png"/></a>
+              <img src="resources/assets/user/먹깨비.png"/></a>
             </div>
             <span>${User.rb_count}</span>
             <span style="margin-left: 100px">구독자수</span>

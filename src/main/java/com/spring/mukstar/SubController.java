@@ -17,17 +17,17 @@ public class SubController {
 
     @RequestMapping(value = "/infoPW")
     private String pwCheck(){
-        return "userInfo_pw";
+        return "user/userInfo_pw";
     }
 
     @RequestMapping(value = "/userFind")
     private String userFind(){
-        return "userFind";
+        return "user/userFind";
     }
 
     @RequestMapping(value = "/sInfo")
-    private String sInfo(){ return "subscribeInfo"; }
+    private String sInfo(){ return "user/subscribeInfo"; }
 
     @RequestMapping(value = "/wPost")
-    private String wPost(){ return "writePost"; }
+    private String wPost(){ return "user/writePost"; }
 }

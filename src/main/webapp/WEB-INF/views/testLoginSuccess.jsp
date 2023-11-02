@@ -15,15 +15,15 @@
 <c:choose>
     <c:when test="${empty u_id }">
         <h3>Session is Null</h3> <br>
-        <a href="testLogin">돌아가기</a>
+        <a href="/testLogin">돌아가기</a>
     </c:when>
     <c:otherwise>
-        <h3>Session is Exists 2</h3> <a href="logout">로그아웃</a><br>
+        <h3>Session is Exists 2</h3> <a href="/logout">로그아웃</a><br>
         ID : ${u_id } <br>
         닉네임 : ${u_nickname } <br><br>
-        <a href="testUpdate">정보수정 테스트</a> <br>
-        <a href="testBoardList">게시판</a> <br>
-        <a href="userList">유저목록</a> <a href="channelList">구독 목록</a> <a href="subList">구독자 목록</a>
+        <a href="/testUpdate">정보수정 테스트</a> <br>
+        <a href="/testBoardList">게시판</a> <br>
+        <a href="/userList">유저목록</a> <a href="/channelList">구독 목록</a> <a href="subList">구독자 목록</a>
     </c:otherwise>
 </c:choose>
 </body>

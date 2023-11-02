@@ -13,7 +13,7 @@
 </head>
 <body>
 <c:forEach items="${boardData }" var="Board">
-    <form action="boardUpdate" method="post">
+    <form action="/boardUpdate" method="post">
         게시글 번호 : <input type="text" style="border: 0" id="rb_id" name="rb_id" value="${Board.rb_id }"> <br>
         작성자 : <input type="text" style="border: 0" id="rb_uid" name="rb_uid" value="${u_id }"> <br>
         제목 : <input type="text" id="rb_sub" name="rb_sub" maxlength="50" value="${Board.rb_sub }"> <br>

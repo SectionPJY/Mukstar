@@ -12,7 +12,7 @@
     <title>Writing Page</title>
 </head>
 <body>
-<form action="insertBoard" method="post">
+<form action="/insertBoard" method="post">
     작성자 : <input type="text" style="border: 0" id="rb_uid" name="rb_uid" value="${u_id }"> <br>
     제목 : <input type="text" id="rb_sub" name="rb_sub" maxlength="50"> <br>
     가게명 : <input type="text" id="r_name" name="r_name"> 주소 : <input type="text" id="r_address" name="r_address">

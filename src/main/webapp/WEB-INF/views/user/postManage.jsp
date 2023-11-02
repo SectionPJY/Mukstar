@@ -35,7 +35,7 @@
     <div class="post">
       <div class="post-imgarea">
         <div class="inner-area2">
-          <img src="resources/assets/fox.jpg" alt="이미지 없음"/>
+          <img src="resources/assets/user/fox.jpg" alt="이미지 없음"/>
         </div>
         <div class="title-area">
           <p><c:out value="${Board.rb_sub}"/></p>
