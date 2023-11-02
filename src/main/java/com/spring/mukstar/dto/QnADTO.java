@@ -1,5 +1,8 @@
 package com.spring.mukstar.dto;
 
+import java.sql.Timestamp;
+import java.time.format.DateTimeFormatter;
+
 public class QnADTO {
 
     private int q_id;
@@ -7,13 +10,15 @@ public class QnADTO {
     private String q_sub;
     private String q_contents;
     private boolean q_answer;
+    private String q_date;
 
-    public QnADTO(int q_id, String q_uid, String q_sub, String q_contents, boolean q_answer) {
+    public QnADTO(int q_id, String q_uid, String q_sub, String q_contents, boolean q_answer, Timestamp q_date) {
         this.q_id = q_id;
         this.q_uid = q_uid;
         this.q_sub = q_sub;
         this.q_contents = q_contents;
         this.q_answer = q_answer;
+        this.q_date = changeDate(q_date);
     }
 
     public int getQ_id() {
@@ -54,5 +59,17 @@ public class QnADTO {
 
     public void setQ_answer(boolean q_answer) {
         this.q_answer = q_answer;
+    }
+
+    public String getQ_date() {return q_date;}
+
+    public void setQ_date(String q_date) {this.q_date = q_date;}
+
+    private String changeDate(Timestamp rb_date) {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
+        String result = formatter.format(rb_date.toLocalDateTime());
+
+        return result;
     }
 }

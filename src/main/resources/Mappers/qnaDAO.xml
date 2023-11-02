@@ -5,4 +5,11 @@
         SELECT *
         FROM m_qna;
     </select>
+
+    <select id="qnaListAdminIndex" resultType="QnADTO">
+        SELECT *
+        FROM m_qna
+        ORDER BY q_date DESC
+        LIMIT 4;
+    </select>
 </mapper>

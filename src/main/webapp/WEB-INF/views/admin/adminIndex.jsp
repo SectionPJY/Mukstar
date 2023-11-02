@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,12 +134,12 @@
 
         <!-- Topbar Search -->
         <form
-          class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="#" method="post">
           <div class="input-group">
             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                   aria-label="Search" aria-describedby="basic-addon2">
+                   aria-label="Search" aria-describedby="basic-addon2" name="searchWord">
             <div class="input-group-append">
-              <button class="btn btn-primary" type="button">
+              <button class="btn btn-primary" type="submit">
                 <i class="fas fa-search fa-sm"></i>
               </button>
             </div>
@@ -298,7 +299,7 @@
           <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자1</span>
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small">${u_nickname }</span>
               <img class="img-profile rounded-circle"
                    src="resources/assets/admin/undraw_profile.svg">
             </a>
@@ -373,28 +374,15 @@
                           <th>작성일</th>
                         </tr>
                         </thead>
-                        <tbody>
+                          <c:forEach items="${boardList }" var="Board">
+                          <tbody>
                         <tr>
-                          <td>김이름</td>
-                          <td>제목이 긴듯말듯 알수가 없어</td>
-                          <td>2023/10/08</td>
-                        </tr>
-                        <tr>
-                          <td>박이름</td>
-                          <td>아 진짜 더럽게 안만들어지네</td>
-                          <td>2022/07/25</td>
-                        </tr>
-                        <tr>
-                          <td>이이름</td>
-                          <td>짜증나게 하네</td>
-                          <td>2023/01/12</td>
-                        </tr>
-                        <tr>
-                          <td>유이름</td>
-                          <td>짜증나게 하지마라</td>
-                          <td>2023/08/02</td>
+                          <td>${Board.rb_uid }</td>
+                          <td>${Board.rb_sub }</td>
+                          <td>${Board.rb_date }</td>
                         </tr>
                         </tbody>
+                          </c:forEach>
                       </table>
                     </div>
                   </div>
@@ -471,28 +459,24 @@
                           <th>답변여부</th>
                         </tr>
                         </thead>
+                        <c:forEach items="${qnaList }" var="QnA">
                         <tbody>
                         <tr>
-                          <td>김이름</td>
-                          <td>제목이 긴듯말듯 알수가 없어</td>
-                          <td>2023/10/08</td>
-                        </tr>
-                        <tr>
-                          <td>박이름</td>
-                          <td>아 진짜 더럽게 안만들어지네</td>
-                          <td>2022/07/25</td>
-                        </tr>
-                        <tr>
-                          <td>이이름</td>
-                          <td>짜증나게 하네</td>
-                          <td>2023/01/12</td>
-                        </tr>
-                        <tr>
-                          <td>유이름</td>
-                          <td>짜증나게 하지마라</td>
-                          <td>2023/08/02</td>
+                          <td>${QnA.q_uid }</td>
+                          <td>${QnA.q_sub }</td>
+                          <td>
+                            <c:choose>
+                              <c:when test="${QnA.q_answer == true}">
+                                답변완료
+                              </c:when>
+                              <c:otherwise>
+                                <a href="#">답변하기</a>
+                              </c:otherwise>
+                            </c:choose>
+                          </td>
                         </tr>
                         </tbody>
+                        </c:forEach>
                       </table>
                     </div>
                   </div>

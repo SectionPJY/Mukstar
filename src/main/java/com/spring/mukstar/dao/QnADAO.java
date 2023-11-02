@@ -19,4 +19,14 @@ public class QnADAO {
 
         return sqlSession.selectList("QnAMapper.qnaList");
     }
+
+    /*
+    * Admin
+    * */
+    // QnA List in Admin Index
+    public List<QnADTO> qnaListAdminIndex() {
+        System.out.println("===== QnA List Admin Index DAO =====");
+
+        return sqlSession.selectList("QnAMapper.qnaListAdminIndex");
+    }
 }
