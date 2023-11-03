@@ -7,56 +7,20 @@
   <%@ include file="header.jsp" %>
 </head>
 <body>
-<div class="wrap">
-    <div class="container">
-        <div class="flow_banner">
-            <ul class="list">
-                <c:forEach items="${boardList }" var="Board">
-                    <li onclick="location.href='/pSelect?rb_id=${Board.rb_id}'">${Board.rb_sub}</li>
-                </c:forEach>
-            </ul>
-            <script src="resources/JS/index.js"></script>
-        </div>
-    </div>
 <div class="wrap"> <!-- 배너표시영역 -->
   <div class="rolling-list"> <!-- 원본배너 -->
     <ul>
-      <li>
-        <div class="image-wrap"><img src="./img/img_banner1.svg" alt=""></div>
-        <div class="desc">
-          <strong>First Banner</strong>
-          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br/>
+        <c:forEach items="${boardList }" var="Board">
+            <li onclick="location.href='/pSelect?rb_id=${Board.rb_id}'">
+                        <div class="image-wrap"><img src="./img/img_banner1.svg" alt="${Board.rb_id}"></div>
+                        <div class="desc">
+                            <strong>${Board.rb_sub}</strong>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br/>
 					Neque cumque ratione provident nulla veniam nihil quaerat, illum officiis hic.<br/>
 					Laborum in eos possimus, quo ullam nobis nam nemo fuga ipsam?</span>
-        </div>
-      </li>
-      <li>
-        <div class="image-wrap"><img src="./img/img_banner2.svg" alt=""></div>
-        <div class="desc">
-          <strong>Second Banner</strong>
-          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br/>
-                    Neque cumque ratione provident nulla veniam nihil quaerat, illum officiis hic.<br/>
-					Laborum in eos possimus, quo ullam nobis nam nemo fuga ipsam?</span>
-        </div>
-      </li>
-      <li>
-        <div class="image-wrap"><img src="./img/img_banner3.svg" alt=""></div>
-        <div class="desc">
-          <strong>Third Banner</strong>
-          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br/>
-					Neque cumque ratione provident nulla veniam nihil quaerat, illum officiis hic.<br/>
-					Laborum in eos possimus, quo ullam nobis nam nemo fuga ipsam?</span>
-        </div>
-      </li>
-      <li>
-        <div class="image-wrap"><img src="./img/img_banner4.svg" alt=""></div>
-        <div class="desc">
-          <strong>Fourth Banner</strong>
-          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br/>
-					Neque cumque ratione provident nulla veniam nihil quaerat, illum officiis hic.<br/>
-					Laborum in eos possimus, quo ullam nobis nam nemo fuga ipsam?</span>
-        </div>
-      </li>
+                        </div>
+            </li>
+        </c:forEach>
     </ul>
   </div>
 </div>
@@ -66,7 +30,7 @@
   let roller = document.querySelector('.rolling-list');
   roller.id = 'roller1'; // 아이디 부여
 
-  let clone = roller.cloneNode(true)
+  let clone = roller.cloneNode(false)
   // cloneNode : 노드 복제. 기본값은 false. 자식 노드까지 복제를 원하면 true 사용
   clone.id = 'roller2';
   document.querySelector('.wrap').appendChild(clone); // wrap 하위 자식으로 부착
