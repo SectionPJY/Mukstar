@@ -9,6 +9,7 @@
   <script src="resources/JS/user/slideDown.js"></script>
 </head>
 <body>
+<header>
 <div class="logo">
     <img src="resources/assets/user/Logo.png">
 </div>
@@ -46,5 +47,6 @@
     <button class="mapbtn" type="button" onclick="location.href='/mapFind'">지도보기</button>
     <button class="findbtn" type="button" onclick="location.href='/userFind'">유저찾기</button>
 </div>
+</header>
 </body>
 </html>

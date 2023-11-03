@@ -9,6 +9,7 @@
   <script src="resources/JS/user/slideDown.js"></script>
 </head>
 <body>
+<header>
 <div class="logo">
     <img src="resources/assets/user/Logo.png" onclick="location.href='/'">
 </div>
