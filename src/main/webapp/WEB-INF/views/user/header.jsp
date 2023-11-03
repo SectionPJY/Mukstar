@@ -1,19 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: jms
-  Date: 5/16/23
-  Time: 10:41 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>header</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link href="resources/css/user/header.css" rel="stylesheet">
-    <script src="resources/JS/user/slideDown.js"></script>
+  <title>header</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <link href="resources/css/user/header.css" rel="stylesheet">
+  <script src="resources/JS/user/slideDown.js"></script>
 </head>
 <body>
 <div class="logo">
@@ -21,8 +14,8 @@
 </div>
 <form action="/search" method="get">
     <input type="text" id="searchBox" name="searchBox" placeholder="검색어를 입력하세요" maxlength="20" size="100">
-</form>
-<div class="menu1">
+  </form>
+  <div class="menu1">
     <nav>
         <ul>
             <li>추천</a>
