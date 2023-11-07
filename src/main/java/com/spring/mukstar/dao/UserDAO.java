@@ -91,6 +91,6 @@ public class UserDAO {
             System.out.println("Search Word : " + searchWord);
         }
 
-        return sqlSession.selectList("UserMapper.userSearch", searchWord);
+        return sqlSession.selectList("UserMapper.userSearchAdmin", searchWord);
     }
 }

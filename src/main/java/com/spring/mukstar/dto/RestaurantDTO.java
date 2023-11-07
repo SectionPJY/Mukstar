@@ -5,9 +5,9 @@ public class RestaurantDTO {
     private int r_id;
     private String r_name;
     private String r_address;
-    private int r_mark;
+    private boolean r_mark;
 
-    public RestaurantDTO(int r_id, String r_name, String r_address, int r_mark) {
+    public RestaurantDTO(int r_id, String r_name, String r_address, boolean r_mark) {
         this.r_id = r_id;
         this.r_name = r_name;
         this.r_address = r_address;
@@ -38,11 +38,11 @@ public class RestaurantDTO {
         this.r_address = r_address;
     }
 
-    public int getR_mark() {
+    public boolean getR_mark() {
         return r_mark;
     }
 
-    public void setR_mark(int r_mark) {
+    public void setR_mark(boolean r_mark) {
         this.r_mark = r_mark;
     }
 }

@@ -89,7 +89,7 @@ public class AdminController {
     public ModelAndView search(HttpServletRequest request) {
         System.out.println("통합검색");
 
-        ModelAndView mv = new ModelAndView("");
+        ModelAndView mv = new ModelAndView("test/searchTest");
         // 유저 검색
         List<UserDTO> userData = userSearchCommand.execute(request);
         if (userData.isEmpty() || userData == null) {
