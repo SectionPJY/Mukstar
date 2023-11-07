@@ -5,6 +5,7 @@ import com.spring.mukstar.command.admin.BoardListInAdminIndexCommand;
 import com.spring.mukstar.command.reply.ReplySearchCommand;
 import com.spring.mukstar.command.resboard.BoardSearchCommand;
 import com.spring.mukstar.command.restaurant.RestaurantSearchCommand;
+import com.spring.mukstar.command.user.UserListCommand;
 import com.spring.mukstar.command.user.UserSearchCommand;
 import com.spring.mukstar.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,8 @@ public class AdminController {
     private BoardSearchCommand boardSearchCommand;
     @Autowired
     private ReplySearchCommand replySearchCommand;
+    @Autowired
+    private UserListCommand userListCommand;
 
     @RequestMapping("/index")
     public ModelAndView index() {
@@ -58,10 +61,18 @@ public class AdminController {
     }
 
     @RequestMapping("/memManage")
-    public String memManage() {
+    public ModelAndView memManage() {
         System.out.println("회원관리");
 
-        return "admin/adminMemManage";
+        ModelAndView mv = new ModelAndView("admin/adminMemManage");
+        List<UserDTO> userData = userListCommand.execute();
+        if (userData.isEmpty() || null == userData) {
+            mv.setViewName("admin/admin404Page");
+        } else {
+            mv.addObject("userData", userData);
+        }
+
+        return mv;
     }
 
     @RequestMapping("/response")

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -236,30 +237,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>김이름</td>
-                      <td>시구레 우이</td>
-                      <td>010-1111-1111</td>
-                      <td>생존</td>
-                    </tr>
-                    <tr>
-                      <td>박이름</td>
-                      <td>쭐어</td>
-                      <td>010-2222-2222</td>
-                      <td>생존</td>
-                    </tr>
-                    <tr>
-                      <td>이이름</td>
-                      <td>길달</td>
-                      <td>010-3333-3333</td>
-                      <td>실종</td>
-                    </tr>
-                    <tr>
-                      <td>유이름</td>
-                      <td>고모리</td>
-                      <td>010-4444-4444</td>
-                      <td>사망</td>
-                    </tr>
+                    <c:forEach items="${userData }" var="User">
+                      <tr>
+                        <td>${User.u_id }</td>
+                        <td>${User.u_nickname }</td>
+                        <td>${User.u_phone }</td>
+                        <td>${User.u_drop }</td>
+                      </tr>
+                    </c:forEach>
                     </tbody>
                   </table>
                 </div>

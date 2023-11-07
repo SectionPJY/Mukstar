@@ -93,7 +93,7 @@ public class HomeController {
         System.out.println("===== Test Page =====");
 
         ModelAndView mv = new ModelAndView("test/userList");
-        mv.addObject("userList", userListCommand.execute(model));
+        mv.addObject("userList", userListCommand.execute());
 
         String s_subscriber = session.getAttribute("u_id").toString();
         mv.addObject("channelList", channelListCommand.execute(s_subscriber));
