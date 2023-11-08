@@ -227,20 +227,20 @@
 
               <div id="con_2">
                 <div>
-                  <label for="u_id">아이디 : </label>
-                  <input type="text" id="u_id"/>
+                  <%--<label for="u_id">아이디 : </label>--%>
+                  <input type="text" id="u_id" placeholder="아이디"/>
                 </div>
                 <div>
-                  <label for="u_pw">비밀번호 : </label>
-                  <input type="text" id="u_pw"/>
+                  <%--<label for="u_pw">비밀번호 : </label>--%>
+                  <input type="password" id="u_pw" placeholder="비밀번호"/>
                 </div>
                 <div>
-                  <label for="u_phone">핸드폰 : </label>
-                  <input type="text" id="u_phone"/>
+                  <%--<label for="u_phone">핸드폰 : </label>--%>
+                  <input type="text" id="u_phone" placeholder="전화번호"/>
                 </div>
                 <div>
-                  <label for="u_name">닉네임 : </label>
-                  <input type="text" id="u_name"/>
+                  <%--<label for="u_name">닉네임 : </label>--%>
+                  <input type="text" id="u_name" placeholder="닉네임" style="width: 39%; margin-right: 10px;"/>
                   <button type="button">중복확인</button>
                 </div>
               </div>

@@ -206,23 +206,20 @@
       <div class="container-fluid">
 
         <!-- Content Row -->
-
-        <div class="row">
-          <%--검색 창--%>
-          <div id="search_area">
-            <form>
+        <form>
+          <div class="row">
+            <%--검색 창--%>
+            <div id="search_area">
               <select name="type">
                 <option selected value="">검색 내용 선택</option>
                 <option value="name">가게명</option>
                 <option value="area">지역별</option>
               </select>
               <input type="text" id="search_bar" value=""/>
-              <input type="button" value="검색"/>
-            </form>
-          </div>
-          <%--테이블--%>
-          <div class="card-body">
-            <form method="post" action="">
+              <input type="submit" id="sub" value="검색"/>
+            </div>
+            <%--테이블--%>
+            <div class="card-body">
               <div class="card-body">
                 <div class="container">
                   <table class="table table-bordered table-hover" id="dataTable4">
@@ -267,9 +264,9 @@
               <div class="but">
                 <input type="submit" value="가게 추가"/>
               </div>
-            </form>
+            </div>
           </div>
-        </div>
+        </form>
 
         <!-- Content Row -->
 

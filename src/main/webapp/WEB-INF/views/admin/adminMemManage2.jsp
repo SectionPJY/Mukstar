@@ -224,26 +224,22 @@
 
               <div id="con_2">
                 <div>
-                  <label for="u_id">아이디 : </label>
-                  <input type="text" id="u_id"/>
+                  <input type="text" id="u_id" placeholder="아이디"/>
                 </div>
                 <div>
-                  <label for="u_pw">비밀번호 : </label>
-                  <input type="text" id="u_pw"/>
+                  <input type="password" id="u_pw" placeholder="비밀번호"/>
                 </div>
                 <div>
-                  <label for="u_phone">핸드폰 : </label>
-                  <input type="text" id="u_phone"/>
+                  <input type="text" id="u_phone" placeholder="전화번호"/>
                 </div>
                 <div>
-                  <label for="u_name">닉네임 : </label>
-                  <input type="text" id="u_name"/>
-                  <button type="button">중복확인</button>
+                  <input type="text" id="u_name" placeholder="닉네임" style="width: 39%; margin-right: 10px;"/>
+                  <button type="button">고객관리</button>
                 </div>
               </div>
             </div>
 
-            <hr style="border: 2px solid black; width: 80%;">
+            <hr style="border: 2px solid black; width: 96%;">
 
             <div class="introduce">
               <hr>
@@ -256,7 +252,7 @@
           </div>
         </form>
 
-        <hr style="border: 2px solid black; width: 80%;">
+        <hr style="border: 2px solid black; width: 96%;">
 
         <form method="post" action="">
           <div class="wrap2">
@@ -303,7 +299,7 @@
           </div>
         </form>
 
-        <hr style="border: 2px solid black; width: 80%;">
+        <hr style="border: 2px solid black; width: 96%;">
 
         <form method="post" action="">
           <div class="wrap2">
@@ -347,7 +343,7 @@
           </div>
         </form>
 
-        <hr style="border: 2px solid black; width: 80%;">
+        <hr style="border: 2px solid black; width: 96%;">
 
         <form method="post" action="">
           <div class="wrap2">
@@ -378,7 +374,7 @@
           </div>
         </form>
 
-        <hr style="border: 2px solid black; width: 80%;">
+        <hr style="border: 2px solid black; width: 96%;">
 
         <form method="post" action="">
           <div class="wrap2">
@@ -407,7 +403,7 @@
           </div>
         </form>
 
-        <hr style="border: 2px solid black; width: 80%;">
+        <hr style="border: 2px solid black; width: 96%;">
 
         <form method="post" action="">
           <div class="wrap2">
@@ -506,18 +502,18 @@
 
 <%-- 작성 일시 모달 --%>
 <div class="wirte_modal" id="replie" role="dialog" tabindex="-1" aria-hidden="true">
-    <form>
-      <div class="modal_top">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">X</button>
-      </div>
-      <div class="modal_body">
-        <textarea cols="50" rows="10"></textarea>
-      </div>
-      <div class="modal_bottom">
-        <button type="button">수정하기</button>
-        <input type="submit" value="삭제하기">
-      </div>
-    </form>
+  <form>
+    <div class="modal_top">
+      <button class="btn btn-secondary" type="button" data-dismiss="modal">X</button>
+    </div>
+    <div class="modal_body">
+      <textarea cols="50" rows="10"></textarea>
+    </div>
+    <div class="modal_bottom">
+      <button type="button">수정하기</button>
+      <input type="submit" value="삭제하기">
+    </div>
+  </form>
 </div>
 
 <!-- Bootstrap core JavaScript-->
