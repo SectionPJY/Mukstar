@@ -48,7 +48,7 @@ public class UserDAO {
     }
 
     // User Information
-    public UserDTO userInfo(String u_id) {
+    public UserDTO userSelect(String u_id) {
         System.out.println("===== User Information DAO =====");
 
         return sqlSession.selectOne("UserMapper.userInfo", u_id);

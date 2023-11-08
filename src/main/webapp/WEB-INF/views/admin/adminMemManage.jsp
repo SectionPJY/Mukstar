@@ -317,7 +317,7 @@
 <!-- 회원 선택 함수 -->
 <script>
   function userSelect(u_id) {
-    location.href = "localhost:8080/userSelect?u_id=" + u_id;
+    location.href = "http://localhost:8080/userSelect?u_id=" + u_id;
   };
 </script>
 

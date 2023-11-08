@@ -7,6 +7,8 @@ import com.spring.mukstar.command.resboard.BoardSearchCommand;
 import com.spring.mukstar.command.restaurant.RestaurantSearchCommand;
 import com.spring.mukstar.command.user.UserListCommand;
 import com.spring.mukstar.command.user.UserSearchCommand;
+import com.spring.mukstar.command.user.UserInfoCommand;
+import com.spring.mukstar.command.user.UserSelectCommand;
 import com.spring.mukstar.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +35,8 @@ public class AdminController {
     private ReplySearchCommand replySearchCommand;
     @Autowired
     private UserListCommand userListCommand;
+    @Autowired
+    private UserSelectCommand userSelectCommand;
 
     @RequestMapping("/index")
     public ModelAndView index() {
@@ -77,7 +81,17 @@ public class AdminController {
 
     @RequestMapping("/userSelect")
     public ModelAndView userSelect(HttpServletRequest request) {
-        return null;
+        System.out.println("===== User Select =====");
+
+        ModelAndView mv = new ModelAndView("admin/adminMemManage2");
+        List<UserDTO> userData = userSelectCommand.execute(request);
+        if (userData.isEmpty() || null == userData) {
+            mv.setViewName("admin/admin404Page");
+        } else {
+            mv.addObject("userData", userData);
+        }
+
+        return mv;
     }
 
     @RequestMapping("/response")

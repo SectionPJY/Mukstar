@@ -35,7 +35,7 @@ public class HomeController {
     @Autowired
     private UpdateCommand updateCommand;
     @Autowired
-    private UserSelectCommand userSelectCommand;
+    private UserInfoCommand userInfoCommand;
     @Autowired
     private UserSearchCommand userSearchCommand;
     @Autowired
@@ -181,7 +181,7 @@ public class HomeController {
     public ModelAndView update(HttpServletRequest request, Model model) {
         System.out.println("===== Update Page =====");
 
-        UserDTO dto = userSelectCommand.execute(model);
+        UserDTO dto = userInfoCommand.execute(model);
         ModelAndView mv = new ModelAndView("Update");
 
         System.out.println("===== Page Loading =====");
