@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Service
-public class UserInfoCommand {
+public class UserSelectCommand {
 
     @Autowired
     private HttpSession session;

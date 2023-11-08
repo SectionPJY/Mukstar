@@ -75,6 +75,11 @@ public class AdminController {
         return mv;
     }
 
+    @RequestMapping("/userSelect")
+    public ModelAndView userSelect(HttpServletRequest request) {
+        return null;
+    }
+
     @RequestMapping("/response")
     public String response() {
         System.out.println("응대로그");

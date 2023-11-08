@@ -238,7 +238,7 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${userData }" var="User">
-                      <tr>
+                      <tr onclick="userSelect('${User.u_id }')">
                         <td>${User.u_id }</td>
                         <td>${User.u_nickname }</td>
                         <td>${User.u_phone }</td>
@@ -314,9 +314,12 @@
 <!-- Custom scripts for all pages-->
 <script src="resources/JS/admin/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
-
-<!-- Page level custom scripts -->
+<!-- 회원 선택 함수 -->
+<script>
+  function userSelect(u_id) {
+    location.href = "localhost:8080/userSelect?u_id=" + u_id;
+  };
+</script>
 
 </body>
 
