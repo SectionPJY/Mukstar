@@ -16,6 +16,12 @@
   <!-- Custom styles for this template-->
   <link href="resources/css/admin/sb-admin-2.min.css" rel="stylesheet">
   <link href="resources/css/admin/adminShopDe.css" rel="stylesheet">
+
+  <!-- kakao map api -->
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script type="module" src="resources/JS/user/map.js"></script>
+  <script type="text/javascript"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=services"></script>
 </head>
 <body id="page-top">
 <!-- Page Wrapper -->
@@ -43,28 +49,35 @@
             <div class="wrap_head">
               <div class="head_left">
                 <div class="head-con">
-                  <label>가게명 : </label>
+                  <label>가게명 : 맘스터치</label>
                 </div>
                 <div class="head-con">
-                  <label>가게 주소 : </label>
+                  <label>가게 주소 : 대한민국</label>
                 </div>
                 <div class="head-con">
                   <label>평 점 : </label>
+                  <div class="star_background">
+                <span class="star">
+              ★★★★★
+              <span>★★★★★</span>
+              <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+            </span>
+                  </div>
                 </div>
               </div>
               <div class="head_right">
-                지도 이미지
+                <div id="map" style="width:80%;height:80%;"></div>
               </div>
             </div>
             <div class="wrap_body">
-              <div class="body-text">
-                <p>리뷰</p>
-              </div>
               <div class="body-table">
                 <div class="card-body">
                   <div class="container">
                     <table class="table table-bordered table-hover">
                       <thead>
+                      <tr>
+                        <th style="border: none; background-color: white">리뷰</th>
+                      </tr>
                       <tr>
                         <th>번호</th>
                         <th>제목</th>
@@ -111,13 +124,21 @@
             </div>
             <div class="wrap_footer">
               <div class="badge">
-                <input type="button" value="뱃지1">
-                <input type="button" value="뱃지2">
-                <input type="button" value="뱃지3">
-                <input type="button" value="뱃지4">
+                <button type="button" value="뱃지1">
+                  <img src="resources/assets/user/먹깨비.png">
+                </button>
+                <button type="button" value="뱃지2">
+                  <img src="resources/assets/user/뱃지.png">
+                </button>
+                <button type="button" value="뱃지3">
+                  <img src="resources/assets/user/왕관.png">
+                </button>
+                <button type="button" value="뱃지4">
+                  <img src="resources/assets/user/인증마크.png">
+                </button>
               </div>
               <div class="btn">
-                <input type="button" value="가계 수정"/>
+                <input type="button" value="가게 수정"/>
                 <input type="submit" value="가게 삭제"/>
               </div>
             </div>

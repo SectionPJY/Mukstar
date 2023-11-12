@@ -64,7 +64,7 @@
                   </div>
                 </div>
                 <div class="wrap1_bot">
-                  <textarea></textarea>
+                  <textarea>작성한 내용 들어가는 곳</textarea>
                 </div>
               </div>
               <div class="wrap2">
@@ -73,10 +73,18 @@
             </div>
             <div class="wrap_2">
               <div class="badge">
-                <input type="button" value="1">
-                <input type="button" value="2">
-                <input type="button" value="3">
-                <input type="button" value="4">
+                <button type="button" value="뱃지1">
+                  <img src="resources/assets/user/먹깨비.png">
+                </button>
+                <button type="button" value="뱃지2">
+                  <img src="resources/assets/user/뱃지.png">
+                </button>
+                <button type="button" value="뱃지3">
+                  <img src="resources/assets/user/왕관.png">
+                </button>
+                <button type="button" value="뱃지4">
+                  <img src="resources/assets/user/인증마크.png">
+                </button>
               </div>
               <div class="wrap_btn">
                 <input type="submit" value="게시물 삭제">

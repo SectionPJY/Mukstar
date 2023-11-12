@@ -35,23 +35,26 @@
 .head {
   display: flex;
   width: 100%;
-  text-align: center;
+  justify-content: space-between;
 }
 
 .head_con {
   border: 1px solid black;
-  width: 50%;
+  width: 48%;
   text-align: center;
   color: black;
+  border-radius: 5px;
 }
 
 .head_con > select {
   border: none;
   text-align: center;
+  outline: none;
 }
 
 textarea {
   width: 80%;
   height: 600px;
   resize: none;
+  outline: none;
 }

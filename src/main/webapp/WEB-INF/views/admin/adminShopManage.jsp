@@ -94,7 +94,7 @@
                 </div>
               </div>
               <div class="but">
-                <input type="submit" value="가게 추가"/>
+                <button type="button">가게 추가</button>
               </div>
             </div>
           </div>

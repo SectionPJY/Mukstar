@@ -41,6 +41,13 @@ select {
   justify-content: end;
 }
 
+.but > button {
+  width: 150px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
 @media (min-width: 1920px) {
   .container {
     max-width: 100%;

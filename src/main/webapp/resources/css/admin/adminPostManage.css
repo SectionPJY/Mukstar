@@ -17,6 +17,7 @@ select {
   text-align-last: center;
   border: 1px solid black;
   border-radius: 5px;
+  outline: none;
 }
 
 option {
