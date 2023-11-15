@@ -3,10 +3,13 @@ package com.spring.mukstar;
 import com.spring.mukstar.command.admin.QnAListInAdminIndexCommand;
 import com.spring.mukstar.command.admin.BoardListInAdminIndexCommand;
 import com.spring.mukstar.command.reply.ReplySearchCommand;
+import com.spring.mukstar.command.reply.ReplySelectCommand;
 import com.spring.mukstar.command.resboard.BoardListCommand;
 import com.spring.mukstar.command.resboard.BoardSearchCommand;
 import com.spring.mukstar.command.resboard.BoardSelectCommand;
 import com.spring.mukstar.command.restaurant.RestaurantSearchCommand;
+import com.spring.mukstar.command.subscribe.ChannelListCommand;
+import com.spring.mukstar.command.subscribe.SubscriberListCommand;
 import com.spring.mukstar.command.user.UserListCommand;
 import com.spring.mukstar.command.user.UserSearchCommand;
 import com.spring.mukstar.command.user.UserInfoCommand;
@@ -43,6 +46,12 @@ public class AdminController {
     private BoardListCommand boardListCommand;
     @Autowired
     private BoardSelectCommand boardSelectCommand;
+    @Autowired
+    private ReplySelectCommand replySelectCommand;
+    @Autowired
+    private ChannelListCommand channelListCommand;
+    @Autowired
+    private SubscriberListCommand subscriberListCommand;
 
     @RequestMapping("/index")
     public ModelAndView index() {
@@ -98,6 +107,18 @@ public class AdminController {
         // 작성한 게시글
         List<ResBoardDTO> boardData = boardListCommand.executeAdmin(request);
         mv.addObject("boardData", boardData);
+
+        // 작성한 댓글
+        List<ReplyDTO> replyData = replySelectCommand.execute(request);
+        mv.addObject("replyData", replyData);
+
+        // 구독한 유저 목록
+        List<SubscribeDTO> channelData = channelListCommand.execute(request);
+        mv.addObject("channelData", channelData);
+
+        // 구독자 목록
+        List<SubscribeDTO> subscriberData = subscriberListCommand.execute(request);
+        mv.addObject("subData", subscriberData);
 
         return mv;
     }

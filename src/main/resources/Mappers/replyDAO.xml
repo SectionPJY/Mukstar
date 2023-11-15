@@ -7,4 +7,12 @@
         FROM m_reply
         WHERE r_bid LIKE #{searchWord } OR r_uid LIKE #{searchWord } OR r_contents LIKE #{searchWord };
     </select>
+
+    <!-- Select User's Reply -->
+    <select id="selectUserReply" resultType="ReplyDTO">
+        SELECT *
+        FROM m_reply
+        WHERE r_uid = #{u_id }
+        ORDER BY r_date DESC;
+    </select>
 </mapper>
