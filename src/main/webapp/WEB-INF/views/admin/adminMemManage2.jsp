@@ -88,34 +88,42 @@
         </c:forEach>
 
         <hr style="border: 2px solid black; width: 96%;">
-        <c:forEach items="${boardData }" var="Board">
-        <form method="post" action="">
-          <div class="wrap2">
-            <div class="post_table">
-              <div class="container">
-                <table class="table table-bordered table-hover" id="dataTable5">
-                  <thead>
-                  <tr>
-                    <th>게시글번호</th>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>날짜</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr onclick="boardSelect(${Board.rb_id })">
-                    <td>${Board.rb_id }</td>
-                    <td>${Board.rb_sub }</td>
-                    <td>${Board.rb_uid }</td>
-                    <td>${Board.rb_date }</td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </form>
-        </c:forEach>
+        <c:choose>
+          <c:when test="${not empty boardData }">
+            <c:forEach items="${boardData }" var="Board">
+              <form method="post" action="">
+                <div class="wrap2">
+                  <div class="post_table">
+                    <div class="container">
+                      <table class="table table-bordered table-hover" id="dataTable5">
+                        <thead>
+                        <tr>
+                          <th>게시글번호</th>
+                          <th>제목</th>
+                          <th>작성자</th>
+                          <th>날짜</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr onclick="boardSelect(${Board.rb_id })">
+                          <td>${Board.rb_id }</td>
+                          <td>${Board.rb_sub }</td>
+                          <td>${Board.rb_uid }</td>
+                          <td>${Board.rb_date }</td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </c:forEach>
+          </c:when>
+          <c:otherwise>
+            <h2>작성한 글 없음</h2>
+          </c:otherwise>
+        </c:choose>
+
 
         <hr style="border: 2px solid black; width: 96%;">
 
