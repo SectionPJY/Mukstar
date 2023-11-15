@@ -114,7 +114,7 @@ public class AdminController {
         System.out.println("===== Board Select =====");
 
         ModelAndView mv = new ModelAndView("admin/adminPostDetail");
-        List<ResBoardDTO> boardData = boardSelectCommand.execute(request);
+        List<ResBoardDTO> boardData = boardSelectCommand.executeAdmin(request);
         if (boardData.isEmpty() || null == boardData) {
             mv.setViewName("admin/admin404Page");
         } else {

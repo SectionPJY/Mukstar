@@ -89,4 +89,11 @@
         WHERE rb_uid = #{u_id }
         ORDER BY rb_date DESC;
     </select>
+
+    <!-- BoardSelect for Admin -->
+    <select id="boardSelectForAdmin" resultType="ResBoardDTO">
+        SELECT rb_id, rb_uid, rb_sub, rb_rating, rb_contents, rb_view, rb_date, rb_like, r_name, r_address
+        FROM m_resboard, m_restaurant
+        WHERE m_resboard.rb_rid = m_restaurant.r_id AND rb_id = #{rb_id };
+    </select>
 </mapper>

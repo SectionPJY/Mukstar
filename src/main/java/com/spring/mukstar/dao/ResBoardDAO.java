@@ -114,6 +114,13 @@ public class ResBoardDAO {
         return sqlSession.selectList("ResBoardMapper.resBoardSelectUser", u_id);
     }
 
+    public List<ResBoardDTO> selectBoardPostDetail(int rb_id) {
+        System.out.println("===== Admin Post Detail Page Select Board DAO =====");
+        System.out.println("Board ID : " + rb_id);
+
+        return sqlSession.selectList("ResBoardMapper.boardSelectForAdmin", rb_id);
+    }
+
     // Resboard Search Admin
     public List<ResBoardDTO> searchBoardAdmin(String searchWord) {
         System.out.println("===== Board Search in Admin =====");
