@@ -5,6 +5,7 @@ import com.spring.mukstar.command.admin.BoardListInAdminIndexCommand;
 import com.spring.mukstar.command.reply.ReplySearchCommand;
 import com.spring.mukstar.command.resboard.BoardListCommand;
 import com.spring.mukstar.command.resboard.BoardSearchCommand;
+import com.spring.mukstar.command.resboard.BoardSelectCommand;
 import com.spring.mukstar.command.restaurant.RestaurantSearchCommand;
 import com.spring.mukstar.command.user.UserListCommand;
 import com.spring.mukstar.command.user.UserSearchCommand;
@@ -40,6 +41,8 @@ public class AdminController {
     private UserSelectCommand userSelectCommand;
     @Autowired
     private BoardListCommand boardListCommand;
+    @Autowired
+    private BoardSelectCommand boardSelectCommand;
 
     @RequestMapping("/index")
     public ModelAndView index() {
@@ -99,6 +102,21 @@ public class AdminController {
         // 작성한 게시글
         List<ResBoardDTO> boardData = boardListCommand.executeAdmin(request);
         if (boardData.isEmpty() || null == boardData) {
+        } else {
+            mv.addObject("boardData", boardData);
+        }
+
+        return mv;
+    }
+
+    @RequestMapping("/boardSelect")
+    public ModelAndView boardSelect(HttpServletRequest request) {
+        System.out.println("===== Board Select =====");
+
+        ModelAndView mv = new ModelAndView("admin/adminPostDetail");
+        List<ResBoardDTO> boardData = boardSelectCommand.execute(request);
+        if (boardData.isEmpty() || null == boardData) {
+            mv.setViewName("admin/admin404Page");
         } else {
             mv.addObject("boardData", boardData);
         }

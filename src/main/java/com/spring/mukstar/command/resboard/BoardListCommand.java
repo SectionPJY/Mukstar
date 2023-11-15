@@ -45,7 +45,7 @@ public class BoardListCommand extends DateCast {
         String u_id = request.getParameter("u_id");
         System.out.println("User ID : " + u_id);
 
-        List<ResBoardDTO> dtos = dao.selectBoardAdmin(u_id);
+        List<ResBoardDTO> dtos = dao.selectBoardListAdmin(u_id);
         if (dtos.isEmpty() || null == dtos) {
             System.out.println("===== List is Empty =====");
 
