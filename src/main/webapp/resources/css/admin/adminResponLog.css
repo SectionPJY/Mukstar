@@ -1,13 +1,22 @@
+.row {
+  justify-content: center;
+}
+
+/* table css */
 #search_area {
-  width: 100%;
-  background-color: white;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 92%;
 }
 
 select {
+  width: 10%;
   height: 30px;
   text-align: center;
   text-align-last: center;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 option {
@@ -16,10 +25,24 @@ option {
 }
 
 #search_bar {
-  width: 90%;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
+#sub {
+  width: 7%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
 
 .table {
   color: black;
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 100%;
+  }
 }
