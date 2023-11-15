@@ -127,6 +127,13 @@ public class AdminController {
         return "admin/adminPostManage";
     }
 
+    @RequestMapping("/customerManage")
+    public String customerManage() {
+        System.out.println("게시글관리");
+
+        return "admin/adminCusManage";
+    }
+
     @RequestMapping("/search")
     public ModelAndView search(HttpServletRequest request) {
         System.out.println("통합검색");
