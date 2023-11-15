@@ -107,7 +107,7 @@
                     <td>${Board.rb_id }</td>
                     <td>${Board.rb_sub }</td>
                     <td>${Board.rb_uid }</td>
-                    <td><a href="#">${Board.rb_date }</a></td>
+                    <td>${Board.rb_date }</td>
                   </tr>
                   </tbody>
                 </table>

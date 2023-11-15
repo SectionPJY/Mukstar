@@ -43,6 +43,19 @@ public class ResBoardDTO {
         this.r_address = r_address;
     }
 
+    public ResBoardDTO(int rb_id, String rb_uid, String rb_sub, int rb_rating, String rb_contents, int rb_view, Timestamp rb_date, int rb_like, String r_name, String r_address) {
+        this.rb_id = rb_id;
+        this.rb_uid = rb_uid;
+        this.rb_sub = rb_sub;
+        this. rb_rating = rb_rating;
+        this. rb_contents = rb_contents;
+        this. rb_view = rb_view;
+        this.rb_date = changeDate(rb_date);
+        this.rb_like = rb_like;
+        this.r_name = r_name;
+        this.r_address = r_address;
+    }
+
     public int getRb_id() {
         return rb_id;
     }
