@@ -93,18 +93,11 @@ public class AdminController {
 
         // 유저 정보
         List<UserDTO> userData = userSelectCommand.execute(request);
-        if (userData.isEmpty() || null == userData) {
-            mv.setViewName("admin/admin404Page");
-        } else {
-            mv.addObject("userData", userData);
-        }
+        mv.addObject("userData", userData);
 
         // 작성한 게시글
         List<ResBoardDTO> boardData = boardListCommand.executeAdmin(request);
-        if (boardData.isEmpty() || null == boardData) {
-        } else {
-            mv.addObject("boardData", boardData);
-        }
+        mv.addObject("boardData", boardData);
 
         return mv;
     }

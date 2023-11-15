@@ -44,11 +44,12 @@
       <div class="container-fluid">
 
         <!-- Content Row -->
+        <c:forEach items="${boardData }" var="Board">
         <div class="wrap">
           <div class="wrap1">
             <div class="wrap1_top">
               <div class="title">
-                <p>제목 : T1 롤드컵 우승 기원</p>
+                <p>제목 : ${Board.rb_sub }</p>
               </div>
               <div class="rating">
                 <p>별점 : </p>
@@ -56,19 +57,20 @@
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+              <input type="range" oninput="drawStar(this)" value="${Board.rb_rating }" step="1" min="0" max="10">
             </span>
                 </div>
               </div>
             </div>
             <div class="wrap1_bot">
-              <textarea></textarea>
+              <textarea>${Board.rb_contents }</textarea>
             </div>
           </div>
           <div class="wrap2">
             <div id="map" style="width:80%;height:80%;"></div>
           </div>
         </div>
+        </c:forEach>
         <!-- Content Row -->
 
       </div>
