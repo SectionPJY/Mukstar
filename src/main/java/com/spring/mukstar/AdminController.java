@@ -3,6 +3,7 @@ package com.spring.mukstar;
 import com.spring.mukstar.command.admin.QnAListInAdminIndexCommand;
 import com.spring.mukstar.command.admin.BoardListInAdminIndexCommand;
 import com.spring.mukstar.command.reply.ReplySearchCommand;
+import com.spring.mukstar.command.resboard.BoardListCommand;
 import com.spring.mukstar.command.resboard.BoardSearchCommand;
 import com.spring.mukstar.command.restaurant.RestaurantSearchCommand;
 import com.spring.mukstar.command.user.UserListCommand;
@@ -37,6 +38,8 @@ public class AdminController {
     private UserListCommand userListCommand;
     @Autowired
     private UserSelectCommand userSelectCommand;
+    @Autowired
+    private BoardListCommand boardListCommand;
 
     @RequestMapping("/index")
     public ModelAndView index() {
@@ -91,6 +94,13 @@ public class AdminController {
             mv.setViewName("admin/admin404Page");
         } else {
             mv.addObject("userData", userData);
+        }
+
+        // 작성한 게시글
+        List<ResBoardDTO> boardData = boardListCommand.executeAdmin(request);
+        if (boardData.isEmpty() || null == boardData) {
+        } else {
+            mv.addObject("boardData", boardData);
         }
 
         return mv;

@@ -88,7 +88,7 @@
         </c:forEach>
 
         <hr style="border: 2px solid black; width: 96%;">
-
+        <c:forEach items="${boardData }" var="Board">
         <form method="post" action="">
           <div class="wrap2">
             <div class="post_table">
@@ -104,28 +104,10 @@
                   </thead>
                   <tbody>
                   <tr>
-                    <td>1</td>
-                    <td>버튜버 입니다</td>
-                    <td>시구레 우이</td>
-                    <td><a href="#">2023/09/12</a></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>배고픕니다</td>
-                    <td>길달</td>
-                    <td>2023/09/22</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>큐브 대결하실레요?</td>
-                    <td>고모리</td>
-                    <td>2023/10/01</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>비둘기 999</td>
-                    <td>아지르</td>
-                    <td>2023/09/09</td>
+                    <td>${Board.rb_id }</td>
+                    <td>${Board.rb_sub }</td>
+                    <td>${Board.rb_uid }</td>
+                    <td><a href="#">${Board.rb_date }</a></td>
                   </tr>
                   </tbody>
                 </table>
@@ -133,6 +115,7 @@
             </div>
           </div>
         </form>
+        </c:forEach>
 
         <hr style="border: 2px solid black; width: 96%;">
 

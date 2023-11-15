@@ -68,7 +68,7 @@ public class HomeController {
     @RequestMapping("/")
     public ModelAndView home(HttpServletRequest request, Model model) {
         ModelAndView mv = new ModelAndView("user/index");
-        List<ResBoardDTO> dtos = boardListCommand.execute(request);
+        List<ResBoardDTO> dtos = boardListCommand.executeUser(request);
         model.addAttribute("boardList", dtos);
         return mv;
     }
@@ -124,7 +124,7 @@ public class HomeController {
 
             System.out.println("===== Page Loading =====");
             mv = new ModelAndView("user/index");
-            List<ResBoardDTO> dtos = boardListCommand.execute(request);
+            List<ResBoardDTO> dtos = boardListCommand.executeUser(request);
             model.addAttribute("boardList", dtos);
 
         } else {
@@ -318,7 +318,7 @@ public class HomeController {
         System.out.println("===== Select Board Page =====");
 
         ModelAndView mv = null;
-        List<ResBoardDTO> dtos = boardListCommand.execute(request);
+        List<ResBoardDTO> dtos = boardListCommand.executeUser(request);
         if (null == dtos) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "redirect:/");

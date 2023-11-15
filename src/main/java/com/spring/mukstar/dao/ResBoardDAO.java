@@ -107,6 +107,13 @@ public class ResBoardDAO {
         return sqlSession.selectList("ResBoardMapper.adminIndexBoard");
     }
 
+    public List<ResBoardDTO> selectBoardAdmin(String u_id) {
+        System.out.println("===== Admin Select Board DAO =====");
+        System.out.println("User ID : " + u_id);
+
+        return sqlSession.selectList("ResBoardMapper.resBoardSelectUser", u_id);
+    }
+
     // Resboard Search Admin
     public List<ResBoardDTO> searchBoardAdmin(String searchWord) {
         System.out.println("===== Board Search in Admin =====");
