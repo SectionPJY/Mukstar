@@ -6,4 +6,11 @@
         INTO m_restaurant(r_name, r_address)
         VALUES(#{r_name }, #{r_address });
     </insert>
+
+    <!-- Restaurant Search -->
+    <select id="searchRestaurantAdmin" resultType="RestaurantDTO">
+        SELECT *
+        FROM m_restaurant
+        WHERE r_name LIKE #{searchWord };
+    </select>
 </mapper>

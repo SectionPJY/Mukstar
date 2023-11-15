@@ -2,8 +2,14 @@ package com.spring.mukstar;
 
 import com.spring.mukstar.command.admin.QnAListInAdminIndexCommand;
 import com.spring.mukstar.command.admin.BoardListInAdminIndexCommand;
-import com.spring.mukstar.dto.QnADTO;
-import com.spring.mukstar.dto.ResBoardDTO;
+import com.spring.mukstar.command.reply.ReplySearchCommand;
+import com.spring.mukstar.command.resboard.BoardSearchCommand;
+import com.spring.mukstar.command.restaurant.RestaurantSearchCommand;
+import com.spring.mukstar.command.user.UserListCommand;
+import com.spring.mukstar.command.user.UserSearchCommand;
+import com.spring.mukstar.command.user.UserInfoCommand;
+import com.spring.mukstar.command.user.UserSelectCommand;
+import com.spring.mukstar.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +25,18 @@ public class AdminController {
     private BoardListInAdminIndexCommand boardListInAdminIndexCommand;
     @Autowired
     private QnAListInAdminIndexCommand qnAListInAdminIndexCommand;
+    @Autowired
+    private UserSearchCommand userSearchCommand;
+    @Autowired
+    private RestaurantSearchCommand restaurantSearchCommand;
+    @Autowired
+    private BoardSearchCommand boardSearchCommand;
+    @Autowired
+    private ReplySearchCommand replySearchCommand;
+    @Autowired
+    private UserListCommand userListCommand;
+    @Autowired
+    private UserSelectCommand userSelectCommand;
 
     @RequestMapping("/index")
     public ModelAndView index() {
@@ -47,10 +65,33 @@ public class AdminController {
     }
 
     @RequestMapping("/memManage")
-    public String memManage() {
+    public ModelAndView memManage() {
         System.out.println("회원관리");
 
-        return "admin/adminMemManage";
+        ModelAndView mv = new ModelAndView("admin/adminMemManage");
+        List<UserDTO> userData = userListCommand.execute();
+        if (userData.isEmpty() || null == userData) {
+            mv.setViewName("admin/admin404Page");
+        } else {
+            mv.addObject("userData", userData);
+        }
+
+        return mv;
+    }
+
+    @RequestMapping("/userSelect")
+    public ModelAndView userSelect(HttpServletRequest request) {
+        System.out.println("===== User Select =====");
+
+        ModelAndView mv = new ModelAndView("admin/adminMemManage2");
+        List<UserDTO> userData = userSelectCommand.execute(request);
+        if (userData.isEmpty() || null == userData) {
+            mv.setViewName("admin/admin404Page");
+        } else {
+            mv.addObject("userData", userData);
+        }
+
+        return mv;
     }
 
     @RequestMapping("/response")
@@ -74,12 +115,43 @@ public class AdminController {
         return "admin/adminPostManage";
     }
 
-    @RequestMapping("search")
+    @RequestMapping("/search")
     public ModelAndView search(HttpServletRequest request) {
         System.out.println("통합검색");
 
+        ModelAndView mv = new ModelAndView("test/searchTest");
+        // 유저 검색
+        List<UserDTO> userData = userSearchCommand.execute(request);
+        if (userData.isEmpty() || userData == null) {
+            mv.setViewName("admin/admin404Page");
+        } else {
+            mv.addObject("userData", userData);
+        }
 
+        // 가게 검색
+        List<RestaurantDTO> resData = restaurantSearchCommand.execute(request);
+        if (resData.isEmpty() || resData == null) {
+            mv.setViewName("admin/admin404Page");
+        } else {
+            mv.addObject("resData", resData);
+        }
 
-        return null;
+        // 게시글 검색
+        List<ResBoardDTO> boardData = boardSearchCommand.execute(request);
+        if (boardData.isEmpty() || boardData == null) {
+            mv.setViewName("admin/admin404Page");
+        } else {
+            mv.addObject("boardData", boardData);
+        }
+
+        // 댓글 검색
+        List<ReplyDTO> replyData = replySearchCommand.execute(request);
+        if (replyData.isEmpty() || replyData == null) {
+            mv.setViewName("admin/admin404Page");
+        } else {
+            mv.addObject("replyData", replyData);
+        }
+
+        return mv;
     }
 }

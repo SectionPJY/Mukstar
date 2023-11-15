@@ -14,7 +14,7 @@ public class UserListCommand {
     @Autowired
     private UserDAO dao;
 
-    public List<UserDTO> execute(Model model) {
+    public List<UserDTO> execute() {
         System.out.println("===== User List Command is Running =====");
 
         List<UserDTO> uList = dao.userList();

@@ -48,7 +48,7 @@ public class UserDAO {
     }
 
     // User Information
-    public UserDTO userInfo(String u_id) {
+    public UserDTO userSelect(String u_id) {
         System.out.println("===== User Information DAO =====");
 
         return sqlSession.selectOne("UserMapper.userInfo", u_id);
@@ -71,7 +71,7 @@ public class UserDAO {
     public List<SearchDTO> userSearch(String searchWord) {
         System.out.println("===== User Search DAO =====");
 
-        if (searchWord.isEmpty()){
+        if (searchWord.isEmpty() || searchWord == null){
             return null;
         }else {
             searchWord = "%" + searchWord + "%";
@@ -81,11 +81,16 @@ public class UserDAO {
         return sqlSession.selectList("UserMapper.userSearch", searchWord);
     }
 
-    // Find User ID
-//    public String findID(String u_nickname, String u_phone) {
-//        System.out.println("===== Find User ID DAO =====");
-//        System.out.println("닉네임 : " + u_nickname + ", 핸드폰 : " + u_phone);
-//
-//        return "";
-//    }
+    public List<UserDTO> userSearchAdmin(String searchWord) {
+        System.out.println("===== User Search in Admin =====");
+
+        if (searchWord.isEmpty() || searchWord == null){
+            return null;
+        }else {
+            searchWord = "%" + searchWord + "%";
+            System.out.println("Search Word : " + searchWord);
+        }
+
+        return sqlSession.selectList("UserMapper.userSearchAdmin", searchWord);
+    }
 }

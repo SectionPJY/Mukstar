@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Service
 public class LoginCommand {
@@ -28,7 +27,7 @@ public class LoginCommand {
 
             System.out.println("===== Session Create =====");
             HttpSession session = request.getSession();
-            UserDTO dto = dao.userInfo(u_id);
+            UserDTO dto = dao.userSelect(u_id);
             session.setAttribute("u_id", dto.getU_id());
             session.setAttribute("u_pw", dto.getU_pw());
             session.setAttribute("u_nickname", dto.getU_nickname());

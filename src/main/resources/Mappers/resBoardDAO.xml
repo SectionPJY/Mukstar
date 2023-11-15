@@ -74,4 +74,11 @@
         ORDER BY rb_date DESC
         LIMIT 4;
     </select>
+
+    <!-- ResBoard Search Admin -->
+    <select id="resBoardSearchAdmin" resultType="ResBoardDTO">
+        SELECT *
+        FROM m_resboard
+        WHERE rb_uid LIKE #{searchWord } OR rb_sub LIKE #{searchWord };
+    </select>
 </mapper>

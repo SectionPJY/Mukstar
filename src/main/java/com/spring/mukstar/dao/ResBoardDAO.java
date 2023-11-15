@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class ResBoardDAO {
@@ -102,9 +101,23 @@ public class ResBoardDAO {
 
     // Index Page
     // Select ResBoard
-    public List<ResBoardDTO> adminSelectBoard() {
+    public List<ResBoardDTO> selectBoardAdmin() {
         System.out.println("===== Admin Select Board DAO =====");
 
         return sqlSession.selectList("ResBoardMapper.adminIndexBoard");
+    }
+
+    // Resboard Search Admin
+    public List<ResBoardDTO> searchBoardAdmin(String searchWord) {
+        System.out.println("===== Board Search in Admin =====");
+
+        if (searchWord.isEmpty() || searchWord == null){
+            return null;
+        }else {
+            searchWord = "%" + searchWord + "%";
+            System.out.println("Search Word : " + searchWord);
+        }
+
+        return sqlSession.selectList("ResBoardMapper.resBoardSearchAdmin", searchWord);
     }
 }
