@@ -84,6 +84,8 @@ public class AdminController {
         System.out.println("===== User Select =====");
 
         ModelAndView mv = new ModelAndView("admin/adminMemManage2");
+
+        // 유저 정보
         List<UserDTO> userData = userSelectCommand.execute(request);
         if (userData.isEmpty() || null == userData) {
             mv.setViewName("admin/admin404Page");

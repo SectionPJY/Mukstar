@@ -38,7 +38,7 @@
       <div class="container-fluid">
 
         <!-- Content Row -->
-
+        <c:forEach items="${userData }" var="User">
         <form method="post" action="">
           <div class="wrap">
             <div class="user_con">
@@ -58,16 +58,16 @@
 
               <div id="con_2">
                 <div>
-                  <input type="text" id="u_id" placeholder="아이디"/>
+                  <input type="text" id="u_id" placeholder="${User.u_id }"/>
                 </div>
                 <div>
-                  <input type="password" id="u_pw" placeholder="비밀번호"/>
+                  <input type="password" id="u_pw" value="${User.u_pw }"/>
                 </div>
                 <div>
-                  <input type="text" id="u_phone" placeholder="전화번호"/>
+                  <input type="text" id="u_phone" placeholder="${User.u_phone }"/>
                 </div>
                 <div>
-                  <input type="text" id="u_name" placeholder="닉네임" style="width: 39%; margin-right: 10px;"/>
+                  <input type="text" id="u_name" placeholder="${User.u_nickname }" style="width: 39%; margin-right: 10px;"/>
                   <button type="button">고객관리</button>
                 </div>
               </div>
@@ -78,13 +78,14 @@
             <div class="introduce">
               <hr>
               <div class="intro_text">
-                <textarea cols="80" rows="15"></textarea>
+                <textarea cols="80" rows="15">${User.u_info }</textarea>
                 <input type="submit" value="수정하기"/>
               </div>
             </div>
 
           </div>
         </form>
+        </c:forEach>
 
         <hr style="border: 2px solid black; width: 96%;">
 
