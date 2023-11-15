@@ -103,7 +103,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
+                  <tr onclick="boardSelect(${Board.rb_id })">
                     <td>${Board.rb_id }</td>
                     <td>${Board.rb_sub }</td>
                     <td>${Board.rb_uid }</td>
@@ -353,6 +353,10 @@
     e.preventDefault();
     $('#replie').modal("show");
   });
+
+  function boardSelect(rb_id) {
+    location.href = "http://localhost:8080/boardSelect?rb_id=" + rb_id;
+  }
 </script>
 
 </html>
