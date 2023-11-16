@@ -90,8 +90,6 @@
         <hr style="border: 2px solid black; width: 96%;">
         <c:choose>
           <c:when test="${not empty boardData }">
-            <c:forEach items="${boardData }" var="Board">
-              <form method="post" action="">
                 <div class="wrap2">
                   <div class="post_table">
                     <div class="container">
@@ -105,19 +103,19 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <c:forEach items="${boardData }" var="Board">
                         <tr onclick="boardSelect(${Board.rb_id })">
                           <td>${Board.rb_id }</td>
                           <td>${Board.rb_sub }</td>
                           <td>${Board.rb_uid }</td>
                           <td>${Board.rb_date }</td>
                         </tr>
+                        </c:forEach>
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
-              </form>
-            </c:forEach>
           </c:when>
           <c:otherwise>
             <h2>작성한 글 없음</h2>
@@ -127,47 +125,37 @@
 
         <hr style="border: 2px solid black; width: 96%;">
 
-        <form method="post" action="">
-          <div class="wrap2">
-            <div class="post_table">
-              <div class="container">
-                <table class="table table-bordered table-hover" id="dataTable6">
-                  <thead>
-                  <tr>
-                    <th>(원본)게시글번호</th>
-                    <th>댓글내용</th>
-                    <th>작성일시</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>버튜버 입니다</td>
-                    <td>
-                      <button type="button" id="replie_modal">2023/09/12</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>배고픕니다</td>
-                    <td>2023/09/22</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>큐브 대결하실레요?</td>
-                    <td>2023/10/01</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>비둘기 999</td>
-                    <td>2023/09/09</td>
-                  </tr>
-                  </tbody>
-                </table>
+        <c:choose>
+          <c:when test="${not empty replyData }">
+              <div class="wrap2">
+                <div class="post_table">
+                  <div class="container">
+                    <table class="table table-bordered table-hover" id="dataTable6">
+                      <thead>
+                      <tr>
+                        <th>(원본)게시글번호</th>
+                        <th>댓글내용</th>
+                        <th>작성일시</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <c:forEach items="${replyData }" var="Reply">
+                      <tr>
+                        <td>${Reply.r_bid }</td>
+                        <td>${Reply.r_contents }</td>
+                        <td>${Reply.r_date }</td>
+                      </tr>
+                      </c:forEach>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </form>
+          </c:when>
+          <c:otherwise>
+            <h2>작성한 댓글 없음</h2>
+          </c:otherwise>
+        </c:choose>
 
         <hr style="border: 2px solid black; width: 96%;">
 
@@ -202,61 +190,80 @@
 
         <hr style="border: 2px solid black; width: 96%;">
 
-        <form method="post" action="">
-          <div class="wrap2">
-            <div class="post_table">
-              <div class="container">
-                <table class="table table-bordered table-hover" id="dataTable8">
-                  <thead>
-                  <tr>
-                    <th>구독채널 명</th>
-                    <th></th>
-                    <th>구독 시작일</th>
-                    <th></th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>장사의 신</td>
-                    <td></td>
-                    <td>2023/09/15</td>
-                    <td><%--차후에 버튼 추가 예정--%></td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </form>
+        <c:choose>
+          <c:when test="${not empty channelData }">
+              <form method="post" action="">
+                <div class="wrap2">
+                  <div class="post_table">
+                    <div class="container">
+                      <table class="table table-bordered table-hover" id="dataTable8">
+                        <thead>
+                        <tr>
+                          <th>구독채널 명</th>
+                          <th></th>
+                          <th>구독 시작일</th>
+                          <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${channelData }" var="Channel">
+                        <tr onclick="userSelect('${Channel.s_channel }')">
+                          <td>${Channel.s_channel }</td>
+                          <td></td>
+                          <td>${Channel.s_date }</td>
+                          <td><%--차후에 버튼 추가 예정--%></td>
+                        </tr>
+                        </c:forEach>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </form>
+          </c:when>
+          <c:otherwise>
+            <h2>구독한 유저 없음</h2>
+          </c:otherwise>
+        </c:choose>
 
         <hr style="border: 2px solid black; width: 96%;">
 
-        <form method="post" action="">
-          <div class="wrap2">
-            <div class="post_table">
-              <div class="container">
-                <table class="table table-bordered table-hover" id="dataTable9">
-                  <thead>
-                  <tr>
-                    <th>구독자 명</th>
-                    <th></th>
-                    <th>구독 시작일</th>
-                    <th></th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>탬탬버린</td>
-                    <td></td>
-                    <td>2023/09/11</td>
-                    <td><%--차후에 버튼 추가 예정--%></td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </form>
+        <c:choose>
+          <c:when test="${not empty subData }">
+              <form method="post" action="">
+                <div class="wrap2">
+                  <div class="post_table">
+                    <div class="container">
+                      <table class="table table-bordered table-hover" id="dataTable9">
+                        <thead>
+                        <tr>
+                          <th>구독자 명</th>
+                          <th></th>
+                          <th>구독 시작일</th>
+                          <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${subData }" var="Sub">
+                        <tr onclick="userSelect('${Sub.s_subscriber }')">
+                          <td>${Sub.s_subscriber }</td>
+                          <td></td>
+                          <td>${Sub.s_date }</td>
+                          <td><%--차후에 버튼 추가 예정--%></td>
+                        </tr>
+                        </c:forEach>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </form>
+          </c:when>
+          <c:otherwise>
+            <h2>구독자 없음</h2>
+          </c:otherwise>
+        </c:choose>
+
         <!-- Content Row -->
 
       </div>
@@ -364,7 +371,11 @@
 
   function boardSelect(rb_id) {
     location.href = "http://localhost:8080/boardSelect?rb_id=" + rb_id;
-  }
+  };
+
+  function userSelect(u_id) {
+    location.href = "http://localhost:8080/userSelect?u_id=" + u_id;
+  };
 </script>
 
 </html>

@@ -26,4 +26,12 @@ public class ReplyDAO {
 
         return sqlSession.selectList("ReplyMapper.searchReplyAdmin", searchWord);
     }
+
+    // Select User's Reply
+    public List<ReplyDTO> selectUserReply(String u_id) {
+        System.out.println("===== Select User's Reply DAO =====");
+        System.out.println("User ID : " + u_id);
+
+        return sqlSession.selectList("ReplyMapper.selectUserReply", u_id);
+    }
 }
