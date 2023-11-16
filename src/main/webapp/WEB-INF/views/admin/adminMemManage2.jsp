@@ -90,7 +90,6 @@
         <hr style="border: 2px solid black; width: 96%;">
         <c:choose>
           <c:when test="${not empty boardData }">
-            <c:forEach items="${boardData }" var="Board">
                 <div class="wrap2">
                   <div class="post_table">
                     <div class="container">
@@ -104,18 +103,19 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <c:forEach items="${boardData }" var="Board">
                         <tr onclick="boardSelect(${Board.rb_id })">
                           <td>${Board.rb_id }</td>
                           <td>${Board.rb_sub }</td>
                           <td>${Board.rb_uid }</td>
                           <td>${Board.rb_date }</td>
                         </tr>
+                        </c:forEach>
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
-            </c:forEach>
           </c:when>
           <c:otherwise>
             <h2>작성한 글 없음</h2>
@@ -127,7 +127,6 @@
 
         <c:choose>
           <c:when test="${not empty replyData }">
-            <c:forEach items="${replyData }" var="Reply">
               <div class="wrap2">
                 <div class="post_table">
                   <div class="container">
@@ -140,17 +139,18 @@
                       </tr>
                       </thead>
                       <tbody>
+                      <c:forEach items="${replyData }" var="Reply">
                       <tr>
                         <td>${Reply.r_bid }</td>
                         <td>${Reply.r_contents }</td>
                         <td>${Reply.r_date }</td>
                       </tr>
+                      </c:forEach>
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
-            </c:forEach>
           </c:when>
           <c:otherwise>
             <h2>작성한 댓글 없음</h2>
@@ -192,7 +192,6 @@
 
         <c:choose>
           <c:when test="${not empty channelData }">
-            <c:forEach items="${channelData }" var="Channel">
               <form method="post" action="">
                 <div class="wrap2">
                   <div class="post_table">
@@ -207,19 +206,20 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <c:forEach items="${channelData }" var="Channel">
                         <tr onclick="userSelect('${Channel.s_channel }')">
                           <td>${Channel.s_channel }</td>
                           <td></td>
                           <td>${Channel.s_date }</td>
                           <td><%--차후에 버튼 추가 예정--%></td>
                         </tr>
+                        </c:forEach>
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
               </form>
-            </c:forEach>
           </c:when>
           <c:otherwise>
             <h2>구독한 유저 없음</h2>
@@ -230,7 +230,6 @@
 
         <c:choose>
           <c:when test="${not empty subData }">
-            <c:forEach items="${subData }" var="Sub">
               <form method="post" action="">
                 <div class="wrap2">
                   <div class="post_table">
@@ -245,19 +244,20 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <c:forEach items="${subData }" var="Sub">
                         <tr onclick="userSelect('${Sub.s_subscriber }')">
                           <td>${Sub.s_subscriber }</td>
                           <td></td>
                           <td>${Sub.s_date }</td>
                           <td><%--차후에 버튼 추가 예정--%></td>
                         </tr>
+                        </c:forEach>
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
               </form>
-            </c:forEach>
           </c:when>
           <c:otherwise>
             <h2>구독자 없음</h2>
