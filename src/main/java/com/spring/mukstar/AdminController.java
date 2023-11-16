@@ -153,10 +153,14 @@ public class AdminController {
     }
 
     @RequestMapping("/postManage")
-    public String postManage() {
+    public ModelAndView postManage(HttpServletRequest request) {
         System.out.println("게시글관리");
+        ModelAndView mv = new ModelAndView("admin/adminPostManage");
 
-        return "admin/adminPostManage";
+        List<ResBoardDTO> boardData = boardListCommand.executeUser(request);
+        mv.addObject("boardData", boardData);
+
+        return mv;
     }
 
     @RequestMapping("/customerManage")

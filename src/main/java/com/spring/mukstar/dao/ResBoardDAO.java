@@ -19,12 +19,6 @@ public class ResBoardDAO {
         System.out.println("===== Board List DAO =====");
         System.out.println("Sort : " + sort);
 
-        if (sort == null) {
-
-        } else {
-            System.out.println("Sort : " + sort.getClass().getName());
-        }
-
         return sqlSession.selectList("ResBoardMapper.boardList", sort);
     }
 

@@ -65,29 +65,14 @@
                     </thead>
                     <tbody>
                     <%--추후 onclick 추가해서 페이지 이동--%>
-                    <tr>
-                      <td>1</td>
-                      <td>제목 1</td>
-                      <td>작성자 1</td>
-                      <td>2023/09/11</td>
+                    <c:forEach items="${boardData }" var="Board">
+                    <tr onclick="userSelect('${Board.u_id }')">
+                      <td>${Board.rb_id}</td>
+                      <td>${Board.rb_sub }</td>
+                      <td>${Board.rb_uid }</td>
+                      <td>${Board.rb_date }</td>
                     </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>제목 2</td>
-                      <td>작성자 2</td>
-                      <td>2023/11/23</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>제목 3</td>
-                      <td>작성자 3</td>
-                      <td>2023/01/02</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>제목 4</td>
-                      <td>작성자 4</td>
-                      <td>2100/01/01</td>
+                    </c:forEach>
                     </tr>
                     </tbody>
                   </table>
