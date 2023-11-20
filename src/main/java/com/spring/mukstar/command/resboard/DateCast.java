@@ -9,7 +9,7 @@ public class DateCast {
         System.out.println("===== Date Format Change =====");
         System.out.println("수정 전 : " + rb_date);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
         String result = formatter.format(rb_date.toLocalDateTime());
 
         System.out.println("수정 후 : " + result);
