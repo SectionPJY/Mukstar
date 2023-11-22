@@ -50,7 +50,7 @@
               <div class="wrap1">
                 <div class="wrap1_top">
                   <div class="title">
-                    <p>제목 : T1 롤드컵 우승 기원</p>
+                    <p>${rb_sub}</p>
                   </div>
                   <div class="rating">
                     <p>별점 : </p>
@@ -64,7 +64,7 @@
                   </div>
                 </div>
                 <div class="wrap1_bot">
-                  <textarea>작성한 내용 들어가는 곳</textarea>
+                  <textarea>${rb_contents}</textarea>
                 </div>
               </div>
               <div class="wrap2">

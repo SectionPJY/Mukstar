@@ -67,7 +67,7 @@
                     <tbody>
                     <%--추후 onclick 추가해서 페이지 이동--%>
                     <c:forEach items="${boardData }" var="Board">
-                    <tr onclick="userSelect('${Board.u_id }')">
+                    <tr onclick="postSelect('${Board.rb_id }')">
                       <td>${Board.rb_id}</td>
                       <td>${Board.rb_sub }</td>
                       <td>${Board.rb_uid }</td>
@@ -135,9 +135,11 @@
 <!-- Custom scripts for all pages-->
 <script src="resources/JS/admin/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
-
-<!-- Page level custom scripts -->
+<script>
+  function postSelect(rb_id) {
+    location.href = "http://localhost:8080/postSelect?rb_id=" + rb_id;
+  };
+</script>
 
 </body>
 

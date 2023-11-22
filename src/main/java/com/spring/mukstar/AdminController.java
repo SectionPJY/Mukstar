@@ -153,11 +153,24 @@ public class AdminController {
     }
 
     @RequestMapping("/postManage")
-    public ModelAndView postManage(HttpServletRequest request) {
+    public ModelAndView postManage() {
         System.out.println("게시글관리");
         ModelAndView mv = new ModelAndView("admin/adminPostManage");
 
-        List<ResBoardDTO> boardData = boardListCommand.executeUser(request);
+        List<ResBoardDTO> boardData = boardListInAdminIndexCommand.execute();
+        mv.addObject("boardData", boardData);
+
+        return mv;
+    }
+
+    @RequestMapping("/postSelect")
+    public ModelAndView postSelect(HttpServletRequest request) {
+        System.out.println("===== Post Select =====");
+
+        ModelAndView mv = new ModelAndView("admin/adminPostManageDe");
+
+        // 작성한 게시글
+        List<ResBoardDTO> boardData = boardSelectCommand.executeAdmin(request);
         mv.addObject("boardData", boardData);
 
         return mv;
