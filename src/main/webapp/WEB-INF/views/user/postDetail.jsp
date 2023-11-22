@@ -67,8 +67,8 @@
   }
 
   <c:forEach items="${boardData }" var="Board">
-  var data = "${Board.rb_address}";
-  var rName = "${Board.rb_name}";
+  var data = "${Board.r_address}";
+  var rName = "${Board.r_name}";
   </c:forEach>
 
   const drawStar = (target) => {
