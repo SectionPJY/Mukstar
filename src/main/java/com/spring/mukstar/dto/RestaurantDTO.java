@@ -7,11 +7,21 @@ public class RestaurantDTO {
     private String r_address;
     private boolean r_mark;
 
+    private int r_rating;
+
     public RestaurantDTO(int r_id, String r_name, String r_address, boolean r_mark) {
         this.r_id = r_id;
         this.r_name = r_name;
         this.r_address = r_address;
         this.r_mark = r_mark;
+    }
+
+    public RestaurantDTO(int r_id, String r_name, String r_address, boolean r_mark, int r_rating) {
+        this.r_id = r_id;
+        this.r_name = r_name;
+        this.r_address = r_address;
+        this.r_mark = r_mark;
+        this.r_rating = r_rating;
     }
 
     public int getR_id() {
@@ -45,4 +55,8 @@ public class RestaurantDTO {
     public void setR_mark(boolean r_mark) {
         this.r_mark = r_mark;
     }
+
+    public int getR_rating() { return r_rating; }
+
+    public void setR_rating(int r_rating) { this.r_rating = r_rating; }
 }
