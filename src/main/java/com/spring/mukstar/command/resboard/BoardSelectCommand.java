@@ -110,4 +110,21 @@ public class BoardSelectCommand extends DateCast {
             return dto;
         }
     }
+
+    public List<ResBoardDTO> executeR_id(HttpServletRequest request) {
+        System.out.println("===== Board Select Command is Running from r_id =====");
+
+        int r_id = Integer.parseInt(request.getParameter("r_id"));
+
+        List<ResBoardDTO> dto = dao.selectBoardFromR_id(r_id);
+        if (dto.isEmpty() || null ==dto) {
+            System.out.println("===== DTO is Empty =====");
+
+            return null;
+        } else {
+            System.out.println("===== DTO is Exists =====");
+
+            return dto;
+        }
+    }
 }
