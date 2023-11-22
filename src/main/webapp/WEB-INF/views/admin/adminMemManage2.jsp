@@ -140,7 +140,7 @@
                       </thead>
                       <tbody>
                       <c:forEach items="${replyData }" var="Reply">
-                      <tr>
+                      <tr onclick="replyModal(${Reply.r_id })">
                         <td>${Reply.r_bid }</td>
                         <td>${Reply.r_contents }</td>
                         <td>${Reply.r_date }</td>
@@ -338,7 +338,7 @@
   $('#replie_modal').click(function (e) {
     e.preventDefault();
     $('#replie').modal("show");
-  });
+  };
 
   function boardSelect(rb_id) {
     location.href = "http://localhost:8080/boardSelect?rb_id=" + rb_id;

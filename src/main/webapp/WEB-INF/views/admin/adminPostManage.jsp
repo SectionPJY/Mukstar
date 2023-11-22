@@ -38,6 +38,7 @@
       <div class="container-fluid">
 
         <!-- Content Row -->
+        <h1>테스트</h1>
         <form method="post" action="">
           <div class="row">
             <%--검색 창--%>
@@ -73,7 +74,6 @@
                       <td>${Board.rb_date }</td>
                     </tr>
                     </c:forEach>
-                    </tr>
                     </tbody>
                   </table>
                 </div>

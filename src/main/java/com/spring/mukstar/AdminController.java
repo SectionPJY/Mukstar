@@ -177,35 +177,21 @@ public class AdminController {
         ModelAndView mv = new ModelAndView("test/searchTest");
         // 유저 검색
         List<UserDTO> userData = userSearchCommand.execute(request);
-        if (userData.isEmpty() || userData == null) {
-            mv.setViewName("admin/admin404Page");
-        } else {
-            mv.addObject("userData", userData);
-        }
+        mv.addObject("userData", userData);
 
         // 가게 검색
         List<RestaurantDTO> resData = restaurantSearchCommand.execute(request);
-        if (resData.isEmpty() || resData == null) {
-            mv.setViewName("admin/admin404Page");
-        } else {
-            mv.addObject("resData", resData);
-        }
+        mv.addObject("resData", resData);
 
         // 게시글 검색
         List<ResBoardDTO> boardData = boardSearchCommand.execute(request);
-        if (boardData.isEmpty() || boardData == null) {
-            mv.setViewName("admin/admin404Page");
-        } else {
-            mv.addObject("boardData", boardData);
-        }
+        mv.addObject("boardData", boardData);
+
 
         // 댓글 검색
         List<ReplyDTO> replyData = replySearchCommand.execute(request);
-        if (replyData.isEmpty() || replyData == null) {
-            mv.setViewName("admin/admin404Page");
-        } else {
-            mv.addObject("replyData", replyData);
-        }
+        mv.addObject("replyData", replyData);
+
 
         return mv;
     }
