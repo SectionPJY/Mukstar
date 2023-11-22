@@ -45,12 +45,13 @@
 
         <!-- Content Row -->
         <form method="" action="">
+          <c:forEach items="${boardData }" var="Board">
           <div class="wrap">
             <div class="wrap_1">
               <div class="wrap1">
                 <div class="wrap1_top">
                   <div class="title">
-                    <p>${rb_sub}</p>
+                    <p>${Board.rb_sub}</p>
                   </div>
                   <div class="rating">
                     <p>별점 : </p>
@@ -58,13 +59,13 @@
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.rb_rating}" value="1" step="1" min="0" max="10">
             </span>
                     </div>
                   </div>
                 </div>
                 <div class="wrap1_bot">
-                  <textarea>${rb_contents}</textarea>
+                  <textarea>${Board.rb_contents}</textarea>
                 </div>
               </div>
               <div class="wrap2">
@@ -91,6 +92,7 @@
               </div>
             </div>
           </div>
+          </c:forEach>
         </form>
         <!-- Content Row -->
 
@@ -125,9 +127,22 @@
 <!-- Custom scripts for all pages-->
 <script src="resources/JS/admin/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
+<script>
+  window.onload = function (){
+    const val = document.getElementsByName('rb_rating')[0].value;
+    console.log(val);
+    document.querySelector('.star span').style.width = (val * 10) + '%';
+  }
 
-<!-- Page level custom scripts -->
+  <c:forEach items="${boardData }" var="Board">
+  let data = "${Board.r_address}";
+  let rName = "${Board.r_name}";
+  </c:forEach>
+
+  const drawStar = (target) => {
+    document.querySelector(`.star span`).style.width = (+target.value * 10) + `%`;
+  }
+</script>
 
 </body>
 </html>
