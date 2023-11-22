@@ -13,4 +13,18 @@
         FROM m_restaurant
         WHERE r_name LIKE #{searchWord };
     </select>
+
+    <!-- Restaurant List -->
+    <select id="restaurantList" resultType="RestaurantDTO">
+        SELECT *
+        FROM m_restaurant;
+        ORDER BY r_name;
+    </select>
+
+    <!-- Restaurant Select -->
+    <select id="selectRestaurant" resultType="RestaurantDTO">
+        SELECT *
+        FROM m_restaurant
+        WHERE r_id = #{r_id };
+    </select>
 </mapper>

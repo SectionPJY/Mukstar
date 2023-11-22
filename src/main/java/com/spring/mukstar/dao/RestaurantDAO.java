@@ -36,4 +36,17 @@ public class RestaurantDAO {
 
         return sqlSession.selectList("RestaurantMapper.searchRestaurantAdmin", searchWord);
     }
+
+    public List<RestaurantDTO> resList() {
+        System.out.println("===== Restaurant List DAO =====");
+
+        return sqlSession.selectList("RestaurantMapper.restaurantList");
+    }
+
+    public List<RestaurantDTO> resSelect(int r_id) {
+        System.out.println("===== Restaurant Select DAO =====");
+        System.out.println("가게 ID : " + r_id);
+
+        return sqlSession.selectList("RestaurantMapper.selectRestaurant.", r_id);
+    }
 }
