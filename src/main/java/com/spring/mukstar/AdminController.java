@@ -7,7 +7,9 @@ import com.spring.mukstar.command.reply.ReplySelectCommand;
 import com.spring.mukstar.command.resboard.BoardListCommand;
 import com.spring.mukstar.command.resboard.BoardSearchCommand;
 import com.spring.mukstar.command.resboard.BoardSelectCommand;
+import com.spring.mukstar.command.restaurant.RestaurantListCommand;
 import com.spring.mukstar.command.restaurant.RestaurantSearchCommand;
+import com.spring.mukstar.command.restaurant.RestaurantSelectCommand;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubscriberListCommand;
 import com.spring.mukstar.command.user.UserListCommand;
@@ -52,6 +54,10 @@ public class AdminController {
     private ChannelListCommand channelListCommand;
     @Autowired
     private SubscriberListCommand subscriberListCommand;
+    @Autowired
+    private RestaurantListCommand restaurantListCommand;
+    @Autowired
+    private RestaurantSelectCommand restaurantSelectCommand;
 
     @RequestMapping("/index")
     public ModelAndView index() {
@@ -146,10 +152,27 @@ public class AdminController {
     }
 
     @RequestMapping("/shopManage")
-    public String shopManage() {
+    public ModelAndView shopManage() {
         System.out.println("가게관리");
+        ModelAndView mv = new ModelAndView("admin/adminShopManage");
 
-        return "admin/adminShopManage";
+        List<RestaurantDTO> boardData = restaurantListCommand.execute();
+        mv.addObject("boardData", boardData);
+
+        return mv;
+    }
+
+    @RequestMapping("/shopSelect")
+    public ModelAndView shopSelect(HttpServletRequest request) {
+        System.out.println("===== Post Select =====");
+
+        ModelAndView mv = new ModelAndView("admin/adminShopDe");
+
+        // 작성한 게시글
+        List<RestaurantDTO> boardData = restaurantSelectCommand.execute(request);
+        mv.addObject("boardData", boardData);
+
+        return mv;
     }
 
     @RequestMapping("/postManage")

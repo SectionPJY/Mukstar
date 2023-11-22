@@ -59,7 +59,7 @@
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.rb_rating}" value="1" step="1" min="0" max="10">
+              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.rb_rating}" step="1" min="0" max="10">
             </span>
                     </div>
                   </div>

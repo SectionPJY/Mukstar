@@ -47,12 +47,13 @@
         <form method="post" action="">
           <div class="wrap">
             <div class="wrap_head">
+              <c:forEach items="${boardData }" var="Board">
               <div class="head_left">
                 <div class="head-con">
-                  <label>가게명 : 맘스터치</label>
+                  <label>가게명 : ${Board.r_name}</label>
                 </div>
                 <div class="head-con">
-                  <label>가게 주소 : 대한민국</label>
+                  <label>가게 주소 : ${Board.r_address}</label>
                 </div>
                 <div class="head-con">
                   <label>평 점 : </label>
@@ -60,7 +61,7 @@
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+              <input type="range" oninput="drawStar(this)" value="" step="1" min="0" max="10">
             </span>
                   </div>
                 </div>
@@ -68,6 +69,7 @@
               <div class="head_right">
                 <div id="map" style="width:80%;height:80%;"></div>
               </div>
+              </c:forEach>
             </div>
             <div class="wrap_body">
               <div class="body-table">
@@ -94,27 +96,6 @@
                         <td>010-1111-1111</td>
                         <td>생존</td>
                         <td>생존</td>
-                      </tr>
-                      <tr>
-                        <td>박이름</td>
-                        <td>쭐어</td>
-                        <td>010-2222-2222</td>
-                        <td>생존</td>
-                        <td>생존</td>
-                      </tr>
-                      <tr>
-                        <td>이이름</td>
-                        <td>길달</td>
-                        <td>010-3333-3333</td>
-                        <td>실종</td>
-                        <td>실종</td>
-                      </tr>
-                      <tr>
-                        <td>유이름</td>
-                        <td>고모리</td>
-                        <td>010-4444-4444</td>
-                        <td>사망</td>
-                        <td>사망</td>
                       </tr>
                       </tbody>
                     </table>

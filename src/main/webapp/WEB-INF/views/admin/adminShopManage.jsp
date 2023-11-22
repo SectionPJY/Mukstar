@@ -65,30 +65,14 @@
                     </thead>
                     <tbody>
                     <%--추후 onclick 추가해서 페이지 이동--%>
-                    <tr>
-                      <td>김이름</td>
-                      <td>시구레 우이</td>
-                      <td>010-1111-1111</td>
-                      <td>생존</td>
-                    </tr>
-                    <tr>
-                      <td>박이름</td>
-                      <td>쭐어</td>
-                      <td>010-2222-2222</td>
-                      <td>생존</td>
-                    </tr>
-                    <tr>
-                      <td>이이름</td>
-                      <td>길달</td>
-                      <td>010-3333-3333</td>
-                      <td>실종</td>
-                    </tr>
-                    <tr>
-                      <td>유이름</td>
-                      <td>고모리</td>
-                      <td>010-4444-4444</td>
-                      <td>사망</td>
-                    </tr>
+                    <c:forEach items="${boardData }" var="Board">
+                      <tr onclick="shopSelect('${Board.r_id }')">
+                        <td>${Board.r_id}</td>
+                        <td>${Board.r_name}</td>
+                        <td>${Board.r_address }</td>
+                        <td>${Board.r_mark}</td>
+                      </tr>
+                    </c:forEach>
                     </tbody>
                   </table>
                 </div>
@@ -153,9 +137,11 @@
 <!-- Custom scripts for all pages-->
 <script src="resources/JS/admin/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
-
-<!-- Page level custom scripts -->
+<script>
+  function shopSelect(r_id) {
+    location.href = "http://localhost:8080/shopSelect?r_id=" + r_id;
+  };
+</script>
 
 </body>
 

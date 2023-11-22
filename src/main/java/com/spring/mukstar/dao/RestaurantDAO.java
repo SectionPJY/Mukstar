@@ -47,6 +47,6 @@ public class RestaurantDAO {
         System.out.println("===== Restaurant Select DAO =====");
         System.out.println("가게 ID : " + r_id);
 
-        return sqlSession.selectList("RestaurantMapper.selectRestaurant.", r_id);
+        return sqlSession.selectList("RestaurantMapper.selectRestaurant", r_id);
     }
 }

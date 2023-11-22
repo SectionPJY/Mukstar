@@ -17,7 +17,7 @@
     <!-- Restaurant List -->
     <select id="restaurantList" resultType="RestaurantDTO">
         SELECT *
-        FROM m_restaurant;
+        FROM m_restaurant
         ORDER BY r_name;
     </select>
 
