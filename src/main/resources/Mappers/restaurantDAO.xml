@@ -35,7 +35,13 @@
             r_name,
             r_address,
             r_mark,
-            (SELECT AVG(rb_rating) FROM m_resboard WHERE r_id = #{r_id }) AS r_rating
+            IFNULL(
+                (
+                    SELECT AVG(rb_rating)
+                    FROM m_resbaord
+                    WHERE rb_rid = #{r_id }
+                    ), 0
+                ) AS r_rating
         FROM m_restaurant
         WHERE r_id = #{r_id };
     </select>
