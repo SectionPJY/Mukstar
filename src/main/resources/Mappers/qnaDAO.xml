@@ -12,4 +12,11 @@
         ORDER BY q_date DESC
         LIMIT 4;
     </select>
+
+    <!-- QnA Update -->
+    <update id="updateQna">
+        UPDATE m_qna
+        SET q_uid = #{q_uid }, q_sub = #{q_sub }, q_contents = #{q_contents }, q_date = NOW()
+        WHERE q_id = #{q_id };
+    </update>
 </mapper>
