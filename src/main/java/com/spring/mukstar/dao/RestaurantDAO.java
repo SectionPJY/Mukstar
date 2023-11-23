@@ -49,4 +49,24 @@ public class RestaurantDAO {
 
         return sqlSession.selectList("RestaurantMapper.selectRestaurantWithR_rating", r_id);
     }
+
+    public int resUpdate(int r_id, String r_name, String r_address, int r_mark) {
+        System.out.println("===== Restaurant Update DAO =====");
+        System.out.println(r_id + ", " + r_name + ", " + r_address + ", " + r_mark);
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("r_id", r_id);
+        map.put("r_name", r_name);
+        map.put("r_address", r_address);
+        map.put("r_mark", r_mark);
+
+        return sqlSession.update("RestaurantMapper.updateRestaurant", map);
+    }
+
+    public int resDelete(int r_id) {
+        System.out.println("===== Restaurant Delete DAO =====");
+        System.out.println("ID : " + r_id);
+
+        return sqlSession.delete("RestaurantMapper.deleteRestaurant", r_id);
+    }
 }

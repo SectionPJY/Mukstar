@@ -35,8 +35,27 @@
             r_name,
             r_address,
             r_mark,
-            (SELECT AVG(rb_rating) FROM m_resboard WHERE rb_rid = #{r_id }) AS r_rating
+            IFNULL(
+                (
+                    SELECT AVG(rb_rating)
+                    FROM m_resbaord
+                    WHERE rb_rid = #{r_id }
+                    ), 0
+                ) AS r_rating
         FROM m_restaurant
         WHERE r_id = #{r_id };
     </select>
+
+    <!-- Restaurant Update -->
+    <update id="updateRestaurant">
+        UPDATE m_restaurant
+        SET r_name = #{r_name }, r_address = #{r_address }, r_mark = #{r_mark }
+        WHERE r_id = #{r_id };
+    </update>
+
+    <!-- Restaurant Delete -->
+    <delete id="deleteRestaurant">
+        DELETE FROM m_restaurant
+        WHERE r_id = #{r_id };
+    </delete>
 </mapper>

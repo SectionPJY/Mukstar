@@ -22,4 +22,10 @@
         SET r_bid = #{r_bid }, r_uid = #{r_uid }, r_contents = #{r_contents }, r_date = NOW()
         WHERE r_id = #{r_id };
     </update>
+
+    <!-- Delete Reply -->
+    <delete id="deleteReply">
+        DELETE FROM m_reply
+        WHERE r_id = #{r_id };
+    </delete>
 </mapper>

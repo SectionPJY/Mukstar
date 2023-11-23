@@ -49,4 +49,12 @@ public class ReplyDAO {
 
         return sqlSession.update("ReplyMapper.updateReply", map);
     }
+
+    // Delete Reply
+    public int deleteReply(int r_id) {
+        System.out.println("===== Delete Reply DAO =====");
+        System.out.println("ID : " + r_id);
+
+        return sqlSession.delete("ReplyMapper.deleteReply", r_id);
+    }
 }
