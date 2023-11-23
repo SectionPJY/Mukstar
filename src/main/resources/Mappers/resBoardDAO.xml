@@ -103,4 +103,11 @@
         FROM m_resboard, m_restaurant
         WHERE m_resboard.rb_rid = m_restaurant.r_id AND rb_rid = #{r_id };
     </select>
+
+    <!-- Board Update -->
+    <update id="updateBoard">
+        UPDATE m_resboard
+        SET rb_rid = #{rb_rid }, rb_sub = #{rb_sub }, rb_rating = #{rb_rating }, rb_contents = #{rb_contents }, rb_date = NOW()
+        WHERE rb_id = #{rb_id };
+    </update>
 </mapper>

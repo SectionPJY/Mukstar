@@ -66,19 +66,6 @@ public class ResBoardDAO {
         return sqlSession.delete("ResBoardMapper.boardDelete", rb_id);
     }
 
-    // Board Update
-    public int boardUpdate(int rb_id, String rb_sub, String r_name, String r_address, String rb_contents, int rb_rating) {
-        System.out.println("===== Board Update DAO =====");
-
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("rb_id", rb_id);
-        map.put("rb_sub", rb_sub);
-        map.put("rb_contents", rb_contents);
-        map.put("rb_rating", rb_rating);
-
-        return sqlSession.update("ResBoardMapper.boardUpdate", map);
-    }
-
     // Update rb_view
     public int Updaterb_view(int rb_id) {
         System.out.println("===== Update rb_view DAO =====");
@@ -135,5 +122,20 @@ public class ResBoardDAO {
         System.out.println("가게 ID : " + r_id);
 
         return sqlSession.selectList("ResBoardMapper.boardSelectFromR_id", r_id);
+    }
+
+    // Board Update
+    public int updateBoard(int rb_id, int rb_rid, String rb_sub, int rb_rating, String rb_contents) {
+        System.out.println("===== Board Update DAO =====");
+        System.out.println(rb_id + ", " + rb_rid + ", " + rb_sub + ", " + rb_rating + ", " + rb_contents);
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("rb_id", rb_id);
+        map.put("rb_rid", rb_rid);
+        map.put("rb_sub", rb_sub);
+        map.put("rb_rating", rb_rating);
+        map.put("rb_contents", rb_contents);
+
+        return sqlSession.update("ResBoardMapper.updateBoard", map);
     }
 }
