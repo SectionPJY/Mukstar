@@ -128,4 +128,12 @@ public class ResBoardDAO {
 
         return sqlSession.selectList("ResBoardMapper.resBoardSearchAdmin", searchWord);
     }
+
+    // Resboard Select From r_id
+    public List<ResBoardDTO> selectBoardFromR_id(int r_id) {
+        System.out.println("===== Board Select From r_id DAO =====");
+        System.out.println("가게 ID : " + r_id);
+
+        return sqlSession.selectList("ResBoardMapper.boardSelectFromR_id", r_id);
+    }
 }

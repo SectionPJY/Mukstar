@@ -15,4 +15,11 @@
         WHERE r_uid = #{u_id }
         ORDER BY r_date DESC;
     </select>
+
+    <!-- Update Reply -->
+    <update id="updateReply">
+        UPDATE m_reply
+        SET r_bid = #{r_bid }, r_uid = #{r_uid }, r_contents = #{r_contents }, r_date = NOW()
+        WHERE r_id = #{r_id };
+    </update>
 </mapper>

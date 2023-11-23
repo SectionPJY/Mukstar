@@ -27,4 +27,16 @@
         FROM m_restaurant
         WHERE r_id = #{r_id };
     </select>
+
+    <!-- Restaurant Select with r_rating -->
+    <select id="selectRestaurantWithR_rating" resultType="RestaurantDTO">
+        SELECT
+            r_id,
+            r_name,
+            r_address,
+            r_mark,
+            (SELECT AVG(rb_rating) FROM m_resboard WHERE r_id = #{r_id }) AS r_rating
+        FROM m_restaurant
+        WHERE r_id = #{r_id };
+    </select>
 </mapper>
