@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: jms
-  Date: 2023-05-31
-  Time: 오후 8:57
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -52,6 +45,21 @@
         </div>
       </div>
       <div class="replies_area">
+        <form method="post" action="">
+          <div class="replie">
+            <label>댓글 달기</label>
+            <textarea placeholder="댓글 쓰기"></textarea>
+            <input type="submit" value="작성하기">
+          </div>
+        </form>
+        <form method="post" action="">
+          <div class="comment">
+            <label>닉네임</label>
+            <textarea readonly>댓글 내용 들어갈곳</textarea>
+            <a href="">수정</a>
+            <a href="">삭제</a>
+          </div>
+        </form>
         </c:forEach>
       </div>
     </div>
