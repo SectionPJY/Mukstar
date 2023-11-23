@@ -53,13 +53,6 @@
         WHERE rb_id = #{rb_id };
     </delete>
 
-    <!-- Update Board -->
-    <update id="boardUpdate">
-        UPDATE m_resboard
-        SET rb_sub = #{rb_sub }, rb_contents = #{rb_contents }, rb_rating = #{rb_rating }, rb_date = NOW()
-        WHERE rb_id = #{rb_id };
-    </update>
-
     <!-- Update rb_view -->
     <update id="updaterb_view">
         UPDATE m_resboard
