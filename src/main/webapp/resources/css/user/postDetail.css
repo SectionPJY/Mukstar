@@ -111,6 +111,7 @@ body {
   margin: 0 auto;
   border-radius: 15px;
   display: flex;
+  margin-bottom: 10px;
 }
 
 .content {
@@ -138,41 +139,6 @@ body {
 
 /* 별점 기능 CSS */
 
-/*.star fieldset {
-  display: inline-block;
-  direction: rtl;
-  border: 0;
-
-}
-
-.star fieldset legend {
-  text-align: right;
-}
-
-.star input[type=radio] {
-  display: none;
-}
-
-.star label {
-  font-size: 1em;
-  color: transparent;
-  text-shadow: 0 0 0 #f0f0f0;
-}*/
-
-/*
-.star label:hover {
-  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
-}
-
-.star label:hover ~ label {
-  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
-}
-
-.star input[type=radio]:checked ~ label {
-  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
-}
-*/
-
 .star {
   position: relative;
   font-size: 1rem;
@@ -197,4 +163,55 @@ body {
   color: #ffc107;
   overflow: hidden;
   pointer-events: none;
+}
+
+.replies_area {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.replie {
+  display: flex;
+  /*width: 100%;*/
+  justify-content: space-between;
+  text-align: center;
+}
+
+label {
+  font-size: 25px;
+}
+
+textarea {
+  width: 600px;
+  height: 30px;
+  font-size: 20px;
+  padding-left: 5px;
+  text-align: left;
+  margin: 0px 5px 0px 5px;
+}
+
+input {
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+}
+
+.comment > textarea {
+  outline: none;
 }
