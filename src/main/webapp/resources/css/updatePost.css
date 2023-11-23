@@ -14,7 +14,7 @@ header {
 }
 
 body {
-    background-image: url("../../assets/user/UserPage.png");
+    background-image: url("../assets/user/UserPage.png");
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;
@@ -115,7 +115,6 @@ body {
     border: none;
     cursor: pointer;
 }
-<<<<<<<< HEAD:src/main/webapp/resources/css/updatePost.css
 
 .bAddr {
     padding:5px;
@@ -205,5 +204,3 @@ body {
     pointer-events: none;
     padding-left: 10px;
 }
-========
->>>>>>>> front:src/main/webapp/resources/css/user/writePost2.css

@@ -138,6 +138,7 @@
   let data = "${Board.r_address}";
   let rName = "${Board.r_name}";
   </c:forEach>
+  let addr = "";
 
   const drawStar = (target) => {
     document.querySelector(`.star span`).style.width = (+target.value * 10) + `%`;

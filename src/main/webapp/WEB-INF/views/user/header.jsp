@@ -11,7 +11,9 @@
 <body>
 <header>
 <div class="logo">
-    <img src="resources/assets/user/Logo.png">
+    <a href="/">
+        <img src="resources/assets/user/Logo.png">
+    </a>
 </div>
 <form action="/search" method="get">
     <input type="text" id="searchBox" name="searchBox" placeholder="검색어를 입력하세요" maxlength="20" size="100">

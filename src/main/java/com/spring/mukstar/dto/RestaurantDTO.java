@@ -1,5 +1,7 @@
 package com.spring.mukstar.dto;
 
+import java.math.BigDecimal;
+
 public class RestaurantDTO {
 
     private int r_id;
@@ -16,12 +18,12 @@ public class RestaurantDTO {
         this.r_mark = r_mark;
     }
 
-    public RestaurantDTO(int r_id, String r_name, String r_address, boolean r_mark, int r_rating) {
+    public RestaurantDTO(int r_id, String r_name, String r_address, boolean r_mark, BigDecimal r_rating) {
         this.r_id = r_id;
         this.r_name = r_name;
         this.r_address = r_address;
         this.r_mark = r_mark;
-        this.r_rating = r_rating;
+        this.r_rating = r_rating.intValue();
     }
 
     public int getR_id() {

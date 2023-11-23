@@ -370,10 +370,10 @@ public class HomeController {
         List<ResBoardDTO> dto = boardInfoCommand.execute(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
-            model.addAttribute("url", "myPage");
+            model.addAttribute("url", "/myPage");
             mv = new ModelAndView("alert");
         } else {
-            mv = new ModelAndView("updatePost");
+            mv = new ModelAndView("/updatePost");
             model.addAttribute("boardData", dto);
         }
 

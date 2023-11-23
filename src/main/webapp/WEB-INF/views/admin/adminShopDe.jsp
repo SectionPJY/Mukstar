@@ -61,7 +61,7 @@
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" oninput="drawStar(this)" value="" step="1" min="0" max="10">
+              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.r_rating}" step="1" min="0" max="10">
             </span>
                   </div>
                 </div>
@@ -90,13 +90,15 @@
                       </thead>
                       <tbody>
                       <%--추후 onclick 추가해서 페이지 이동--%>
-                      <tr>
-                        <td>김이름</td>
-                        <td>시구레 우이</td>
-                        <td>010-1111-1111</td>
-                        <td>생존</td>
-                        <td>생존</td>
-                      </tr>
+                      <c:forEach items="${resData }" var="Res">
+                        <tr onclick="postSelect('${Res.rb_id }')">
+                          <td>${Res.rb_id}</td>
+                          <td>${Res.rb_sub }</td>
+                          <td>${Res.rb_uid }</td>
+                          <td>${Res.rb_date }</td>
+                          <td>${Res.rb_view}</td>
+                        </tr>
+                      </c:forEach>
                       </tbody>
                     </table>
                   </div>
@@ -159,9 +161,28 @@
 <!-- Custom scripts for all pages-->
 <script src="resources/JS/admin/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
 
-<!-- Page level custom scripts -->
+<script>
+  window.onload = function (){
+    const val = document.getElementsByName('rb_rating')[0].value;
+    console.log(val);
+    document.querySelector('.star span').style.width = (val * 10) + '%';
+  }
+
+  <c:forEach items="${resData }" var="Board">
+  let data = "${Board.r_address}";
+  let rName = "${Board.r_name}";
+  </c:forEach>
+  let addr = "";
+
+  const drawStar = (target) => {
+    document.querySelector(`.star span`).style.width = (+target.value * 10) + `%`;
+  }
+
+  function postSelect(rb_id) {
+    location.href = "http://localhost:8080/postSelect?rb_id=" + rb_id;
+  };
+</script>
 
 </body>
 </html>

@@ -19,7 +19,7 @@
 <div class="wrap">
   <div class="container">
     <form method="post" action="/pWrite">
-      <input type="hidden" name="rb_address" value="">
+      <input type="hidden" name="r_address" value="">
       <div class="writepost">
         <div class="top">
           <div class="name">
@@ -67,8 +67,8 @@
 </body>
 <script type="module" src="resources/JS/user/map.js"></script>
 <script>
-  var data = "";
-  var addr = "";
+  let data = "";
+  let addr = "";
 
   const drawStar = (target) => {
     document.querySelector(`.star span`).style.width = (+target.value * 10) + `%`;

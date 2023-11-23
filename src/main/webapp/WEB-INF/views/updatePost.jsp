@@ -13,7 +13,7 @@
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=services"></script>
-    <%@ include file="header.jsp" %>
+    <%@ include file="user/header.jsp" %>
 </head>
 <body>
 <div class="wrap">
@@ -21,7 +21,7 @@
         <c:forEach items="${boardData }" var="Board">
             <form method="post" action="/pUpdate">
                 <input type="hidden" name="rb_id" value="${Board.rb_id}">
-                <input type="hidden" name="rb_address" value="">
+                <input type="hidden" name="r_address" value="">
                 <div class="writepost">
                     <div class="top">
                         <div class="name">
@@ -54,7 +54,7 @@
                     <textarea id='rb_contents' name="rb_contents" placeholder="내용을 입력하세요.(3000자 이내)."
                               rows="10" cols="10" wrap="hard">${Board.rb_contents}</textarea>
                         <div class="map_area">
-                            <input type="text" id="rb_name" name="rb_name" value="${Board.rb_name}">
+                            <input type="text" id="rb_name" name="rb_name" value="${Board.r_name}">
                             <div id="map" style="width:450px;height:360px;border-radius: 0px 15px 15px 0px;"></div>
                         </div>
                     </div>
@@ -66,9 +66,9 @@
         </c:forEach>
     </div>
 </div>
-<%@ include file="footer.jsp" %>
+<%@ include file="user/footer.jsp" %>
 </body>
-<script type="module" src="resources/JS/map.js"></script>
+<script type="module" src="/resources/JS/user/map.js"></script>
 <script>
     window.onload = function (){
         const val = document.getElementsByName('rb_rating')[0].value
@@ -77,7 +77,7 @@
     }
 
     <c:forEach items="${boardData }" var="Board">
-    var data = "${Board.rb_address}";
+    var data = "${Board.r_address}";
     </c:forEach>
     var addr = "";
 

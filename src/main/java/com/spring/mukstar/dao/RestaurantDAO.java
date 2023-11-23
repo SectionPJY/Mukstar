@@ -27,7 +27,7 @@ public class RestaurantDAO {
     public List<RestaurantDTO> resSearch(String searchWord) {
         System.out.println("===== Restaurant Search DAO =====");
 
-        if (searchWord.isEmpty() || searchWord == null) {
+        if (searchWord.isEmpty()) {
             return null;
         } else {
             searchWord = "%" + searchWord + "%";

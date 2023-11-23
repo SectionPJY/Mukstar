@@ -13,7 +13,7 @@
   <title>findMap</title>
   <link href="resources/css/user/findMap.css" rel="stylesheet">
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script type="module" src="resources/JS/user/map.js"></script>
+  <script type="module" src="../../../resources/JS/map.js"></script>
   <script type="text/javascript"
           src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=services"></script>
   <%@ include file="header.jsp" %>
@@ -46,8 +46,8 @@
   let position = [
     <c:forEach items="${boardData }" var="Board" varStatus="i">
     <c:choose>
-      <c:when test="${i.last}">{ data : "${Board.rb_address}", rName : "${Board.rb_name}", rb_id : "${Board.rb_id}" }</c:when>
-      <c:otherwise>{ data : "${Board.rb_address}", rName : "${Board.rb_name}", rb_id : "${Board.rb_id}" },</c:otherwise>
+      <c:when test="${i.last}">{ data : "${Board.r_address}", rName : "${Board.r_name}", rb_id : "${Board.rb_id}" }</c:when>
+      <c:otherwise>{ data : "${Board.r_address}", rName : "${Board.r_name}", rb_id : "${Board.rb_id}" },</c:otherwise>
     </c:choose>
     </c:forEach>
   ];

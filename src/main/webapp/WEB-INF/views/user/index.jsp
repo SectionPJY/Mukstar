@@ -15,9 +15,7 @@
                         <div class="image-wrap"><img src="./img/img_banner1.svg" alt="${Board.rb_id}"></div>
                         <div class="desc">
                             <strong>${Board.rb_sub}</strong>
-                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br/>
-					Neque cumque ratione provident nulla veniam nihil quaerat, illum officiis hic.<br/>
-					Laborum in eos possimus, quo ullam nobis nam nemo fuga ipsam?</span>
+                            <span>${Board.rb_contents}</span>
                         </div>
             </li>
         </c:forEach>

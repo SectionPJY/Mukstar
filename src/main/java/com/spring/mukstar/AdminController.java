@@ -170,7 +170,9 @@ public class AdminController {
 
         // 작성한 게시글
         List<RestaurantDTO> boardData = restaurantSelectCommand.execute(request);
+        List<ResBoardDTO> resData = boardSelectCommand.executeR_id(request);
         mv.addObject("boardData", boardData);
+        mv.addObject("resData", resData);
 
         return mv;
     }
