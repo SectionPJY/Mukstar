@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -33,5 +34,19 @@ public class ReplyDAO {
         System.out.println("User ID : " + u_id);
 
         return sqlSession.selectList("ReplyMapper.selectUserReply", u_id);
+    }
+
+    // Update Reply
+    public int updateReply(int r_id, String r_bid, String r_uid, String r_contents) {
+        System.out.println("===== Update Reply DAO =====");
+        System.out.println(r_id + ", " + r_bid + ", " + r_uid + ", " + r_contents);
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("r_id", r_id);
+        map.put("r_bid", r_bid);
+        map.put("r_uid", r_uid);
+        map.put("r_contents", r_contents);
+
+        return sqlSession.update("ReplyMapper.updateReply", map);
     }
 }
