@@ -19,4 +19,10 @@
         SET q_uid = #{q_uid }, q_sub = #{q_sub }, q_contents = #{q_contents }, q_date = NOW()
         WHERE q_id = #{q_id };
     </update>
+
+    <!--  QnA Delete -->
+    <delete id="deleteQna">
+        DELETE FROM m_qna
+        WHERE q_id = #{q_id };
+    </delete>
 </mapper>

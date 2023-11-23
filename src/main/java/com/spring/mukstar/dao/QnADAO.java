@@ -36,6 +36,14 @@ public class QnADAO {
         return sqlSession.update("QnAMapper.updateQna", map);
     }
 
+    // QnA Delete
+    public int deleteQna(int q_id) {
+        System.out.println("===== QnA Delete DAO =====");
+        System.out.println("ID : " + q_id);
+
+        return sqlSession.delete("QnAMapper.deleteQna", q_id);
+    }
+
     /*
     * Admin
     * */
