@@ -46,4 +46,10 @@
         SET r_name = #{r_name }, r_address = #{r_address }, r_mark = #{r_mark }
         WHERE r_id = #{r_id };
     </update>
+
+    <!-- Restaurant Delete -->
+    <delete id="deleteRestaurant">
+        DELETE FROM m_restaurant
+        WHERE r_id = #{r_id };
+    </delete>
 </mapper>

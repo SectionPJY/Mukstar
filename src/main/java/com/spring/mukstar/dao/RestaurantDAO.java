@@ -62,4 +62,11 @@ public class RestaurantDAO {
 
         return sqlSession.update("RestaurantMapper.updateRestaurant", map);
     }
+
+    public int resDelete(int r_id) {
+        System.out.println("===== Restaurant Delete DAO =====");
+        System.out.println("ID : " + r_id);
+
+        return sqlSession.delete("RestaurantMapper.deleteRestaurant", r_id);
+    }
 }
