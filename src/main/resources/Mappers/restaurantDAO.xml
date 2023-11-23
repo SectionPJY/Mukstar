@@ -39,4 +39,11 @@
         FROM m_restaurant
         WHERE r_id = #{r_id };
     </select>
+
+    <!-- Restaurant Update -->
+    <update id="updateRestaurant">
+        UPDATE m_restaurant
+        SET r_name = #{r_name }, r_address = #{r_address }, r_mark = #{r_mark }
+        WHERE r_id = #{r_id };
+    </update>
 </mapper>
