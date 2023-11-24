@@ -233,4 +233,11 @@ public class AdminController {
 
         return mv;
     }
+
+    @RequestMapping("/adminModalRespon")
+    public ModelAndView adminModalRespon(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView("admin/adminModalRespon");
+
+        return mv;
+    }
 }

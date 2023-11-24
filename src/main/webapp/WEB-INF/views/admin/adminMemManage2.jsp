@@ -328,17 +328,13 @@
 
 </body>
 <script>
-  /*회원 응대 모달창 js*/
-  $('#btn_open').click(function (e) {
-    e.preventDefault();
-    $('#inoutmodal').modal("show");
-  });
 
-  /*/!*replie modal js*!/
-  $('#replie_modal').click(function (e) {
-    e.preventDefault();
-    $('#replie').modal("show");
-  };
+  /*회원 응대 모달*/
+  function fnModuleInfo(){
+    $('#inoutmodal .modal-content').load("adminModalRespon");
+    $('#inoutmodal').modal();
+
+  }
 
   function boardSelect(rb_id) {
     location.href = "http://localhost:8080/boardSelect?rb_id=" + rb_id;

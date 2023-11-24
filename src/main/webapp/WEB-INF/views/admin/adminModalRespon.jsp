@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var=""/>
+<%--<c:set var=""/>--%>
 <%-- 회원 응대 모달 --%>
 <div class="modal_header">
   <div class="head 1">
