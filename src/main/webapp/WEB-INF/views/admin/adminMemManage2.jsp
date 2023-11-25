@@ -152,7 +152,7 @@
                     <td>1</td>
                     <td>버튜버 입니다</td>
                     <td>
-                      <button type="button" data-target="replie_modal">2023/09/12</button>
+                      <button type="button" onclick="fnModuleInfo1()">2023/09/12</button>
                     </td>
                   </tr>
                   <tr>
@@ -299,18 +299,8 @@
 
 <%-- 작성 일시 모달 --%>
 <div class="wirte_modal" id="replie" role="dialog" tabindex="-1" aria-hidden="true">
-  <form>
-    <div class="modal_top">
-      <button class="btn btn-secondary" type="button" data-dismiss="modal">X</button>
-    </div>
-    <div class="modal_body">
-      <textarea cols="50" rows="10"></textarea>
-    </div>
-    <div class="modal_bottom">
-      <button type="button">수정하기</button>
-      <input type="submit" value="삭제하기">
-    </div>
-  </form>
+  <div class="modal_content">
+  </div>
 </div>
 
 <!-- Bootstrap core JavaScript-->
@@ -329,23 +319,23 @@
 
 </body>
 <script>
-  /*회원 응대 모달창 js*/
-  $('#btn_open').click(function (e) {
+  /*replie modal js*/
+  /*$('#replie_modal').click(function (e) {
     e.preventDefault();
-    $('#inoutmodal').modal("show");
-  });
-
-  /*/!*replie modal js*!/
-  $('#replie_modal').click(function (e) {
-    e.preventDefault();
+    console.log("active");
     $('#replie').modal("show");
   });*/
 
   /*회원 응대 모달*/
   function fnModuleInfo(){
-    $('#inoutmodal .modal-content').load("adminModalRespon=");
+    $('#inoutmodal .modal-content').load("adminModalRespon");
     $('#inoutmodal').modal();
+  }
 
+  <%-- 작성 일시 모달 --%>
+  function fnModuleInfo1(){
+    $('#replie .modal_content').load("adminModalReplie");
+    $('#replie').modal();
   }
 </script>
 
