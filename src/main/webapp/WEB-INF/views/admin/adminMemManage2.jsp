@@ -298,18 +298,8 @@
 
 <%-- 작성 일시 모달 --%>
 <div class="wirte_modal" id="replie" role="dialog" tabindex="-1" aria-hidden="true">
-  <form>
-    <div class="modal_top">
-      <button class="btn btn-secondary" type="button" data-dismiss="modal">X</button>
-    </div>
-    <div class="modal_body">
-      <textarea cols="50" rows="10"></textarea>
-    </div>
-    <div class="modal_bottom">
-      <button type="button">수정하기</button>
-      <input type="submit" value="삭제하기">
-    </div>
-  </form>
+  <div class="modal_content">
+  </div>
 </div>
 
 <!-- Bootstrap core JavaScript-->
@@ -333,7 +323,11 @@
   function fnModuleInfo(){
     $('#inoutmodal .modal-content').load("adminModalRespon");
     $('#inoutmodal').modal();
-
+  }
+  <%-- 작성 일시 모달 --%>
+  function fnModuleInfo1() {
+    $('#replie .modal_content').load("adminModalReplie");
+    $('#replie').modal();
   }
 
   function boardSelect(rb_id) {

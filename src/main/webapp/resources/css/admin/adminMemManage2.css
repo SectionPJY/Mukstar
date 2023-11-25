@@ -166,10 +166,11 @@ table {
   display: none;
   width: 30%;
   height: 10%;
-  top: 50%;
+  top: 45%;
   right: 35%;
-  background-color: black;
+  background-color: whitesmoke;
   z-index: 9999;
+  border-radius: 8px;
 }
 
 .modal_top {
@@ -188,12 +189,22 @@ table {
 .modal_body {
   width: 100%;
   text-align: center;
+  margin-bottom: 25px;
+}
+
+.modal_body > textarea {
+  resize: none;
 }
 
 .modal_bottom {
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+
+.modal_bottom > button {
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
 @media (min-width: 1920px) {
