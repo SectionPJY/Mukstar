@@ -143,7 +143,9 @@
                       <tr onclick="replyModal(${Reply.r_id })">
                         <td>${Reply.r_bid }</td>
                         <td>${Reply.r_contents }</td>
-                        <td>${Reply.r_date }</td>
+                        <td>
+                          <button type="button" onclick="fnModuleInfo1()">${Reply.r_date }</button>
+                        </td>
                       </tr>
                       </c:forEach>
                       </tbody>

@@ -240,4 +240,12 @@ public class AdminController {
 
         return mv;
     }
+
+    @RequestMapping("/adminModalReplie")
+    public ModelAndView adminModalReplie(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView("admin/adminModalReplie");
+
+        return mv;
+    }
+
 }
