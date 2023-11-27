@@ -177,6 +177,17 @@ public class AdminController {
         return mv;
     }
 
+    @RequestMapping("/responseDe")
+    public ModelAndView responseDe(HttpServletRequest request) {
+        System.out.println("응대로그");
+
+        ModelAndView mv = new ModelAndView("admin/adminResponLogDe");
+
+        List<QnADTO> qnaData = qnaSelectCommand.execute(request);
+        mv.addObject("qnaData", qnaData);
+        return mv;
+    }
+
     @RequestMapping("/shopManage")
     public ModelAndView shopManage() {
         System.out.println("가게관리");

@@ -67,7 +67,7 @@
                     <tbody>
                     <%--추후 onclick 추가해서 페이지 이동--%>
                     <c:forEach items="${qnaData}" var="qna">
-                      <tr>
+                      <tr onclick="responSelect('${qna.q_id }')">
                         <td>${qna.q_sub}</td>
                         <td>${qna.q_contents}</td>
                         <td>${qna.q_date}</td>
@@ -135,10 +135,11 @@
 <!-- Custom scripts for all pages-->
 <script src="resources/JS/admin/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
-
-<!-- Page level custom scripts -->
-
+<script>
+  function responSelect(q_id) {
+    location.href = "http://localhost:8080/responseDe?q_id=" + q_id;
+  };
+</script>
 </body>
 
 </html>

@@ -40,16 +40,17 @@
         <!-- Content Row -->
 
         <div class="wrap">
+          <c:forEach items="${qnaData}" var="qna">
           <form method="post" action="">
             <div class="wrapper">
               <div class="wrapper_head">
                 <div class="head 1">
-                  <div class="head_con">닉네임_응대내용</div>
+                  <div class="head_con">${qna.q_sub}</div>
                   <div class="head_con">알림 설정(날짜)</div>
                 </div>
                 <div class="head 2">
-                  <div class="head_con">전화번호</div>
-                  <div class="head_con">날짜</div>
+                  <div class="head_con">연락처</div>
+                  <div class="head_con">${qna.q_date}</div>
                 </div>
                 <div class="head 3">
                   <div class="head_con">
@@ -63,13 +64,14 @@
                 </div>
               </div>
               <div class="wrapper_body">
-                <textarea></textarea>
+                <textarea>${qna.q_contents}</textarea>
               </div>
               <div class="wrapper_footer">
                 <input type="submit" value="작성완료">
               </div>
             </div>
           </form>
+          </c:forEach>
         </div>
 
         <!-- Content Row -->
