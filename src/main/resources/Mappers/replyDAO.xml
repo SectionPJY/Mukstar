@@ -16,6 +16,13 @@
         ORDER BY r_date DESC;
     </select>
 
+    <!-- Select Reply -->
+    <select id="selectReplyRid" resultType="ReplyDTO">
+        SELECT *
+        FROM m_reply
+        WHERE r_id = #{r_id };
+    </select>
+
     <!-- Update Reply -->
     <update id="updateReply">
         UPDATE m_reply

@@ -36,6 +36,14 @@ public class ReplyDAO {
         return sqlSession.selectList("ReplyMapper.selectUserReply", u_id);
     }
 
+    // Select Reply
+    public List<ReplyDTO> selectReplyRid(int r_id) {
+        System.out.println("===== Select Reply DAO =====");
+        System.out.println("ID : " + r_id);
+
+        return sqlSession.selectList("ReplyMapper.selectReplyRid", r_id);
+    }
+
     // Update Reply
     public int updateReply(int r_id, String r_bid, String r_uid, String r_contents) {
         System.out.println("===== Update Reply DAO =====");
