@@ -2,6 +2,8 @@ package com.spring.mukstar;
 
 import com.spring.mukstar.command.admin.QnAListInAdminIndexCommand;
 import com.spring.mukstar.command.admin.BoardListInAdminIndexCommand;
+import com.spring.mukstar.command.qna.QnAListCommand;
+import com.spring.mukstar.command.qna.QnASelectCommand;
 import com.spring.mukstar.command.reply.ReplySearchCommand;
 import com.spring.mukstar.command.reply.ReplySelectCommand;
 import com.spring.mukstar.command.resboard.BoardListCommand;
@@ -58,6 +60,11 @@ public class AdminController {
     private RestaurantListCommand restaurantListCommand;
     @Autowired
     private RestaurantSelectCommand restaurantSelectCommand;
+    @Autowired
+    private QnAListCommand qnAListCommand;
+    @Autowired
+    private QnASelectCommand qnaSelectCommand;
+
 
     @RequestMapping("/index")
     public ModelAndView index() {
@@ -126,6 +133,10 @@ public class AdminController {
         List<SubscribeDTO> subscriberData = subscriberListCommand.execute(request);
         mv.addObject("subData", subscriberData);
 
+        // 응대 목록
+        List<QnADTO> qnaData = qnAListCommand.executeUid(request);
+        mv.addObject("qnaData", qnaData);
+
         return mv;
     }
 
@@ -135,7 +146,7 @@ public class AdminController {
 
         ModelAndView mv = new ModelAndView("admin/adminPostDetail");
         List<ResBoardDTO> boardData = boardSelectCommand.executeAdmin(request);
-        if (boardData.isEmpty() || null == boardData) {
+        if (boardData.isEmpty()) {
             mv.setViewName("admin/admin404Page");
         } else {
             mv.addObject("boardData", boardData);
@@ -237,7 +248,8 @@ public class AdminController {
     @RequestMapping("/adminModalRespon")
     public ModelAndView adminModalRespon(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView("admin/adminModalRespon");
-
+        List<QnADTO> qnaData = qnaSelectCommand.execute(request);
+        mv.addObject("qnaData", qnaData);
         return mv;
     }
 

@@ -144,7 +144,7 @@
                         <td>${Reply.r_bid }</td>
                         <td>${Reply.r_contents }</td>
                         <td>
-                          <button type="button" onclick="fnModuleInfo1()">${Reply.r_date }</button>
+                          <button type="button" onclick="fnModuleInfo1(${Reply.r_id})">${Reply.r_date }</button>
                         </td>
                       </tr>
                       </c:forEach>
@@ -175,14 +175,16 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>강아지_홍보</td>
-                    <td>전화</td>
-                    <td>2023/01/12</td>
+                  <c:forEach items="${qnaData}" var="qna">
+                    <tr>
+                    <td>${qna.q_sub}</td>
+                    <td>${qna.q_contents}</td>
+                    <td>${qna.q_date}</td>
                     <td>
-                      <button type="button" onclick="fnModuleInfo()">+</button>
+                      <button type="button" onclick="fnModuleInfo(${qna.q_id})">+</button>
                     </td>
                   </tr>
+                  </c:forEach>
                   </tbody>
                 </table>
               </div>
@@ -322,13 +324,13 @@
 <script>
 
   /*회원 응대 모달*/
-  function fnModuleInfo(){
-    $('#inoutmodal .modal-content').load("adminModalRespon");
+  function fnModuleInfo(id){
+    $('#inoutmodal .modal-content').load("adminModalRespon?q_id=" + id);
     $('#inoutmodal').modal();
   }
   <%-- 작성 일시 모달 --%>
-  function fnModuleInfo1() {
-    $('#replie .modal_content').load("adminModalReplie");
+  function fnModuleInfo1(id) {
+    $('#replie .modal_content').load("adminModalReplie?r_id" + id);
     $('#replie').modal();
   }
 
