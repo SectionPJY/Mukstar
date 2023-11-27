@@ -6,6 +6,7 @@ import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.qna.QnASelectCommand;
 import com.spring.mukstar.command.reply.ReplySearchCommand;
 import com.spring.mukstar.command.reply.ReplySelectCommand;
+import com.spring.mukstar.command.reply.ReplySelectRidCommand;
 import com.spring.mukstar.command.resboard.BoardListCommand;
 import com.spring.mukstar.command.resboard.BoardSearchCommand;
 import com.spring.mukstar.command.resboard.BoardSelectCommand;
@@ -64,6 +65,8 @@ public class AdminController {
     private QnAListCommand qnAListCommand;
     @Autowired
     private QnASelectCommand qnaSelectCommand;
+    @Autowired
+    private ReplySelectRidCommand replySelectRidCommand;
 
 
     @RequestMapping("/index")
@@ -257,6 +260,8 @@ public class AdminController {
     public ModelAndView adminModalReplie(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView("admin/adminModalReplie");
 
+        List<ReplyDTO> replyData = replySelectRidCommand.execute(request);
+        mv.addObject("replyData", replyData);
         return mv;
     }
 

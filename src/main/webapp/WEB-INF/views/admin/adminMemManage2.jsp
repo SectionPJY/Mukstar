@@ -330,7 +330,7 @@
   }
   <%-- 작성 일시 모달 --%>
   function fnModuleInfo1(id) {
-    $('#replie .modal_content').load("adminModalReplie?r_id" + id);
+    $('#replie .modal_content').load("adminModalReplie?r_id=" + id);
     $('#replie').modal();
   }
 
