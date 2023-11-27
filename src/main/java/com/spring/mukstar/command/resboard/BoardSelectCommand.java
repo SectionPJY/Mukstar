@@ -86,10 +86,10 @@ public class BoardSelectCommand extends DateCast {
         System.out.println("===== Board Select To Uid Command is Running =====");
         String u_id = request.getParameter("uid");
         List<ResBoardDTO> dto = dao.boardSelectToUid(u_id);
-        if (null == dto) {
+        if (null == dto || dto.isEmpty()) {
             System.out.println("===== DTO is Empty =====");
 
-            return null;
+            return dto;
         } else {
             System.out.println("===== DTO is Exists =====");
             Timestamp temp = Timestamp.valueOf(dto.get(0).getRb_date());

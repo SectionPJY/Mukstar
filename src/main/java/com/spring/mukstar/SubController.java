@@ -25,9 +25,6 @@ public class SubController {
         return "user/userFind";
     }
 
-    @RequestMapping(value = "/sInfo")
-    private String sInfo(){ return "user/subscribeInfo"; }
-
     @RequestMapping(value = "/wPost")
     private String wPost(){ return "user/writePost"; }
 }

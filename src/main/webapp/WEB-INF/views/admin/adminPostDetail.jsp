@@ -57,7 +57,7 @@
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" oninput="drawStar(this)" value="${Board.rb_rating }" step="1" min="0" max="10">
+              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.rb_rating}" step="1" min="0" max="10">
             </span>
                 </div>
               </div>
@@ -104,9 +104,23 @@
 <!-- Custom scripts for all pages-->
 <script src="resources/JS/admin/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
+<script>
+  window.onload = function (){
+    const val = document.getElementsByName('rb_rating')[0].value;
+    console.log(val);
+    document.querySelector('.star span').style.width = (val * 10) + '%';
+  }
 
-<!-- Page level custom scripts -->
+  <c:forEach items="${boardData }" var="Board">
+  let data = "${Board.r_address}";
+  let rName = "${Board.r_name}";
+  </c:forEach>
+  let addr = "";
+
+  const drawStar = (target) => {
+    document.querySelector(`.star span`).style.width = (+target.value * 10) + `%`;
+  }
+</script>
 
 </body>
 </html>

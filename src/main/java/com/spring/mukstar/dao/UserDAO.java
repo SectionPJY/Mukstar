@@ -71,7 +71,7 @@ public class UserDAO {
     public List<SearchDTO> userSearch(String searchWord) {
         System.out.println("===== User Search DAO =====");
 
-        if (searchWord.isEmpty() || searchWord == null){
+        if (searchWord.isEmpty()){
             return null;
         }else {
             searchWord = "%" + searchWord + "%";
@@ -84,7 +84,7 @@ public class UserDAO {
     public List<UserDTO> userSearchAdmin(String searchWord) {
         System.out.println("===== User Search in Admin =====");
 
-        if (searchWord.isEmpty() || searchWord == null){
+        if (searchWord.isEmpty()){
             return null;
         }else {
             searchWord = "%" + searchWord + "%";

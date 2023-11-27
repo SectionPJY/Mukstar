@@ -177,17 +177,6 @@ public class HomeController {
         return "alert";
     }
 
-    @RequestMapping("update")
-    public ModelAndView update(HttpServletRequest request, Model model) {
-        System.out.println("===== Update Page =====");
-
-        UserDTO dto = userInfoCommand.execute(model);
-        ModelAndView mv = new ModelAndView("Update");
-
-        System.out.println("===== Page Loading =====");
-        return mv;
-    }
-
     @RequestMapping("userUpdate")
     public String userUpdate(HttpServletRequest request) {
         System.out.println("===== Update User =====");
@@ -411,7 +400,7 @@ public class HomeController {
         return mv;
     }
 
-    @RequestMapping("addSub")
+    @RequestMapping("/addSub")
     public String addSub(HttpServletRequest request, Model model) {
         System.out.println("===== Add Subscribe =====");
 
@@ -469,5 +458,31 @@ public class HomeController {
         model.addAttribute("subList", dtos);
 
         return mv;
+    }
+
+    @RequestMapping(value = "/sInfo")
+    private ModelAndView sInfo(){
+        ModelAndView mv = new ModelAndView("user/subscribeInfo");
+        String s_subscriber = session.getAttribute("u_id").toString();
+        System.out.println("User : " + s_subscriber);
+        List<SubscribeDTO> dtos = channelListCommand.execute(s_subscriber);
+        mv.addObject("channelList", dtos);
+        return mv;
+    }
+
+    @RequestMapping("userPageToName")
+    public String userPageToName(HttpServletRequest request, Model model) {
+        System.out.println("===== to Name =====");
+
+        UserDTO dto = userInfoCommand.execute(request);
+        if (null != dto.getU_id()) {
+            model.addAttribute("msg", dto.getU_id());
+            model.addAttribute("url", "userPage?uid=" + dto.getU_id());
+        } else {
+            model.addAttribute("msg", "오류가 발생했습니다.");
+            model.addAttribute("url", "sInfo");
+        }
+
+        return "alert";
     }
 }
