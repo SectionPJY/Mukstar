@@ -22,6 +22,14 @@ public class QnADAO {
         return sqlSession.selectList("QnAMapper.qnaList");
     }
 
+    // QnA List - u_id
+    public List<QnADTO> qnaList(String u_id) {
+        System.out.println("===== QnA List DAO =====");
+        System.out.println("User ID : " + u_id);
+
+        return sqlSession.selectList("QnAMapper.qnaListUid", u_id);
+    }
+
     // QnA Update
     public int updateQna(int q_id, String q_uid, String q_sub, String q_contents) {
         System.out.println("===== QnA Update DAO =====");

@@ -6,6 +6,12 @@
         FROM m_qna;
     </select>
 
+    <select id="qnaListUid" resultType="QnADTO">
+        SELECT *
+        FROM m_qna
+        WHERE q_uid = #{u_id };
+    </select>
+
     <select id="qnaListAdminIndex" resultType="QnADTO">
         SELECT *
         FROM m_qna
