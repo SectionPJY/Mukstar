@@ -43,11 +43,11 @@
       <!-- Begin Page Content -->
       <div class="container-fluid">
 
+        <c:forEach items="${boardData }" var="Board">
         <!-- Content Row -->
-        <form method="post" action="">
+        <form method="post" action="/shopDelete.do?r_id=${Board.r_id}">
           <div class="wrap">
             <div class="wrap_head">
-              <c:forEach items="${boardData }" var="Board">
               <div class="head_left">
                 <div class="head-con">
                   <label>가게명 : ${Board.r_name}</label>
@@ -69,7 +69,6 @@
               <div class="head_right">
                 <div id="map" style="width:80%;height:80%;"></div>
               </div>
-              </c:forEach>
             </div>
             <div class="wrap_body">
               <div class="body-table">
@@ -127,6 +126,7 @@
             </div>
           </div>
         </form>
+        </c:forEach>
 
         <!-- Content Row -->
 

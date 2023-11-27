@@ -7,9 +7,11 @@ import com.spring.mukstar.command.qna.QnASelectCommand;
 import com.spring.mukstar.command.reply.ReplySearchCommand;
 import com.spring.mukstar.command.reply.ReplySelectCommand;
 import com.spring.mukstar.command.reply.ReplySelectRidCommand;
+import com.spring.mukstar.command.resboard.BoardDeleteCommand;
 import com.spring.mukstar.command.resboard.BoardListCommand;
 import com.spring.mukstar.command.resboard.BoardSearchCommand;
 import com.spring.mukstar.command.resboard.BoardSelectCommand;
+import com.spring.mukstar.command.restaurant.RestaurantDeleteCommand;
 import com.spring.mukstar.command.restaurant.RestaurantListCommand;
 import com.spring.mukstar.command.restaurant.RestaurantSearchCommand;
 import com.spring.mukstar.command.restaurant.RestaurantSelectCommand;
@@ -22,6 +24,7 @@ import com.spring.mukstar.command.user.UserSelectCommand;
 import com.spring.mukstar.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -67,6 +70,10 @@ public class AdminController {
     private QnASelectCommand qnaSelectCommand;
     @Autowired
     private ReplySelectRidCommand replySelectRidCommand;
+    @Autowired
+    private BoardDeleteCommand boardDeleteCommand;
+    @Autowired
+    private RestaurantDeleteCommand restaurantDeleteCommand;
 
 
     @RequestMapping("/index")
@@ -159,10 +166,15 @@ public class AdminController {
     }
 
     @RequestMapping("/response")
-    public String response() {
+    public ModelAndView response() {
         System.out.println("응대로그");
 
-        return "admin/adminResponLog";
+        ModelAndView mv = new ModelAndView("admin/adminResponLog");
+
+        List<QnADTO> qnaData = qnAListCommand.execute();
+        mv.addObject("qnaData", qnaData);
+
+        return mv;
     }
 
     @RequestMapping("/shopManage")
@@ -191,6 +203,20 @@ public class AdminController {
         return mv;
     }
 
+    @RequestMapping("/shopDelete.do")
+    public String shopDelete(HttpServletRequest request, Model model) {
+        int result = restaurantDeleteCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "가게가 삭제되었습니다.");
+            model.addAttribute("url", "shopManage");
+        } else {
+            model.addAttribute("msg", "가게 삭제에 실패하였습니다.");
+            model.addAttribute("url", "shopManage");
+        }
+
+        return "alert";
+    }
+
     @RequestMapping("/postManage")
     public ModelAndView postManage() {
         System.out.println("게시글관리");
@@ -213,6 +239,20 @@ public class AdminController {
         mv.addObject("boardData", boardData);
 
         return mv;
+    }
+
+    @RequestMapping("/postDelete.do")
+    public String postDelete(HttpServletRequest request, Model model) {
+        int result = boardDeleteCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "게시글이 삭제되었습니다.");
+            model.addAttribute("url", "postManage");
+        } else {
+            model.addAttribute("msg", "게시글 삭제에 실패하였습니다.");
+            model.addAttribute("url", "postManage");
+        }
+
+        return "alert";
     }
 
     @RequestMapping("/customerManage")

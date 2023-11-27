@@ -43,9 +43,9 @@
       <!-- Begin Page Content -->
       <div class="container-fluid">
 
+        <c:forEach items="${boardData }" var="Board">
         <!-- Content Row -->
-        <form method="" action="">
-          <c:forEach items="${boardData }" var="Board">
+        <form method="post" action="/postDelete.do?rb_id=${Board.rb_id}">
           <div class="wrap">
             <div class="wrap_1">
               <div class="wrap1">
@@ -92,8 +92,8 @@
               </div>
             </div>
           </div>
-          </c:forEach>
         </form>
+        </c:forEach>
         <!-- Content Row -->
 
       </div>

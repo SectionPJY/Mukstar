@@ -66,30 +66,14 @@
                     </thead>
                     <tbody>
                     <%--추후 onclick 추가해서 페이지 이동--%>
-                    <tr>
-                      <td>김이름</td>
-                      <td>시구레 우이</td>
-                      <td>010-1111-1111</td>
-                      <td>생존</td>
-                    </tr>
-                    <tr>
-                      <td>박이름</td>
-                      <td>쭐어</td>
-                      <td>010-2222-2222</td>
-                      <td>생존</td>
-                    </tr>
-                    <tr>
-                      <td>이이름</td>
-                      <td>길달</td>
-                      <td>010-3333-3333</td>
-                      <td>실종</td>
-                    </tr>
-                    <tr>
-                      <td>유이름</td>
-                      <td>고모리</td>
-                      <td>010-4444-4444</td>
-                      <td>사망</td>
-                    </tr>
+                    <c:forEach items="${qnaData}" var="qna">
+                      <tr>
+                        <td>${qna.q_sub}</td>
+                        <td>${qna.q_contents}</td>
+                        <td>${qna.q_date}</td>
+                        <td></td>
+                      </tr>
+                    </c:forEach>
                     </tbody>
                   </table>
                 </div>
