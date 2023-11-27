@@ -52,6 +52,14 @@ public class QnADAO {
         return sqlSession.delete("QnAMapper.deleteQna", q_id);
     }
 
+    // QnA Select
+    public List<QnADTO> selectQna(int q_id) {
+        System.out.println("===== QnA Select DAO =====");
+        System.out.println("ID : " + q_id);
+
+        return sqlSession.selectList("QnAMapper.selectQna", q_id);
+    }
+
     /*
     * Admin
     * */

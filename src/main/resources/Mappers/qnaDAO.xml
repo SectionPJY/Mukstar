@@ -31,4 +31,11 @@
         DELETE FROM m_qna
         WHERE q_id = #{q_id };
     </delete>
+
+    <!-- QnA Select -->
+    <select id="selectQna" resultType="QnADTO">
+        SELECT *
+        FROM m_qna
+        WHERE q_id = #{q_id };
+    </select>
 </mapper>
