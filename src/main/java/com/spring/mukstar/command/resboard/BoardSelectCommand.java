@@ -89,7 +89,7 @@ public class BoardSelectCommand extends DateCast {
         if (null == dto || dto.isEmpty()) {
             System.out.println("===== DTO is Empty =====");
 
-            return dto;
+            return null;
         } else {
             System.out.println("===== DTO is Exists =====");
             Timestamp temp = Timestamp.valueOf(dto.get(0).getRb_date());

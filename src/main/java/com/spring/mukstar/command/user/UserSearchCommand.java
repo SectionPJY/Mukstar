@@ -23,7 +23,7 @@ public class UserSearchCommand {
         System.out.println("Search Word : " + searchWord);
 
         List<SearchDTO> dtos = dao.userSearch(searchWord);
-        if (dtos.isEmpty() || null == dtos) {
+        if (dtos == null) {
             System.out.println("===== DTO is Empty =====");
 
             return null;
@@ -42,7 +42,7 @@ public class UserSearchCommand {
         System.out.println("Search Word : " + searchWord);
 
         List<UserDTO> dtos = dao.userSearchAdmin(searchWord);
-        if (dtos.isEmpty() || dtos == null) {
+        if (dtos.isEmpty()) {
             System.out.println("===== DTO is Empty =====");
 
             return null;
