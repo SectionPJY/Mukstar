@@ -13,7 +13,7 @@
   <title>findMap</title>
   <link href="resources/css/user/findMap.css" rel="stylesheet">
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script type="module" src="../../../resources/JS/map.js"></script>
+  <script type="module" src="resources/JS/user/map.js"></script>
   <script type="text/javascript"
           src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=services"></script>
   <%@ include file="header.jsp" %>

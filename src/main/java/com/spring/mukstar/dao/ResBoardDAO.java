@@ -37,11 +37,17 @@ public class ResBoardDAO {
         return sqlSession.selectList("ResBoardMapper.boardSelectToUid", u_id);
     }
 
-    public List<ResBoardDTO> boardSelectToRname(String rb_name) {
+    public List<ResBoardDTO> boardSelectToContents(String rb_sub) {
         System.out.println("===== Board Select To Uid DAO =====");
-        System.out.println("name : " + rb_name);
+        System.out.println("name : " + rb_sub);
+        if (rb_sub.isEmpty()){
+            return null;
+        }else {
+            rb_sub = "%" + rb_sub + "%";
+            System.out.println("Search Word : " + rb_sub);
+        }
 
-        return sqlSession.selectList("ResBoardMapper.boardSelectToRname", rb_name);
+        return sqlSession.selectList("ResBoardMapper.boardSelectToContents", rb_sub);
     }
 
     // Board Insert

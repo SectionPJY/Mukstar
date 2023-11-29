@@ -15,7 +15,7 @@
         <img src="resources/assets/user/Logo.png">
     </a>
 </div>
-<form action="/search" method="get">
+<form action="/SearchAll" method="post">
     <input type="text" id="searchBox" name="searchBox" placeholder="검색어를 입력하세요" maxlength="20" size="100">
   </form>
   <div class="menu1">

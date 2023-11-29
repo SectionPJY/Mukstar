@@ -248,7 +248,7 @@ public class HomeController {
     public ModelAndView userSearch(HttpServletRequest request, Model model) {
         System.out.println("===== User Searching =====");
 
-        ModelAndView mv = null;
+        ModelAndView mv;
         List<SearchDTO> dtos = userSearchCommand.execute(request, model);
         if (null == dtos) {
             model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
@@ -267,11 +267,62 @@ public class HomeController {
     @RequestMapping("/boardSearch")
     public ModelAndView boardSearch(HttpServletRequest request, Model model) {
 
-        ModelAndView mv = null;
+        ModelAndView mv;
+        
         List<ResBoardDTO> dtos = boardSelectCommand.rnameToContents(request);
         if (null == dtos) {
             model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
             model.addAttribute("url", "redirect:/mapFind");
+
+            mv = new ModelAndView("alert");
+        } else {
+            model.addAttribute("postData", dtos);
+            mv = new ModelAndView("user/findPost");
+        }
+
+        System.out.println("===== Page Loading =====");
+        return mv;
+    }
+
+    @RequestMapping("/SearchAll")
+    public ModelAndView SearchAll(HttpServletRequest request, Model model) {
+
+        ModelAndView mv;
+
+        List<SearchDTO> udtos = userSearchCommand.execute(request, model);
+        List<ResBoardDTO> dtos = boardSelectCommand.rnameToContents(request);
+
+        mv = new ModelAndView("user/findAll");
+        if (null == udtos) {
+            if (null == dtos){
+                model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
+                model.addAttribute("url", "redirect:/");
+                mv = new ModelAndView("alert");
+            } else {
+                model.addAttribute("postData", dtos);
+            }
+        } else {
+            model.addAttribute("userData", udtos);
+            if (null == dtos){
+                model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
+                model.addAttribute("url", "redirect:/");
+            }else {
+                model.addAttribute("postData", dtos);
+            }
+        }
+
+        System.out.println("===== Page Loading =====");
+        return mv;
+    }
+
+    @RequestMapping("/searchMain")
+    public ModelAndView searchMain(HttpServletRequest request, Model model) {
+
+        ModelAndView mv = null;
+        List<ResBoardDTO> dtos = boardSelectCommand.rnameToContents(request);
+        if (null == dtos) {
+            model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
+            model.addAttribute("url", "/");
 
             mv = new ModelAndView("alert");
         } else {

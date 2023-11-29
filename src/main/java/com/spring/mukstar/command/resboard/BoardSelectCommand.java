@@ -89,7 +89,7 @@ public class BoardSelectCommand extends DateCast {
         if (null == dto || dto.isEmpty()) {
             System.out.println("===== DTO is Empty =====");
 
-            return null;
+            return dto;
         } else {
             System.out.println("===== DTO is Exists =====");
             Timestamp temp = Timestamp.valueOf(dto.get(0).getRb_date());
@@ -100,8 +100,8 @@ public class BoardSelectCommand extends DateCast {
     }
 
     public List<ResBoardDTO> rnameToContents(HttpServletRequest request) {
-        String rb_name = request.getParameter("rb_name");
-        List<ResBoardDTO> dto = dao.boardSelectToRname(rb_name);
+        String rb_sub = request.getParameter("searchBox");
+        List<ResBoardDTO> dto = dao.boardSelectToContents(rb_sub);
         if (null == dto) {
             System.out.println("===== DTO is Empty =====");
             return null;

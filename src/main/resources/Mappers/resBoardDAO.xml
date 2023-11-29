@@ -35,10 +35,10 @@
         where rb_uid = #{u_id};
     </select>
 
-    <select id="boardSelectToRname" resultType="ResBoardDTO">
+    <select id="boardSelectToContents" resultType="ResBoardDTO">
         select *
         from m_resboard
-        where rb_name = #{rb_name};
+        where rb_sub like #{rb_sub};
     </select>
 
     <!-- INSERT Board -->

@@ -23,8 +23,6 @@
         <c:if test="${not empty postData}">
             <c:forEach items="${postData}" var="Post">
                 <div class="user_info" onclick="location.href='/pSelect?rb_id=${Post.rb_id}'">
-                    <span>${User.u_nickname}</span>
-                    <span>${User.rb_count}</span>
                     <span class="loc">${Post.rb_address.substring(0,2)}</span>
                     <span class="tit">${Post.rb_sub}</span>
                     <span class="grade">${Post.rb_rating}</span>

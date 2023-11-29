@@ -19,7 +19,7 @@ public class UserSearchCommand {
     public List<SearchDTO> execute(HttpServletRequest request, Model model) {
         System.out.println("===== Test User Search Command is Running =====");
 
-        String searchWord = request.getParameter("searchWord");
+        String searchWord = request.getParameter("searchBox");
         System.out.println("Search Word : " + searchWord);
 
         List<SearchDTO> dtos = dao.userSearch(searchWord);
