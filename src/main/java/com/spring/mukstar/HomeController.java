@@ -2,6 +2,7 @@ package com.spring.mukstar;
 
 import com.spring.mukstar.Class.ModifiableHttpServletRequest;
 import com.spring.mukstar.command.qna.QnAListCommand;
+import com.spring.mukstar.command.reply.ReplySelectRbIdCommand;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubDeleteCommand;
@@ -62,6 +63,8 @@ public class HomeController {
     private ChannelListCommand channelListCommand;
     @Autowired
     private SubscriberListCommand subscriberListCommand;
+    @Autowired
+    private ReplySelectRbIdCommand replySelectRbIdCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
 
@@ -288,17 +291,18 @@ public class HomeController {
         System.out.println("===== Select Board Page =====");
 
         ModelAndView mv = null;
-        List<ResBoardDTO> dto = boardSelectCommand.execute(request);
-        if (null == dto) {
+        List<ResBoardDTO> boardData = boardSelectCommand.execute(request);
+        if (boardData.isEmpty() || null == boardData) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "redirect:/");
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("user/postDetail");
-            mv.addObject("boardData", dto);
-
-
+            mv.addObject("boardData", boardData);
         }
+
+        List<ReplyDTO> replyData = replySelectRbIdCommand.execute(request);
+        mv.addObject("replyData", replyData);
 
         return mv;
     }
