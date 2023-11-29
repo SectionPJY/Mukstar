@@ -295,7 +295,9 @@ public class HomeController {
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("user/postDetail");
-            model.addAttribute("boardData", dto);
+            mv.addObject("boardData", dto);
+
+
         }
 
         return mv;
