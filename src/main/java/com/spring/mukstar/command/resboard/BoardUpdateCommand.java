@@ -16,13 +16,13 @@ public class BoardUpdateCommand {
         System.out.println("===== Board Update Command is Running =====");
 
         int rb_id = Integer.parseInt(request.getParameter("rb_id"));
-        int rb_rid = Integer.parseInt(request.getParameter("rb_rid"));
+        String r_name = request.getParameter("r_name");
         String rb_sub = request.getParameter("rb_sub");
         int rb_rating = Integer.parseInt(request.getParameter("rb_rating"));
         String rb_contents = request.getParameter("rb_contents");
-        System.out.println(rb_id + ", " + rb_rid + ", " + rb_sub + ", " + rb_rating + ", " + rb_contents);
+        System.out.println(rb_id + ", " + r_name + ", " + rb_sub + ", " + rb_rating + ", " + rb_contents);
 
-        int result = dao.updateBoard(rb_id, rb_rid, rb_sub, rb_rating, rb_contents);
+        int result = dao.updateBoard(rb_id, r_name, rb_sub, rb_rating, rb_contents);
         if (1 == result) {
             System.out.println("===== Update Success =====");
 

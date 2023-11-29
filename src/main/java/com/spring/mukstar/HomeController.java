@@ -426,7 +426,6 @@ public class HomeController {
 
         modifyRequest = new ModifiableHttpServletRequest(request);
         modifyRequest.setParameter("searchWord", session.getAttribute("u_nickname").toString());
-        request = modifyRequest;
         modifyRequest.setParameter("rb_uid", session.getAttribute("u_id").toString());
         request = modifyRequest;
         int result = boardUpdateCommand.execute(request);

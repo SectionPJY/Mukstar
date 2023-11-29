@@ -100,7 +100,7 @@
     <!-- Board Update -->
     <update id="updateBoard">
         UPDATE m_resboard
-        SET rb_rid = #{rb_rid }, rb_sub = #{rb_sub }, rb_rating = #{rb_rating }, rb_contents = #{rb_contents }, rb_date = NOW()
+        SET rb_rid = (select r_id from m_restaurant where r_name = #{r_name }), rb_sub = #{rb_sub }, rb_rating = #{rb_rating }, rb_contents = #{rb_contents }, rb_date = NOW()
         WHERE rb_id = #{rb_id };
     </update>
 </mapper>

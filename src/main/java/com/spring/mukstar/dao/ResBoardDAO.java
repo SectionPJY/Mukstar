@@ -131,13 +131,13 @@ public class ResBoardDAO {
     }
 
     // Board Update
-    public int updateBoard(int rb_id, int rb_rid, String rb_sub, int rb_rating, String rb_contents) {
+    public int updateBoard(int rb_id, String r_name, String rb_sub, int rb_rating, String rb_contents) {
         System.out.println("===== Board Update DAO =====");
-        System.out.println(rb_id + ", " + rb_rid + ", " + rb_sub + ", " + rb_rating + ", " + rb_contents);
+        System.out.println(rb_id + ", " + r_name + ", " + rb_sub + ", " + rb_rating + ", " + rb_contents);
 
         HashMap<String, Object> map = new HashMap<>();
         map.put("rb_id", rb_id);
-        map.put("rb_rid", rb_rid);
+        map.put("r_name", r_name);
         map.put("rb_sub", rb_sub);
         map.put("rb_rating", rb_rating);
         map.put("rb_contents", rb_contents);
