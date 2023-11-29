@@ -64,7 +64,7 @@
                   <textarea readonly>${Reply.r_contents }</textarea>
                   <c:choose>
                     <c:when test="${Reply.r_uid == u_id}">
-                      <a onclick="updateReply('${Reply.r_id }')">수정</a> <a onclick="deleteReply('${Reply.r_id }')">삭제</a>
+                      <a onclick="deleteReply('${Reply.r_id }')">삭제</a>
                     </c:when>
                   </c:choose>
                 </div>
