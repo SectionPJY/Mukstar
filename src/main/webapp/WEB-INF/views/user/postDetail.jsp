@@ -64,7 +64,7 @@
                   <textarea readonly>${Reply.r_contents }</textarea>
                   <c:choose>
                     <c:when test="${Reply.r_uid == u_id}">
-                      <a onclick="updateReply()">수정</a> <a onclick="deleteReply()">삭제</a>
+                      <a onclick="updateReply('${Reply.r_id }')">수정</a> <a onclick="deleteReply('${Reply.r_id }')">삭제</a>
                     </c:when>
                   </c:choose>
                 </div>
@@ -98,6 +98,16 @@
 
   const drawStar = (target) => {
     document.querySelector(`.star span`).style.width = (+target.value * 10) + `%`;
+  }
+
+  function updateReply(r_id) {
+    console.log(r_id);
+
+
+  }
+
+  function deleteReply(r_id) {
+    console.log(r_id);
   }
 </script>
 </html>
