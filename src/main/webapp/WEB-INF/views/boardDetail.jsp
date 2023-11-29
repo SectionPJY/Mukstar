@@ -27,6 +27,11 @@
         <a onclick="updateBoard('${Board.rb_id }')">수정</a> <a onclick="deleteBoard('${Board.rb_id }')">삭제</a>
     </c:if>
 </c:forEach>
+
+<hr>
+
+
+</body>
 <script>
     function updateBoard(rb_id) {
         console.log(rb_id);
@@ -56,5 +61,4 @@
         });
     };
 </script>
-</body>
 </html>

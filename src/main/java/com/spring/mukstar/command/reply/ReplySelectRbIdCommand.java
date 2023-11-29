@@ -9,16 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Service
-public class ReplySelectCommand {
+public class ReplySelectRbIdCommand {
 
     @Autowired
     private ReplyDAO dao;
 
     public List<ReplyDTO> execute(HttpServletRequest request) {
-        System.out.println("===== Reply Select Command is Running =====");
-        String u_id = request.getParameter("u_id");
+        System.out.println("===== Reply Select with rb_id Command is Running =====");
 
-        List<ReplyDTO> dtos = dao.selectUserReply(u_id);
+        int rb_id = Integer.parseInt(request.getParameter("rb_id"));
+
+        List<ReplyDTO> dtos = dao.selectReplyRb_id(rb_id);
         if (dtos.isEmpty() || null == dtos) {
             System.out.println("===== DTO is Empty =====");
 

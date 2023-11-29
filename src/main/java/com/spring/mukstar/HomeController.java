@@ -2,6 +2,10 @@ package com.spring.mukstar;
 
 import com.spring.mukstar.Class.ModifiableHttpServletRequest;
 import com.spring.mukstar.command.qna.QnAListCommand;
+import com.spring.mukstar.command.reply.ReplyDeleteCommand;
+import com.spring.mukstar.command.reply.ReplySelectRidCommand;
+import com.spring.mukstar.command.reply.ReplySelectUidCommand;
+import com.spring.mukstar.command.reply.ReplySelectRbIdCommand;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubDeleteCommand;
@@ -62,6 +66,12 @@ public class HomeController {
     private ChannelListCommand channelListCommand;
     @Autowired
     private SubscriberListCommand subscriberListCommand;
+    @Autowired
+    private ReplySelectRbIdCommand replySelectRbIdCommand;
+    @Autowired
+    private ReplySelectRidCommand replySelectRidCommand;
+    @Autowired
+    private ReplyDeleteCommand replyDeleteCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
 
@@ -339,15 +349,18 @@ public class HomeController {
         System.out.println("===== Select Board Page =====");
 
         ModelAndView mv = null;
-        List<ResBoardDTO> dto = boardSelectCommand.execute(request);
-        if (null == dto) {
+        List<ResBoardDTO> boardData = boardSelectCommand.execute(request);
+        if (boardData.isEmpty() || null == boardData) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "/");
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("user/postDetail");
-            model.addAttribute("boardData", dto);
+            mv.addObject("boardData", boardData);
         }
+
+        List<ReplyDTO> replyData = replySelectRbIdCommand.execute(request);
+        mv.addObject("replyData", replyData);
 
         return mv;
     }
@@ -531,6 +544,23 @@ public class HomeController {
         } else {
             model.addAttribute("msg", "오류가 발생했습니다.");
             model.addAttribute("url", "sInfo");
+        }
+
+        return "alert";
+    }
+
+    // Reply Delete
+    @RequestMapping("replyDelete")
+    public String replyDelete(HttpServletRequest request, Model model) {
+        System.out.println("===== Reply Delete =====");
+
+        int result = replyDeleteCommand.execute(request);
+        if(1 == result) {
+            model.addAttribute("msg", "삭제되었습니다.");
+            model.addAttribute("url", "redirect:/");
+        } else {
+            model.addAttribute("msg", "삭제에 실패하였습니다. 처음 화면으로 넘어갑니다.");
+            model.addAttribute("url", "/");
         }
 
         return "alert";

@@ -37,11 +37,19 @@ public class ReplyDAO {
     }
 
     // Select Reply
-    public List<ReplyDTO> selectReplyRid(int r_id) {
+    public ReplyDTO selectReplyRid(int r_id) {
         System.out.println("===== Select Reply DAO =====");
         System.out.println("ID : " + r_id);
 
-        return sqlSession.selectList("ReplyMapper.selectReplyRid", r_id);
+        return sqlSession.selectOne("ReplyMapper.selectReplyRid", r_id);
+    }
+
+    // Select Reply : rb_id
+    public List<ReplyDTO> selectReplyRb_id(int rb_id) {
+        System.out.println("===== Select Reply DAO =====");
+        System.out.println("ID : " + rb_id);
+
+        return sqlSession.selectList("ReplyMapper.selectReplyRb_id", rb_id);
     }
 
     // Update Reply

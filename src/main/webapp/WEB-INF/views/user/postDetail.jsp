@@ -44,6 +44,8 @@
           <div id="map" style="width:450px;height:400px;"></div>
         </div>
       </div>
+      </c:forEach>
+
       <div class="replies_area">
         <form method="post" action="">
           <div class="replie">
@@ -52,16 +54,30 @@
             <input type="submit" value="작성하기">
           </div>
         </form>
-        <form method="post" action="">
-          <div class="comment">
-            <label>닉네임</label>
-            <textarea readonly>댓글 내용 들어갈곳</textarea>
-            <a href="">수정</a>
-            <a href="">삭제</a>
-          </div>
-        </form>
-        </c:forEach>
+
+        <c:choose>
+          <c:when test="${not empty replyData }">
+            <c:forEach items="${replyData }" var="Reply">
+              <form method="post" action="">
+                <div class="comment">
+                  <label>${Reply.r_uid }</label>
+                  <textarea readonly>${Reply.r_contents }</textarea>
+                  <c:choose>
+                    <c:when test="${Reply.r_uid == u_id}">
+                      <a onclick="deleteReply('${Reply.r_id }')">삭제</a>
+                    </c:when>
+                  </c:choose>
+                </div>
+              </form>
+            </c:forEach>
+          </c:when>
+          <c:otherwise>
+            <h2>댓글 없음</h2>
+          </c:otherwise>
+        </c:choose>
+
       </div>
+
     </div>
   </div>
 </div>
@@ -82,6 +98,13 @@
 
   const drawStar = (target) => {
     document.querySelector(`.star span`).style.width = (+target.value * 10) + `%`;
+  }
+
+  function deleteReply(r_id) {
+    console.log(r_id);
+    const url = "http://localhost:8080/replyDelete?r_id=" + r_id;
+
+    location.href = url;
   }
 </script>
 </html>

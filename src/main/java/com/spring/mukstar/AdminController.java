@@ -5,7 +5,7 @@ import com.spring.mukstar.command.admin.BoardListInAdminIndexCommand;
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.qna.QnASelectCommand;
 import com.spring.mukstar.command.reply.ReplySearchCommand;
-import com.spring.mukstar.command.reply.ReplySelectCommand;
+import com.spring.mukstar.command.reply.ReplySelectUidCommand;
 import com.spring.mukstar.command.reply.ReplySelectRidCommand;
 import com.spring.mukstar.command.resboard.BoardDeleteCommand;
 import com.spring.mukstar.command.resboard.BoardListCommand;
@@ -19,7 +19,6 @@ import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubscriberListCommand;
 import com.spring.mukstar.command.user.UserListCommand;
 import com.spring.mukstar.command.user.UserSearchCommand;
-import com.spring.mukstar.command.user.UserInfoCommand;
 import com.spring.mukstar.command.user.UserSelectCommand;
 import com.spring.mukstar.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +54,7 @@ public class AdminController {
     @Autowired
     private BoardSelectCommand boardSelectCommand;
     @Autowired
-    private ReplySelectCommand replySelectCommand;
+    private ReplySelectUidCommand replySelectUidCommand;
     @Autowired
     private ChannelListCommand channelListCommand;
     @Autowired
@@ -132,7 +131,7 @@ public class AdminController {
         mv.addObject("boardData", boardData);
 
         // 작성한 댓글
-        List<ReplyDTO> replyData = replySelectCommand.execute(request);
+        List<ReplyDTO> replyData = replySelectUidCommand.execute(request);
         mv.addObject("replyData", replyData);
 
         // 구독한 유저 목록
@@ -311,7 +310,7 @@ public class AdminController {
     public ModelAndView adminModalReplie(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView("admin/adminModalReplie");
 
-        List<ReplyDTO> replyData = replySelectRidCommand.execute(request);
+        ReplyDTO replyData = replySelectRidCommand.execute(request);
         mv.addObject("replyData", replyData);
         return mv;
     }

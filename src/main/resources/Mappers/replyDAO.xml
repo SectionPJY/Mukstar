@@ -23,6 +23,13 @@
         WHERE r_id = #{r_id };
     </select>
 
+    <!-- Select Reply : r_bid = rb_id -->
+    <select id="selectReplyRb_id" resultType="ReplyDTO">
+        SELECT *
+        FROM m_reply
+        WHERE r_bid = #{rb_id };
+    </select>
+
     <!-- Update Reply -->
     <update id="updateReply">
         UPDATE m_reply
