@@ -62,11 +62,13 @@
   </div>
   <c:if test="${not empty postData}">
     <c:forEach items="${postData}" var="Post">
+    <div class="user_list">
       <div class="user_info" onclick="location.href='/pSelect?rb_id=${Post.rb_id}'">
         <span class="tit">${Post.rb_sub}</span>
         <span class="grade">${Post.rb_rating}</span>
         <span class="view">${Post.rb_view}</span>
       </div>
+    </div>
     </c:forEach>
   </c:if>
 </div>
