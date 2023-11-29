@@ -29,11 +29,11 @@ public class ReplyDAO {
     }
 
     // Select User's Reply
-    public List<ReplyDTO> selectUserReply(String u_id) {
+    public ReplyDTO selectUserReply(String u_id) {
         System.out.println("===== Select User's Reply DAO =====");
         System.out.println("User ID : " + u_id);
 
-        return sqlSession.selectList("ReplyMapper.selectUserReply", u_id);
+        return sqlSession.selectOne("ReplyMapper.selectUserReply", u_id);
     }
 
     // Select Reply

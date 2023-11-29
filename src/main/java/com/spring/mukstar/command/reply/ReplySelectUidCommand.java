@@ -6,27 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Service
-public class ReplySelectCommand {
+public class ReplySelectUidCommand {
 
     @Autowired
     private ReplyDAO dao;
 
-    public List<ReplyDTO> execute(HttpServletRequest request) {
+    public ReplyDTO execute(HttpServletRequest request) {
         System.out.println("===== Reply Select Command is Running =====");
         String u_id = request.getParameter("u_id");
 
-        List<ReplyDTO> dtos = dao.selectUserReply(u_id);
-        if (dtos.isEmpty() || null == dtos) {
+        ReplyDTO dto = dao.selectUserReply(u_id);
+        if (null == dto) {
             System.out.println("===== DTO is Empty =====");
 
             return null;
         } else {
             System.out.println("===== DTO is Exists =====");
 
-            return dtos;
+            return dto;
         }
     }
 }

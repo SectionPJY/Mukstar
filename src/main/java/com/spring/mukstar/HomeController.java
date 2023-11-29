@@ -2,6 +2,7 @@ package com.spring.mukstar;
 
 import com.spring.mukstar.Class.ModifiableHttpServletRequest;
 import com.spring.mukstar.command.qna.QnAListCommand;
+import com.spring.mukstar.command.reply.ReplySelectUidCommand;
 import com.spring.mukstar.command.reply.ReplySelectRbIdCommand;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
@@ -65,6 +66,8 @@ public class HomeController {
     private SubscriberListCommand subscriberListCommand;
     @Autowired
     private ReplySelectRbIdCommand replySelectRbIdCommand;
+    @Autowired
+    private ReplySelectUidCommand replySelectUidCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
 
@@ -490,5 +493,14 @@ public class HomeController {
         }
 
         return "alert";
+    }
+
+    @RequestMapping("replyUpdatePage")
+    public ModelAndView replyUpdatePage(HttpServletRequest request) {
+        System.out.println("===== Reply Update Page =====");
+
+        replySelectUidCommand.execute(request);
+
+        return null;
     }
 }
