@@ -21,7 +21,7 @@
   <div class="container">
     <form class="user_search" method="post" action="/userSearch">
       <p>유저명</p>
-      <input type="text" id="searchWord" name="searchWord">
+      <input type="text" id="searchWord" name="searchBox">
       <button type="submit">검색</button>
     </form>
     <div class="user_list">
