@@ -100,15 +100,11 @@
     document.querySelector(`.star span`).style.width = (+target.value * 10) + `%`;
   }
 
-  function updateReply(r_id) {
-    console.log(r_id);
-    const url = "http://localhost:8080/boardUpdatePage?rb_id="
-
-    window.open();
-  }
-
   function deleteReply(r_id) {
     console.log(r_id);
+    const url = "http://localhost:8080/replyDelete?r_id=" + r_id;
+
+    location.href = url;
   }
 </script>
 </html>

@@ -310,7 +310,7 @@ public class AdminController {
     public ModelAndView adminModalReplie(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView("admin/adminModalReplie");
 
-        List<ReplyDTO> replyData = replySelectRidCommand.execute(request);
+        ReplyDTO replyData = replySelectRidCommand.execute(request);
         mv.addObject("replyData", replyData);
         return mv;
     }
