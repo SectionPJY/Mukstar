@@ -1,159 +1,182 @@
-*{
-    padding: 0;
-    margin: 0;
-    border: none;
-}
-body{
-    background-image: url("../assets/user/Login.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-}
-img{
-    position: absolute;
-    width: 578px;
-    height: 361px;
-    left: 467px;
-    top: 53px;
-    z-index: 1;
-}
-#login-wrap{
-    position: absolute;
-    width: 465.4px;
-    height: 312.56px;
-    left: 521.05px;
-    top: 338.25px;
-
-    background: #F7F7F7;
-    border-radius: 17px;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
-.login-wrapper > h2{
-    position: absolute;
-    width: 415.83px;
-    height: 38.55px;
-    left: 547.21px;
-    top: 362.78px;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
-    color: #F0B226;
-}
-.login-wrapper > p{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-
-    color: #303737;
-}
-#p1{
-    position: absolute;
-    width: 123.92px;
-    height: 26.16px;
-    left: 547.21px;
-    top: 414.86px;
-
-}
-#p2{
-    position: absolute;
-    width: 123.92px;
-    height: 26.16px;
-    left: 547.95px;
-    top: 494.38px;
-}
-#login-form > input{
-    background: #D9D9D9;
-    border-radius: 5px;
-}
-#u_id{
-    position: absolute;
-    width: 415.86px;
-    height: 45.04px;
-    left: 546.57px;
-    top: 441.84px;
-}
-#u_pw{
-    position: absolute;
-    width: 415.86px;
-    height: 45.04px;
-    left: 546.57px;
-    top: 521.41px;
-}
-#login-form > input[type="submit"]{
-    position: absolute;
-    width: 195.17px;
-    height: 45.04px;
-    left: 548.07px;
-    top: 581.46px;
-
-    background: #FFC738;
-    border-radius: 5px;
+body {
+  background-image: url("../assets/user/Login.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
 }
 
-#login-form > input[type="button"]{
-    position: absolute;
-    width: 195.17px;
-    height: 45.04px;
-    left: 767.26px;
-    top: 581.46px;
-
-    background: #FFC738;
-    border-radius: 5px;
-}
-#reg{
-    position: absolute;
-    width: 459.4px;
-    height: 46.82px;
-    left: 525.55px;
-    top: 664.03px;
-
-    background: #FFC738;
-    border-radius: 5px;
-
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    line-height: 46.82px;
+img {
+  position: absolute;
+  width: 580px;
+  height: 360px;
+  left: 39%;
+  top: 5%;
+  z-index: 1;
+  margin-left: -65px;
 }
 
-#naver{
-    position: absolute;
-    width: 459.4px;
-    height: 46.82px;
-    left: 525.55px;
-    top: 724.08px;
-
-    background: url("../assets/naver.png");
-    border-radius: 5px;
+#login-wrap {
+  position: absolute;
+  width: 465.4px;
+  height: 312.56px;
+  left: 42%;
+  top: 34%;
+  background: #F7F7F7;
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin-left: -65px;
+  margin-top: -15px;
 }
 
-#kakao{
-    position: absolute;
-    width: 459.4px;
-    height: 46.82px;
-    left: 525.55px;
-    top: 784.67px;
-
-    background: url("../assets/kako.png");
-    border-radius: 5px;
+.login-wrapper > h2 {
+  position: absolute;
+  width: 415.83px;
+  height: 38.55px;
+  left: 5%;
+  top: 5%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #F0B226;
 }
 
-#google{
-    position: absolute;
-    width: 459.4px;
-    height: 46.82px;
-    left: 525.55px;
-    top: 845.25px;
-
-    background: url("../assets/google.png");
-    border-radius: 5px;
+.login-wrapper > p {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #303737;
 }
+
+#p1 {
+  position: absolute;
+  width: 123.92px;
+  height: 26.16px;
+  left: 5%;
+  top: 15%;
+}
+
+#p2 {
+  position: absolute;
+  width: 123.92px;
+  height: 26.16px;
+  left: 5%;
+  top: 40%;
+}
+
+/*#login-form > input {
+  background: #D9D9D9;
+  border-radius: 5px;
+}*/
+
+#u_id {
+  position: absolute;
+  width: 415.86px;
+  height: 45.04px;
+  left: 5%;
+  top: 22%;
+  padding-left: 10px;
+}
+
+#u_pw {
+  position: absolute;
+  width: 415.86px;
+  height: 45.04px;
+  left: 5%;
+  top: 48%;
+  padding-left: 10px;
+}
+
+#login-form > input[type="submit"] {
+  position: absolute;
+  width: 195.17px;
+  height: 45.04px;
+  left: 5%;
+  top: 73%;
+  background: #FFC738;
+  border-radius: 5px;
+}
+
+#login-form > input[type="button"] {
+  position: absolute;
+  width: 195.17px;
+  height: 45.04px;
+  left: 52%;
+  top: 73%;
+  background: #FFC738;
+  border-radius: 5px;
+}
+
+.register {
+  position: absolute;
+  top: 103%;
+}
+
+#reg {
+  position: absolute;
+  width: 459.4px;
+  height: 46.82px;
+  background: #FFC738;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  line-height: 46.82px;
+}
+
+#admin {
+  position: absolute;
+  width: 459.4px;
+  height: 46.82px;
+  top: 55px;
+  background: #FFC738;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  line-height: 46.82px;
+}
+
+/*#naver {
+  position: absolute;
+  width: 459.4px;
+  height: 46.82px;
+  left: 525.55px;
+  top: 724.08px;
+
+  background: url("../assets/naver.png");
+  border-radius: 5px;
+}
+
+#kakao {
+  position: absolute;
+  width: 459.4px;
+  height: 46.82px;
+  left: 525.55px;
+  top: 784.67px;
+
+  background: url("../assets/kako.png");
+  border-radius: 5px;
+}
+
+#google {
+  position: absolute;
+  width: 459.4px;
+  height: 46.82px;
+  left: 525.55px;
+  top: 845.25px;
+
+  background: url("../assets/google.png");
+  border-radius: 5px;
+}*/
