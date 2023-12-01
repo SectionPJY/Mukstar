@@ -7,6 +7,7 @@ import com.spring.mukstar.command.reply.ReplySelectRidCommand;
 import com.spring.mukstar.command.reply.ReplySelectUidCommand;
 import com.spring.mukstar.command.reply.ReplySelectRbIdCommand;
 import com.spring.mukstar.command.resboard.*;
+import com.spring.mukstar.command.restaurant.RestaurantListCommand;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubDeleteCommand;
 import com.spring.mukstar.command.subscribe.SubInsertCommand;
@@ -72,6 +73,8 @@ public class HomeController {
     private ReplySelectRidCommand replySelectRidCommand;
     @Autowired
     private ReplyDeleteCommand replyDeleteCommand;
+    @Autowired
+    private RestaurantListCommand restaurantListCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
 
@@ -279,10 +282,10 @@ public class HomeController {
 
         ModelAndView mv;
         
-        List<ResBoardDTO> dtos = boardSelectCommand.rnameToContents(request);
+        List<ResBoardDTO> dtos = boardSelectCommand.executeR_id(request);
         if (null == dtos) {
             model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
-            model.addAttribute("url", "redirect:/mapFind");
+            model.addAttribute("url", "/mapFind");
 
             mv = new ModelAndView("alert");
         } else {
@@ -306,7 +309,7 @@ public class HomeController {
         if (null == udtos) {
             if (null == dtos){
                 model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
-                model.addAttribute("url", "redirect:/");
+                model.addAttribute("url", "/");
                 mv = new ModelAndView("alert");
             } else {
                 model.addAttribute("postData", dtos);
@@ -315,7 +318,7 @@ public class HomeController {
             model.addAttribute("userData", udtos);
             if (null == dtos){
                 model.addAttribute("msg", "검색결과를 불러오지 못했습니다.");
-                model.addAttribute("url", "redirect:/");
+                model.addAttribute("url", "/");
             }else {
                 model.addAttribute("postData", dtos);
             }
@@ -371,7 +374,7 @@ public class HomeController {
         System.out.println("===== Select Board Page =====");
 
         ModelAndView mv = null;
-        List<ResBoardDTO> dtos = boardListCommand.executeUser(request);
+        List<RestaurantDTO> dtos = restaurantListCommand.execute();
         if (null == dtos) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "/");
@@ -557,7 +560,7 @@ public class HomeController {
         int result = replyDeleteCommand.execute(request);
         if(1 == result) {
             model.addAttribute("msg", "삭제되었습니다.");
-            model.addAttribute("url", "redirect:/");
+            model.addAttribute("url", "/");
         } else {
             model.addAttribute("msg", "삭제에 실패하였습니다. 처음 화면으로 넘어갑니다.");
             model.addAttribute("url", "/");

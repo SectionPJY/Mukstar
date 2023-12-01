@@ -117,7 +117,7 @@ public class BoardSelectCommand extends DateCast {
         int r_id = Integer.parseInt(request.getParameter("r_id"));
 
         List<ResBoardDTO> dto = dao.selectBoardFromR_id(r_id);
-        if (dto.isEmpty() || null ==dto) {
+        if (dto.isEmpty()) {
             System.out.println("===== DTO is Empty =====");
 
             return null;

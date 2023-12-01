@@ -13,7 +13,6 @@
   <title>findMap</title>
   <link href="resources/css/user/findMap.css" rel="stylesheet">
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script type="module" src="resources/JS/user/map.js"></script>
   <script type="text/javascript"
           src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a081dfe4a9800cc7ae0a46ef02263d69&libraries=services"></script>
   <%@ include file="header.jsp" %>
@@ -21,8 +20,8 @@
 <body>
 <div class="wrap">
   <div class="container">
-    <form action="/boardSearch" method="post" id="mapSearch">
-      <input type="hidden" name="rb_name" value="">
+    <form action="/boardSearch" method="get" id="mapSearch">
+      <input type="hidden" name="r_id" value="">
       <div class="map_area">
         <div class="search_area">
           <section class="search">
@@ -46,8 +45,8 @@
   let position = [
     <c:forEach items="${boardData }" var="Board" varStatus="i">
     <c:choose>
-      <c:when test="${i.last}">{ data : "${Board.r_address}", rName : "${Board.r_name}", rb_id : "${Board.rb_id}" }</c:when>
-      <c:otherwise>{ data : "${Board.r_address}", rName : "${Board.r_name}", rb_id : "${Board.rb_id}" },</c:otherwise>
+      <c:when test="${i.last}">{ data : "${Board.r_address}", rName : "${Board.r_name}", rId : "${Board.r_id}" }</c:when>
+      <c:otherwise>{ data : "${Board.r_address}", rName : "${Board.r_name}", rId : "${Board.r_id}" },</c:otherwise>
     </c:choose>
     </c:forEach>
   ];
@@ -88,7 +87,13 @@
           var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
           if (bounds.contain(coords)) {
             ++count;
-            $("#result_list").append('<li onclick="$(\'input[name=rb_name]\').val(this.innerHTML); getElementById(\'mapSearch\').submit();" >' + position[i].rName + '</li>')
+            const li = document.createElement('li');
+            li.textContent = position[i].rName;
+            li.id = position[i].rId
+            $("#result_list").append(li);
+            // $("#result_list").on('click', document.getElementById(position[i].rId) , function() {
+            //   $('input[name=r_id]').val(position[i].rId); document.getElementById('mapSearch').submit();
+            // });
           }else{
             --maxCount;
           }
@@ -111,6 +116,7 @@
           });
 
           let rame = position[i].rName;
+          let rid = position[i].rId;
           // 인포윈도우로 장소에 대한 설명을 표시합니다
           infowindow = new kakao.maps.InfoWindow({
             content: '<div style="width:150px;text-align:center;padding:6px 0;">'
@@ -119,7 +125,7 @@
           infowindow.open(map, marker);
 
           kakao.maps.event.addListener(marker, 'click', function() {
-            $('input[name=rb_name]').val(rame);
+            $("input[name=r_id]").val(rid);
             document.getElementById('mapSearch').submit();
           });
       }
