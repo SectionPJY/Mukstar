@@ -32,21 +32,23 @@ footer {
 #wrap {
   min-width: 1340px;
   height: auto;
-  min-height: 100%;
+  /*min-height: 100%;*/
+  min-height: 91%;
   padding-bottom: 60px;
 }
 
 .container {
   position: relative;
   width: 1280px;
-  top: 100px;
-  left: 280px;
-  padding-bottom: 60px;
+  top: 200px;
+  left: 19%;
+  /*padding-bottom: 60px;*/
 }
 
 .user_search {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 50px;
 }
 
@@ -73,13 +75,16 @@ footer {
   width: 100px;
   height: 36px;
   color: black;
+  border-radius: 10px;
+  font-size: 20px;
+  text-align: center;
 }
 
 .user_list {
   width: 1280px;
   display: flex;
   justify-content: center;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .user_info {
@@ -95,8 +100,10 @@ footer {
 }
 
 .user_info span{
+  width: 80px;
   padding-top: 16px;
   color: white;
+  text-align: center;
 }
 
 .social-icons {

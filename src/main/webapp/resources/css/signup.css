@@ -1,137 +1,133 @@
-*{
-    padding: 0;
-    margin: 0;
-    border: none;
-}
-body{
-    background-image: url("../assets/Login.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-}
-img{
-    position: absolute;
-    width: 593px;
-    height: 372px;
-    left: 460px;
-    top: 47px;
-    z-index: 1;
-}
-#signup-wrap{
-    position: absolute;
-    width: 478.09px;
-    height: 528.98px;
-    left: 515.52px;
-    top: 340.02px;
-
-    background: #F7F7F7;
-    border-radius: 17px;
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
-.signup-wrapper > h2{
-    position: absolute;
-    width: 427.17px;
-    height: 39.6px;
-    left: 540.85px;
-    top: 381.66px;
+body {
+  background-image: url("../assets/user/Login.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
 
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 42px;
+img {
+  position: absolute;
+  width: 593px;
+  height: 372px;
+  left: 36%;
+  top: 47px;
+  z-index: 1;
+}
 
-    color: #F0B226;
+#signup-wrap {
+  position: absolute;
+  width: 478px;
+  height: 528px;
+  left: 39%;
+  top: 352px;
+  background: #F7F7F7;
+  border-radius: 17px;
 }
-.signup-wrapper > p{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 23px;
 
-    color: #303737;
+.signup-wrapper > h2 {
+  position: absolute;
+  width: 427px;
+  height: 39px;
+  left: 20px;
+  top: 10px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px;
+  color: #F0B226;
 }
-#p1{
-    position: absolute;
-    width: 127.3px;
-    height: 26.87px;
-    left: 540.85px;
-    top: 435.15px;
+
+.signup-wrapper > p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #303737;
+}
+
+#p1 {
+  position: absolute;
+  width: 127px;
+  height: 26px;
+  left: 20px;
+  top: 60px;
+}
+
+#p2 {
+  position: absolute;
+  width: 127px;
+  height: 26px;
+  left: 20px;
+  top: 140px;
+}
+
+#p3 {
+  position: absolute;
+  width: 127px;
+  height: 26px;
+  left: 20px;
+  top: 220px;
 
 }
-#p2{
-    position: absolute;
-    width: 127.3px;
-    height: 26.87px;
-    left: 541.61px;
-    top: 516.85px;
-}
-#p3{
-    position: absolute;
-    width: 127.3px;
-    height: 26.87px;
-    left: 543.94px;
-    top: 599.11px;
 
+#p4 {
+  position: absolute;
+  width: 127px;
+  height: 26px;
+  left: 20px;
+  top: 300px;
 }
-#p4{
-    position: absolute;
-    width: 127.3px;
-    height: 26.87px;
-    left: 543.94px;
-    top: 680.85px;
-}
-#signup-form > input{
-    background: #D9D9D9;
-    border-radius: 5px;
-}
-#u_id{
-    position: absolute;
-    width: 427.19px;
-    height: 46.27px;
-    left: 540.19px;
-    top: 462.87px;
-}
-#u_pw{
-    position: absolute;
-    width: 427.19px;
-    height: 46.27px;
-    left: 540.19px;
-    top: 544.61px;
-}
-#u_nickname{
-    position: absolute;
-    width: 427.19px;
-    height: 46.27px;
-    left: 543.28px;
-    top: 626.83px;
-}
-#u_phone{
-    position: absolute;
-    width: 427.19px;
-    height: 46.27px;
-    left: 543.28px;
-    top: 708.56px;
-}
-#signup-form > input[type="submit"]{
-    position: absolute;
-    width: 200.49px;
-    height: 46.27px;
-    left: 768.44px;
-    top: 790.35px;
 
-    background: #FFC738;
-    border-radius: 5px;
+#signup-form > input {
+  background: #D9D9D9;
+  border-radius: 5px;
 }
-#signup-form > input[type="button"]{
-    position: absolute;
-    width: 200.49px;
-    height: 46.27px;
-    left: 543.28px;
-    top: 790.35px;
 
-    background: #FFC738;
-    border-radius: 5px;
+#u_id {
+  position: absolute;
+  width: 427px;
+  height: 46px;
+  left: 20px;
+  top: 80px;
+}
+
+#u_pw {
+  position: absolute;
+  width: 427px;
+  height: 46px;
+  left: 20px;
+  top: 160px;
+}
+
+#u_nickname {
+  position: absolute;
+  width: 427px;
+  height: 46px;
+  left: 20px;
+  top: 240px;
+}
+
+#u_phone {
+  position: absolute;
+  width: 427px;
+  height: 46px;
+  left: 20px;
+  top: 320px;
+}
+
+#signup-form > input[type="submit"] {
+  position: absolute;
+  width: 90%;
+  height: 46px;
+  left: 20px;
+  top: 415px;
+  background: #FFC738;
+  border-radius: 5px;
 }
