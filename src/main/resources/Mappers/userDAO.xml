@@ -48,4 +48,11 @@
         FROM m_user
         WHERE u_id LIKE #{searchWord } OR u_nickname LIKE #{searchWord };
     </select>
+
+    <!-- User PW Search -->
+    <select id="userPwSearch" resultType="UserDTO">
+        SELECT *
+        FROM m_user
+        WHERE u_id = #{u_id } AND u_phone = #{u_phone };
+    </select>
 </mapper>
