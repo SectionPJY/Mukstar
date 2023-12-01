@@ -13,15 +13,16 @@
 </head>
 <body>
 <img src="resources/assets/user/Logo.png" onclick="location.href='/login'">
-<div id="pwS-wrap"></div>
-<div class="pwS-wrapper">
-  <h2>PW FIND</h2>
-  <form action="/" method="post" id="pwS-form">
-    <p id="p1">아이디</p><input type="text" id="u_id" name="u_id"> <br>
-    <p id="p3">닉네임</p><input type="text" id="u_nickname" name="u_nickname"> <br>
-    <p id="p4">전화번호</p><input type="text" id="u_phone" name="u_phone"> <br> <br>
-    <input type="button" value="전화번호"><input type="submit" value="비밀번호 찾기">
-  </form>
+<div id="pwS-wrap">
+  <div class="pwS-wrapper">
+    <h2>PW FIND</h2>
+    <form action="/" method="post" id="pwS-form">
+      <p id="p1">아이디</p><input type="text" id="u_id" name="u_id"> <br>
+      <p id="p2">닉네임</p><input type="text" id="u_nickname" name="u_nickname"> <br>
+      <p id="p3">전화번호</p><input type="text" id="u_phone" name="u_phone"> <br> <br>
+      <input type="submit" value="비밀번호 찾기">
+    </form>
+  </div>
 </div>
 </body>
 </html>

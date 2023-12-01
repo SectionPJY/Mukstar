@@ -1,9 +1,9 @@
 * {
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /*body {
@@ -13,99 +13,102 @@
 }*/
 
 .logo {
-    position: relative;
-    left: 115px;
-    top: 50px;
+  position: relative;
+  left: 115px;
+  top: 50px;
 }
 
 .logo img {
-    width: 127px;
-    height: 80px;
+  width: 127px;
+  height: 80px;
+  cursor: pointer;
 }
 
 #searchBox {
-    position: absolute;
-    width: 680px;
-    height: 32px;
-    border-radius: 16px;
-    border: none;
-    left: 550px;
-    top: 71px;
-    padding: 10px;
-    outline: none;
+  position: absolute;
+  width: 680px;
+  height: 32px;
+  border-radius: 16px;
+  border: none;
+  left: 550px;
+  top: 71px;
+  padding: 10px;
+  outline: none;
 }
 
 .menu {
-    position: absolute;
-    width: 550px;
-    height: 100px;
-    left: 1500px;
-    top: 50px;
-    margin: 10px auto;
+  position: absolute;
+  width: 550px;
+  height: 100px;
+  left: 1500px;
+  top: 50px;
+  margin: 10px auto;
 }
 
 ul > div {
-    float: left;
-    margin: 15px;
+  float: left;
+  margin: 15px;
 }
 
 .menu div a {
-    color: black;
+  color: black;
 }
 
 .menu2 {
-    position: absolute;
-    width: 281px;
-    left: 750px;
-    top: 119px;
-    margin: 11px;
+  position: absolute;
+  width: 281px;
+  left: 750px;
+  top: 119px;
+  margin: 11px;
 }
 
 .menu2 button {
-    width: 134px;
-    height: 32px;
-    border-radius: 18px;
-    border: none;
-    cursor: pointer;
+  width: 134px;
+  height: 32px;
+  border-radius: 18px;
+  border: none;
+  cursor: pointer;
 }
 
 /*slideDown css*/
 /* 헤더 영역 css 시작 */
 
 .menu1 {
-    position: absolute;
-    left: 1265px;
-    top: 68px;
+  position: absolute;
+  left: 1265px;
+  top: 68px;
 }
 
 .menu1 nav > ul {
-    width: 600px;
-    float: right;
+  width: 600px;
+  float: right;
 }
 
 .menu1 nav > ul > li {
-    width: 150px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    float: left;
-    position: relative;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  float: left;
+  position: relative;
+  color: white;
+  cursor: pointer;
 }
 
-.menu1 nav > ul > li > a{
-    color: white;
+.menu1 nav > ul > li > a {
+  color: white;
 }
 
 .menu1 nav > ul > li > ul > li > a {
-    color: white;
+  color: white;
 }
 
 .menu1 nav > ul > li > ul {
-    display: none;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 100%;
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
 }
 
 /*slideDown css End */

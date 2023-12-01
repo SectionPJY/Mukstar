@@ -47,7 +47,7 @@ footer {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  top: 100px;
+  top: 15%;
   left: 100px;
 }
 
@@ -149,7 +149,7 @@ footer {
   position: relative;
   width: 67%;
   height: auto;
-  bottom: 38%;
+  bottom: 25%;
   left: 30%;
 }
 
@@ -166,10 +166,11 @@ footer {
   margin-top: 4%;
 }
 
-.click{
+.click {
   background-color: black;
 }
-.opacity{
+
+.opacity {
   position: absolute;
   width: 442px;
   height: 273px;
@@ -178,6 +179,7 @@ footer {
   top: 0px;
   right: 0px;
 }
+
 .post-imgarea {
   height: 200px;
   width: 250px;
