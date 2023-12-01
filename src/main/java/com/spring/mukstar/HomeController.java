@@ -71,6 +71,8 @@ public class HomeController {
     @Autowired
     private ReplySelectRidCommand replySelectRidCommand;
     @Autowired
+    private UserPwSearchCommand userPwSearchCommand;
+    @Autowired
     private ReplyDeleteCommand replyDeleteCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
@@ -561,6 +563,24 @@ public class HomeController {
         } else {
             model.addAttribute("msg", "삭제에 실패하였습니다. 처음 화면으로 넘어갑니다.");
             model.addAttribute("url", "/");
+        }
+
+        return "alert";
+    }
+
+    // PW Search
+    @RequestMapping("pwSearchFunction")
+    public String pwSearch(HttpServletRequest request, Model model) {
+        System.out.println("===== Password Search =====");
+
+        String u_pw = userPwSearchCommand.execute(request);
+        if (null == u_pw) {
+            model.addAttribute("msg", "회원 정보를 찾을 수 없습니다.");
+            model.addAttribute("url", "pwSearch");
+        } else {
+            String msg = "회원님의 비밀번호는 " + u_pw + " 입니다.";
+            model.addAttribute("msg", msg);
+            model.addAttribute("url", "login");
         }
 
         return "alert";

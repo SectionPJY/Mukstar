@@ -93,4 +93,15 @@ public class UserDAO {
 
         return sqlSession.selectList("UserMapper.userSearchAdmin", searchWord);
     }
+
+    public UserDTO userPwSearch(String u_id, String u_phone) {
+        System.out.println("===== User PW Search DAO =====");
+        System.out.println("User ID : " + u_id + ", Phone : " + u_phone);
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("u_id", u_id);
+        map.put("u_phone", u_phone);
+
+        return sqlSession.selectOne("UserMapper.userPwSearch", map);
+    }
 }
