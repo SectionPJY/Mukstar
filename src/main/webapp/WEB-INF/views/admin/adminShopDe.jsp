@@ -126,13 +126,13 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </form>
               </c:when>
                 <c:otherwise>
                   <h2>게시글 없음</h2>
                 </c:otherwise>
               </c:choose>
+            </div>
+          </form>
         <!-- Content Row -->
 
       </div>
