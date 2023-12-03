@@ -39,6 +39,8 @@
 
         <!-- Content Row -->
         <h2>유저 검색결과</h2>
+  <c:choose>
+    <c:when test="${not empty userData }">
         <form method="post" action="">
           <div class="wrap2">
             <div class="post_table">
@@ -52,21 +54,35 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>버튜버 입니다</td>
-                    <td>시구레 우이</td>
-                  </tr>
+      <c:forEach items="${userData }" var="User">
+        <c:choose>
+          <c:when test="${User.u_id == u_id }"></c:when>
+          <c:otherwise>
+            <tr>
+              <td>${User.u_id }</td>
+              <td>${User.u_nickname }</td>
+              <td>${User.u_phone }</td>
+            </tr>
+          </c:otherwise>
+        </c:choose>
+      </c:forEach>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
         </form>
+    </c:when>
+    <c:otherwise>
+      <h2 style="text-align : center">유저 검색결과 없음</h2>
+    </c:otherwise>
+  </c:choose>
 
         <hr style="border: 2px solid black; width: 96%;">
 
         <h2>가게 검색결과</h2>
+  <c:choose>
+    <c:when test="${not empty resData }">
         <form method="post" action="">
           <div class="wrap2">
             <div class="post_table">
@@ -74,42 +90,34 @@
                 <table class="table table-bordered table-hover" id="dataTable6">
                   <thead>
                   <tr>
-                    <th>(원본)게시글번호</th>
-                    <th>댓글내용</th>
-                    <th>작성일시</th>
+      <td>가게명</td>
+      <td>주소</td>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>버튜버 입니다</td>
-                    <td>2023/09/12</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>배고픕니다</td>
-                    <td>2023/09/22</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>큐브 대결하실레요?</td>
-                    <td>2023/10/01</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>비둘기 999</td>
-                    <td>2023/09/09</td>
-                  </tr>
+      <c:forEach items="${resData }" var="Res">
+        <tr>
+          <td>${Res.r_name }</td>
+          <td>${Res.r_address }</td>
+        </tr>
+      </c:forEach>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
         </form>
+    </c:when>
+    <c:otherwise>
+      <h2 style="text-align : center">가게 검색결과 없음</h2>
+    </c:otherwise>
+  </c:choose>
 
         <hr style="border: 2px solid black; width: 96%;">
 
         <h2>게시글 검색결과</h2>
+<c:choose>
+  <c:when test="${not empty boardData }">
         <form method="post" action="">
           <div class="wrap2">
             <div class="post_table">
@@ -123,21 +131,30 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>강아지_홍보</td>
-                    <td>전화</td>
-                    <td>2023/01/12</td>
-                  </tr>
+                  <c:forEach items="${boardData }" var="Board">
+                    <tr>
+                      <td>${Board.rb_id }</td>
+                      <td>${Board.rb_sub }</td>
+                      <td>${Board.rb_uid }</td>
+                    </tr>
+                  </c:forEach>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
         </form>
+  </c:when>
+  <c:otherwise>
+    <h2 style="text-align : center" >게시글 검색결과 없음</h2>
+  </c:otherwise>
+</c:choose>
 
         <hr style="border: 2px solid black; width: 96%;">
 
         <h2>댓글 검색 결과</h2>
+<c:choose>
+  <c:when test="${not empty replyData }">
         <form method="post" action="">
           <div class="wrap2">
             <div class="post_table">
@@ -145,25 +162,28 @@
                 <table class="table table-bordered table-hover" id="dataTable8">
                   <thead>
                   <tr>
-                    <th>구독채널 명</th>
-                    <th></th>
-                    <th>구독 시작일</th>
-                    <th></th>
+                    <td>댓글내용</td>
+                    <td>작성자</td>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>장사의 신</td>
-                    <td></td>
-                    <td>2023/09/15</td>
-                    <td><%--차후에 버튼 추가 예정--%></td>
-                  </tr>
+                  <c:forEach items="${replyData }" var="Reply">
+                    <tr>
+                      <td>${Reply.r_contents }</td>
+                      <td>${Reply.r_uid }</td>
+                    </tr>
+                  </c:forEach>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
         </form>
+  </c:when>
+  <c:otherwise>
+    <h2 style="text-align : center">댓글 검색결과 없음</h2>
+  </c:otherwise>
+</c:choose>
         <!-- Content Row -->
 
       </div>
@@ -218,25 +238,7 @@
 
 </body>
 <script>
-  /*replie modal js*/
-  /*$('#replie_modal').click(function (e) {
-    e.preventDefault();
-    console.log("active");
-    $('#replie').modal("show");
-  });*/
 
-  /*회원 응대 모달*/
-  function fnModuleInfo() {
-    $('#inoutmodal .modal-content').load("adminModalRespon");
-    $('#inoutmodal').modal();
-  }
-
-  <%-- 작성 일시 모달 --%>
-
-  function fnModuleInfo1() {
-    $('#replie .modal_content').load("adminModalReplie");
-    $('#replie').modal();
-  }
 </script>
 
 </html>
