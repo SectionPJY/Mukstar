@@ -43,17 +43,16 @@
       <!-- Begin Page Content -->
       <div class="container-fluid">
 
-        <c:forEach items="${boardData }" var="Board">
           <!-- Content Row -->
-          <form method="post" action="/shopDelete.do?r_id=${Board.r_id}">
+          <form method="post" action="/shopDelete.do?r_id=${boardData[0].r_id}">
             <div class="wrap">
               <div class="wrap_head">
                 <div class="head_left">
                   <div class="head-con">
-                    <label>가게명 : ${Board.r_name}</label>
+                    <label>가게명 : ${boardData[0].r_name}</label>
                   </div>
                   <div class="head-con">
-                    <label>가게 주소 : ${Board.r_address}</label>
+                    <label>가게 주소 : ${boardData[0].r_address}</label>
                   </div>
                   <div class="head-con">
                     <label>평 점 : </label>
@@ -61,7 +60,7 @@
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.r_rating}" step="1" min="0"
+              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${boardData[0].r_rating}" step="1" min="0"
                      max="10">
             </span>
                     </div>
@@ -91,6 +90,8 @@
                   <input type="submit" value="가게 삭제"/>
                 </div>
               </div>
+              <c:choose>
+              <c:when test="${not empty resData }">
               <div class="wrap_body">
                 <div class="body-table">
                   <div class="card-body">
@@ -127,8 +128,11 @@
               </div>
             </div>
           </form>
-        </c:forEach>
-
+              </c:when>
+                <c:otherwise>
+                  <h2>게시글 없음</h2>
+                </c:otherwise>
+              </c:choose>
         <!-- Content Row -->
 
       </div>
@@ -170,10 +174,8 @@
     document.querySelector('.star span').style.width = (val * 10) + '%';
   }
 
-  <c:forEach items="${resData }" var="Board">
-  let data = "${Board.r_address}";
-  let rName = "${Board.r_name}";
-  </c:forEach>
+  let data = "${resData[0].r_address}";
+  let rName = "${resData[0].r_name}";
   let addr = "";
 
   const drawStar = (target) => {
