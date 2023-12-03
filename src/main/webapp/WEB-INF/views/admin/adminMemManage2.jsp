@@ -158,6 +158,8 @@
 
         <hr style="border: 2px solid black; width: 96%;">
 
+<c:choose>
+  <c:when test="${not empty qnaData }">
         <form method="post" action="">
           <div class="wrap2">
             <div class="post_table">
@@ -188,6 +190,11 @@
             </div>
           </div>
         </form>
+  </c:when>
+  <c:otherwise>
+    <h2>응대내역 없음</h2>
+  </c:otherwise>
+</c:choose>
 
         <hr style="border: 2px solid black; width: 96%;">
 
