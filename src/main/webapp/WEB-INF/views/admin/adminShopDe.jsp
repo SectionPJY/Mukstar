@@ -90,10 +90,10 @@
                   <input type="submit" value="가게 삭제"/>
                 </div>
               </div>
-              <c:choose>
-              <c:when test="${not empty resData }">
               <div class="wrap_body">
                 <div class="body-table">
+                  <c:choose>
+                  <c:when test="${not empty resData }">
                   <div class="card-body">
                     <div class="container">
                       <table class="table table-bordered table-hover">
@@ -124,13 +124,13 @@
                       </table>
                     </div>
                   </div>
+                  </c:when>
+                    <c:otherwise>
+                      <h2 style="text-align: center">게시글 없음</h2>
+                    </c:otherwise>
+                  </c:choose>
                 </div>
               </div>
-              </c:when>
-                <c:otherwise>
-                  <h2>게시글 없음</h2>
-                </c:otherwise>
-              </c:choose>
             </div>
           </form>
         <!-- Content Row -->
