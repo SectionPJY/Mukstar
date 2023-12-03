@@ -25,7 +25,7 @@
   </div>
   <div class="register">
     <p id="reg" onclick="location.href='/signup'">회원가입</p>
-    <p id="admin" onclick="">관리자 로그인</p>
+    <p id="admin" onclick="location.href='/adminLogin'">관리자 로그인</p>
   </div>
 </div>
 </body>
