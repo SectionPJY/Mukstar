@@ -10,15 +10,14 @@
 <div class="wrap"> <!-- 배너표시영역 -->
   <div class="rolling-list"> <!-- 원본배너 -->
     <ul>
-        <c:forEach items="${boardList }" var="Board">
-            <li onclick="location.href='/pSelect?rb_id=${Board.rb_id}'">
-                        <div class="image-wrap"><img src="./img/img_banner1.svg" alt="${Board.rb_id}"></div>
-                        <div class="desc">
-                            <strong>${Board.rb_sub}</strong>
-                            <span>${Board.rb_contents}</span>
-                        </div>
-            </li>
-        </c:forEach>
+      <c:forEach items="${boardList }" var="Board">
+        <li onclick="location.href='/pSelect?rb_id=${Board.rb_id}'">
+          <div class="desc">
+            <strong>${Board.rb_sub}</strong>
+            <span>${Board.rb_contents}</span>
+          </div>
+        </li>
+      </c:forEach>
     </ul>
   </div>
 </div>
@@ -41,6 +40,6 @@
   clone.classList.add('clone');
 </script>
 <footer>
-    <%@ include file="footer.jsp" %>
+  <%@ include file="footer.jsp" %>
 </footer>
 </html>
