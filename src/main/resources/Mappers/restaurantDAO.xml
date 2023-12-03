@@ -37,7 +37,7 @@
             r_mark,
             IFNULL(
                     (
-                        SELECT AVG(rb_rating)
+                        SELECT ROUND(AVG(rb_rating))
                         FROM m_resboard
                         WHERE rb_rid = #{r_id}
                     ), 0
