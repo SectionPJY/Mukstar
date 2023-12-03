@@ -27,4 +27,7 @@ public class SubController {
 
     @RequestMapping(value = "/wPost")
     private String wPost(){ return "user/writePost"; }
+
+    @RequestMapping(value = "/adminLogin")
+    private String adminLogin(){ return "admin/adminLogin"; }
 }
