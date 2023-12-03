@@ -6,99 +6,9 @@
   /*background-color: gray;*/
 }
 
-.user_con {
-  /*background-color: black;*/
-  width: 100%;
-  height: 50%;
-  display: flex;
-  flex-direction: row;
-}
-
-.introduce {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  /*background-color: red;*/
-  width: 100%;
-  height: 50%;
-}
-
-#con_1 {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
-}
-
-#con_2 {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  width: 100%;
+h2 {
   color: black;
-}
-
-.pic_area {
-  width: 100%;
-  height: 50%;
-  text-align: center;
-}
-
-.pic_area > img {
-  margin-top: 15px;
-}
-
-.badge_area {
-  width: 50%;
-  height: 10%;
-}
-
-.badge_list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1px;
-  background-color: #fffdf8;
-}
-
-.badge_list > img {
-  width: 10%;
-  height: 10%;
-  margin-bottom: 5px;
-}
-
-#con_2 > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-#con_2 > div > input {
-  width: 50%;
-  height: 50px;
-  border-radius: 5px;
-  border: 1px solid black;
-  padding-left: 10px;
-  outline: none;
-}
-
-#con_2 > div > label {
-  margin: 0 10px 0px 0px;
-}
-
-#con_2 > div > button {
-  width: 80px;
-  height: 50px;
-  background-color: white;
-  color: black;
-  border-radius: 5px;
-  border: 1px solid black;
-}
-
-.intro_text {
-  width: 100%;
-  padding-top: 4%;
+  padding-left: 20px;
 }
 
 .wrap2 {
@@ -108,7 +18,6 @@
 .post_table {
   display: flex;
   flex-wrap: wrap;
-  /*background-color: blue;*/
   width: 100%;
   height: 100%;
   padding-top: 20px;
@@ -210,8 +119,4 @@ table {
   .container {
     max-width: 100%;
   }
-}
-
-h2 {
-  text-align: center;
 }

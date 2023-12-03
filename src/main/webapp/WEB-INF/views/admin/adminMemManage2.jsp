@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>회원관리상세</title>
+  <title>회원관리 상세</title>
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link
@@ -73,8 +73,6 @@
               </div>
             </div>
 
-            <hr style="border: 2px solid black; width: 96%;">
-
             <div class="introduce">
               <hr>
               <div class="intro_text">
@@ -82,7 +80,6 @@
                 <input type="submit" value="수정하기"/>
               </div>
             </div>
-
           </div>
         </form>
         </c:forEach>
@@ -294,10 +291,10 @@
 <%-- 회원 응대 모달 --%>
 <div class="modal fade" id="inoutmodal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-      </div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
     </div>
+  </div>
 </div>
 
 <%-- 작성 일시 모달 --%>
@@ -335,11 +332,11 @@
   }
 
   function boardSelect(rb_id) {
-    location.href = "http://localhost:8080/boardSelect?rb_id=" + rb_id;
+    location.href = "/boardSelect?rb_id=" + rb_id;
   };
 
   function userSelect(u_id) {
-    location.href = "http://localhost:8080/userSelect?u_id=" + u_id;
+    location.href = "/userSelect?u_id=" + u_id;
   };
 </script>
 
