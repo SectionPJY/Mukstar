@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>회원관리 상세</title>
+  <title>전체 검색</title>
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link
@@ -15,7 +15,7 @@
     rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="resources/css/admin/sb-admin-2.min.css" rel="stylesheet">
-  <link href="resources/css/admin/adminMemManage2.css" rel="stylesheet">
+  <link href="resources/css/admin/adminSearchAll.css" rel="stylesheet">
 </head>
 <body id="page-top">
 <!-- Page Wrapper -->
@@ -38,53 +38,7 @@
       <div class="container-fluid">
 
         <!-- Content Row -->
-
-        <form method="post" action="">
-          <div class="wrap">
-            <div class="user_con">
-              <div id="con_1">
-                <div class="pic_area">
-                  <img src="resources/assets/user/fox.jpg"/>
-                </div>
-                <div class="badge_area">
-                  <div class="badge_list">
-                    <img src="resources/assets/user/먹깨비.png"/>
-                    <img src="resources/assets/user/뱃지.png"/>
-                    <img src="resources/assets/user/왕관.png"/>
-                    <img src="resources/assets/user/인증마크.png"/>
-                  </div>
-                </div>
-              </div>
-
-              <div id="con_2">
-                <div>
-                  <input type="text" id="u_id" placeholder="아이디"/>
-                </div>
-                <div>
-                  <input type="password" id="u_pw" placeholder="비밀번호"/>
-                </div>
-                <div>
-                  <input type="text" id="u_phone" placeholder="전화번호"/>
-                </div>
-                <div>
-                  <input type="text" id="u_name" placeholder="닉네임" style="width: 39%; margin-right: 10px;"/>
-                  <button type="button">고객관리</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="introduce">
-              <hr>
-              <div class="intro_text">
-                <textarea cols="80" rows="15"></textarea>
-                <input type="submit" value="수정하기"/>
-              </div>
-            </div>
-          </div>
-        </form>
-
-        <hr style="border: 2px solid black; width: 96%;">
-
+        <h2>유저 검색결과</h2>
         <form method="post" action="">
           <div class="wrap2">
             <div class="post_table">
@@ -92,10 +46,9 @@
                 <table class="table table-bordered table-hover" id="dataTable5">
                   <thead>
                   <tr>
-                    <th>게시글번호</th>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>날짜</th>
+                    <th>ID</th>
+                    <th>닉네임</th>
+                    <th>연락처</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -103,25 +56,6 @@
                     <td>1</td>
                     <td>버튜버 입니다</td>
                     <td>시구레 우이</td>
-                    <td><a href="#">2023/09/12</a></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>배고픕니다</td>
-                    <td>길달</td>
-                    <td>2023/09/22</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>큐브 대결하실레요?</td>
-                    <td>고모리</td>
-                    <td>2023/10/01</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>비둘기 999</td>
-                    <td>아지르</td>
-                    <td>2023/09/09</td>
                   </tr>
                   </tbody>
                 </table>
@@ -132,6 +66,7 @@
 
         <hr style="border: 2px solid black; width: 96%;">
 
+        <h2>가게 검색결과</h2>
         <form method="post" action="">
           <div class="wrap2">
             <div class="post_table">
@@ -148,9 +83,7 @@
                   <tr>
                     <td>1</td>
                     <td>버튜버 입니다</td>
-                    <td>
-                      <button type="button" onclick="fnModuleInfo1()">2023/09/12</button>
-                    </td>
+                    <td>2023/09/12</td>
                   </tr>
                   <tr>
                     <td>2</td>
@@ -176,6 +109,7 @@
 
         <hr style="border: 2px solid black; width: 96%;">
 
+        <h2>게시글 검색결과</h2>
         <form method="post" action="">
           <div class="wrap2">
             <div class="post_table">
@@ -183,10 +117,9 @@
                 <table class="table table-bordered table-hover" id="dataTable7">
                   <thead>
                   <tr>
-                    <th>닉네임_응대 내용</th>
-                    <th>응대유형</th>
-                    <th>시간(날짜)</th>
-                    <th>In / Out</th>
+                    <th>게시글 번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -194,9 +127,6 @@
                     <td>강아지_홍보</td>
                     <td>전화</td>
                     <td>2023/01/12</td>
-                    <td>
-                      <button type="button" onclick="fnModuleInfo()">+</button>
-                    </td>
                   </tr>
                   </tbody>
                 </table>
@@ -207,6 +137,7 @@
 
         <hr style="border: 2px solid black; width: 96%;">
 
+        <h2>댓글 검색 결과</h2>
         <form method="post" action="">
           <div class="wrap2">
             <div class="post_table">
@@ -225,35 +156,6 @@
                     <td>장사의 신</td>
                     <td></td>
                     <td>2023/09/15</td>
-                    <td><%--차후에 버튼 추가 예정--%></td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </form>
-
-        <hr style="border: 2px solid black; width: 96%;">
-
-        <form method="post" action="">
-          <div class="wrap2">
-            <div class="post_table">
-              <div class="container">
-                <table class="table table-bordered table-hover" id="dataTable9">
-                  <thead>
-                  <tr>
-                    <th>구독자 명</th>
-                    <th></th>
-                    <th>구독 시작일</th>
-                    <th></th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>탬탬버린</td>
-                    <td></td>
-                    <td>2023/09/11</td>
                     <td><%--차후에 버튼 추가 예정--%></td>
                   </tr>
                   </tbody>
