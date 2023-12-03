@@ -20,6 +20,7 @@
 .wrap_footer {
   display: flex;
   width: 100%;
+  margin-top: 30px;
   margin-bottom: 30px;
 }
 
@@ -82,7 +83,7 @@ p {
   width: 100px;
   height: 50px;
   margin-right: 20px;
-  background-color: #f8f9fc;
+  background-color: wheat;
   border: none;
 }
 

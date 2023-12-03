@@ -88,6 +88,7 @@
                 </button>
               </div>
               <div class="wrap_btn">
+                <button type="button">게시물 수정</button>
                 <input type="submit" value="게시물 삭제">
               </div>
             </div>

@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>전체 찾기</title>
-  <link href="resources/css/user/findPost.css" rel="stylesheet">
+  <link href="resources/css/user/findAll.css" rel="stylesheet">
 </head>
 <body>
 <%@ include file="header2.jsp" %>
@@ -30,7 +30,8 @@
     <c:if test="${not empty userData}">
       <c:forEach items="${userData}" var="User">
         <div class="user_list">
-          <div class="user_info" onclick="location.href='/userPage?uid=${User.u_id}'">
+          <div class="user_info" onclick="location.href='/userPage?uid=${User.u_id}'"
+               style="background-color: #FFC336 !important;">
             <span>${User.u_nickname}</span>
             <div class="social-icons">
               <img src="resources/assets/user/인증마크.png"/></a>
@@ -55,7 +56,8 @@
     <c:if test="${not empty postData}">
       <c:forEach items="${postData}" var="Post">
         <div class="user_list">
-          <div class="user_info" onclick="location.href='/pSelect?rb_id=${Post.rb_id}'">
+          <div class="user_info" onclick="location.href='/pSelect?rb_id=${Post.rb_id}'"
+               style="background-color: #FFC336 !important;">
             <span class="tit">${Post.rb_sub}</span>
             <span class="grade">${Post.rb_rating}</span>
             <span class="view">${Post.rb_view}</span>

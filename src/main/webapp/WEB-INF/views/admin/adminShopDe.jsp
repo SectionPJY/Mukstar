@@ -44,88 +44,89 @@
       <div class="container-fluid">
 
         <c:forEach items="${boardData }" var="Board">
-        <!-- Content Row -->
-        <form method="post" action="/shopDelete.do?r_id=${Board.r_id}">
-          <div class="wrap">
-            <div class="wrap_head">
-              <div class="head_left">
-                <div class="head-con">
-                  <label>가게명 : ${Board.r_name}</label>
-                </div>
-                <div class="head-con">
-                  <label>가게 주소 : ${Board.r_address}</label>
-                </div>
-                <div class="head-con">
-                  <label>평 점 : </label>
-                  <div class="star_background">
+          <!-- Content Row -->
+          <form method="post" action="/shopDelete.do?r_id=${Board.r_id}">
+            <div class="wrap">
+              <div class="wrap_head">
+                <div class="head_left">
+                  <div class="head-con">
+                    <label>가게명 : ${Board.r_name}</label>
+                  </div>
+                  <div class="head-con">
+                    <label>가게 주소 : ${Board.r_address}</label>
+                  </div>
+                  <div class="head-con">
+                    <label>평 점 : </label>
+                    <div class="star_background">
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.r_rating}" step="1" min="0" max="10">
+              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.r_rating}" step="1" min="0"
+                     max="10">
             </span>
+                    </div>
                   </div>
                 </div>
+                <div class="head_right">
+                  <div id="map" style="width:80%;height:80%;"></div>
+                </div>
               </div>
-              <div class="head_right">
-                <div id="map" style="width:80%;height:80%;"></div>
+              <div class="wrap_footer">
+                <div class="badge">
+                  <button type="button" value="뱃지1">
+                    <img src="resources/assets/user/먹깨비.png">
+                  </button>
+                  <button type="button" value="뱃지2">
+                    <img src="resources/assets/user/뱃지.png">
+                  </button>
+                  <button type="button" value="뱃지3">
+                    <img src="resources/assets/user/왕관.png">
+                  </button>
+                  <button type="button" value="뱃지4">
+                    <img src="resources/assets/user/인증마크.png">
+                  </button>
+                </div>
+                <div class="btn">
+                  <input type="button" value="가게 수정"/>
+                  <input type="submit" value="가게 삭제"/>
+                </div>
               </div>
-            </div>
-            <div class="wrap_body">
-              <div class="body-table">
-                <div class="card-body">
-                  <div class="container">
-                    <table class="table table-bordered table-hover">
-                      <thead>
-                      <tr>
-                        <th style="border: none; background-color: white">리뷰</th>
-                      </tr>
-                      <tr>
-                        <th>번호</th>
-                        <th>제목</th>
-                        <th>작성자</th>
-                        <th>작성일</th>
-                        <th>조회수</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <%--추후 onclick 추가해서 페이지 이동--%>
-                      <c:forEach items="${resData }" var="Res">
-                        <tr onclick="postSelect('${Res.rb_id }')">
-                          <td>${Res.rb_id}</td>
-                          <td>${Res.rb_sub }</td>
-                          <td>${Res.rb_uid }</td>
-                          <td>${Res.rb_date }</td>
-                          <td>${Res.rb_view}</td>
+              <div class="wrap_body">
+                <div class="body-table">
+                  <div class="card-body">
+                    <div class="container">
+                      <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                          <th style="border: none; background-color: white">리뷰</th>
                         </tr>
-                      </c:forEach>
-                      </tbody>
-                    </table>
+                        <tr>
+                          <th>번호</th>
+                          <th>제목</th>
+                          <th>작성자</th>
+                          <th>작성일</th>
+                          <th>조회수</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <%--추후 onclick 추가해서 페이지 이동--%>
+                        <c:forEach items="${resData }" var="Res">
+                          <tr onclick="postSelect('${Res.rb_id }')">
+                            <td>${Res.rb_id}</td>
+                            <td>${Res.rb_sub }</td>
+                            <td>${Res.rb_uid }</td>
+                            <td>${Res.rb_date }</td>
+                            <td>${Res.rb_view}</td>
+                          </tr>
+                        </c:forEach>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="wrap_footer">
-              <div class="badge">
-                <button type="button" value="뱃지1">
-                  <img src="resources/assets/user/먹깨비.png">
-                </button>
-                <button type="button" value="뱃지2">
-                  <img src="resources/assets/user/뱃지.png">
-                </button>
-                <button type="button" value="뱃지3">
-                  <img src="resources/assets/user/왕관.png">
-                </button>
-                <button type="button" value="뱃지4">
-                  <img src="resources/assets/user/인증마크.png">
-                </button>
-              </div>
-              <div class="btn">
-                <input type="button" value="가게 수정"/>
-                <input type="submit" value="가게 삭제"/>
-              </div>
-            </div>
-          </div>
-        </form>
+          </form>
         </c:forEach>
 
         <!-- Content Row -->
@@ -163,7 +164,7 @@
 
 
 <script>
-  window.onload = function (){
+  window.onload = function () {
     const val = document.getElementsByName('rb_rating')[0].value;
     console.log(val);
     document.querySelector('.star span').style.width = (val * 10) + '%';

@@ -1,14 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: jms
-  Date: 2023-05-14
-  Time: 오전 2:04
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>userPage</title>
+    <title>유저 정보</title>
     <link href="resources/css/user/userPage.css" rel="stylesheet">
     <%@ include file="header2.jsp" %>
 </head>
@@ -26,7 +19,7 @@
         <a href="#" class="badge4"><img src="resources/assets/user/먹깨비.png"/></a>
     </div>
     <div class="buttons">
-        <button style="background-color: #03B3FF; color: white" onclick="location.href=''">팔로우</button>
+        <%--<button style="background-color: #03B3FF; color: white" onclick="location.href=''">팔로우</button>--%>
         <button style="background-color: #FFA800; color: white; margin-top: 15px;" onclick="location.href='/addSub'">구독하기</button>
         <button style="background-color: #FF5757; color: white; margin-top: 15px;" onclick="location.href=''">차단하기</button>
     </div>

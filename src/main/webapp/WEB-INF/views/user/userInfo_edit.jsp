@@ -49,12 +49,8 @@
             <p>전화번호</p>
             <input type="text" value="${u_phone }" id="u_phone" name="u_phone">
         </div>
-        <div class="pay_input">
-            <p>결제정보</p>
-            <input type="text" name="pay">
-        </div>
         <div class="btn">
-            <input type="button" onclick="" value="전화번호 인증">
+            <input type="button" onclick="" value="프로필 이미지 변경">
             <input type="submit" value="비밀번호 인증">
         </div>
     </form>

@@ -10,14 +10,12 @@
   display: flex;
   flex-wrap: wrap;
   width: 50%;
-  background-color: #2c9faf;
   color: black;
 }
 
 .wrap2 {
   display: flex;
   width: 50%;
-  background-color: #17a673;
   justify-content: center;
   align-items: center;
 }
