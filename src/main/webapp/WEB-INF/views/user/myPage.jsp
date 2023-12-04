@@ -10,7 +10,7 @@
 <div class="wrapper">
   <div class="img-area">
     <div class="inner-area">
-      <img src="resources/assets/user/fox.jpg"/>
+      <img src="resources/assets/userImage.jpg"/>
     </div>
   </div>
   <span style="text-align: center; color: white; font-size: 40px; padding-bottom: 20px ">${nickname}</span>
@@ -28,7 +28,7 @@
       <div class="post" onclick="location.href='/pUpdatePage?rb_id=${Board.rb_id}'">
         <div class="post-imgarea">
           <div class="inner-area2">
-            <img src="resources/assets/user/fox.jpg" alt="이미지 없음"/>
+            <img src="resources/assets/userImage.jpg" alt="이미지 없음"/>
           </div>
           <div class="title-area">
             <p><c:out value="${Board.rb_sub}"/></p>

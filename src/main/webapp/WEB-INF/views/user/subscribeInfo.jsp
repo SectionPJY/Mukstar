@@ -16,7 +16,7 @@
 <div class="wrapper">
   <div class="img-area">
     <div class="inner-area">
-      <img src="resources/assets/user/fox.jpg"/>
+      <img src="resources/assets/userImage.jpg"/>
     </div>
   </div>
   <div class="buttons">
@@ -32,7 +32,7 @@
     <div class="post">
       <div class="post-imgarea">
         <div class="inner-area2">
-          <img src="resources/assets/user/fox.jpg"/>
+          <img src="resources/assets/userImage.jpg"/>
         </div>
       </div>
       <div class="username">

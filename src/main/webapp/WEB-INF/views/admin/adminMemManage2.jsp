@@ -44,15 +44,7 @@
               <div class="user_con">
                 <div id="con_1">
                   <div class="pic_area">
-                    <img src="resources/assets/user/fox.jpg"/>
-                  </div>
-                  <div class="badge_area">
-                    <div class="badge_list">
-                      <img src="resources/assets/user/먹깨비.png"/>
-                      <img src="resources/assets/user/뱃지.png"/>
-                      <img src="resources/assets/user/왕관.png"/>
-                      <img src="resources/assets/user/인증마크.png"/>
-                    </div>
+                    <img src="resources/assets/userImage.jpg"/>
                   </div>
                 </div>
 
