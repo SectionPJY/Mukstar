@@ -361,7 +361,7 @@ public class HomeController {
 
         ModelAndView mv = null;
         ResBoardDTO boardData = boardSelectCommand.execute(request);
-        if (null == boardData) {
+        if (boardData == null) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "/");
             mv = new ModelAndView("alert");
@@ -577,14 +577,12 @@ public class HomeController {
 
         int result = replyDeleteCommand.execute(request);
         if(1 == result) {
-            model.addAttribute("msg", "삭제되었습니다.");
-            model.addAttribute("url", "/");
+            return "redirect:/pSelect?rb_id=" + request.getParameter("rb_id");
         } else {
-            model.addAttribute("msg", "삭제에 실패하였습니다. 처음 화면으로 넘어갑니다.");
-            model.addAttribute("url", "/");
+            model.addAttribute("msg", "삭제에 실패하였습니다.");
+            model.addAttribute("url", "/pSelect?rb_id=" + request.getParameter("rb_id"));
+            return "alert";
         }
-
-        return "alert";
     }
 
     // PW Search
@@ -611,8 +609,6 @@ public class HomeController {
 
         int result = replyInsertCommand.execute(request);
         if (1 == result) {
-//            String url = "/pSelect?rb_id=" + request.getParameter("rb_id");
-//            System.out.println(url);
 
             return "redirect:/pSelect?rb_id=" + request.getParameter("rb_id");
         } else {

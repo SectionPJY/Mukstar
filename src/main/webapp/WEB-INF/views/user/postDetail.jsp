@@ -112,7 +112,7 @@
 
     function deleteReply(r_id) {
         console.log(r_id);
-        const url = "/replyDelete?r_id=" + r_id;
+        const url = "/replyDelete?r_id=" + r_id + "&rb_id=" + ${boardData.rb_id};
 
         location.href = url;
     }
