@@ -61,7 +61,7 @@
                     <input type="text" id="u_id" name="u_id" placeholder="${User.u_id }" value="${User.u_id }"/>
                   </div>
                   <div>
-                    <input type="password" id="u_pw" name="u_pw" value="${User.u_pw }" value="${User.u_pw }"/>
+                    <input type="password" id="u_pw" name="u_pw" value="${User.u_pw }"/>
                   </div>
                   <div>
                     <input type="text" id="u_phone" name="u_phone" placeholder="${User.u_phone }"

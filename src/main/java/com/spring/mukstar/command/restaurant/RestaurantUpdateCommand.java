@@ -18,10 +18,9 @@ public class RestaurantUpdateCommand {
         int r_id = Integer.parseInt(request.getParameter("r_id"));
         String r_name = request.getParameter("r_name");
         String r_address = request.getParameter("r_address");
-        int r_mark = Integer.parseInt(request.getParameter("r_mark"));
-        System.out.println(r_id + ", " + r_name + ", " + r_address + ", " + r_mark);
+        System.out.println(r_id + ", " + r_name + ", " + r_address);
 
-        int result = dao.resUpdate(r_id, r_name, r_address, r_mark);
+        int result = dao.resUpdate(r_id, r_name, r_address);
         if (1 == result) {
             System.out.println("===== Update Success =====");
 

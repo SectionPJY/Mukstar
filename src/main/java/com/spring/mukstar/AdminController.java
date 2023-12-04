@@ -313,12 +313,14 @@ public class AdminController {
 
     @RequestMapping("/shopUpdate.do")
     public String shopUpdate(HttpServletRequest request, Model model) {
+        System.out.println("===== Restaurant Update =====");
+
         int result = restaurantUpdateCommand.execute(request);
         if (1 == result) {
-            model.addAttribute("msg", "가게가 삭제되었습니다.");
+            model.addAttribute("msg", "수정이 완료되었습니다.");
             model.addAttribute("url", "shopManage");
         } else {
-            model.addAttribute("msg", "가게 삭제에 실패하였습니다.");
+            model.addAttribute("msg", "수정에 실패하였습니다.");
             model.addAttribute("url", "shopManage");
         }
 

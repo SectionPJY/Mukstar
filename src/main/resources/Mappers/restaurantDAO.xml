@@ -56,7 +56,7 @@
     <!-- Restaurant Update -->
     <update id="updateRestaurant">
         UPDATE m_restaurant
-        SET r_name = #{r_name }, r_address = #{r_address }, r_mark = #{r_mark }
+        SET r_name = #{r_name }, r_address = #{r_address }
         WHERE r_id = #{r_id };
     </update>
 

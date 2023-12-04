@@ -43,18 +43,18 @@
       <div class="container-fluid">
 
         <!-- Content Row -->
-        <form method="post" action="/shopDelete.do?r_id=${boardData[0].r_id}">
+        <form method="post" action="shopUpdate.do">
           <div class="wrap">
             <div class="wrap_head">
               <div class="head_left">
                 <div class="head-con">
-                  <input type="hidden" name="r_id" value="${boardData[0].r_id}">
+                  <input type="hidden" name="r_id" value="${boardData[0].r_id}" />
                   <p>가게명 : </p>
-                  <input type="text" name="r_name" value="${boardData[0].r_name}">
+                  <input type="text" name="r_name" value="${boardData[0].r_name}" />
                 </div>
                 <div class="head-con">
                   <p>주소 : </p>
-                  <input type="text" name="r_address" value="${boardData[0].r_address}">
+                  <input type="text" name="r_address" value="${boardData[0].r_address}" />
                 </div>
                 <div class="head-con">
                   <p>평 점 : </p>
@@ -75,8 +75,8 @@
             </div>
             <div class="wrap_footer">
               <div class="btn">
-                <input type="button" onclick="location.href='/shopUpdate.do?r_mark=1'" value="가게 수정"/>
-                <input type="submit" value="가게 삭제"/>
+                <input type="submit" value="가게 수정"/>
+                <input onclick="href='/shopDelete.do?r_id=${boardData[0].r_id}'" value="가게 삭제"/>
               </div>
             </div>
             <div class="wrap_body">
