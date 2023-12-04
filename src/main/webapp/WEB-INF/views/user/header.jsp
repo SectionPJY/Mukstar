@@ -21,12 +21,7 @@
   <div class="menu1">
     <nav>
       <ul>
-        <li>추천</a>
-          <ul>
-            <li><a href="#">유저 랭킹</a></li>
-            <li><a href="#">지역별 맛집</a></li>
-          </ul>
-        </li>
+        <li>유저랭킹</li>
         <li>고객센터</a>
           <ul>
             <li><a href="#">자주하는 질문</a></li>

@@ -39,104 +39,106 @@
 
         <!-- Content Row -->
         <c:forEach items="${userData }" var="User">
-        <form method="post" action="">
-          <div class="wrap">
-            <div class="user_con">
-              <div id="con_1">
-                <div class="pic_area">
-                  <img src="resources/assets/user/fox.jpg"/>
-                </div>
-                <div class="badge_area">
-                  <div class="badge_list">
-                    <img src="resources/assets/user/먹깨비.png"/>
-                    <img src="resources/assets/user/뱃지.png"/>
-                    <img src="resources/assets/user/왕관.png"/>
-                    <img src="resources/assets/user/인증마크.png"/>
+          <form method="post" action="">
+            <div class="wrap">
+              <div class="user_con">
+                <div id="con_1">
+                  <div class="pic_area">
+                    <img src="resources/assets/user/fox.jpg"/>
                   </div>
-                </div>
-              </div>
-
-              <div id="con_2">
-                <div>
-                  <input type="text" id="u_id" placeholder="${User.u_id }"/>
-                </div>
-                <div>
-                  <input type="password" id="u_pw" value="${User.u_pw }"/>
-                </div>
-                <div>
-                  <input type="text" id="u_phone" placeholder="${User.u_phone }"/>
-                </div>
-                <div>
-                  <input type="text" id="u_name" placeholder="${User.u_nickname }" style="width: 39%; margin-right: 10px;"/>
-                  <button type="button">고객관리</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="introduce">
-              <hr>
-              <div class="intro_text">
-                <textarea cols="80" rows="15">${User.u_info }</textarea>
-                <input type="submit" value="수정하기"/>
-              </div>
-            </div>
-          </div>
-        </form>
-        </c:forEach>
-
-        <hr style="border: 2px solid black; width: 96%;">
-        <c:choose>
-          <c:when test="${not empty boardData }">
-                <div class="wrap2">
-                  <div class="post_table">
-                    <div class="container">
-                      <table class="table table-bordered table-hover" id="dataTable5">
-                        <thead>
-                        <tr>
-                          <th>게시글번호</th>
-                          <th>제목</th>
-                          <th>작성자</th>
-                          <th>날짜</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${boardData }" var="Board">
-                        <tr onclick="boardSelect(${Board.rb_id })">
-                          <td>${Board.rb_id }</td>
-                          <td>${Board.rb_sub }</td>
-                          <td>${Board.rb_uid }</td>
-                          <td>${Board.rb_date }</td>
-                        </tr>
-                        </c:forEach>
-                        </tbody>
-                      </table>
+                  <div class="badge_area">
+                    <div class="badge_list">
+                      <img src="resources/assets/user/먹깨비.png"/>
+                      <img src="resources/assets/user/뱃지.png"/>
+                      <img src="resources/assets/user/왕관.png"/>
+                      <img src="resources/assets/user/인증마크.png"/>
                     </div>
                   </div>
                 </div>
+
+                <div id="con_2">
+                  <div>
+                    <input type="text" id="u_id" placeholder="${User.u_id }"/>
+                  </div>
+                  <div>
+                    <input type="password" id="u_pw" value="${User.u_pw }"/>
+                  </div>
+                  <div>
+                    <input type="text" id="u_phone" placeholder="${User.u_phone }"/>
+                  </div>
+                  <div>
+                    <input type="text" id="u_name" placeholder="${User.u_nickname }"
+                           style="width: 39%; margin-right: 10px;"/>
+                    <button type="button">고객관리</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="introduce">
+                <hr>
+                <div class="intro_text">
+                  <textarea cols="80" rows="15">${User.u_info }</textarea>
+                  <input type="submit" value="수정하기"/>
+                </div>
+              </div>
+            </div>
+          </form>
+        </c:forEach>
+
+        <hr style="border: 2px solid black; width: 96%;">
+        <h2>작성한 글</h2>
+        <c:choose>
+          <c:when test="${not empty boardData }">
+            <div class="wrap2">
+              <div class="post_table">
+                <div class="container">
+                  <table class="table table-bordered table-hover" id="dataTable5">
+                    <thead>
+                    <tr>
+                      <th>게시글번호</th>
+                      <th>제목</th>
+                      <th>작성자</th>
+                      <th>날짜</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${boardData }" var="Board">
+                      <tr onclick="boardSelect(${Board.rb_id })">
+                        <td>${Board.rb_id }</td>
+                        <td>${Board.rb_sub }</td>
+                        <td>${Board.rb_uid }</td>
+                        <td>${Board.rb_date }</td>
+                      </tr>
+                    </c:forEach>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </c:when>
           <c:otherwise>
-            <h2>작성한 글 없음</h2>
+            <h2 style="text-align: center">작성한 글 없음</h2>
           </c:otherwise>
         </c:choose>
 
 
         <hr style="border: 2px solid black; width: 96%;">
-
+        <h2>작성한 댓글</h2>
         <c:choose>
           <c:when test="${not empty replyData }">
-              <div class="wrap2">
-                <div class="post_table">
-                  <div class="container">
-                    <table class="table table-bordered table-hover" id="dataTable6">
-                      <thead>
-                      <tr>
-                        <th>(원본)게시글번호</th>
-                        <th>댓글내용</th>
-                        <th>작성일시</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <c:forEach items="${replyData }" var="Reply">
+            <div class="wrap2">
+              <div class="post_table">
+                <div class="container">
+                  <table class="table table-bordered table-hover" id="dataTable6">
+                    <thead>
+                    <tr>
+                      <th>(원본)게시글번호</th>
+                      <th>댓글내용</th>
+                      <th>작성일시</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${replyData }" var="Reply">
                       <tr onclick="replyModal(${Reply.r_id })">
                         <td>${Reply.r_bid }</td>
                         <td>${Reply.r_contents }</td>
@@ -144,131 +146,131 @@
                           <button type="button" onclick="fnModuleInfo1(${Reply.r_id})">${Reply.r_date }</button>
                         </td>
                       </tr>
+                    </c:forEach>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </c:when>
+          <c:otherwise>
+            <h2 style="text-align: center">작성한 댓글 없음</h2>
+          </c:otherwise>
+        </c:choose>
+
+        <hr style="border: 2px solid black; width: 96%;">
+        <h2>문의 내용</h2>
+        <c:choose>
+          <c:when test="${not empty qnaData }">
+            <form method="post" action="">
+              <div class="wrap2">
+                <div class="post_table">
+                  <div class="container">
+                    <table class="table table-bordered table-hover" id="dataTable7">
+                      <thead>
+                      <tr>
+                        <th>문의 제목</th>
+                        <th>문의 내용</th>
+                        <th>시간(날짜)</th>
+                        <th>답변 여부</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <c:forEach items="${qnaData}" var="qna">
+                        <tr>
+                          <td>${qna.q_sub}</td>
+                          <td>${qna.q_contents}</td>
+                          <td>${qna.q_date}</td>
+                          <td>
+                            <button type="button" onclick="fnModuleInfo(${qna.q_id})">+</button>
+                          </td>
+                        </tr>
                       </c:forEach>
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
+            </form>
           </c:when>
           <c:otherwise>
-            <h2>작성한 댓글 없음</h2>
+            <h2 style="text-align: center">문의내용 없음</h2>
           </c:otherwise>
         </c:choose>
 
         <hr style="border: 2px solid black; width: 96%;">
-
-<c:choose>
-  <c:when test="${not empty qnaData }">
-        <form method="post" action="">
-          <div class="wrap2">
-            <div class="post_table">
-              <div class="container">
-                <table class="table table-bordered table-hover" id="dataTable7">
-                  <thead>
-                  <tr>
-                    <th>닉네임_응대 내용</th>
-                    <th>응대유형</th>
-                    <th>시간(날짜)</th>
-                    <th>In / Out</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <c:forEach items="${qnaData}" var="qna">
-                    <tr>
-                    <td>${qna.q_sub}</td>
-                    <td>${qna.q_contents}</td>
-                    <td>${qna.q_date}</td>
-                    <td>
-                      <button type="button" onclick="fnModuleInfo(${qna.q_id})">+</button>
-                    </td>
-                  </tr>
-                  </c:forEach>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </form>
-  </c:when>
-  <c:otherwise>
-    <h2>응대내역 없음</h2>
-  </c:otherwise>
-</c:choose>
-
-        <hr style="border: 2px solid black; width: 96%;">
-
+        <h2>구독한 유저</h2>
         <c:choose>
           <c:when test="${not empty channelData }">
-              <form method="post" action="">
-                <div class="wrap2">
-                  <div class="post_table">
-                    <div class="container">
-                      <table class="table table-bordered table-hover" id="dataTable8">
-                        <thead>
-                        <tr>
-                          <th>구독채널 명</th>
-                          <th></th>
-                          <th>구독 시작일</th>
-                          <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${channelData }" var="Channel">
+            <form method="post" action="">
+              <div class="wrap2">
+                <div class="post_table">
+                  <div class="container">
+                    <table class="table table-bordered table-hover" id="dataTable8">
+                      <thead>
+                      <tr>
+                        <th>구독채널 명</th>
+                        <th></th>
+                        <th>구독 시작일</th>
+                        <th></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <c:forEach items="${channelData }" var="Channel">
                         <tr onclick="userSelect('${Channel.s_channel }')">
                           <td>${Channel.s_channel }</td>
                           <td></td>
                           <td>${Channel.s_date }</td>
-                          <td><%--차후에 버튼 추가 예정--%></td>
+                          <td></td>
                         </tr>
-                        </c:forEach>
-                        </tbody>
-                      </table>
-                    </div>
+                      </c:forEach>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
-              </form>
+              </div>
+            </form>
           </c:when>
           <c:otherwise>
-            <h2>구독한 유저 없음</h2>
+            <h2 style="text-align: center">구독한 유저 없음</h2>
           </c:otherwise>
         </c:choose>
 
         <hr style="border: 2px solid black; width: 96%;">
-
+        <h2>구독자</h2>
         <c:choose>
           <c:when test="${not empty subData }">
-              <form method="post" action="">
-                <div class="wrap2">
-                  <div class="post_table">
-                    <div class="container">
-                      <table class="table table-bordered table-hover" id="dataTable9">
-                        <thead>
-                        <tr>
-                          <th>구독자 명</th>
-                          <th></th>
-                          <th>구독 시작일</th>
-                          <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${subData }" var="Sub">
+            <form method="post" action="">
+              <div class="wrap2">
+                <div class="post_table">
+                  <div class="container">
+                    <table class="table table-bordered table-hover" id="dataTable9">
+                      <thead>
+                      <tr>
+                        <th>구독자 명</th>
+                        <th></th>
+                        <th>구독 시작일</th>
+                        <th></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <c:forEach items="${subData }" var="Sub">
                         <tr onclick="userSelect('${Sub.s_subscriber }')">
                           <td>${Sub.s_subscriber }</td>
                           <td></td>
                           <td>${Sub.s_date }</td>
-                          <td><%--차후에 버튼 추가 예정--%></td>
+                          <td></td>
                         </tr>
-                        </c:forEach>
-                        </tbody>
-                      </table>
-                    </div>
+                      </c:forEach>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
-              </form>
+              </div>
+            </form>
           </c:when>
           <c:otherwise>
-            <h2>구독자 없음</h2>
+            <h2 style="text-align: center">구독자 없음</h2>
           </c:otherwise>
         </c:choose>
 
@@ -328,11 +330,13 @@
 <script>
 
   /*회원 응대 모달*/
-  function fnModuleInfo(id){
+  function fnModuleInfo(id) {
     $('#inoutmodal .modal-content').load("adminModalRespon?q_id=" + id);
     $('#inoutmodal').modal();
   }
+
   <%-- 작성 일시 모달 --%>
+
   function fnModuleInfo1(id) {
     $('#replie .modal_content').load("adminModalReplie?r_id=" + id);
     $('#replie').modal();
