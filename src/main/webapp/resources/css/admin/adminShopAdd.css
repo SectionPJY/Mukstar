@@ -1,0 +1,147 @@
+.wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wrap_head {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 365px;
+}
+
+.wrap_body {
+  width: 100%;
+  height: auto;
+}
+
+.wrap_footer {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.head_left {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  text-align: left;
+  padding-left: 10%;
+}
+
+.head-con {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+label {
+  color: black;
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+
+p {
+  width: 5%;
+  height: 30px;
+  background-color: white;
+  color: black;
+  margin: 0;
+}
+
+.head_right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.wrap_body {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.body-table {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.badge > button {
+  width: 100px;
+  height: 50px;
+  margin-right: 20px;
+  background-color: wheat;
+  border: none;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.btn > input {
+  width: 100px;
+  height: 50px;
+  margin-right: 20px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* 별점 css */
+
+.star {
+  position: relative;
+  font-size: 2rem;
+  color: #ddd;
+  pointer-events: none;
+}
+
+.star input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  /*cursor: pointer;*/
+  pointer-events: none;
+}
+
+.star span {
+  width: 0;
+  position: absolute;
+  left: 0;
+  color: #ffc107;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star_background {
+  padding-left: 10px;
+}
+
+/* 별점 end */
+
+.table-bordered {
+  border: none !important;
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 100%;
+  }
+}
