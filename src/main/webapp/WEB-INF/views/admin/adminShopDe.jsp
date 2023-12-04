@@ -76,7 +76,7 @@
             <div class="wrap_footer">
               <div class="btn">
                 <input type="submit" value="가게 수정"/>
-                <input onclick="href='/shopDelete.do?r_id=${boardData[0].r_id}'" value="가게 삭제"/>
+                <input type="button" onclick="href='/shopDelete.do?r_id=${boardData[0].r_id}'" value="가게 삭제">
               </div>
             </div>
             <div class="wrap_body">
