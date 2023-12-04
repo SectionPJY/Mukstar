@@ -37,6 +37,19 @@ public class RestaurantDAO {
         return sqlSession.selectList("RestaurantMapper.searchRestaurantAdmin", searchWord);
     }
 
+    public List<RestaurantDTO> resSearchAddress(String searchWord) {
+        System.out.println("===== Restaurant Search DAO =====");
+
+        if (searchWord.isEmpty()) {
+            return null;
+        } else {
+            searchWord = "%" + searchWord + "%";
+            System.out.println("Search Word : " + searchWord);
+        }
+
+        return sqlSession.selectList("RestaurantMapper.searchRestaurantAddress", searchWord);
+    }
+
     public List<RestaurantDTO> resList() {
         System.out.println("===== Restaurant List DAO =====");
 

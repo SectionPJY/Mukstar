@@ -14,6 +14,13 @@
         WHERE r_name LIKE #{searchWord };
     </select>
 
+    <!-- Restaurant Search -->
+    <select id="searchRestaurantAddress" resultType="RestaurantDTO">
+        SELECT *
+        FROM m_restaurant
+        WHERE r_address LIKE #{searchWord };
+    </select>
+
     <!-- Restaurant List -->
     <select id="restaurantList" resultType="RestaurantDTO">
         SELECT *
