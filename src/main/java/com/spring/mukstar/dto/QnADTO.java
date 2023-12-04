@@ -11,6 +11,8 @@ public class QnADTO {
     private String q_contents;
     private boolean q_answer;
     private String q_date;
+    private String q_ansCon;
+    private String q_ansAdmin;
 
     public QnADTO(int q_id, String q_uid, String q_sub, String q_contents, boolean q_answer, Timestamp q_date) {
         this.q_id = q_id;
@@ -64,6 +66,14 @@ public class QnADTO {
     public String getQ_date() {return q_date;}
 
     public void setQ_date(String q_date) {this.q_date = q_date;}
+
+    public String getQ_ansCon() {return q_ansCon;}
+
+    public void setQ_ansCon(String q_ansCon) {this.q_ansCon = q_ansCon;}
+
+    public String getQ_ansAdmin() {return q_ansAdmin;}
+
+    public void setQ_ansAdmin(String q_ansAdmin) {this.q_ansAdmin = q_ansAdmin;}
 
     private String changeDate(Timestamp rb_date) {
 
