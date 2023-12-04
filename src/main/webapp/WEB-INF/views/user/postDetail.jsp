@@ -14,51 +14,41 @@
 <div class="wrap">
   <div class="container">
     <div class="post_detail">
-      <c:forEach items="${boardData }" var="Board">
       <div class="detail_top">
         <div class="user_profile">
           <div class="img_area">
-            <img src="resources/assets/user/fox.jpg" onclick="location.href='/userPage?uid=${Board.rb_uid}'"/>
+            <img src="resources/assets/user/fox.jpg" onclick="location.href='/userPage?uid=${boardData.rb_uid}'"/>
           </div>
         </div>
         <div class="list">
           <div class="post_title">
-            <p>${Board.rb_sub }</p>
+            <p>${boardData.rb_sub }</p>
             <div class="star_background">
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.rb_rating}" step="1" min="0" max="10">
+              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${boardData.rb_rating}" step="1" min="0" max="10">
             </span>
             </div>
           </div>
           <div class="post_date">
-            <p>${Board.rb_date }</p>
-            <p>${Board.rb_view }</p>
+            <p>${boardData.rb_date }</p>
+            <p>${boardData.rb_view }</p>
           </div>
         </div>
       </div>
       <div class="post_area">
-        <p class="content">${Board.rb_contents}</p>
+        <p class="content">${boardData.rb_contents}</p>
         <div class="post">
           <div id="map" style="width:450px;height:400px;"></div>
         </div>
       </div>
-      </c:forEach>
 
       <div class="replies_area">
-        <form method="post" action="">
-          <div class="replie">
-            <label>댓글 달기</label>
-            <textarea placeholder="댓글 쓰기"></textarea>
-            <input type="submit" value="작성하기">
-          </div>
-        </form>
-
         <c:choose>
           <c:when test="${u_id != null }">
-<%--            <form method="post" action="">--%>
-              <form action="replyInsert">
+              <form method="post" action="replyInsert">
+                <input type="hidden" name="rb_id" value="${boardData.rb_id }">
               <div class="replie">
                 <label>댓글 달기</label>
                 <textarea placeholder="댓글 쓰기" name="r_contents"></textarea>
@@ -70,7 +60,7 @@
             <form method="post" action="">
               <div class="replie">
                 <label>댓글 달기</label>
-                <textarea placeholder="로그인 후에 이용해주세요."></textarea>
+                <textarea placeholder="로그인 후에 이용해주세요." disabled></textarea>
                 <input type="submit" value="작성하기" disabled>
               </div>
             </form>
@@ -112,10 +102,8 @@
     document.querySelector('.star span').style.width = (val * 10) + '%';
   }
 
-  <c:forEach items="${boardData }" var="Board">
-  let data = "${Board.r_address}";
-  let rName = "${Board.r_name}";
-  </c:forEach>
+  let data = "${boardData.r_address}";
+  let rName = "${boardData.r_name}";
   let addr = "";
 
   const drawStar = (target) => {

@@ -21,6 +21,7 @@ public class ReplyInsertCommand {
         int r_bid = Integer.parseInt(request.getParameter("r_bid"));
         String r_uid = session.getAttribute("u_id").toString();
         String r_contents = request.getParameter("r_contents");
+        System.out.println("게시글 ID : " + r_bid + ", 유저 ID : " + r_uid);
 
         int result = dao.insertReply(r_bid, r_uid, r_contents);
         if (1 == result) {

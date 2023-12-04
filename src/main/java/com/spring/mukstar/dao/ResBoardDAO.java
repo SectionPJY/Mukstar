@@ -23,11 +23,11 @@ public class ResBoardDAO {
     }
 
     // Board Select
-    public List<ResBoardDTO> boardSelect(int rb_id) {
+    public ResBoardDTO boardSelect(int rb_id) {
         System.out.println("===== Board Select DAO =====");
         System.out.println("게시글번호 : " + rb_id);
 
-        return sqlSession.selectList("ResBoardMapper.boardSelect", rb_id);
+        return sqlSession.selectOne("ResBoardMapper.boardSelect", rb_id);
     }
 
     public List<ResBoardDTO> boardSelectToUid(String u_id) {

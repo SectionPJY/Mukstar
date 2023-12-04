@@ -360,8 +360,8 @@ public class HomeController {
         System.out.println("===== Select Board Page =====");
 
         ModelAndView mv = null;
-        List<ResBoardDTO> boardData = boardSelectCommand.execute(request);
-        if (boardData.isEmpty() || null == boardData) {
+        ResBoardDTO boardData = boardSelectCommand.execute(request);
+        if (null == boardData) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "/");
             mv = new ModelAndView("alert");
@@ -431,7 +431,7 @@ public class HomeController {
         System.out.println("===== Board Update Page =====");
 
         ModelAndView mv = null;
-        List<ResBoardDTO> dto = boardInfoCommand.execute(request);
+        ResBoardDTO dto = boardInfoCommand.execute(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "/myPage");
