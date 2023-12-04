@@ -11,9 +11,8 @@
 <body>
 <div class="wrap">
   <div class="container">
-    <c:forEach items="${boardData }" var="Board">
       <form method="post" action="/pUpdate">
-        <input type="hidden" name="rb_id" value="${Board.rb_id}">
+        <input type="hidden" name="rb_id" value="${boardData.rb_id}">
         <input type="hidden" name="r_address" value="">
         <div class="writepost">
           <div class="top">
@@ -21,7 +20,7 @@
               <p id="u_nickname">${u_nickname}</p>
             </div>
             <div class="title">
-              <input type="text" id="rb_sub" name="rb_sub" value="${Board.rb_sub}">
+              <input type="text" id="rb_sub" name="rb_sub" value="${boardData.rb_sub}">
             </div>
             <div class="star_background">
                 <%--<fieldset>
@@ -39,16 +38,16 @@
               <div class="star">
                 ★★★★★
                 <span>★★★★★</span>
-                <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.rb_rating}" step="1"
+                <input type="range" name="rb_rating" oninput="drawStar(this)" value="${boardData.rb_rating}" step="1"
                        min="0" max="10">
               </div>
             </div>
           </div>
           <div class="writearea">
                     <textarea id='rb_contents' name="rb_contents" placeholder="내용을 입력하세요.(3000자 이내)."
-                              rows="10" cols="10" wrap="hard">${Board.rb_contents}</textarea>
+                              rows="10" cols="10" wrap="hard">${boardData.rb_contents}</textarea>
             <div class="map_area">
-              <input type="text" id="r_name" name="r_name" value="${Board.r_name}">
+              <input type="text" id="r_name" name="r_name" value="${boardData.r_name}">
               <div id="map" style="width:450px;height:383px;border-radius: 0px 0px 15px 0px;"></div>
             </div>
           </div>
@@ -57,7 +56,6 @@
           </div>
         </div>
       </form>
-    </c:forEach>
   </div>
 </div>
 <%@ include file="user/footer.jsp" %>
@@ -70,9 +68,7 @@
     document.querySelector('.star span').style.width = (val * 10) + '%';
   }
 
-  <c:forEach items="${boardData }" var="Board">
-  var data = "${Board.r_address}";
-  </c:forEach>
+  var data = "${boardData.r_address}";
   var addr = "";
 
 
