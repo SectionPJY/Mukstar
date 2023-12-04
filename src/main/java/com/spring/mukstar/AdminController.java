@@ -260,12 +260,11 @@ public class AdminController {
         System.out.println("가게 검색");
 
         ModelAndView mv = new ModelAndView("admin/adminShopManage");
-
         List<RestaurantDTO> resData;
         if (request.getParameter("type").equals("name")){
             resData = restaurantSearchCommand.execute(request);
         } else {
-            resData = restaurantSearchCommand.execute(request);
+            resData = restaurantSearchCommand.executeAddress(request);
         }
         mv.addObject("boardData", resData);
 

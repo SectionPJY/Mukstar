@@ -38,7 +38,7 @@ public class RestaurantSearchCommand {
         String searchWord = request.getParameter("searchWord");
         System.out.println("Search Word : " + searchWord);
 
-        List<RestaurantDTO> dtos = dao.resSearch(searchWord);
+        List<RestaurantDTO> dtos = dao.resSearchAddress(searchWord);
         if (dtos.isEmpty() || dtos == null) {
             System.out.println("===== DTO is Empty =====");
 
