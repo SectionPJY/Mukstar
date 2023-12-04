@@ -257,7 +257,19 @@ public class HomeController {
             mv = new ModelAndView("user/userPage");
             if (null != session.getAttribute("u_id")){
                 List<SubscribeDTO> dtos = channelListCommand.execute(session.getAttribute("u_id").toString());
-                model.addAttribute("channelData", dtos);
+                if (dtos.isEmpty()){
+                    model.addAttribute("channelData", null);
+                }else {
+                    for (SubscribeDTO subscribeDTO : dtos) {
+                        boolean test = subscribeDTO.getS_channel().equals(request.getParameter("uid"));
+                        System.out.println(test);
+                        if (test) {
+                            model.addAttribute("channelData", "yes");
+                        } else {
+                            model.addAttribute("channelData", null);
+                        }
+                    }
+                }
             }
             model.addAttribute("boardData", dto);
         }
@@ -507,10 +519,10 @@ public class HomeController {
         int result = subDeleteCommand.execute(request);
         if (1 == result) {
             model.addAttribute("msg", "구독취소되었습니다.");
-            model.addAttribute("url", "userList");
+            model.addAttribute("url", "userPage?uid=" + request.getParameter("s_channel"));
         } else {
             model.addAttribute("msg", "오류가 발생했습니다.");
-            model.addAttribute("url", "userList");
+            model.addAttribute("url", "userPage?uid=" + request.getParameter("s_channel"));
         }
 
         return "alert";

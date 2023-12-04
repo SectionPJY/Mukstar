@@ -20,7 +20,7 @@
   </div>
   <div class="buttons">
     <c:choose>
-      <c:when test="${empty channelData }">
+      <c:when test="${channelData == null }">
         <%--<button style="background-color: #03B3FF; color: white" onclick="location.href=''">팔로우</button>--%>
         <button style="background-color: #FFA800; color: white; margin-top: 15px;"
                 onclick="location.href='/addSub?s_channel=${boardData[0].rb_uid}'">구독하기
