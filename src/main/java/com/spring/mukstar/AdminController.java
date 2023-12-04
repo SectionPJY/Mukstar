@@ -205,7 +205,7 @@ public class AdminController {
         int result = boardUpdateCommand.execute(request);
         if (1 == result) {
             model.addAttribute("msg", "수정되었습니다.");
-            model.addAttribute("url", "/boardSelect?rb_id=" + request.getParameter("rb_id"));
+            model.addAttribute("url", "/postSelect?rb_id=" + request.getParameter("rb_id"));
         } else {
             model.addAttribute("msg", "수정에 실패하였습니다.");
             model.addAttribute("url", "/postManage");

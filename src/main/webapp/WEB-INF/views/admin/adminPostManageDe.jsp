@@ -51,6 +51,8 @@
                 <div class="wrap1">
                   <div class="wrap1_top">
                     <div class="title">
+                      <input type="hidden" name="rb_id" value="${Board.rb_id }">
+                      <input type="hidden" name="r_name" value="${Board.r_name }">
                       <input type="text" name="rb_sub" value="${Board.rb_sub}">
                     </div>
                     <div class="rating">
@@ -66,7 +68,7 @@
                     </div>
                   </div>
                   <div class="wrap1_bot">
-                    <textarea>${Board.rb_contents}</textarea>
+                    <textarea name="rb_contents">${Board.rb_contents}</textarea>
                   </div>
                 </div>
                 <div class="wrap2">
@@ -76,7 +78,7 @@
               <div class="wrap_2">
                 <div class="wrap_btn">
                   <button type="submit">게시물 수정</button>
-                  <button onclick="href='/postDelete.do?rb_id=${Board.rb_id}'" value="게시물 삭제" />
+                  <input type="button" onclick="location.href='/postDelete.do?rb_id=${Board.rb_id}'" value="게시물 삭제">
                 </div>
               </div>
             </div>
