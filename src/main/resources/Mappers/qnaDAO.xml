@@ -38,4 +38,10 @@
         FROM m_qna
         WHERE q_id = #{q_id };
     </select>
+
+    <!-- QnA Insert -->
+    <insert id="insertQna">
+        INSERT INTO m_qna(q_uid, q_sub, q_contents)
+        VALUES(#{q_uid }, #{q_sub }, #{q_contents });
+    </insert>
 </mapper>

@@ -15,19 +15,19 @@
 <body>
 <div class="wrap">
     <div class="container">
-        <form action="#" method="post">
+        <form action="qnaInsert" method="post">
             <div class="writepost">
                 <div class="top">
                     <div class="user_id">
-                        <p>작성자 아이디</p>
+                        <p>${u_id }</p>
                     </div>
                     <div class="title">
-                        <input type="text">
+                        <input type="text" name="q_sub">
                     </div>
                 </div>
                 <div class="writearea">
-                    <textarea id='note_contents' placeholder="내용을 입력하세요.(3000자 이내)."
-                              rows="10" cols="10" wrap="hard"></textarea>
+                    <textarea id='note_contents' placeholder="내용을 입력하세요."
+                              rows="10" cols="10" wrap="hard" name="q_contents"></textarea>
                 </div>
                 <div class="post_btn">
                     <button type="submit">질문하기</button>

@@ -60,6 +60,19 @@ public class QnADAO {
         return sqlSession.selectList("QnAMapper.selectQna", q_id);
     }
 
+    // QnA Insert
+    public int insertQna(String q_uid, String q_sub, String q_contents) {
+        System.out.println("===== Insert QnA DAO =====");
+        System.out.println("유저 ID : " + q_uid + ", 제목 : " + q_sub);
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("q_uid", q_uid);
+        map.put("q_sub", q_sub);
+        map.put("q_contents", q_contents);
+
+        return sqlSession.insert("QnAMapper.insertQna", map);
+    }
+
     /*
     * Admin
     * */

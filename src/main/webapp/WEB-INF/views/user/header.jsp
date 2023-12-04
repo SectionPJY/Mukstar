@@ -22,12 +22,7 @@
     <nav>
       <ul>
         <li>유저랭킹</li>
-        <li>고객센터</a>
-          <ul>
-            <li><a href="#">자주하는 질문</a></li>
-            <li><a href="#">질문하기</a></li>
-          </ul>
-        </li>
+        <li><a href="/csPage">고객센터</a></li>
         <c:choose>
           <c:when test="${empty u_id}">
             <li><a href="/login">Login</a></li>

@@ -1,6 +1,7 @@
 package com.spring.mukstar;
 
 import com.spring.mukstar.Class.ModifiableHttpServletRequest;
+import com.spring.mukstar.command.qna.QnAInsertCommand;
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.reply.ReplyDeleteCommand;
 import com.spring.mukstar.command.reply.ReplyInsertCommand;
@@ -79,6 +80,8 @@ public class HomeController {
     private RestaurantListCommand restaurantListCommand;
     @Autowired
     private ReplyInsertCommand replyInsertCommand;
+    @Autowired
+    private QnAInsertCommand qnaInsertCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
 
@@ -627,5 +630,21 @@ public class HomeController {
 
             return "/";
         }
+    }
+
+    @RequestMapping("qnaInsert")
+    public String qnaInsert(HttpServletRequest request, Model model) {
+        System.out.println("===== QnA Insert =====");
+
+        int result = qnaInsertCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "문의내용이 접수되었습니다.");
+            model.addAttribute("url", "csPage");
+        } else {
+            model.addAttribute("msg", "문의 접수에 실패하였습니다.");
+            model.addAttribute("url", "csPage");
+        }
+
+        return "alert";
     }
 }
