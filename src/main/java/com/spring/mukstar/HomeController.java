@@ -3,6 +3,7 @@ package com.spring.mukstar;
 import com.spring.mukstar.Class.ModifiableHttpServletRequest;
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.reply.ReplyDeleteCommand;
+import com.spring.mukstar.command.reply.ReplyInsertCommand;
 import com.spring.mukstar.command.reply.ReplySelectRidCommand;
 import com.spring.mukstar.command.reply.ReplySelectRbIdCommand;
 import com.spring.mukstar.command.resboard.*;
@@ -76,6 +77,8 @@ public class HomeController {
     private ReplyDeleteCommand replyDeleteCommand;
     @Autowired
     private RestaurantListCommand restaurantListCommand;
+    @Autowired
+    private ReplyInsertCommand replyInsertCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
 
@@ -600,5 +603,20 @@ public class HomeController {
         }
 
         return "alert";
+    }
+
+    @RequestMapping("replyInsert")
+    public String replyInsert(HttpServletRequest request) {
+        System.out.println("===== Reply Insert =====");
+
+        int result = replyInsertCommand.execute(request);
+        if (1 == result) {
+            String url = "/pSelect?rb_id=" + request.getParameter("rb_id");
+
+            return url;
+        } else {
+
+            return "/";
+        }
     }
 }

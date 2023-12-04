@@ -56,6 +56,28 @@
         </form>
 
         <c:choose>
+          <c:when test="${u_id != null }">
+<%--            <form method="post" action="">--%>
+              <form action="replyInsert">
+              <div class="replie">
+                <label>댓글 달기</label>
+                <textarea placeholder="댓글 쓰기" name="r_contents"></textarea>
+                <input type="submit" value="작성하기">
+              </div>
+            </form>
+          </c:when>
+          <c:otherwise>
+            <form method="post" action="">
+              <div class="replie">
+                <label>댓글 달기</label>
+                <textarea placeholder="로그인 후에 이용해주세요."></textarea>
+                <input type="submit" value="작성하기" disabled>
+              </div>
+            </form>
+          </c:otherwise>
+        </c:choose>
+
+        <c:choose>
           <c:when test="${not empty replyData }">
             <c:forEach items="${replyData }" var="Reply">
               <form method="post" action="">
