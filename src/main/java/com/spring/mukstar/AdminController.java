@@ -403,4 +403,8 @@ public class AdminController {
         return mv;
     }
 
+    @RequestMapping("/adminStat")
+    public String adminStat() {
+        return "admin/adminstatistics";
+    }
 }

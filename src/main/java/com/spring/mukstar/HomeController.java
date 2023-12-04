@@ -3,7 +3,6 @@ package com.spring.mukstar;
 import com.spring.mukstar.Class.ModifiableHttpServletRequest;
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.reply.ReplyDeleteCommand;
-import com.spring.mukstar.command.reply.ReplySelectRidCommand;
 import com.spring.mukstar.command.reply.ReplySelectRbIdCommand;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.restaurant.RestaurantListCommand;
@@ -68,8 +67,6 @@ public class HomeController {
     private SubscriberListCommand subscriberListCommand;
     @Autowired
     private ReplySelectRbIdCommand replySelectRbIdCommand;
-    @Autowired
-    private ReplySelectRidCommand replySelectRidCommand;
     @Autowired
     private UserPwSearchCommand userPwSearchCommand;
     @Autowired
