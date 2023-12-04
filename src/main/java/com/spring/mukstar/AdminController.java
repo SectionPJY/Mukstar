@@ -368,6 +368,24 @@ public class AdminController {
         return mv;
     }
 
+    @RequestMapping("/baordSearch")
+    public ModelAndView boardSearch(HttpServletRequest request) {
+        System.out.println("===== Board Search =====");
+
+        ModelAndView mv = new ModelAndView("admin/adminPostManage");
+
+        String category = request.getParameter("type");
+        if (category.equals("title")) {
+            List<ResBoardDTO> searchResult = boardSearchCommand.executeSub(request);
+            mv.addObject("boardData", searchResult);
+        } else if (category.equals("detail")) {
+            List<ResBoardDTO> searchResult = boardSearchCommand.executeContents(request);
+            mv.addObject("boardData", searchResult);
+        }
+
+        return mv;
+    }
+
     @RequestMapping("/adminModalRespon")
     public ModelAndView adminModalRespon(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView("admin/adminModalRespon");
