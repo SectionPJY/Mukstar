@@ -21,6 +21,11 @@
   <!-- Custom styles for this template-->
   <link href="resources/css/admin/sb-admin-2.min.css" rel="stylesheet">
 
+  <style>
+    .container {
+      margin-top: 210px;
+    }
+  </style>
 </head>
 
 <body class="bg-gradient-primary">
