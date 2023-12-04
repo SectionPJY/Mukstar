@@ -26,7 +26,7 @@
 </div>
 <div class="post-area">
     <c:forEach items="${boardData}" var="Board">
-        <div class="post" onclick="location.href='/userPage?rb_id=${Board.rb_id}'">
+        <div class="post" onclick="location.href='/pSelect?rb_id=${Board.rb_id}'">
             <div class="post-imgarea">
                 <div class="inner-area2">
                     <img src="resources/assets/user/fox.jpg" alt="이미지 없음"/>
