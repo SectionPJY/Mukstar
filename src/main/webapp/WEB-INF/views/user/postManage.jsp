@@ -12,15 +12,12 @@
       <img src="resources/assets/user/fox.jpg"/>
     </div>
   </div>
-  <div class="social-icons">
-    <a href="#" class="badge1"><img src="resources/assets/user/인증마크.png"/></a>
-    <a href="#" class="badge2"><img src="resources/assets/user/뱃지.png"/></a>
-    <a href="#" class="badge3"><img src="resources/assets/user/왕관.png"/></a>
-    <a href="#" class="badge4"><img src="resources/assets/user/먹깨비.png"/></a>
-  </div>
   <div class="buttons">
-    <button style="background-color: #03B3FF; color: white; margin-top: 15px" onclick="location.href='/wPost'">글쓰기</button>
-    <button style="background-color: #FF5757; color: white; margin-top: 15px" onclick="location.href='/pDelete?rb_id=' + rid">삭제하기</button>
+    <button style="background-color: #03B3FF; color: white; margin-top: 15px" onclick="location.href='/wPost'">글쓰기
+    </button>
+    <button style="background-color: #FF5757; color: white; margin-top: 15px"
+            onclick="location.href='/pDelete?rb_id=' + rid">삭제하기
+    </button>
   </div>
 </div>
 <div class="post-area">
@@ -46,16 +43,16 @@
   let rid = "";
 
   function handleClick(event) {
-    if (event.target.classList.contains("click")){
+    if (event.target.classList.contains("click")) {
       event.target.classList.remove("click");
-    }else{
+    } else {
       // 클릭한 div만 "click"클래스 추가
       event.target.classList.add("click");
     }
     let id = "";
     let clicked = document.querySelectorAll(".click");
     clicked.forEach((e) => id += e.children[0].value + ",");
-    rid = id.slice(0, id.length-1);
+    rid = id.slice(0, id.length - 1);
     console.log(rid);
   }
 

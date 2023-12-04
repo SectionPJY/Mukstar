@@ -7,7 +7,6 @@
 }
 
 header {
-  position: fixed;
   top: 0;
   left: 0;
   height: 100px;
@@ -99,20 +98,6 @@ footer {
   width: 100%;
   border-radius: 50%;
   object-fit: cover;
-}
-
-.wrapper .social-icons {
-  margin: 15px 15px 25px 0px;
-}
-
-.social-icons a {
-  position: relative;
-  height: 30px;
-  width: 30px;
-  margin: 0 2px;
-  display: inline-flex;
-  text-decoration: none;
-  border-radius: 50%;
 }
 
 .wrapper .buttons {
