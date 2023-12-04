@@ -91,9 +91,9 @@
             li.textContent = position[i].rName;
             li.id = position[i].rId
             $("#result_list").append(li);
-            // $("#result_list").on('click', document.getElementById(position[i].rId) , function() {
-            //   $('input[name=r_id]').val(position[i].rId); document.getElementById('mapSearch').submit();
-            // });
+            $("#"+li.id).on('click', document.getElementById(position[i].rId) , function() {
+              $('input[name=r_id]').val(li.id); document.getElementById('mapSearch').submit();
+            });
           }else{
             --maxCount;
           }
