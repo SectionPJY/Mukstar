@@ -39,7 +39,7 @@
 
         <!-- Content Row -->
         <c:forEach items="${userData }" var="User">
-        <form method="post" action="">
+        <form method="post" action="adminUserUpdate">
           <div class="wrap">
             <div class="user_con">
               <div id="con_1">
@@ -58,16 +58,16 @@
 
               <div id="con_2">
                 <div>
-                  <input type="text" id="u_id" placeholder="${User.u_id }"/>
+                  <input type="text" id="u_id" name="u_id" placeholder="${User.u_id }" value="${User.u_id }" />
                 </div>
                 <div>
-                  <input type="password" id="u_pw" value="${User.u_pw }"/>
+                  <input type="password" id="u_pw" name="u_pw" value="${User.u_pw }" value="${User.u_pw }" />
                 </div>
                 <div>
-                  <input type="text" id="u_phone" placeholder="${User.u_phone }"/>
+                  <input type="text" id="u_phone" name="u_phone" placeholder="${User.u_phone }" value="${User.u_phone }" />
                 </div>
                 <div>
-                  <input type="text" id="u_name" placeholder="${User.u_nickname }" style="width: 39%; margin-right: 10px;"/>
+                  <input type="text" id="u_name" name="u_nickname" placeholder="${User.u_nickname }" value="${User.u_nickname }" style="width: 39%; margin-right: 10px;"/>
                   <button type="button">고객관리</button>
                 </div>
               </div>
@@ -76,7 +76,7 @@
             <div class="introduce">
               <hr>
               <div class="intro_text">
-                <textarea cols="80" rows="15">${User.u_info }</textarea>
+                <textarea cols="80" rows="15" name="u_info">${User.u_info }</textarea>
                 <input type="submit" value="수정하기"/>
               </div>
             </div>

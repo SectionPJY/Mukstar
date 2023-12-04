@@ -4,7 +4,6 @@ import com.spring.mukstar.Class.ModifiableHttpServletRequest;
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.reply.ReplyDeleteCommand;
 import com.spring.mukstar.command.reply.ReplySelectRidCommand;
-import com.spring.mukstar.command.reply.ReplySelectUidCommand;
 import com.spring.mukstar.command.reply.ReplySelectRbIdCommand;
 import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.restaurant.RestaurantListCommand;
@@ -38,7 +37,7 @@ public class HomeController {
     @Autowired
     private SignUpCommand signUpCommand;
     @Autowired
-    private UpdateCommand updateCommand;
+    private UserUpdateCommand userUpdateCommand;
     @Autowired
     private UserInfoCommand userInfoCommand;
     @Autowired
@@ -196,7 +195,7 @@ public class HomeController {
     public String userUpdate(HttpServletRequest request) {
         System.out.println("===== Update User =====");
 
-        int result = updateCommand.execute(request);
+        int result = userUpdateCommand.execute(request);
         if (1 == result) {
             request.setAttribute("msg", "수정이 완료되었습니다.");
             request.setAttribute("url", "logout");

@@ -55,7 +55,7 @@ public class UserDAO {
     }
 
     // User Update
-    public int userUpdate(String u_id, String u_pw, String u_nickname, String u_phone) {
+    public int userUpdate(String u_id, String u_pw, String u_nickname, String u_phone, String u_info) {
         System.out.println("===== User Update DAO =====");
 
         HashMap<String, String> map = new HashMap<String, String>();
@@ -63,6 +63,7 @@ public class UserDAO {
         map.put("u_pw", u_pw);
         map.put("u_nickname", u_nickname);
         map.put("u_phone", u_phone);
+        map.put("u_info", u_info);
 
         return sqlSession.update("UserMapper.userUpdate", map);
     }

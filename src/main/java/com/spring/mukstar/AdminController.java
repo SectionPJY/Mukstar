@@ -20,6 +20,7 @@ import com.spring.mukstar.command.subscribe.SubscriberListCommand;
 import com.spring.mukstar.command.user.UserListCommand;
 import com.spring.mukstar.command.user.UserSearchCommand;
 import com.spring.mukstar.command.user.UserSelectCommand;
+import com.spring.mukstar.command.user.UserUpdateCommand;
 import com.spring.mukstar.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -73,6 +74,8 @@ public class AdminController {
     private BoardDeleteCommand boardDeleteCommand;
     @Autowired
     private RestaurantDeleteCommand restaurantDeleteCommand;
+    @Autowired
+    private UserUpdateCommand userUpdateCommand;
 
 
     @RequestMapping("/index")
@@ -147,6 +150,24 @@ public class AdminController {
         mv.addObject("qnaData", qnaData);
 
         return mv;
+    }
+
+    @RequestMapping("adminUserUpdate")
+    public String userUpdate(HttpServletRequest request, Model model) {
+        System.out.println("===== User Update =====");
+
+        int result = userUpdateCommand.execute(request);
+        if (1 == result) {
+            String url = "/userSelect?u_id=" + request.getParameter("u_id");
+
+            model.addAttribute("msg", "수정되었습니다.");
+            model.addAttribute("url", url);
+        } else {
+            model.addAttribute("msg", "수정에 실패하였습니다.");
+            model.addAttribute("url", "memManage");
+        }
+
+        return "alert";
     }
 
     @RequestMapping("/boardSelect")

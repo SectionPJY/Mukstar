@@ -23,7 +23,7 @@
     <!-- Update User -->
     <update id="userUpdate">
         UPDATE m_user
-        SET u_pw = #{u_pw }, u_nickname = #{u_nickname }, u_phone = #{u_phone }
+        SET u_pw = #{u_pw }, u_nickname = #{u_nickname }, u_phone = #{u_phone }, u_info = #{u_info }
         WHERE u_id = #{u_id };
     </update>
 
