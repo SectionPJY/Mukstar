@@ -120,7 +120,7 @@ textarea {
   position: absolute;
   left: 0;
   opacity: 0;
-  /*cursor: pointer;*/
+  cursor: pointer;
   pointer-events: none;
 }
 
