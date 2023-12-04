@@ -10,7 +10,7 @@
 <div class="wrap"> <!-- 배너표시영역 -->
   <div class="rolling-list"> <!-- 원본배너 -->
     <ul>
-      <c:forEach items="${boardList }" var="Board">
+      <c:forEach items="${boardList }" var="Board" end="4">
         <li onclick="location.href='/pSelect?rb_id=${Board.rb_id}'">
           <div class="desc">
             <strong>${Board.rb_sub}</strong>
