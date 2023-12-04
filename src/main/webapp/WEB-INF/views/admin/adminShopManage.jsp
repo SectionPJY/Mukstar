@@ -38,16 +38,15 @@
       <div class="container-fluid">
 
         <!-- Content Row -->
-        <form method="post" action="">
+        <form method="post" action="/shopSearch">
           <div class="row">
             <%--검색 창--%>
             <div id="search_area">
               <select name="type">
-                <option selected value="">검색 내용 선택</option>
                 <option value="name">가게명</option>
                 <option value="area">지역별</option>
               </select>
-              <input type="text" id="search_bar" value=""/>
+              <input type="text" id="search_bar" name="searchWord" value=""/>
               <input type="submit" id="sub" value="검색"/>
             </div>
             <%--테이블--%>

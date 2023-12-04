@@ -255,6 +255,23 @@ public class AdminController {
         return "alert";
     }
 
+    @RequestMapping("/shopSearch")
+    public ModelAndView shopSearch(HttpServletRequest request) {
+        System.out.println("가게 검색");
+
+        ModelAndView mv = new ModelAndView("admin/adminShopManage");
+
+        List<RestaurantDTO> resData;
+        if (request.getParameter("type").equals("name")){
+            resData = restaurantSearchCommand.execute(request);
+        } else {
+            resData = restaurantSearchCommand.execute(request);
+        }
+        mv.addObject("boardData", resData);
+
+        return mv;
+    }
+
     @RequestMapping("/postManage")
     public ModelAndView postManage() {
         System.out.println("게시글관리");
