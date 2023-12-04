@@ -15,7 +15,7 @@
     rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="resources/css/admin/sb-admin-2.min.css" rel="stylesheet">
-  <link href="resources/css/admin/adminShopDe.css" rel="stylesheet">
+  <link href="resources/css/admin/adminShopAdd.css" rel="stylesheet">
 
   <!-- kakao map api -->
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
@@ -49,21 +49,12 @@
             <div class="wrap_head">
               <div class="head_left">
                 <div class="head-con">
-                  <label>가게명 : ${boardData[0].r_name}</label>
+                  <p>가게명</p>
+                  <input type="text">
                 </div>
                 <div class="head-con">
-                  <label>가게 주소 : ${boardData[0].r_address}</label>
-                </div>
-                <div class="head-con">
-                  <label>평 점 : </label>
-                  <div class="star_background">
-                <span class="star">
-              ★★★★★
-              <span>★★★★★</span>
-              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${boardData[0].r_rating}" step="1" min="0"
-                     max="10">
-            </span>
-                  </div>
+                  <p>가게 주소</p>
+                  <input type="text">
                 </div>
               </div>
               <div class="head_right">
@@ -71,64 +62,8 @@
               </div>
             </div>
             <div class="wrap_footer">
-              <div class="badge">
-                <button type="button" value="뱃지1">
-                  <img src="resources/assets/user/먹깨비.png">
-                </button>
-                <button type="button" value="뱃지2">
-                  <img src="resources/assets/user/뱃지.png">
-                </button>
-                <button type="button" value="뱃지3">
-                  <img src="resources/assets/user/왕관.png">
-                </button>
-                <button type="button" value="뱃지4">
-                  <img src="resources/assets/user/인증마크.png">
-                </button>
-              </div>
               <div class="btn">
-                <input type="button" value="가게 수정"/>
-                <input type="submit" value="가게 삭제"/>
-              </div>
-            </div>
-            <div class="wrap_body">
-              <div class="body-table">
-                <c:choose>
-                  <c:when test="${not empty resData }">
-                    <div class="card-body">
-                      <div class="container">
-                        <table class="table table-bordered table-hover">
-                          <thead>
-                          <tr>
-                            <th style="border: none; background-color: white">리뷰</th>
-                          </tr>
-                          <tr>
-                            <th>번호</th>
-                            <th>제목</th>
-                            <th>작성자</th>
-                            <th>작성일</th>
-                            <th>조회수</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                            <%--추후 onclick 추가해서 페이지 이동--%>
-                          <c:forEach items="${resData }" var="Res">
-                            <tr onclick="postSelect('${Res.rb_id }')">
-                              <td>${Res.rb_id}</td>
-                              <td>${Res.rb_sub }</td>
-                              <td>${Res.rb_uid }</td>
-                              <td>${Res.rb_date }</td>
-                              <td>${Res.rb_view}</td>
-                            </tr>
-                          </c:forEach>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </c:when>
-                  <c:otherwise>
-                    <h2 style="text-align: center">게시글 없음</h2>
-                  </c:otherwise>
-                </c:choose>
+                <input type="submit" value="추가하기"/>
               </div>
             </div>
           </div>
