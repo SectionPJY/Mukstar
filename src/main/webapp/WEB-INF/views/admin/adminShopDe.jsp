@@ -163,8 +163,8 @@
     document.querySelector('.star span').style.width = (val * 10) + '%';
   }
 
-  let data = "${resData[0].r_address}";
-  let rName = "${resData[0].r_name}";
+  let data = "${boardData[0].r_address}";
+  let rName = "${boardData[0].r_name}";
   let addr = "";
 
   function postSelect(rb_id) {
