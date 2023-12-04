@@ -52,4 +52,58 @@ public class UserSearchCommand {
             return dtos;
         }
     }
+
+    public List<UserDTO> executeId(HttpServletRequest request) {
+        System.out.println("===== User Search u_id Command is Running =====");
+
+        String searchWord = request.getParameter("searchWord");
+        System.out.println("Search Word : " + searchWord);
+
+        List<UserDTO> dtos = dao.userSearchId(searchWord);
+        if (dtos.isEmpty()) {
+            System.out.println("===== DTO is Empty =====");
+
+            return null;
+        } else {
+            System.out.println("===== DTO is Exists =====");
+
+            return dtos;
+        }
+    }
+
+    public List<UserDTO> executeNickname(HttpServletRequest request) {
+        System.out.println("===== User Search Nickname Command is Running =====");
+
+        String searchWord = request.getParameter("searchWord");
+        System.out.println("Search Word : " + searchWord);
+
+        List<UserDTO> dtos = dao.userSearchNickname(searchWord);
+        if (dtos.isEmpty()) {
+            System.out.println("===== DTO is Empty =====");
+
+            return null;
+        } else {
+            System.out.println("===== DTO is Exists =====");
+
+            return dtos;
+        }
+    }
+
+    public List<UserDTO> executePhone(HttpServletRequest request) {
+        System.out.println("===== User Search Phone Command is Running =====");
+
+        String searchWord = request.getParameter("searchWord");
+        System.out.println("Search Word : " + searchWord);
+
+        List<UserDTO> dtos = dao.userSearchPhone(searchWord);
+        if (dtos.isEmpty()) {
+            System.out.println("===== DTO is Empty =====");
+
+            return null;
+        } else {
+            System.out.println("===== DTO is Exists =====");
+
+            return dtos;
+        }
+    }
 }
