@@ -76,7 +76,7 @@
               <div class="wrap_2">
                 <div class="wrap_btn">
                   <button type="submit">게시물 수정</button>
-                  <input onclick="href='/postDelete.do?rb_id=${Board.rb_id}'" value="게시물 삭제">
+                  <button onclick="href='/postDelete.do?rb_id=${Board.rb_id}'" value="게시물 삭제" />
                 </div>
               </div>
             </div>

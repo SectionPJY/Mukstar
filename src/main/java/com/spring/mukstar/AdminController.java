@@ -348,7 +348,7 @@ public class AdminController {
         System.out.println("게시글관리");
         ModelAndView mv = new ModelAndView("admin/adminPostManage");
 
-        List<ResBoardDTO> boardData = boardListInAdminIndexCommand.execute();
+        List<ResBoardDTO> boardData = boardListCommand.execute();
         mv.addObject("boardData", boardData);
 
         return mv;

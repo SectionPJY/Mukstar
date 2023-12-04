@@ -61,4 +61,24 @@ public class BoardListCommand extends DateCast {
             return dtos;
         }
     }
+
+    public List<ResBoardDTO> execute() {
+        System.out.println("===== Board List Command is Running =====");
+
+        List<ResBoardDTO> dtos = dao.adminBoardList();
+        if (dtos.isEmpty() || null == dtos) {
+            System.out.println("===== List is Empty =====");
+
+            return null;
+        } else {
+            System.out.println("===== List is Exists =====");
+            for(ResBoardDTO res : dtos) {
+                System.out.println("===== 게시글 번호 : " +  res.getRb_date() + " rb_date 수정 =====");
+                Timestamp tmp = Timestamp.valueOf(res.getRb_date());
+                res.setRb_date(changeDate(tmp));
+            }
+        }
+
+        return dtos;
+    }
 }

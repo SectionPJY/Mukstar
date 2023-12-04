@@ -68,6 +68,12 @@
         LIMIT 4;
     </select>
 
+    <select id="adminBoardList" resultType="ResBoardDTO">
+        SELECT *
+        FROM m_resboard
+        ORDER BY rb_id DESC;
+    </select>
+
     <!-- ResBoard Search Admin -->
     <select id="resBoardSearchAdmin" resultType="ResBoardDTO">
         SELECT *
