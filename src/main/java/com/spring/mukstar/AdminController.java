@@ -208,6 +208,13 @@ public class AdminController {
         return mv;
     }
 
+    @RequestMapping("shopAdd")
+    public String shopAdd(){
+        System.out.println("가게추가");
+
+        return "admin/adminShopAdd";
+    }
+
     @RequestMapping("/shopManage")
     public ModelAndView shopManage() {
         System.out.println("가게관리");

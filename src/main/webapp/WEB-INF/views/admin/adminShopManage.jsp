@@ -78,7 +78,7 @@
                 </div>
               </div>
               <div class="but">
-                <button type="button">가게 추가</button>
+                <button type="button" onclick="location.href='/shopAdd'">가게 추가</button>
               </div>
             </div>
           </div>
