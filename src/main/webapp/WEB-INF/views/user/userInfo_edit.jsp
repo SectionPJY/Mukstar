@@ -17,7 +17,7 @@
 <div class="wrapper">
   <div class="img-area">
     <div class="inner-area">
-      <img src="resources/assets/user/fox.jpg"/>
+      <img src="resources/assets/userImage.jpg"/>
     </div>
   </div>
   <div class="buttons">
@@ -51,7 +51,7 @@
       </div>
     <div class="btn">
       <input type="button" onclick="" value="프로필 이미지 변경">
-      <input type="submit" value="비밀번호 인증">
+      <input type="submit" value="수정하기">
     </div>
   </form>
 </div>

@@ -45,24 +45,6 @@
   margin-top: 15px;
 }
 
-.badge_area {
-  width: 50%;
-  height: 10%;
-}
-
-.badge_list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1px;
-}
-
-.badge_list > img {
-  width: 10%;
-  height: 10%;
-  margin-bottom: 5px;
-}
-
 #con_2 > div {
   display: flex;
   justify-content: center;
