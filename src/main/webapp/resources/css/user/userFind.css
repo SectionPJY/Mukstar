@@ -7,7 +7,6 @@
 }
 
 header {
-  position: fixed;
   top: 0;
   left: 0;
   height: 100px;
@@ -40,7 +39,7 @@ footer {
 .container {
   position: relative;
   width: 1280px;
-  top: 200px;
+  top: 100px;
   left: 19%;
   /*padding-bottom: 60px;*/
 }
@@ -96,26 +95,12 @@ footer {
 
 .user_info {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .user_info span{
-  width: 80px;
+  width: 150px;
   padding-top: 16px;
   color: white;
   text-align: center;
-}
-
-.social-icons {
-  margin: 0 135px;
-}
-
-.social-icons img {
-  position: relative;
-  height: 25px;
-  width: 25px;
-  margin: 12px 2px;
-  display: inline-flex;
-  text-decoration: none;
-  border-radius: 50%;
 }

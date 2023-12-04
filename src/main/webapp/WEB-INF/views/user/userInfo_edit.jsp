@@ -20,12 +20,6 @@
       <img src="resources/assets/user/fox.jpg"/>
     </div>
   </div>
-  <div class="social-icons">
-    <a href="#" class="badge1"><img src="resources/assets/user/인증마크.png"/></a>
-    <a href="#" class="badge2"><img src="resources/assets/user/뱃지.png"/></a>
-    <a href="#" class="badge3"><img src="resources/assets/user/왕관.png"/></a>
-    <a href="#" class="badge4"><img src="resources/assets/user/먹깨비.png"/></a>
-  </div>
   <div class="buttons">
     <button style="background-color: #03B3FF; color: white" onclick="location.href='/pManage'">글관리</button>
     <button style="background-color: #FFA800; color: white; margin-top: 15px;" onclick="location.href='/infoPW'">회원정보
