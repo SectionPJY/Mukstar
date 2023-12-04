@@ -73,7 +73,8 @@ public class AdminController {
     private ManagerLoginCommand managerLoginCommand;
     @Autowired
     private BoardUpdateCommand boardUpdateCommand;
-
+    @Autowired
+    private RestaurantUpdateCommand restaurantUpdateCommand;
 
     @RequestMapping("/index")
     public ModelAndView index() {
@@ -299,6 +300,20 @@ public class AdminController {
     @RequestMapping("/shopDelete.do")
     public String shopDelete(HttpServletRequest request, Model model) {
         int result = restaurantDeleteCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "가게가 삭제되었습니다.");
+            model.addAttribute("url", "shopManage");
+        } else {
+            model.addAttribute("msg", "가게 삭제에 실패하였습니다.");
+            model.addAttribute("url", "shopManage");
+        }
+
+        return "alert";
+    }
+
+    @RequestMapping("/shopUpdate.do")
+    public String shopUpdate(HttpServletRequest request, Model model) {
+        int result = restaurantUpdateCommand.execute(request);
         if (1 == result) {
             model.addAttribute("msg", "가게가 삭제되었습니다.");
             model.addAttribute("url", "shopManage");
