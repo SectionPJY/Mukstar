@@ -139,7 +139,7 @@
 
 <script>
   function shopSelect(r_id) {
-    location.href = "http://localhost:8080/shopSelect?r_id=" + r_id;
+    location.href = "/shopSelect?r_id=" + r_id;
   };
 </script>
 

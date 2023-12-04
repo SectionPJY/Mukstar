@@ -253,6 +253,10 @@ public class HomeController {
             mv = new ModelAndView("alert");
         } else {
             mv = new ModelAndView("user/userPage");
+            if (null != session.getAttribute("u_id")){
+                List<SubscribeDTO> dtos = channelListCommand.execute(session.getAttribute("u_id").toString());
+                model.addAttribute("channelData", dtos);
+            }
             model.addAttribute("boardData", dto);
         }
 
@@ -471,16 +475,23 @@ public class HomeController {
     @RequestMapping("/addSub")
     public String addSub(HttpServletRequest request, Model model) {
         System.out.println("===== Add Subscribe =====");
+        if (null == session.getAttribute("u_id")){
+            model.addAttribute("msg", "로그인후 이용해주세요.");
+            model.addAttribute("url", "userPage?uid=" + request.getParameter("s_channel"));
+        }else {
+            modifyRequest = new ModifiableHttpServletRequest(request);
+            modifyRequest.setParameter("s_subscriber", session.getAttribute("u_id").toString());
+            request = modifyRequest;
+            int result = subInsertCommand.execute(request);
+            if (1 == result) {
+                model.addAttribute("msg", "구독되었습니다.");
+                model.addAttribute("url", "userPage?uid=" + request.getParameter("s_channel"));
+            } else {
+                model.addAttribute("msg", "오류가 발생했습니다.");
+                model.addAttribute("url", "userPage?uid=" + request.getParameter("s_channel"));
+            }
 
-        int result = subInsertCommand.execute(request);
-        if (1 == result) {
-            model.addAttribute("msg", "구독되었습니다.");
-            model.addAttribute("url", "userList");
-        } else {
-            model.addAttribute("msg", "오류가 발생했습니다.");
-            model.addAttribute("url", "userList");
         }
-
         return "alert";
     }
 
@@ -488,6 +499,9 @@ public class HomeController {
     public String delSub(HttpServletRequest request, Model model) {
         System.out.println("===== Delete Subscribe =====");
 
+        modifyRequest = new ModifiableHttpServletRequest(request);
+        modifyRequest.setParameter("s_subscriber", session.getAttribute("u_id").toString());
+        request = modifyRequest;
         int result = subDeleteCommand.execute(request);
         if (1 == result) {
             model.addAttribute("msg", "구독취소되었습니다.");

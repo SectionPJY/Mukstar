@@ -19,14 +19,21 @@
         <a href="#" class="badge4"><img src="resources/assets/user/먹깨비.png"/></a>
     </div>
     <div class="buttons">
+    <c:choose>
+        <c:when test="${empty channelData }">
         <%--<button style="background-color: #03B3FF; color: white" onclick="location.href=''">팔로우</button>--%>
-        <button style="background-color: #FFA800; color: white; margin-top: 15px;" onclick="location.href='/addSub'">구독하기</button>
-        <button style="background-color: #FF5757; color: white; margin-top: 15px;" onclick="location.href=''">차단하기</button>
+        <button style="background-color: #FFA800; color: white; margin-top: 15px;" onclick="location.href='/addSub?s_channel=${boardData[0].rb_uid}'">구독하기</button>
+        </c:when>
+        <c:otherwise>
+            <button style="background-color: #FFA800; color: white; margin-top: 15px;" onclick="location.href='/delSub?s_channel=${boardData[0].rb_uid}'">구독취소</button>
+        </c:otherwise>
+    </c:choose>
+        <button style="background-color: #FF5757; color: white; margin-top: 15px;" onclick="location.href='/'">차단하기</button>
     </div>
 </div>
 <div class="post-area">
     <c:forEach items="${boardData}" var="Board">
-        <div class="post" onclick="location.href='/userPage?rb_id=${Board.rb_id}'">
+        <div class="post" onclick="location.href='/pSelect?rb_id=${Board.rb_id}'">
             <div class="post-imgarea">
                 <div class="inner-area2">
                     <img src="resources/assets/user/fox.jpg" alt="이미지 없음"/>
