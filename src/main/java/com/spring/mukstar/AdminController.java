@@ -14,10 +14,7 @@ import com.spring.mukstar.command.resboard.BoardSelectCommand;
 import com.spring.mukstar.command.restaurant.*;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubscriberListCommand;
-import com.spring.mukstar.command.user.UserListCommand;
-import com.spring.mukstar.command.user.UserSearchCommand;
-import com.spring.mukstar.command.user.UserSelectCommand;
-import com.spring.mukstar.command.user.UserUpdateCommand;
+import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -75,6 +72,8 @@ public class AdminController {
     private UserUpdateCommand userUpdateCommand;
     @Autowired
     private RestaurantInsertCommand restaurantInsertCommand;
+    @Autowired
+    private ManagerLoginCommand managerLoginCommand;
 
 
     @RequestMapping("/index")
@@ -116,6 +115,21 @@ public class AdminController {
         }
 
         return mv;
+    }
+
+    @RequestMapping("managerLogin")
+    public String managerLogin(HttpServletRequest request, Model model) {
+        System.out.println("===== Manager Login =====");
+
+        int result = managerLoginCommand.execute(request);
+        if (1 == result) {
+            return "redirect:/index";
+        } else {
+            model.addAttribute("msg", "아이디 또는 비밀번호를 잘못 입력하셨습니다.");
+            model.addAttribute("url", "/adminLogin");
+
+            return "alert";
+        }
     }
 
     @RequestMapping("/userSelect")
