@@ -39,54 +39,53 @@
 
         <!-- Content Row -->
         <c:forEach items="${userData }" var="User">
-          <form method="post" action="">
-            <div class="wrap">
-              <div class="user_con">
-                <div id="con_1">
-                  <div class="pic_area">
-                    <img src="resources/assets/user/fox.jpg"/>
-                  </div>
-                  <div class="badge_area">
-                    <div class="badge_list">
-                      <img src="resources/assets/user/먹깨비.png"/>
-                      <img src="resources/assets/user/뱃지.png"/>
-                      <img src="resources/assets/user/왕관.png"/>
-                      <img src="resources/assets/user/인증마크.png"/>
-                    </div>
-                  </div>
+        <form method="post" action="adminUserUpdate">
+          <div class="wrap">
+            <div class="user_con">
+              <div id="con_1">
+                <div class="pic_area">
+                  <img src="resources/assets/user/fox.jpg"/>
                 </div>
-
-                <div id="con_2">
-                  <div>
-                    <input type="text" id="u_id" placeholder="${User.u_id }"/>
-                  </div>
-                  <div>
-                    <input type="password" id="u_pw" value="${User.u_pw }"/>
-                  </div>
-                  <div>
-                    <input type="text" id="u_phone" placeholder="${User.u_phone }"/>
-                  </div>
-                  <div>
-                    <input type="text" id="u_name" placeholder="${User.u_nickname }"
-                           style="width: 39%; margin-right: 10px;"/>
-                    <button type="button">고객관리</button>
+                <div class="badge_area">
+                  <div class="badge_list">
+                    <img src="resources/assets/user/먹깨비.png"/>
+                    <img src="resources/assets/user/뱃지.png"/>
+                    <img src="resources/assets/user/왕관.png"/>
+                    <img src="resources/assets/user/인증마크.png"/>
                   </div>
                 </div>
               </div>
 
-              <div class="introduce">
-                <hr>
-                <div class="intro_text">
-                  <textarea cols="80" rows="15">${User.u_info }</textarea>
-                  <input type="submit" value="수정하기"/>
+              <div id="con_2">
+                <div>
+                  <input type="text" id="u_id" name="u_id" placeholder="${User.u_id }" value="${User.u_id }" />
+                </div>
+                <div>
+                  <input type="password" id="u_pw" name="u_pw" value="${User.u_pw }" value="${User.u_pw }" />
+                </div>
+                <div>
+                  <input type="text" id="u_phone" name="u_phone" placeholder="${User.u_phone }" value="${User.u_phone }" />
+                </div>
+                <div>
+                  <input type="text" id="u_name" name="u_nickname" placeholder="${User.u_nickname }" value="${User.u_nickname }" style="width: 39%; margin-right: 10px;"/>
+                  <button type="button">고객관리</button>
                 </div>
               </div>
             </div>
-          </form>
+
+            <div class="introduce">
+              <hr>
+              <div class="intro_text">
+                <textarea cols="80" rows="15" name="u_info">${User.u_info }</textarea>
+                <input type="submit" value="수정하기"/>
+              </div>
+            </div>
+          </div>
+        </form>
         </c:forEach>
 
         <hr style="border: 2px solid black; width: 96%;">
-        <h2>작성한 글</h2>
+        <h2>게시글</h2>
         <c:choose>
           <c:when test="${not empty boardData }">
             <div class="wrap2">
@@ -123,7 +122,7 @@
 
 
         <hr style="border: 2px solid black; width: 96%;">
-        <h2>작성한 댓글</h2>
+        <h2>댓글</h2>
         <c:choose>
           <c:when test="${not empty replyData }">
             <div class="wrap2">

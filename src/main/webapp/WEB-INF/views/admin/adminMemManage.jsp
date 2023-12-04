@@ -71,7 +71,19 @@
                         <td>${User.u_id }</td>
                         <td>${User.u_nickname }</td>
                         <td>${User.u_phone }</td>
-                        <td>${User.u_drop }</td>
+                        <td>
+                          <c:choose>
+                            <c:when test="${2 == User.u_drop }">
+                              정지회원
+                            </c:when>
+                            <c:when test="${3 == User.u_drop }">
+                              탈퇴회원
+                            </c:when>
+                            <c:otherwise>
+                              정상회원
+                            </c:otherwise>
+                          </c:choose>
+                        </td>
                       </tr>
                     </c:forEach>
                     </tbody>

@@ -80,7 +80,7 @@
                         </thead>
                           <c:forEach items="${boardList }" var="Board">
                           <tbody>
-                        <tr>
+                        <tr onclick="location.href = '/boardSelect?rb_id=${Board.rb_id }'">
                           <td>${Board.rb_uid }</td>
                           <td>${Board.rb_sub }</td>
                           <td>${Board.rb_date }</td>
