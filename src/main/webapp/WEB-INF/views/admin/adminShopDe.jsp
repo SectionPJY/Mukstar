@@ -53,7 +53,7 @@
                   <input type="text" name="r_name" value="${boardData[0].r_name}">
                 </div>
                 <div class="head-con">
-                  <p>가게 주소 : </p>
+                  <p>주소 : </p>
                   <input type="text" name="r_address" value="${boardData[0].r_address}">
                 </div>
                 <div class="head-con">

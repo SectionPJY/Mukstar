@@ -44,72 +44,55 @@
       <div class="container-fluid">
 
         <c:forEach items="${boardData }" var="Board">
-        <!-- Content Row -->
-        <form method="post" action="boardUpdate">
-          <div class="wrap">
-            <div class="wrap_1">
-              <div class="wrap1">
-                <div class="wrap1_top">
-                  <div class="title">
-                    <p>${Board.rb_sub}</p>
-                  </div>
-                  <div class="rating">
-                    <p>별점 : </p>
-                    <div class="star_background">
+          <!-- Content Row -->
+          <form method="post" action="boardUpdate">
+            <div class="wrap">
+              <div class="wrap_1">
+                <div class="wrap1">
+                  <div class="wrap1_top">
+                    <div class="title">
+                      <input type="text" name="rb_sub" value="${Board.rb_sub}">
+                    </div>
+                    <div class="rating">
+                      <p>별점 : </p>
+                      <div class="star_background">
                 <span class="star">
               ★★★★★
               <span>★★★★★</span>
-              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.rb_rating}" step="1" min="0" max="10">
+              <input type="range" name="rb_rating" oninput="drawStar(this)" value="${Board.rb_rating}" step="1" min="0"
+                     max="10">
             </span>
+                      </div>
                     </div>
                   </div>
+                  <div class="wrap1_bot">
+                    <textarea>${Board.rb_contents}</textarea>
+                  </div>
                 </div>
-                <div class="wrap1_bot">
-                  <textarea>${Board.rb_contents}</textarea>
+                <div class="wrap2">
+                  <div id="map" style="width:80%;height:80%;"></div>
                 </div>
               </div>
-              <div class="wrap2">
-                <div id="map" style="width:80%;height:80%;"></div>
+              <div class="wrap_2">
+                <div class="wrap_btn">
+                  <button type="submit">게시물 수정</button>
+                  <input onclick="href='/postDelete.do?rb_id=${Board.rb_id}'" value="게시물 삭제">
+                </div>
               </div>
             </div>
-            <div class="wrap_2">
-              <div class="badge">
-                <button type="button" value="뱃지1">
-                  <img src="resources/assets/user/먹깨비.png">
-                </button>
-                <button type="button" value="뱃지2">
-                  <img src="resources/assets/user/뱃지.png">
-                </button>
-                <button type="button" value="뱃지3">
-                  <img src="resources/assets/user/왕관.png">
-                </button>
-                <button type="button" value="뱃지4">
-                  <img src="resources/assets/user/인증마크.png">
-                </button>
-              </div>
-              <div class="wrap_btn">
-                <button type="submit">게시물 수정</button>
-                <input onclick="href='/postDelete.do?rb_id=${Board.rb_id}'" value="게시물 삭제">
-              </div>
-            </div>
-          </div>
-        </form>
+          </form>
         </c:forEach>
         <!-- Content Row -->
-
       </div>
       <!-- /.container-fluid -->
-
     </div>
     <!-- End of Main Content -->
 
     <!-- Footer -->
     <%@ include file="adminFooter.jsp" %>
     <!-- End of Footer -->
-
   </div>
   <!-- End of Content Wrapper -->
-
 </div>
 <!-- End of Page Wrapper -->
 
@@ -129,7 +112,7 @@
 <script src="resources/JS/admin/sb-admin-2.min.js"></script>
 
 <script>
-  window.onload = function (){
+  window.onload = function () {
     const val = document.getElementsByName('rb_rating')[0].value;
     console.log(val);
     document.querySelector('.star span').style.width = (val * 10) + '%';

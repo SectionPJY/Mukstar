@@ -16,7 +16,7 @@
   width: 100%;
   height: 200px;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
 .wrap1 {
@@ -54,6 +54,14 @@
   width: 100%;
 }
 
+.title > input {
+  width: 400px;
+  height: 50px;
+  padding-left: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
 .rating {
   display: flex;
   justify-content: flex-start;
@@ -66,20 +74,6 @@ textarea {
   resize: none;
   margin: 0 auto;
   border-radius: 5px;
-}
-
-.badge {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-}
-
-.badge > button {
-  width: 100px;
-  height: 50px;
-  margin-right: 20px;
-  border: none;
 }
 
 .wrap_btn {
@@ -103,6 +97,7 @@ textarea {
   height: 50px;
   border-radius: 5px;
   background-color: white;
+  text-align: center;
 }
 
 /* 별점 css */
@@ -111,7 +106,6 @@ textarea {
   position: relative;
   font-size: 2rem;
   color: #ddd;
-  pointer-events: none;
 }
 
 .star input {
@@ -121,7 +115,6 @@ textarea {
   left: 0;
   opacity: 0;
   cursor: pointer;
-  pointer-events: none;
 }
 
 .star span {
