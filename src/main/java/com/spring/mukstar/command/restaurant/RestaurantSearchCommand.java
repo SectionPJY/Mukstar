@@ -31,4 +31,22 @@ public class RestaurantSearchCommand {
             return dtos;
         }
     }
+
+    public List<RestaurantDTO> executeAddress(HttpServletRequest request) {
+        System.out.println("===== Restaurant Search Command is Running =====");
+
+        String searchWord = request.getParameter("searchWord");
+        System.out.println("Search Word : " + searchWord);
+
+        List<RestaurantDTO> dtos = dao.resSearchAddress(searchWord);
+        if (dtos.isEmpty() || dtos == null) {
+            System.out.println("===== DTO is Empty =====");
+
+            return null;
+        } else {
+            System.out.println("===== DTO is Exists =====");
+
+            return dtos;
+        }
+    }
 }

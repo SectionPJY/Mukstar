@@ -122,6 +122,34 @@ public class ResBoardDAO {
         return sqlSession.selectList("ResBoardMapper.resBoardSearchAdmin", searchWord);
     }
 
+    // Resboard Search r_sub
+    public List<ResBoardDTO> searchBoardSub(String searchWord) {
+        System.out.println("===== Board Search Sub DAO =====");
+
+        if (searchWord.isEmpty() || searchWord == null){
+            return null;
+        }else {
+            searchWord = "%" + searchWord + "%";
+            System.out.println("Search Word : " + searchWord);
+        }
+
+        return sqlSession.selectList("ResBoardMapper.resBoardSearchSub", searchWord);
+    }
+
+    // Resboard Search r_contents
+    public List<ResBoardDTO> searchBoardContents(String searchWord) {
+        System.out.println("===== Board Search Contents DAO =====");
+
+        if (searchWord.isEmpty() || searchWord == null){
+            return null;
+        }else {
+            searchWord = "%" + searchWord + "%";
+            System.out.println("Search Word : " + searchWord);
+        }
+
+        return sqlSession.selectList("ResBoardMapper.resBoardSearchContents", searchWord);
+    }
+
     // Resboard Select From r_id
     public List<ResBoardDTO> selectBoardFromR_id(int r_id) {
         System.out.println("===== Board Select From r_id DAO =====");

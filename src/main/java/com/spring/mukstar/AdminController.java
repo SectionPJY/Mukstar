@@ -11,10 +11,7 @@ import com.spring.mukstar.command.resboard.BoardDeleteCommand;
 import com.spring.mukstar.command.resboard.BoardListCommand;
 import com.spring.mukstar.command.resboard.BoardSearchCommand;
 import com.spring.mukstar.command.resboard.BoardSelectCommand;
-import com.spring.mukstar.command.restaurant.RestaurantDeleteCommand;
-import com.spring.mukstar.command.restaurant.RestaurantListCommand;
-import com.spring.mukstar.command.restaurant.RestaurantSearchCommand;
-import com.spring.mukstar.command.restaurant.RestaurantSelectCommand;
+import com.spring.mukstar.command.restaurant.*;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubscriberListCommand;
 import com.spring.mukstar.command.user.UserListCommand;
@@ -76,6 +73,8 @@ public class AdminController {
     private RestaurantDeleteCommand restaurantDeleteCommand;
     @Autowired
     private UserUpdateCommand userUpdateCommand;
+    @Autowired
+    private RestaurantInsertCommand restaurantInsertCommand;
 
 
     @RequestMapping("/index")
@@ -241,6 +240,33 @@ public class AdminController {
         return mv;
     }
 
+    @RequestMapping("shopInsert.do")
+    public String shopInsert(HttpServletRequest request, Model model) {
+        System.out.println("===== Insert Shop =====");
+
+        List<RestaurantDTO> boardData = restaurantListCommand.execute();
+        boolean same = false;
+        for (int i = 0; i < boardData.size(); i++) {
+            if (boardData.get(i).getR_name().equals(request.getParameter("r_name"))){
+                same = true;
+            }
+        }
+
+        if (same) {
+            model.addAttribute("msg", "이미 추가된 가게입니다.");
+        }else {
+            int result = restaurantInsertCommand.execute(request);
+            if (1 == result) {
+                model.addAttribute("msg", "가게가 추가되었습니다.");
+            } else {
+                model.addAttribute("msg", "가게 추가에 실패하였습니다.");
+            }
+        }
+        model.addAttribute("url", "/shopManage");
+
+        return "alert";
+    }
+
     @RequestMapping("/shopDelete.do")
     public String shopDelete(HttpServletRequest request, Model model) {
         int result = restaurantDeleteCommand.execute(request);
@@ -253,6 +279,22 @@ public class AdminController {
         }
 
         return "alert";
+    }
+
+    @RequestMapping("/shopSearch")
+    public ModelAndView shopSearch(HttpServletRequest request) {
+        System.out.println("가게 검색");
+
+        ModelAndView mv = new ModelAndView("admin/adminShopManage");
+        List<RestaurantDTO> resData;
+        if (request.getParameter("type").equals("name")){
+            resData = restaurantSearchCommand.execute(request);
+        } else {
+            resData = restaurantSearchCommand.executeAddress(request);
+        }
+        mv.addObject("boardData", resData);
+
+        return mv;
     }
 
     @RequestMapping("/postManage")
@@ -322,6 +364,24 @@ public class AdminController {
         List<ReplyDTO> replyData = replySearchCommand.execute(request);
         mv.addObject("replyData", replyData);
 
+
+        return mv;
+    }
+
+    @RequestMapping("/baordSearch")
+    public ModelAndView boardSearch(HttpServletRequest request) {
+        System.out.println("===== Board Search =====");
+
+        ModelAndView mv = new ModelAndView("admin/adminPostManage");
+
+        String category = request.getParameter("type");
+        if (category.equals("title")) {
+            List<ResBoardDTO> searchResult = boardSearchCommand.executeSub(request);
+            mv.addObject("boardData", searchResult);
+        } else if (category.equals("detail")) {
+            List<ResBoardDTO> searchResult = boardSearchCommand.executeContents(request);
+            mv.addObject("boardData", searchResult);
+        }
 
         return mv;
     }
