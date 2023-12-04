@@ -95,6 +95,45 @@ public class UserDAO {
         return sqlSession.selectList("UserMapper.userSearchAdmin", searchWord);
     }
 
+    public List<UserDTO> userSearchId(String searchWord) {
+        System.out.println("===== User Search in u_id =====");
+
+        if (searchWord.isEmpty()){
+            return null;
+        }else {
+            searchWord = "%" + searchWord + "%";
+            System.out.println("Search Word : " + searchWord);
+        }
+
+        return sqlSession.selectList("UserMapper.userSearchId", searchWord);
+    }
+
+    public List<UserDTO> userSearchNickname(String searchWord) {
+        System.out.println("===== User Search in Nickname =====");
+
+        if (searchWord.isEmpty()){
+            return null;
+        }else {
+            searchWord = "%" + searchWord + "%";
+            System.out.println("Search Word : " + searchWord);
+        }
+
+        return sqlSession.selectList("UserMapper.userSearchNickname", searchWord);
+    }
+
+    public List<UserDTO> userSearchPhone(String searchWord) {
+        System.out.println("===== User Search in Phone =====");
+
+        if (searchWord.isEmpty()){
+            return null;
+        }else {
+            searchWord = "%" + searchWord + "%";
+            System.out.println("Search Word : " + searchWord);
+        }
+
+        return sqlSession.selectList("UserMapper.userSearchPhone", searchWord);
+    }
+
     public UserDTO userPwSearch(String u_id, String u_phone) {
         System.out.println("===== User PW Search DAO =====");
         System.out.println("User ID : " + u_id + ", Phone : " + u_phone);

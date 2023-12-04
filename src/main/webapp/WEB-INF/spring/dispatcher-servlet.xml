@@ -29,7 +29,7 @@
         <property name="url"
                   value="jdbc:mariadb://localhost:3306/mukstar"></property>
         <property name="username" value="root"></property>
-        <property name="password" value="1111"></property>
+        <property name="password" value="123456"></property>
     </bean>
 
     <bean id="sqlSessionFactory"
