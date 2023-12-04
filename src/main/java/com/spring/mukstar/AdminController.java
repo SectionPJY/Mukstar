@@ -7,10 +7,7 @@ import com.spring.mukstar.command.qna.QnASelectCommand;
 import com.spring.mukstar.command.reply.ReplySearchCommand;
 import com.spring.mukstar.command.reply.ReplySelectUidCommand;
 import com.spring.mukstar.command.reply.ReplySelectRidCommand;
-import com.spring.mukstar.command.resboard.BoardDeleteCommand;
-import com.spring.mukstar.command.resboard.BoardListCommand;
-import com.spring.mukstar.command.resboard.BoardSearchCommand;
-import com.spring.mukstar.command.resboard.BoardSelectCommand;
+import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.restaurant.*;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubscriberListCommand;
@@ -74,6 +71,8 @@ public class AdminController {
     private RestaurantInsertCommand restaurantInsertCommand;
     @Autowired
     private ManagerLoginCommand managerLoginCommand;
+    @Autowired
+    private BoardUpdateCommand boardUpdateCommand;
 
 
     @RequestMapping("/index")
@@ -196,6 +195,22 @@ public class AdminController {
         }
 
         return mv;
+    }
+
+    @RequestMapping("boardUpdate")
+    public String boardUpdate(HttpServletRequest request, Model model) {
+        System.out.println("===== Board Update =====");
+
+        int result = boardUpdateCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "수정되었습니다.");
+            model.addAttribute("url", "/boardSelect?rb_id=" + request.getParameter("rb_id"));
+        } else {
+            model.addAttribute("msg", "수정에 실패하였습니다.");
+            model.addAttribute("url", "/postManage");
+        }
+
+        return "alert";
     }
 
     @RequestMapping("/response")
