@@ -73,13 +73,6 @@
       </div>
     </li>
 
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-      <a class="nav-link" href="/customerManage">
-        <i class="fas fa-fw fa-table"></i>
-        <span>고객 관리</span></a>
-    </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

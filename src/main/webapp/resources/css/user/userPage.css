@@ -149,10 +149,10 @@ footer {
 .post-area {
     position: relative;
     width: 1000px;
-    height: 1000px;
+    height: 880px;
     /*background-color: black;*/
     left: 700px;
-    bottom: 360px;
+    bottom: 260px;
 }
 
 .post {
