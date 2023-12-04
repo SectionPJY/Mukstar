@@ -14,14 +14,14 @@
 <div class="wrap">
   <div class="container">
     <div class="post_detail">
+      <c:forEach items="${boardData }" var="Board">
       <div class="detail_top">
         <div class="user_profile">
           <div class="img_area">
-            <img src="resources/assets/user/fox.jpg"/>
+            <img src="resources/assets/user/fox.jpg" onclick="location.href='/userPage?uid=${Board.rb_uid}'"/>
           </div>
         </div>
         <div class="list">
-          <c:forEach items="${boardData }" var="Board">
           <div class="post_title">
             <p>${Board.rb_sub }</p>
             <div class="star_background">
@@ -91,8 +91,8 @@
   }
 
   <c:forEach items="${boardData }" var="Board">
-  var data = "${Board.r_address}";
-  var rName = "${Board.r_name}";
+  let data = "${Board.r_address}";
+  let rName = "${Board.r_name}";
   </c:forEach>
   let addr = "";
 
@@ -102,7 +102,7 @@
 
   function deleteReply(r_id) {
     console.log(r_id);
-    const url = "http://localhost:8080/replyDelete?r_id=" + r_id;
+    const url = "/replyDelete?r_id=" + r_id;
 
     location.href = url;
   }
