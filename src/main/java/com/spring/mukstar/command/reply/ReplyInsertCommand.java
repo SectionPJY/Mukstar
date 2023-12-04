@@ -18,7 +18,7 @@ public class ReplyInsertCommand {
     public int execute(HttpServletRequest request) {
         System.out.println("===== Reply Insert Command is Running =====");
 
-        int r_bid = Integer.parseInt(request.getParameter("r_bid"));
+        int r_bid = Integer.parseInt(request.getParameter("rb_id"));
         String r_uid = session.getAttribute("u_id").toString();
         String r_contents = request.getParameter("r_contents");
         System.out.println("게시글 ID : " + r_bid + ", 유저 ID : " + r_uid);

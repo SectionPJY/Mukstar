@@ -611,9 +611,10 @@ public class HomeController {
 
         int result = replyInsertCommand.execute(request);
         if (1 == result) {
-            String url = "/pSelect?rb_id=" + request.getParameter("rb_id");
+//            String url = "/pSelect?rb_id=" + request.getParameter("rb_id");
+//            System.out.println(url);
 
-            return url;
+            return "redirect:/pSelect?rb_id=" + request.getParameter("rb_id");
         } else {
 
             return "/";
