@@ -183,7 +183,7 @@
   }
 
   function postSelect(rb_id) {
-    location.href = "http://localhost:8080/postSelect?rb_id=" + rb_id;
+    location.href = "/postSelect?rb_id=" + rb_id;
   };
 </script>
 

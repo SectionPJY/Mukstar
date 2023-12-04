@@ -137,7 +137,7 @@
 
 <script>
   function responSelect(q_id) {
-    location.href = "http://localhost:8080/responseDe?q_id=" + q_id;
+    location.href = "/responseDe?q_id=" + q_id;
   };
 </script>
 </body>
