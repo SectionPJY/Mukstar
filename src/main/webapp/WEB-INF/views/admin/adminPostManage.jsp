@@ -38,7 +38,7 @@
       <div class="container-fluid">
 
         <!-- Content Row -->
-        <form method="post" action="baordSearch">
+        <form method="post" action="boardSearchAdmin">
           <div class="row">
             <%--검색 창--%>
             <div id="search_area">

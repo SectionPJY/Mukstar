@@ -73,4 +73,17 @@ public class ReplyDAO {
 
         return sqlSession.delete("ReplyMapper.deleteReply", r_id);
     }
+
+    // Insert Reply
+    public int insertReply(int r_bid, String r_uid, String r_contents) {
+        System.out.println("===== Insert Reply DAO =====");
+        System.out.println("게시글 ID : " + r_bid + ", 유저 ID : " + r_uid);
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("r_bid", r_bid);
+        map.put("r_uid", r_uid);
+        map.put("r_contents", r_contents);
+
+        return sqlSession.insert("ReplyMapper.insertReply", map);
+    }
 }

@@ -49,6 +49,27 @@
         WHERE u_id LIKE #{searchWord } OR u_nickname LIKE #{searchWord };
     </select>
 
+    <!-- User Search in ID -->
+    <select id="userSearchId" resultType="UserDTO">
+        SELECT *
+        FROM m_user
+        WHERE u_id LIKE #{searchWord };
+    </select>
+
+    <!-- User Search in Nickname -->
+    <select id="userSearchNickname" resultType="UserDTO">
+        SELECT *
+        FROM m_user
+        WHERE u_nickname LIKE #{searchWord };
+    </select>
+
+    <!-- User Search in Phone -->
+    <select id="userSearchPhone" resultType="UserDTO">
+        SELECT *
+        FROM m_user
+        WHERE u_phone LIKE #{searchWord };
+    </select>
+
     <!-- User PW Search -->
     <select id="userPwSearch" resultType="UserDTO">
         SELECT *

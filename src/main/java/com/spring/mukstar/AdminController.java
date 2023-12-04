@@ -368,7 +368,7 @@ public class AdminController {
         return mv;
     }
 
-    @RequestMapping("/baordSearch")
+    @RequestMapping("/boardSearchAdmin")
     public ModelAndView boardSearch(HttpServletRequest request) {
         System.out.println("===== Board Search =====");
 
@@ -381,6 +381,27 @@ public class AdminController {
         } else if (category.equals("detail")) {
             List<ResBoardDTO> searchResult = boardSearchCommand.executeContents(request);
             mv.addObject("boardData", searchResult);
+        }
+
+        return mv;
+    }
+
+    @RequestMapping("/userSearchAdmin")
+    public ModelAndView userSearch(HttpServletRequest request) {
+        System.out.println("===== User Search =====");
+
+        ModelAndView mv = new ModelAndView("admin/adminMemManage");
+
+        String category = request.getParameter("type");
+        if (category.equals("id")) {
+            List<UserDTO> searchResult = userSearchCommand.executeId(request);
+            mv.addObject("userData", searchResult);
+        } else if (category.equals("name")) {
+            List<UserDTO> searchResult = userSearchCommand.executeNickname(request);
+            mv.addObject("userData", searchResult);
+        } else if (category.equals("phone")) {
+            List<UserDTO> searchResult = userSearchCommand.executePhone(request);
+            mv.addObject("userData", searchResult);
         }
 
         return mv;
