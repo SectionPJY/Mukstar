@@ -49,8 +49,8 @@
                 <option value="name">닉네임</option>
                 <option value="phone">핸드폰</option>
               </select>
-              <input type="text" id="search_bar" value=""/>
-              <input type="submit" id="sub" value="검색"/>
+              <input type="text" id="search_bar" name="searchWord" />
+              <input type="submit" id="sub" value="검색" />
             </div>
             <%--테이블--%>
             <div class="card-body">
