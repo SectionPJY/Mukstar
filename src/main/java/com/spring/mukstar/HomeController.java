@@ -222,6 +222,7 @@ public class HomeController {
         } else {
             mv = new ModelAndView("user/myPage");
             model.addAttribute("boardData", dto);
+            model.addAttribute("nickname", session.getAttribute("u_nickname"));
         }
 
         return mv;
@@ -249,6 +250,10 @@ public class HomeController {
         System.out.println("===== Select Board Page =====");
         ModelAndView mv = null;
         List<ResBoardDTO> dto = boardSelectCommand.uidToUserContents(request);
+        modifyRequest = new ModifiableHttpServletRequest(request);
+        modifyRequest.setParameter("id", request.getParameter("uid").toString());
+        request = modifyRequest;
+        UserDTO usr = userInfoCommand.execute(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "/");
@@ -271,7 +276,9 @@ public class HomeController {
                     }
                 }
             }
+            model.addAttribute("name", usr.getU_nickname());
             model.addAttribute("boardData", dto);
+
         }
 
         return mv;

@@ -12,6 +12,7 @@
       <img src="resources/assets/user/fox.jpg"/>
     </div>
   </div>
+  <span style="text-align: center; color: white; font-size: 40px; padding-bottom: 20px ">${name}</span>
   <div class="buttons">
     <c:choose>
       <c:when test="${channelData == null }">

@@ -13,6 +13,7 @@
       <img src="resources/assets/user/fox.jpg"/>
     </div>
   </div>
+  <span style="text-align: center; color: white; font-size: 40px; padding-bottom: 20px ">${nickname}</span>
   <div class="buttons">
     <button style="background-color: #03B3FF; color: white" onclick="location.href='/pManage'">글관리</button>
     <button style="background-color: #FFA800; color: white; margin-top: 15px;" onclick="location.href='/infoPW'">회원정보
