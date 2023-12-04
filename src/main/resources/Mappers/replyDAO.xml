@@ -42,4 +42,10 @@
         DELETE FROM m_reply
         WHERE r_id = #{r_id };
     </delete>
+
+    <!-- Insert Reply -->
+    <insert id="insertReply">
+        INSERT INTO m_reply(r_bid, r_uid, r_contents)
+        VALUES(#{r_bid }, #{r_uid }, #{r_contents });
+    </insert>
 </mapper>

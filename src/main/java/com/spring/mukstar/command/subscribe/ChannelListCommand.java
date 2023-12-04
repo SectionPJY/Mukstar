@@ -18,13 +18,12 @@ public class ChannelListCommand extends DateCast {
 
     public List<SubscribeDTO> execute(String s_subscriber) {
         System.out.println("===== Channel List Command is Running =====");
-        System.out.println("User : " + s_subscriber);
+        System.out.println("subscriber : " + s_subscriber);
 
         List<SubscribeDTO> dtos = dao.channelList(s_subscriber);
         if (null == dtos || dtos.isEmpty()) {
             System.out.println("===== List is Empty =====");
 
-            return null;
         } else {
             System.out.println("===== List is Exists =====");
             for (SubscribeDTO sub : dtos) {
@@ -33,8 +32,8 @@ public class ChannelListCommand extends DateCast {
                 sub.setS_date(changeDate(tmp));
             }
 
-            return dtos;
         }
+        return dtos;
     }
 
     public List<SubscribeDTO> execute(HttpServletRequest request) {

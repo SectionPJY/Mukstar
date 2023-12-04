@@ -7,17 +7,11 @@ import com.spring.mukstar.command.qna.QnASelectCommand;
 import com.spring.mukstar.command.reply.ReplySearchCommand;
 import com.spring.mukstar.command.reply.ReplySelectUidCommand;
 import com.spring.mukstar.command.reply.ReplySelectRidCommand;
-import com.spring.mukstar.command.resboard.BoardDeleteCommand;
-import com.spring.mukstar.command.resboard.BoardListCommand;
-import com.spring.mukstar.command.resboard.BoardSearchCommand;
-import com.spring.mukstar.command.resboard.BoardSelectCommand;
+import com.spring.mukstar.command.resboard.*;
 import com.spring.mukstar.command.restaurant.*;
 import com.spring.mukstar.command.subscribe.ChannelListCommand;
 import com.spring.mukstar.command.subscribe.SubscriberListCommand;
-import com.spring.mukstar.command.user.UserListCommand;
-import com.spring.mukstar.command.user.UserSearchCommand;
-import com.spring.mukstar.command.user.UserSelectCommand;
-import com.spring.mukstar.command.user.UserUpdateCommand;
+import com.spring.mukstar.command.user.*;
 import com.spring.mukstar.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -75,6 +69,10 @@ public class AdminController {
     private UserUpdateCommand userUpdateCommand;
     @Autowired
     private RestaurantInsertCommand restaurantInsertCommand;
+    @Autowired
+    private ManagerLoginCommand managerLoginCommand;
+    @Autowired
+    private BoardUpdateCommand boardUpdateCommand;
 
 
     @RequestMapping("/index")
@@ -116,6 +114,21 @@ public class AdminController {
         }
 
         return mv;
+    }
+
+    @RequestMapping("managerLogin")
+    public String managerLogin(HttpServletRequest request, Model model) {
+        System.out.println("===== Manager Login =====");
+
+        int result = managerLoginCommand.execute(request);
+        if (1 == result) {
+            return "redirect:/index";
+        } else {
+            model.addAttribute("msg", "아이디 또는 비밀번호를 잘못 입력하셨습니다.");
+            model.addAttribute("url", "/adminLogin");
+
+            return "alert";
+        }
     }
 
     @RequestMapping("/userSelect")
@@ -182,6 +195,22 @@ public class AdminController {
         }
 
         return mv;
+    }
+
+    @RequestMapping("boardUpdate")
+    public String boardUpdate(HttpServletRequest request, Model model) {
+        System.out.println("===== Board Update =====");
+
+        int result = boardUpdateCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "수정되었습니다.");
+            model.addAttribute("url", "/boardSelect?rb_id=" + request.getParameter("rb_id"));
+        } else {
+            model.addAttribute("msg", "수정에 실패하였습니다.");
+            model.addAttribute("url", "/postManage");
+        }
+
+        return "alert";
     }
 
     @RequestMapping("/response")
@@ -368,7 +397,7 @@ public class AdminController {
         return mv;
     }
 
-    @RequestMapping("/baordSearch")
+    @RequestMapping("/boardSearchAdmin")
     public ModelAndView boardSearch(HttpServletRequest request) {
         System.out.println("===== Board Search =====");
 
@@ -381,6 +410,27 @@ public class AdminController {
         } else if (category.equals("detail")) {
             List<ResBoardDTO> searchResult = boardSearchCommand.executeContents(request);
             mv.addObject("boardData", searchResult);
+        }
+
+        return mv;
+    }
+
+    @RequestMapping("/userSearchAdmin")
+    public ModelAndView userSearch(HttpServletRequest request) {
+        System.out.println("===== User Search =====");
+
+        ModelAndView mv = new ModelAndView("admin/adminMemManage");
+
+        String category = request.getParameter("type");
+        if (category.equals("id")) {
+            List<UserDTO> searchResult = userSearchCommand.executeId(request);
+            mv.addObject("userData", searchResult);
+        } else if (category.equals("name")) {
+            List<UserDTO> searchResult = userSearchCommand.executeNickname(request);
+            mv.addObject("userData", searchResult);
+        } else if (category.equals("phone")) {
+            List<UserDTO> searchResult = userSearchCommand.executePhone(request);
+            mv.addObject("userData", searchResult);
         }
 
         return mv;
@@ -403,4 +453,8 @@ public class AdminController {
         return mv;
     }
 
+    @RequestMapping("/adminStat")
+    public String adminStat() {
+        return "admin/adminstatistics";
+    }
 }

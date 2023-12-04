@@ -45,7 +45,7 @@
 
         <c:forEach items="${boardData }" var="Board">
         <!-- Content Row -->
-        <form method="post" action="/postDelete.do?rb_id=${Board.rb_id}">
+        <form method="post" action="boardUpdate">
           <div class="wrap">
             <div class="wrap_1">
               <div class="wrap1">
@@ -88,8 +88,8 @@
                 </button>
               </div>
               <div class="wrap_btn">
-                <button type="button">게시물 수정</button>
-                <input type="submit" value="게시물 삭제">
+                <button type="submit">게시물 수정</button>
+                <input onclick="href='/postDelete.do?rb_id=${Board.rb_id}'" value="게시물 삭제">
               </div>
             </div>
           </div>

@@ -11,5 +11,6 @@
         <typeAlias type="com.spring.mukstar.dto.SearchDTO" alias="SearchDTO"/>
         <typeAlias type="com.spring.mukstar.dto.QnADTO" alias="QnADTO"/>
         <typeAlias type="com.spring.mukstar.dto.ReplyDTO" alias="ReplyDTO"/>
+        <typeAlias type="com.spring.mukstar.dto.ManagerDTO" alias="ManagerDTO"/>
     </typeAliases>
 </configuration>

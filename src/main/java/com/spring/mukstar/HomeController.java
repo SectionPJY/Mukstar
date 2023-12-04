@@ -1,9 +1,9 @@
 package com.spring.mukstar;
 
 import com.spring.mukstar.Class.ModifiableHttpServletRequest;
-import com.spring.mukstar.command.block.BlockInsertCommand;
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.reply.ReplyDeleteCommand;
+import com.spring.mukstar.command.reply.ReplyInsertCommand;
 import com.spring.mukstar.command.reply.ReplySelectRidCommand;
 import com.spring.mukstar.command.reply.ReplySelectRbIdCommand;
 import com.spring.mukstar.command.resboard.*;
@@ -77,6 +77,8 @@ public class HomeController {
     private ReplyDeleteCommand replyDeleteCommand;
     @Autowired
     private RestaurantListCommand restaurantListCommand;
+    @Autowired
+    private ReplyInsertCommand replyInsertCommand;
 
     private ModifiableHttpServletRequest modifyRequest;
 
@@ -255,7 +257,19 @@ public class HomeController {
             mv = new ModelAndView("user/userPage");
             if (null != session.getAttribute("u_id")){
                 List<SubscribeDTO> dtos = channelListCommand.execute(session.getAttribute("u_id").toString());
-                model.addAttribute("channelData", dtos);
+                if (dtos.isEmpty()){
+                    model.addAttribute("channelData", null);
+                }else {
+                    for (SubscribeDTO subscribeDTO : dtos) {
+                        boolean test = subscribeDTO.getS_channel().equals(request.getParameter("uid"));
+                        System.out.println(test);
+                        if (test) {
+                            model.addAttribute("channelData", "yes");
+                        } else {
+                            model.addAttribute("channelData", null);
+                        }
+                    }
+                }
             }
             model.addAttribute("boardData", dto);
         }
@@ -358,8 +372,8 @@ public class HomeController {
         System.out.println("===== Select Board Page =====");
 
         ModelAndView mv = null;
-        List<ResBoardDTO> boardData = boardSelectCommand.execute(request);
-        if (boardData.isEmpty() || null == boardData) {
+        ResBoardDTO boardData = boardSelectCommand.execute(request);
+        if (boardData == null) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "/");
             mv = new ModelAndView("alert");
@@ -429,7 +443,7 @@ public class HomeController {
         System.out.println("===== Board Update Page =====");
 
         ModelAndView mv = null;
-        List<ResBoardDTO> dto = boardInfoCommand.execute(request);
+        ResBoardDTO dto = boardInfoCommand.execute(request);
         if (null == dto) {
             model.addAttribute("msg", "게시글을 불러오는데 실패했습니다.");
             model.addAttribute("url", "/myPage");
@@ -505,10 +519,10 @@ public class HomeController {
         int result = subDeleteCommand.execute(request);
         if (1 == result) {
             model.addAttribute("msg", "구독취소되었습니다.");
-            model.addAttribute("url", "userList");
+            model.addAttribute("url", "userPage?uid=" + request.getParameter("s_channel"));
         } else {
             model.addAttribute("msg", "오류가 발생했습니다.");
-            model.addAttribute("url", "userList");
+            model.addAttribute("url", "userPage?uid=" + request.getParameter("s_channel"));
         }
 
         return "alert";
@@ -575,14 +589,12 @@ public class HomeController {
 
         int result = replyDeleteCommand.execute(request);
         if(1 == result) {
-            model.addAttribute("msg", "삭제되었습니다.");
-            model.addAttribute("url", "/");
+            return "redirect:/pSelect?rb_id=" + request.getParameter("rb_id");
         } else {
-            model.addAttribute("msg", "삭제에 실패하였습니다. 처음 화면으로 넘어갑니다.");
-            model.addAttribute("url", "/");
+            model.addAttribute("msg", "삭제에 실패하였습니다.");
+            model.addAttribute("url", "/pSelect?rb_id=" + request.getParameter("rb_id"));
+            return "alert";
         }
-
-        return "alert";
     }
 
     // PW Search
@@ -601,5 +613,19 @@ public class HomeController {
         }
 
         return "alert";
+    }
+
+    @RequestMapping("replyInsert")
+    public String replyInsert(HttpServletRequest request) {
+        System.out.println("===== Reply Insert =====");
+
+        int result = replyInsertCommand.execute(request);
+        if (1 == result) {
+
+            return "redirect:/pSelect?rb_id=" + request.getParameter("rb_id");
+        } else {
+
+            return "/";
+        }
     }
 }
