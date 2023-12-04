@@ -14,13 +14,15 @@ public class QnADTO {
     private String q_ansCon;
     private String q_ansAdmin;
 
-    public QnADTO(int q_id, String q_uid, String q_sub, String q_contents, boolean q_answer, Timestamp q_date) {
+    public QnADTO(int q_id, String q_uid, String q_sub, String q_contents, boolean q_answer, Timestamp q_date, String q_ansCon, String q_ansAdmin) {
         this.q_id = q_id;
         this.q_uid = q_uid;
         this.q_sub = q_sub;
         this.q_contents = q_contents;
         this.q_answer = q_answer;
         this.q_date = changeDate(q_date);
+        this.q_ansCon = q_ansCon;
+        this.q_ansAdmin = q_ansAdmin;
     }
 
     public int getQ_id() {
