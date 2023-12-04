@@ -75,6 +75,20 @@
         WHERE rb_uid LIKE #{searchWord } OR rb_sub LIKE #{searchWord };
     </select>
 
+    <!-- ResBoard Search Admin -->
+    <select id="resBoardSearchSub" resultType="ResBoardDTO">
+        SELECT *
+        FROM m_resboard
+        WHERE rb_sub LIKE #{searchWord };
+    </select>
+
+    <!-- ResBoard Search Admin -->
+    <select id="resBoardSearchContents" resultType="ResBoardDTO">
+        SELECT *
+        FROM m_resboard
+        WHERE rb_contents LIKE #{searchWord };
+    </select>
+
     <!-- ResBoard Select Admin in MemManage Page -->
     <select id="resBoardSelectUser" resultType="ResBoardDTO">
         SELECT *
