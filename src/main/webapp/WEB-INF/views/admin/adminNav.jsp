@@ -67,7 +67,7 @@
       </a>
       <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="/">회계 관리</a>
+          <a class="collapse-item" href="/adminStat">회계 관리</a>
           <a class="collapse-item" href="/">매출목표설정</a>
         </div>
       </div>
