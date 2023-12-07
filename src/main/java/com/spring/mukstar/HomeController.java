@@ -639,6 +639,17 @@ public class HomeController {
         }
     }
 
+    @RequestMapping("/csPage")
+    private String csPage(Model model) {
+    if (session.getAttribute("u_id") == null){
+        model.addAttribute("msg", "로그인해주세요.");
+        model.addAttribute("url", "login");
+        return "alert";
+    }else{
+        return "user/cs";
+    }
+    }
+
     @RequestMapping("qnaInsert")
     public String qnaInsert(HttpServletRequest request, Model model) {
         System.out.println("===== QnA Insert =====");
@@ -646,7 +657,7 @@ public class HomeController {
         int result = qnaInsertCommand.execute(request);
         if (1 == result) {
             model.addAttribute("msg", "문의내용이 접수되었습니다.");
-            model.addAttribute("url", "csPage");
+            model.addAttribute("url", "/");
         } else {
             model.addAttribute("msg", "문의 접수에 실패하였습니다.");
             model.addAttribute("url", "csPage");

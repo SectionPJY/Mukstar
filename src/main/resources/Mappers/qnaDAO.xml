@@ -44,4 +44,10 @@
         INSERT INTO m_qna(q_uid, q_sub, q_contents)
         VALUES(#{q_uid }, #{q_sub }, #{q_contents });
     </insert>
+
+    <update id="qnaAnswer">
+        UPDATE m_qna
+        SET q_answer = true, q_ansCon = #{q_ansCon }, q_ansAdmin = #{q_ansAdmin }
+        WHERE q_id = #{q_id };
+    </update>
 </mapper>

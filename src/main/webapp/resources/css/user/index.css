@@ -69,6 +69,14 @@ footer {
   background-color: #A6C1E8;
 }
 
+.wrap .rolling-list ul li:nth-child(5) {
+  background-color: #aaebd3;
+}
+
+.wrap .rolling-list ul li:nth-child(6) {
+  background-color: #b7c7f2;
+}
+
 .wrap .rolling-list ul li:nth-child(even) {
   margin-top: 80px;
 }

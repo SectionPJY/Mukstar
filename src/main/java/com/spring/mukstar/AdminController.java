@@ -2,6 +2,7 @@ package com.spring.mukstar;
 
 import com.spring.mukstar.command.admin.QnAListInAdminIndexCommand;
 import com.spring.mukstar.command.admin.BoardListInAdminIndexCommand;
+import com.spring.mukstar.command.qna.QnAAnswerCommand;
 import com.spring.mukstar.command.qna.QnAListCommand;
 import com.spring.mukstar.command.qna.QnASelectCommand;
 import com.spring.mukstar.command.reply.ReplySearchCommand;
@@ -75,6 +76,8 @@ public class AdminController {
     private BoardUpdateCommand boardUpdateCommand;
     @Autowired
     private RestaurantUpdateCommand restaurantUpdateCommand;
+    @Autowired
+    private QnAAnswerCommand qnAAnswerCommand;
 
     @RequestMapping("/index")
     public ModelAndView index() {
@@ -110,6 +113,7 @@ public class AdminController {
         List<UserDTO> userData = userListCommand.execute();
         if (userData.isEmpty() || null == userData) {
             mv.setViewName("admin/admin404Page");
+            mv.addObject("userData", userData);
         } else {
             mv.addObject("userData", userData);
         }
@@ -470,8 +474,23 @@ public class AdminController {
         return mv;
     }
 
+    @RequestMapping("qnaAnswer")
+    public String qnaAnswer(HttpServletRequest request, Model model) {
+        int result = qnAAnswerCommand.execute(request);
+        if (1 == result) {
+            model.addAttribute("msg", "답변완료");
+            model.addAttribute("url", "/userSelect?u_id=" + request.getParameter("q_uid"));
+        } else {
+            model.addAttribute("msg", "답변실패");
+        }
+        return "alert";
+    }
+
     @RequestMapping("/adminStat")
     public String adminStat() {
         return "admin/adminstatistics";
     }
+
+    @RequestMapping("/admingolset")
+    public String admindolset(){ return "admin/adminShopGoalSet";}
 }

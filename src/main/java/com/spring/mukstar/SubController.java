@@ -31,6 +31,4 @@ public class SubController {
     @RequestMapping(value = "/adminLogin")
     private String adminLogin(){ return "admin/adminLogin"; }
 
-    @RequestMapping("/csPage")
-    private String csPage() { return "user/cs"; }
 }

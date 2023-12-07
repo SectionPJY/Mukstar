@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ccc" />
+        <module name="Mukstar-main" />
       </profile>
     </annotationProcessing>
   </component>

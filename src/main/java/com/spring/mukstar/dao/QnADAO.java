@@ -82,4 +82,13 @@ public class QnADAO {
 
         return sqlSession.selectList("QnAMapper.qnaListAdminIndex");
     }
+
+    public int qnaAnswer(int q_id, String q_ansCon, String q_ansAdmin) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("q_id", q_id);
+        map.put("q_ansCon", q_ansCon);
+        map.put("q_ansAdmin", q_ansAdmin);
+
+        return sqlSession.update("QnAMapper.qnaAnswer", map);
+    }
 }

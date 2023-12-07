@@ -174,7 +174,7 @@
                                 답변완료
                               </c:when>
                               <c:otherwise>
-                                <a href="#">답변하기</a>
+                                <button type="button" onclick="fnModuleInfo(${QnA.q_id})">답변하기</button>
                               </c:otherwise>
                             </c:choose>
                           </td>
@@ -210,6 +210,14 @@
 <a class="scroll-to-top rounded" href="#page-top">
   <i class="fas fa-angle-up"></i>
 </a>
+
+<div class="modal fade" id="inoutmodal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
 
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -248,6 +256,12 @@
 <script src="resources/JS/admin/demo/chart-bar-demo.js"></script>
 
 </body>
-
+<script>
+  /*회원 응대 모달*/
+  function fnModuleInfo(id) {
+    $('#inoutmodal .modal-content').load("adminModalRespon?q_id=" + id);
+    $('#inoutmodal').modal();
+  }
+</script>
 </html>
 

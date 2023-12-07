@@ -18,7 +18,7 @@
 
         <!-- 조회수 정렬 -->
         <if test="_parameter == 'rb_view'">
-            ORDER BY rb_view ASC;
+            ORDER BY rb_view DESC;
         </if>
     </sql>
 
