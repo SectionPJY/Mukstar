@@ -211,6 +211,7 @@
   <i class="fas fa-angle-up"></i>
 </a>
 
+<%-- 문의 내용 모달 --%>
 <div class="modal fade" id="inoutmodal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -257,7 +258,7 @@
 
 </body>
 <script>
-  /*회원 응대 모달*/
+  /*문의 내용 모달*/
   function fnModuleInfo(id) {
     $('#inoutmodal .modal-content').load("adminModalRespon?q_id=" + id);
     $('#inoutmodal').modal();

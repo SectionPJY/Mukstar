@@ -113,11 +113,11 @@ table {
   color: black !important;
 }
 
-/* 회원 응대 모달 css */
+/* 문의 내용 모달 css */
 
 .modal-content {
   width: 100% !important;
-  border-radius: 25px;
+  /*border-radius: 25px;*/
 }
 
 .modal-dialog {
@@ -149,22 +149,39 @@ table {
   text-align: center;
 }
 
-.modal-body > textarea {
-  resize: none;
+.modal-body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-/* 작성 일시 모달 */
+.modal-footer {
+  width: 100%;
+}
 
+.modal-footer > input {
+  color: white;
+  background-color: #858796;
+  border: 1px solid transparent;
+  font-weight: 400;
+  border-radius: 0.35rem;
+  padding: 0.375rem 0.75rem;
+}
+
+/* 댓글 수정 모달 */
+
+/*fixed top left transform 모달 중앙 배치*/
 .wirte_modal {
-  position: absolute;
+  position: fixed;
   display: none;
   width: 30%;
-  height: 10%;
-  top: 45%;
-  right: 35%;
+  height: 40%;
+  top: 50%;
+  left: 50%;
   background-color: whitesmoke;
   z-index: 9999;
   border-radius: 8px;
+  transform: translate(-50%, -50%);
 }
 
 .modal_top {

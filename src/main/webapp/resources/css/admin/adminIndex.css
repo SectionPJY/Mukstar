@@ -45,3 +45,63 @@
   justify-content: space-evenly;
   width: 100%;
 }
+
+/* 문의 내용 모달 css */
+
+.modal-content {
+  width: 100% !important;
+  /*border-radius: 25px;*/
+}
+
+.modal-dialog {
+  max-width: 50%;
+  margin: 11.75rem auto !important;
+}
+
+.modal_header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.head {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+
+.head_con {
+  border: 1px solid black;
+  width: 50%;
+  text-align: center;
+  color: black;
+}
+
+.head_con > select {
+  border: none;
+  text-align: center;
+}
+
+.modal-body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal-body > textarea {
+  resize: none;
+  outline: none;
+}
+
+.modal-footer {
+  width: 100%;
+}
+
+.modal-footer > input {
+  color: white;
+  background-color: #858796;
+  border: 1px solid transparent;
+  font-weight: 400;
+  border-radius: 0.35rem;
+  padding: 0.375rem 0.75rem;
+}

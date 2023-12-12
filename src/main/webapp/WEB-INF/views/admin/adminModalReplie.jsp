@@ -3,16 +3,14 @@
 <%--<c:set var=""/>--%>
 <%--작성 일시 모달--%>
 <form>
-  <c:forEach items="${replyData}" var="reply">
-    <div class="modal_top">
-      <button class="btn btn-secondary" type="button" data-dismiss="modal">X</button>
-    </div>
-    <div class="modal_body">
-      <textarea cols="50" rows="10">${reply.r_contents}</textarea>
-    </div>
-    <div class="modal_bottom">
-      <button type="button">수정하기</button>
-      <input type="submit" value="삭제하기">
-    </div>
-  </c:forEach>
-  </form>
+  <div class="modal_top">
+    <button class="btn btn-secondary" type="button" data-dismiss="modal">X</button>
+  </div>
+  <div class="modal_body">
+    <textarea cols="50" rows="10">${replyData.r_contents}</textarea>
+  </div>
+  <div class="modal_bottom">
+    <button type="button">수정하기</button>
+    <input type="submit" value="삭제하기">
+  </div>
+</form>
