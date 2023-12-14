@@ -173,9 +173,16 @@
                           <td>${qna.q_sub}</td>
                           <td>${qna.q_contents}</td>
                           <td>${qna.q_date}</td>
-                          <td>
-                            <button type="button" onclick="fnModuleInfo(${qna.q_id})">+</button>
-                          </td>
+                          <c:choose>
+                            <c:when test="${true == qna.q_answer }">
+                              <td>답변완료</td>
+                            </c:when>
+                            <c:otherwise>
+                              <td>
+                                <button type="button" onclick="fnModuleInfo(${qna.q_id})">답변하기</button>
+                              </td>
+                            </c:otherwise>
+                          </c:choose>
                         </tr>
                       </c:forEach>
                       </tbody>
